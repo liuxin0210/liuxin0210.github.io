@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            vue-部署404问题 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">vue-部署404问题</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-07-23 03:48:18</span>
+        <span class="mobile">2018-07-23 03:48</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue/">vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、如何部署"><a href="#一、如何部署" class="headerlink" title="一、如何部署"></a>一、如何部署</h2><p>前后端分离开发模式下，前后端是独立布署的，前端只需要将最后的构建物上传至目标服务器的<code>web</code>容器指定的静态目录下即可</p>
+<p>我们知道<code>vue</code>项目在构建后，是生成一系列的静态文件</p>
+<p><img src="https://imgkr2.cn-bj.ufileos.com/b9d13e56-f859-4b4b-a9da-a703a34c2f5d.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=m1qDXRSFHrfXlnAtAlVhjoLKP70%253D&Expires=1609927181" alt="img"></p>
+<p>常规布署我们只需要将这个目录上传至目标服务器即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// scp 上传 user为主机登录用户，host为主机外网ip, xx为web容器静态资源路径</span><br><span class="line">scp dist.zip user@host:/xx/xx/xx</span><br></pre></td></tr></table></figure>
+
+<p>让<code>web</code>容器跑起来，以<code>nginx</code>为例</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen  80;</span><br><span class="line">  server_name  www.xxx.com;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    index  /data/dist/index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置完成记得重启<code>nginx</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 检查配置是否正确</span><br><span class="line">nginx -t </span><br><span class="line"></span><br><span class="line">// 平滑重启</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>操作完后就可以在浏览器输入域名进行访问了</p>
+<p>当然上面只是提到最简单也是最直接的一种布署方式</p>
+<p>什么自动化，镜像，容器，流水线布署，本质也是将这套逻辑抽象，隔离，用程序来代替重复性的劳动，本文不展开</p>
+<h2 id="二、404问题"><a href="#二、404问题" class="headerlink" title="二、404问题"></a>二、404问题</h2><p>这是一个经典的问题，相信很多同学都有遇到过，那么你知道其真正的原因吗？</p>
+<p>我们先还原一下场景：</p>
+<ul>
+<li><code>vue</code>项目在本地时运行正常，但部署到服务器中，刷新页面，出现了404错误</li>
+</ul>
+<p>先定位一下，HTTP 404 错误意味着链接指向的资源不存在</p>
+<p>问题在于为什么不存在？且为什么只有<code>history</code>模式下会出现这个问题？</p>
+<h3 id="为什么history模式下有问题"><a href="#为什么history模式下有问题" class="headerlink" title="为什么history模式下有问题"></a>为什么history模式下有问题</h3><p><code>Vue</code>是属于单页应用（single-page application）</p>
+<p>而<code>SPA</code>是一种网络应用程序或网站的模型，所有用户交互是通过动态重写当前页面，前面我们也看到了，不管我们应用有多少页面，构建物都只会产出一个<code>index.html</code></p>
+<p>现在，我们回头来看一下我们的<code>nginx</code>配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen  <span class="number">80</span>;</span><br><span class="line">  server_name  www.<span class="property">xxx</span>.<span class="property">com</span>;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    index  /data/dist/index.<span class="property">html</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以根据 <code>nginx</code> 配置得出，当我们在地址栏输入 <code>www.xxx.com</code> 时，这时会打开我们 <code>dist</code> 目录下的 <code>index.html</code> 文件，然后我们在跳转路由进入到 <code>www.xxx.com/login</code></p>
+<p>关键在这里，当我们在 <code>website.com/login</code> 页执行刷新操作，<code>nginx location</code> 是没有相关配置的，所以就会出现 404 的情况</p>
+<h3 id="为什么hash模式下没有问题"><a href="#为什么hash模式下没有问题" class="headerlink" title="为什么hash模式下没有问题"></a>为什么hash模式下没有问题</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router hash` 模式我们都知道是用符号#表示的，如 `website.com/#/login`, `hash` 的值为 `#/login</span><br></pre></td></tr></table></figure>
+
+<p>它的特点在于：<code>hash</code> 虽然出现在 <code>URL</code> 中，但不会被包括在 <code>HTTP</code> 请求中，对服务端完全没有影响，因此改变 <code>hash</code> 不会重新加载页面</p>
+<p><code>hash</code> 模式下，仅 <code>hash</code> 符号之前的内容会被包含在请求中，如 <code>website.com/#/login</code> 只有 <code>website.com</code> 会被包含在请求中 ，因此对于服务端来说，即使没有配置<code>location</code>，也不会返回404错误</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a><a class="link"   target="_blank" rel="noopener" href="https://vue3js.cn/interview/vue/404.html#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" ><i class="fas fa-external-link-alt"></i></a>解决方案</h2><p>看到这里我相信大部分同学都能想到怎么解决问题了，</p>
+<p>产生问题的本质是因为我们的路由是通过JS来执行视图切换的，</p>
+<p>当我们进入到子路由时刷新页面，<code>web</code>容器没有相对应的页面此时会出现404</p>
+<p>所以我们只需要配置将任意页面都重定向到 <code>index.html</code>，把路由交由前端处理</p>
+<p>对<code>nginx</code>配置文件<code>.conf</code>修改，添加<code>try_files $uri $uri/ /index.html;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen  80;</span><br><span class="line">  server_name  www.xxx.com;</span><br><span class="line"></span><br><span class="line">  location / &#123;</span><br><span class="line">    index  /data/dist/index.html;</span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改完配置文件后记得配置的更新</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>这么做以后，你的服务器就不再返回 404 错误页面，因为对于所有路径都会返回 <code>index.html</code> 文件</p>
+<p>为了避免这种情况，你应该在 <code>Vue</code> 应用里面覆盖所有的路由情况，然后在给出一个 404 页面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&#x27;history&#x27;</span>,</span><br><span class="line">  <span class="attr">routes</span>: [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&#x27;*&#x27;</span>, <span class="attr">component</span>: <span class="title class_">NotFoundComponent</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>关于后端配置方案还有：<code>Apache</code>、<code>nodejs</code>等.</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/vue/">#vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/07/25/Vue/vue-%E8%BF%87%E6%BB%A4%E5%99%A8/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-过滤器</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/07/20/Vue/vue-vuex%E4%BD%BF%E7%94%A8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-vuex使用</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

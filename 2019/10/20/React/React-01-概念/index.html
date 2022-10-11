@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            React 概念 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">React 概念</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-10-20 09:24:49</span>
+        <span class="mobile">2019-10-20 09:24</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、什么是react"><a href="#一、什么是react" class="headerlink" title="一、什么是react"></a>一、什么是react</h2><ul>
+<li>react是由Facebook开发的一个JavaScript库，而不是一个框架。当时Facebook需要解决一个问题，开发（或者说是构建）一个数据不断变化的大型应用。而数据变化会带来两个很严重的问题</li>
+</ul>
+<h2 id="二、react的特点"><a href="#二、react的特点" class="headerlink" title="二、react的特点"></a>二、react的特点</h2><ul>
+<li>简单：学习简单，代码简单</li>
+<li>声明式（编程）：自动<code>DOM</code>操作</li>
+</ul>
+<blockquote>
+<p><code>React</code>的核心是组件，组件的设计目的是提升代码的复用率、降低测试难度和代码复杂度。</p>
+</blockquote>
+<ul>
+<li>提高代码复用率：组件将数据与逻辑封装</li>
+<li>降低测试难度：组件高内聚低耦合，很容易对单个组件进行测试</li>
+<li>降低代码复杂度：使用<code>JSX</code>语法，更直观的在js文件中看<code>HTML</code>代码，提高可读性</li>
+</ul>
+<h2 id="三、react的开发环境的配置"><a href="#三、react的开发环境的配置" class="headerlink" title="三、react的开发环境的配置"></a>三、react的开发环境的配置</h2><blockquote>
+<p>如果是要直接在<code>HTML</code>上编辑，需要下载<code>react.js</code>与<code>react-dom.js</code>。如果要使用JSX语法，则需要使用转换<code>JSX</code>语法的插件。这里使用<code>brower.js</code>。在线地址：<a class="link"   target="_blank" rel="noopener" href="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js" >https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<ul>
+<li><code>react.js</code>：<code>react</code>的核心库</li>
+<li><code>react-dom.js</code>：提供操作<code>DOM</code>相关的功能</li>
+<li><code>brower,js</code>：将使用的<code>JSX</code>语法转换成<code>JavaScript</code>语法</li>
+</ul>
+<blockquote>
+<p>注意：三者引用顺序必须是<code>react</code>、<code>react-dom</code>、<code>brower</code></p>
+</blockquote>
+<h2 id="四、React、ReactDOM中有什么"><a href="#四、React、ReactDOM中有什么" class="headerlink" title="四、React、ReactDOM中有什么"></a>四、React、ReactDOM中有什么</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/449.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/450.png" alt="img"></p>
+<h2 id="五、yeoman环境"><a href="#五、yeoman环境" class="headerlink" title="五、yeoman环境"></a>五、yeoman环境</h2><blockquote>
+<p><code>yeoman</code>前端脚手架工具</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i -g yeoman</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="http://yeoman.io/" >http://yeoman.io/<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/react-webpack-generators/generator-react-webpack#readme" >https://github.com/react-webpack-generators/generator-react-webpack#readme<i class="fas fa-external-link-alt"></i></a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Make sure both is installed globally</span><br><span class="line">npm install -g yo</span><br><span class="line">npm install -g generator-react-webpack</span><br><span class="line"></span><br><span class="line"># Create a new directory, and `cd` into it:</span><br><span class="line">mkdir my-new-project &amp;&amp; cd my-new-project</span><br><span class="line"></span><br><span class="line"># Run the generator</span><br><span class="line">yo react-webpack</span><br></pre></td></tr></table></figure>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># Start for development</span><br><span class="line">npm start # or</span><br><span class="line">npm run serve</span><br><span class="line"></span><br><span class="line"># Start the dev-server with the dist version</span><br><span class="line">npm run serve:dist</span><br><span class="line"></span><br><span class="line"># Just build the dist version and copy static files</span><br><span class="line">npm run dist</span><br><span class="line"></span><br><span class="line"># Run unit tests</span><br><span class="line">npm test</span><br><span class="line"></span><br><span class="line"># Auto-run unit tests on file changes</span><br><span class="line">npm run test:watch</span><br><span class="line"></span><br><span class="line"># Lint all files in src (also automatically done AFTER tests are run)</span><br><span class="line">npm run lint</span><br><span class="line"></span><br><span class="line"># Clean up the dist directory</span><br><span class="line">npm run clean</span><br><span class="line"></span><br><span class="line"># Just copy the static assets</span><br><span class="line">npm run copy</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、React脚手架搭建"><a href="#六、React脚手架搭建" class="headerlink" title="六、React脚手架搭建"></a>六、React脚手架搭建</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm i create-react-app</span><br><span class="line"></span><br><span class="line">create-react-app your-app-name &amp;&amp; cd your-app-name</span><br><span class="line"></span><br><span class="line">npm install </span><br><span class="line"></span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/React/">#React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/10/26/React/React-02-jsx%E4%B8%8E%E9%9D%9EDOM/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React-jsx与非DOM</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/09/24/%E9%83%A8%E7%BD%B2/Nginx%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Nginx基础配置</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

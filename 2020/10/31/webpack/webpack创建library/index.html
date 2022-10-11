@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            webpack创建library |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">webpack创建library</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-10-31 14:21:26</span>
+        <span class="mobile">2020-10-31 14:21</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/webpack/">webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>除了打包应用程序，webpack 还可以用于打包 JavaScript library。<br>例如：当我们想要自己开发一个组件库工具或者框架的时候也就是说我们自己造一个轮子给别人用的时候我们免不了要开发很多的模块，最终都可以请webpack来帮我们打包。</p>
+<p><strong>创建一个 library</strong><br>假设我们正在编写一个名为 webpack-numbers 的小的 library，可以将数字 1 到 5转换为文本表示，反之亦然，例如将 2 转换为 ‘two’。<br>使用 npm 初始化项目，然后安装 webpack ， webpack-cli 和 lodash ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack webpack-cli lodash -D</span><br></pre></td></tr></table></figure>
+<p>我们将 lodash 安装为 devDependencies 而不是 dependencies ，因为我们不需要将其打包到我们的库中，否则我们的库体积很容易变大。</p>
+<p>src&#x2F;ref.json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;</span><br><span class="line">  &quot;num&quot;: 1,</span><br><span class="line">  &quot;word&quot;: &quot;One&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;num&quot;: 2,</span><br><span class="line">  &quot;word&quot;: &quot;Two&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;num&quot;: 3,</span><br><span class="line">  &quot;word&quot;: &quot;Three&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;num&quot;: 4,</span><br><span class="line">  &quot;word&quot;: &quot;Four&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;num&quot;: 5,</span><br><span class="line">  &quot;word&quot;: &quot;Five&quot;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  &quot;num&quot;: 0,</span><br><span class="line">  &quot;word&quot;: &quot;Zero&quot;</span><br><span class="line">&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>src&#x2F;index.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import _ from &#x27;lodash&#x27;;</span><br><span class="line">import numRef from &#x27;./ref.json&#x27;;</span><br><span class="line">export function numToWord(num) &#123;</span><br><span class="line"> return _.reduce(</span><br><span class="line">  numRef,</span><br><span class="line"> (accum, ref) =&gt; &#123;</span><br><span class="line">   return ref.num === num ? ref.word : accum;</span><br><span class="line"> &#125;,</span><br><span class="line">  &#x27;&#x27;</span><br><span class="line">);</span><br><span class="line">&#125;</span><br><span class="line">export function wordToNum(word) &#123;</span><br><span class="line"> return _.reduce(</span><br><span class="line">  numRef,</span><br><span class="line"> (accum, ref) =&gt; &#123;</span><br><span class="line">   return ref.word === word &amp;&amp; word.toLowerCase() ? ref.num :</span><br><span class="line">accum;</span><br><span class="line"> &#125;,</span><br><span class="line">  -1</span><br><span class="line">);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line"> mode:&#x27;production&#x27;,</span><br><span class="line"> entry: &#x27;./src/index.js&#x27;,</span><br><span class="line"> output: &#123;</span><br><span class="line">  path: path.resolve(__dirname, &#x27;dist&#x27;),</span><br><span class="line">  filename: &#x27;webpack-numbers.js&#x27;,</span><br><span class="line">  library:&#123;</span><br><span class="line">    name:&#x27;webpackNumbers&#x27;,</span><br><span class="line">	type&#x27;umd&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  globalObject:&#x27;globalThis&#x27;</span><br><span class="line">&#125;,</span><br><span class="line"> externals:&#123;</span><br><span class="line"> 	lodash:&#123;   lodash  引入包的名字</span><br><span class="line">		commonjs:&#x27;lodash&#x27;,   //  兼容引入形式</span><br><span class="line">		commonjs2:&#x27;lodash&#x27;,</span><br><span class="line">		amd:&#x27;lodash&#x27;,</span><br><span class="line">		root:&#x27;_&#x27;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>发布到线上</strong><br>拥有npm账号<br>npm config get registry   &#x2F;&#x2F; 一定要保证本地的registry的地址是<a class="link"   target="_blank" rel="noopener" href="https://registry.npmjs.org/" >https://registry.npmjs.org/<i class="fas fa-external-link-alt"></i></a>    因为这样的话才是真正的连接到npm官网的地址上   有些人可能是淘宝  那么就访问不上去了<br>npm adduser  &#x2F;&#x2F;添加用户   输入用户名密码<br>包的名字必须是全球唯一的。   npm publish    上传时package.json中的main入口必须对应：dist&#x2F;文件名   因为别人通过 require去载入包的时候  会读取 这个main这是的暴露的包的名字<br>npm install 包名就可以下载了</p>
+<p><strong>Webpack 配置</strong></p>
+<p>webpack.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">output:&#123;</span><br><span class="line">	path:&#x27;&#x27;,</span><br><span class="line">	filname:&#x27;&#x27;,</span><br><span class="line">	library:&#x27;&#x27;,    //我们只是定义了导出 并且没有使用它  所以webpack认为这个代码是没有用的。   如何让他作为一个library来进行一个对外的打包   让代码不被 Webpack Tree shaking   配置 library:&#x27;包的名字&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>到目前为止，一切都应该与打包应用程序一样，这里是不同的部分 - 我们需要通过output.library 配置项暴露从入口导出的内容。<br>我们暴露了 webpackNumbers ，以便用户可以通过 script 标签使用。	</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://example.org/webpack-numbers.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"> window.webpackNumbers.wordToNum(&#x27;Five&#x27;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然而它只能通过被 script 标签引用而发挥作用，它不能运行在 CommonJS、AMD、Node.js 等环境中。<br>作为一个库作者，我们希望它能够兼容不同的环境，也就是说，用户应该能够通过以下方式使用打包后的库：<br>CommonJS module require:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const webpackNumbers = require(&#x27;webpack-numbers&#x27;);</span><br><span class="line">// ...</span><br><span class="line">webpackNumbers.wordToNum(&#x27;Two&#x27;);</span><br></pre></td></tr></table></figure>
+<p>AMD module require:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">require([&#x27;webpackNumbers&#x27;], function (webpackNumbers) &#123;</span><br><span class="line"> // ...</span><br><span class="line"> webpackNumbers.wordToNum(&#x27;Two&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>script tag:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">...</span><br><span class="line"> &lt;script src=&quot;https://example.org/webpack-numbers.js&quot;&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"> &lt;script&gt;</span><br><span class="line">  // ...</span><br><span class="line">  // Global variable</span><br><span class="line">  webpackNumbers.wordToNum(&#x27;Five&#x27;);</span><br><span class="line">  // Property in the window object</span><br><span class="line">  window.webpackNumbers.wordToNum(&#x27;Five&#x27;);</span><br><span class="line">  // ...</span><br><span class="line"> &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们更新 output.library 配置项，将其 type 设置为 ‘umd’ ：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line"> entry: &#x27;./src/index.js&#x27;,</span><br><span class="line"> output: &#123;</span><br><span class="line">  path: path.resolve(__dirname, &#x27;dist&#x27;),</span><br><span class="line">  filename: &#x27;webpack-numbers.js&#x27;,</span><br><span class="line">  library: &#123;</span><br><span class="line">   name: &#x27;webpackNumbers&#x27;,</span><br><span class="line">   type: &#x27;umd&#x27;,   //  window&#x27;(es module)   &#x27;commonjs&#x27;   &#x27;module&#x27; 它在experiments:&#123;outputModule:true&#125;才能使用，他是一个实验性的功能，就不需要这个name了。&lt;script type=&quot;module&quot;&gt;    &#x27;umd&#x27;支持所有的类型。  esmodule 有问题</span><br><span class="line">  &#125;,</span><br><span class="line">  globalObject:&#x27;globalThis&#x27;    //需要全局的this来去  代替self   否则浏览器会self  undefined报错</span><br><span class="line"> &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>现在 webpack 将打包一个库，其可以与 CommonJS、AMD 以及 script 标签使用</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/webpack/">#webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/11/01/webpack/webpack%E7%9A%84%E7%90%86%E8%A7%A3/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack的理解</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/10/26/webpack/webpack-proxy%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack proxy工作原理</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

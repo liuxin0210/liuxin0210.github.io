@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            ES6 装饰器 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">ES6 装饰器</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-04-17 23:43:42</span>
+        <span class="mobile">2018-04-17 23:43</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/es6/">es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><blockquote>
+<p>装饰器依赖于 <code>ES5</code> 的 <code>Object.defineProperty</code> 方法</p>
+</blockquote>
+<h3 id="1-1-Object-defineProperty"><a href="#1-1-Object-defineProperty" class="headerlink" title="1.1 Object.defineProperty"></a>1.1 Object.defineProperty</h3><ul>
+<li><code>Object.defineProperty()</code> 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象</li>
+<li>该方法允许精确添加或修改对象的属性。通过赋值来添加的普通属性会创建在属性枚举期间显示的属性（<code>for...in</code>或 <code>Object.keys</code> 方法）， 这些值可以被改变，也可以被删除。这种方法允许这些额外的细节从默认值改变。默认情况下，使用 <code>Object.defineProperty()</code> 添加的属性值是不可变的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(obj, prop, descriptor)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>obj</code>：要在其上定义属性的对象。</li>
+<li><code>prop</code>：要定义或修改的属性的名称。</li>
+<li><code>descriptor</code>：将被定义或修改的属性描述符。</li>
+<li>返回值：被传递给函数的对象。</li>
+</ul>
+<blockquote>
+<p>在<code>ES6</code>中，由于 <code>Symbol</code>类型 的特殊性，用 <code>Symbol</code>类型 的值来做对象的<code>key</code>与常规的定义或修改不同，而<code>Object.defineProperty</code> 是定义 <code>key</code>为 <code>Symbol</code> 的属性的方法之一</p>
+</blockquote>
+<p><strong>descriptor属性描述符</strong></p>
+<blockquote>
+<p>对象里目前存在的属性描述符有两种主要形式：数据描述符和存取描述符</p>
+</blockquote>
+<ul>
+<li>数据描述符是一个具有值的属性，该值可能是可写的，也可能不是可写的。</li>
+<li>存取描述符是由 <code>getter-setter</code> 函数对描述的属性。</li>
+</ul>
+<p><strong>configurable</strong></p>
+<blockquote>
+<p>当且仅当该属性的 <code>configurable</code> 为 <code>true</code> 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为 <code>false</code></p>
+</blockquote>
+<p><strong>enumerable</strong></p>
+<ul>
+<li><code>enumerable</code>定义了对象的属性是否可以在 <code>for...in</code>循环和 <code>Object.keys()</code> 中被枚举。</li>
+<li>当且仅当该属性的 <code>enumerable</code> 为 <code>true</code> 时，该属性才能够出现在对象的枚举属性中。默认为 <code>false</code>。</li>
+</ul>
+<h2 id="二、Babel"><a href="#二、Babel" class="headerlink" title="二、Babel"></a>二、Babel</h2><p><strong>安装编译</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev @babel/core @babel/cli</span><br><span class="line"></span><br><span class="line">npm install --save-dev @babel/plugin-proposal-decorators @babel/plugin-proposal-class-properties</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>新建 <code>.babelrc</code> 文件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    [&quot;@babel/plugin-proposal-decorators&quot;, &#123; &quot;legacy&quot;: true &#125;],</span><br><span class="line">    [&quot;@babel/plugin-proposal-class-properties&quot;, &#123;&quot;loose&quot;: true&#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再编译指定的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">babel decorator.js --out-file decorator-compiled.js</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、用法"><a href="#三、用法" class="headerlink" title="三、用法"></a>三、用法</h2><p><strong>装饰器主要用于</strong></p>
+<ul>
+<li>装饰类</li>
+<li>装饰方法或属性</li>
+</ul>
+<h3 id="3-1-类的装饰"><a href="#3-1-类的装饰" class="headerlink" title="3.1 类的装饰"></a>3.1 类的装饰</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@testable</span><br><span class="line">class MyTestableClass &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function testable(target) &#123;</span><br><span class="line">  target.isTestable = true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyTestableClass.isTestable // true</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面代码中，<code>@testable</code> 就是一个装饰器。它修改了 <code>MyTestableClass</code>这 个类的行为，为它加上了静态属性<code>isTestable</code>。<code>testable</code> 函数的参数 <code>target</code> 是 <code>MyTestableClass</code> 类本身</p>
+</blockquote>
+<p>基本上，装饰器的行为就是下面这样</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@decorator</span><br><span class="line">class A &#123;&#125;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line"></span><br><span class="line">class A &#123;&#125;</span><br><span class="line">A = decorator(A) || A;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>也就是说，装饰器是一个对类进行处理的函数。装饰器函数的第一个参数，就是所要装饰的目标类</p>
+</blockquote>
+<p>如果觉得一个参数不够用，可以在装饰器外面再封装一层函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function testable(isTestable) &#123;</span><br><span class="line">  return function(target) &#123;</span><br><span class="line">    target.isTestable = isTestable;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@testable(true)</span><br><span class="line">class MyTestableClass &#123;&#125;</span><br><span class="line">MyTestableClass.isTestable // true</span><br><span class="line"></span><br><span class="line">@testable(false)</span><br><span class="line">class MyClass &#123;&#125;</span><br><span class="line">MyClass.isTestable // false</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面代码中，装饰器 <code>testable</code> 可以接受参数，这就等于可以修改装饰器的行为</p>
+</blockquote>
+<p><strong>注意</strong>，装饰器对类的行为的改变，是代码编译时发生的，而不是在运行时。这意味着，装饰器能在编译阶段运行代码。也就是说，装饰器本质就是编译时执行的函数。</p>
+<blockquote>
+<p>前面的例子是为类添加一个静态属性，如果想添加实例属性，可以通过目标类的 <code>prototype</code> 对象操作</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// mixins.js</span><br><span class="line">export function mixins(...list) &#123;</span><br><span class="line">  return function (target) &#123;</span><br><span class="line">    Object.assign(target.prototype, ...list)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// main.js</span><br><span class="line">import &#123; mixins &#125; from &#x27;./mixins&#x27;</span><br><span class="line"></span><br><span class="line">const Foo = &#123;</span><br><span class="line">  foo() &#123; console.log(&#x27;foo&#x27;) &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">@mixins(Foo)</span><br><span class="line">class MyClass &#123;&#125;</span><br><span class="line"></span><br><span class="line">let obj = new MyClass();</span><br><span class="line">obj.foo() // &#x27;foo&#x27;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面代码通过装饰器 <code>mixins</code>，把<code>Foo</code>对象的方法添加到了 <code>MyClass</code>的实例上面</p>
+</blockquote>
+<h3 id="3-2-方法的装饰"><a href="#3-2-方法的装饰" class="headerlink" title="3.2 方法的装饰"></a>3.2 方法的装饰</h3><blockquote>
+<p>装饰器不仅可以装饰类，还可以装饰类的属性</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">// 装饰器 readonly 用来装饰“类”的name方法。</span><br><span class="line">  @readonly</span><br><span class="line">  name() &#123; return `$&#123;this.first&#125; $&#123;this.last&#125;` &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>装饰器函数 <code>readonly</code> 一共可以接受三个参数。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function readonly(target, name, descriptor)&#123;</span><br><span class="line">  // descriptor对象原来的值如下</span><br><span class="line">  // &#123;</span><br><span class="line">  //   value: specifiedFunction,</span><br><span class="line">  //   enumerable: false,</span><br><span class="line">  //   configurable: true,</span><br><span class="line">  //   writable: true</span><br><span class="line">  // &#125;;</span><br><span class="line">  descriptor.writable = false;</span><br><span class="line">  return descriptor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readonly(Person.prototype, &#x27;name&#x27;, descriptor);</span><br><span class="line">// 类似于</span><br><span class="line">Object.defineProperty(Person.prototype, &#x27;name&#x27;, descriptor);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个参数是类的原型对象，上例是 <code>Person.prototype</code>，装饰器的本意是要“装饰”类的实例，但是这个时候实例还没生成，所以只能去装饰原型（这不同于类的装饰，那种情况时<code>target</code>参数指的是类本身）</li>
+<li>第二个参数是 所要装饰的属性名</li>
+<li>第三个参数是 该属性的描述对象</li>
+</ul>
+<h3 id="3-3-函数方法的装饰"><a href="#3-3-函数方法的装饰" class="headerlink" title="3.3 函数方法的装饰"></a>3.3 函数方法的装饰</h3><ul>
+<li>装饰器只能用于类和类的方法，不能用于函数，因为存在函数提升</li>
+<li>另一方面，如果一定要装饰函数，可以采用高阶函数的形式直接执行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function doSomething(name) &#123;</span><br><span class="line">  console.log(&#x27;Hello, &#x27; + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function loggingDecorator(wrapped) &#123;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    console.log(&#x27;Starting&#x27;);</span><br><span class="line">    const result = wrapped.apply(this, arguments);</span><br><span class="line">    console.log(&#x27;Finished&#x27;);</span><br><span class="line">    return result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const wrapped = loggingDecorator(doSomething);</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、使用场景"><a href="#四、使用场景" class="headerlink" title="四、使用场景"></a>四、使用场景</h2><h3 id="4-1-装饰器有注释的作用"><a href="#4-1-装饰器有注释的作用" class="headerlink" title="4.1 装饰器有注释的作用"></a>4.1 装饰器有注释的作用</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@testable</span><br><span class="line">class Person &#123;</span><br><span class="line">  @readonly</span><br><span class="line">  @nonenumerable</span><br><span class="line">  name() &#123; return `$&#123;this.first&#125; $&#123;this.last&#125;` &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>从上面代码中，我们一眼就能看出，<code>Person</code>类是可测试的，而<code>name</code>方法是只读和不可枚举的</p>
+</blockquote>
+<h3 id="4-2-React-的-connect"><a href="#4-2-React-的-connect" class="headerlink" title="4.2 React 的 connect"></a>4.2 React 的 connect</h3><blockquote>
+<p>实际开发中，React 与 Redux 库结合使用时，常常需要写成下面这样</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class MyReactComponent extends React.Component &#123;&#125;</span><br><span class="line"></span><br><span class="line">export default connect(mapStateToProps, mapDispatchToProps)(MyReactComponent);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有了装饰器，就可以改写上面的代码。装饰</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@connect(mapStateToProps, mapDispatchToProps)</span><br><span class="line">export default class MyReactComponent extends React.Component &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-loading"><a href="#4-3-loading" class="headerlink" title="4.3 loading"></a>4.3 loading</h3><blockquote>
+<p>在 <code>React</code> 项目中，我们可能需要在向后台请求数据时，页面出现 <code>loading</code> 动画。这个时候，你就可以使用装饰器，优雅地实现功能。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@autobind</span><br><span class="line">@loadingWrap(true)</span><br><span class="line">async handleSelect(params) &#123;</span><br><span class="line">  await this.props.dispatch(&#123;</span><br><span class="line">    type: &#x27;product_list/setQuerypParams&#x27;,</span><br><span class="line">    querypParams: params</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>loadingWrap 函数如下：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">export function loadingWrap(needHide) &#123;</span><br><span class="line"></span><br><span class="line">  const defaultLoading = (</span><br><span class="line">    &lt;div className=&quot;toast-loading&quot;&gt;</span><br><span class="line">      &lt;Loading className=&quot;loading-icon&quot;/&gt;</span><br><span class="line">      &lt;div&gt;加载中...&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  return function (target, property, descriptor) &#123;</span><br><span class="line">    const raw = descriptor.value;</span><br><span class="line">    </span><br><span class="line">    descriptor.value = function (...args) &#123;</span><br><span class="line">      Toast.info(text || defaultLoading, 0, null, true);</span><br><span class="line">      const res = raw.apply(this, args);</span><br><span class="line">      </span><br><span class="line">      if (needHide) &#123;</span><br><span class="line">        if (get(&#x27;finally&#x27;)(res)) &#123;</span><br><span class="line">          res.finally(() =&gt; &#123;</span><br><span class="line">            Toast.hide();</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          Toast.hide();</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    return descriptor;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-log"><a href="#4-4-log" class="headerlink" title="4.4 log"></a>4.4 log</h3><blockquote>
+<p>为一个方法添加 log 函数，检查输入的参数：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Math &#123;</span><br><span class="line">  @log</span><br><span class="line">  add(a, b) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let log = (type) =&gt; &#123;</span><br><span class="line">  return (target, name, descriptor) =&gt; &#123;</span><br><span class="line">    const method = descriptor.value;</span><br><span class="line">    descriptor.value =  (...args) =&gt; &#123;</span><br><span class="line">      console.info(`($&#123;type&#125;) 正在执行: $&#123;name&#125;($&#123;args&#125;) = ?`);</span><br><span class="line">      let ret;</span><br><span class="line">      try &#123;</span><br><span class="line">        ret = method.apply(target, args);</span><br><span class="line">        console.info(`($&#123;type&#125;) 成功 : $&#123;name&#125;($&#123;args&#125;) =&gt; $&#123;ret&#125;`);</span><br><span class="line">      &#125; catch (error) &#123;</span><br><span class="line">        console.error(`($&#123;type&#125;) 失败: $&#123;name&#125;($&#123;args&#125;) =&gt; $&#123;error&#125;`);</span><br><span class="line">      &#125;</span><br><span class="line">      return ret;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const math = new Math();</span><br><span class="line"></span><br><span class="line">// Calling add with [2, 4]</span><br><span class="line">math.add(2, 4);</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-autobind"><a href="#4-5-autobind" class="headerlink" title="4.5 autobind"></a>4.5 autobind</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">  @autobind</span><br><span class="line">  getPerson() &#123;</span><br><span class="line">      return this;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let person = new Person();</span><br><span class="line">let &#123; getPerson &#125; = person;</span><br><span class="line"></span><br><span class="line">getPerson() === person;</span><br><span class="line">// true</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我们很容易想到的一个场景是 React 绑定事件的时候</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Toggle extends React.Component &#123;</span><br><span class="line"></span><br><span class="line">  @autobind</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">      console.log(this)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;button onClick=&#123;this.handleClick&#125;&gt;</span><br><span class="line">        button</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>我们来写这样一个 <code>autobind</code>函数：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">const &#123; defineProperty, getPrototypeOf&#125; = Object;</span><br><span class="line"></span><br><span class="line">function bind(fn, context) &#123;</span><br><span class="line">  if (fn.bind) &#123;</span><br><span class="line">    return fn.bind(context);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return function __autobind__() &#123;</span><br><span class="line">      return fn.apply(context, arguments);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function createDefaultSetter(key) &#123;</span><br><span class="line">  return function set(newValue) &#123;</span><br><span class="line">    Object.defineProperty(this, key, &#123;</span><br><span class="line">      configurable: true,</span><br><span class="line">      writable: true,</span><br><span class="line">      enumerable: true,</span><br><span class="line">      value: newValue</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    return newValue;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function autobind(target, key, &#123; value: fn, configurable, enumerable &#125;) &#123;</span><br><span class="line">  if (typeof fn !== &#x27;function&#x27;) &#123;</span><br><span class="line">    throw new SyntaxError(`@autobind can only be used on functions, not: $&#123;fn&#125;`);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  const &#123; constructor &#125; = target;</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    configurable,</span><br><span class="line">    enumerable,</span><br><span class="line"></span><br><span class="line">    get() &#123;</span><br><span class="line"></span><br><span class="line">      /**</span><br><span class="line">       * 使用这种方式相当于替换了这个函数，所以当比如</span><br><span class="line">       * Class.prototype.hasOwnProperty(key) 的时候，为了正确返回</span><br><span class="line">       * 所以这里做了 this 的判断</span><br><span class="line">       */</span><br><span class="line">      if (this === target) &#123;</span><br><span class="line">        return fn;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      const boundFn = bind(fn, this);</span><br><span class="line"></span><br><span class="line">      defineProperty(this, key, &#123;</span><br><span class="line">        configurable: true,</span><br><span class="line">        writable: true,</span><br><span class="line">        enumerable: false,</span><br><span class="line">        value: boundFn</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      return boundFn;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: createDefaultSetter(key)</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6-debounce"><a href="#4-6-debounce" class="headerlink" title="4.6 debounce"></a>4.6 debounce</h3><blockquote>
+<p>有的时候，我们需要对执行的方法进行防抖处理:</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">class Toggle extends React.Component &#123;</span><br><span class="line"></span><br><span class="line">  @debounce(500, true)</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    console.log(&#x27;toggle&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;button onClick=&#123;this.handleClick&#125;&gt;</span><br><span class="line">        button</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">function _debounce(func, wait, immediate) &#123;</span><br><span class="line"></span><br><span class="line">    var timeout;</span><br><span class="line"></span><br><span class="line">    return function () &#123;</span><br><span class="line">        var context = this;</span><br><span class="line">        var args = arguments;</span><br><span class="line"></span><br><span class="line">        if (timeout) clearTimeout(timeout);</span><br><span class="line">        if (immediate) &#123;</span><br><span class="line">            var callNow = !timeout;</span><br><span class="line">            timeout = setTimeout(function()&#123;</span><br><span class="line">                timeout = null;</span><br><span class="line">            &#125;, wait)</span><br><span class="line">            if (callNow) func.apply(context, args)</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            timeout = setTimeout(function()&#123;</span><br><span class="line">                func.apply(context, args)</span><br><span class="line">            &#125;, wait);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function debounce(wait, immediate) &#123;</span><br><span class="line">  return function handleDescriptor(target, key, descriptor) &#123;</span><br><span class="line">    const callback = descriptor.value;</span><br><span class="line"></span><br><span class="line">    if (typeof callback !== &#x27;function&#x27;) &#123;</span><br><span class="line">      throw new SyntaxError(&#x27;Only functions can be debounced&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var fn = _debounce(callback, wait, immediate)</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      ...descriptor,</span><br><span class="line">      value() &#123;</span><br><span class="line">        fn()</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-7-time"><a href="#4-7-time" class="headerlink" title="4.7 time"></a>4.7 time</h3><blockquote>
+<p>用于统计方法执行的时间:</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">function time(prefix) &#123;</span><br><span class="line">  let count = 0;</span><br><span class="line">  return function handleDescriptor(target, key, descriptor) &#123;</span><br><span class="line"></span><br><span class="line">    const fn = descriptor.value;</span><br><span class="line"></span><br><span class="line">    if (prefix == null) &#123;</span><br><span class="line">      prefix = `$&#123;target.constructor.name&#125;.$&#123;key&#125;`;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (typeof fn !== &#x27;function&#x27;) &#123;</span><br><span class="line">      throw new SyntaxError(`@time can only be used on functions, not: $&#123;fn&#125;`);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">      ...descriptor,</span><br><span class="line">      value() &#123;</span><br><span class="line">        const label = `$&#123;prefix&#125;-$&#123;count&#125;`;</span><br><span class="line">        count++;</span><br><span class="line">        console.time(label);</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">          return fn.apply(this, arguments);</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">          console.timeEnd(label);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-8-mixin"><a href="#4-8-mixin" class="headerlink" title="4.8 mixin"></a>4.8 mixin</h3><blockquote>
+<p>用于将对象的方法混入<code>Class</code> 中</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const SingerMixin = &#123;</span><br><span class="line">  sing(sound) &#123;</span><br><span class="line">    alert(sound);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const FlyMixin = &#123;</span><br><span class="line">  // All types of property descriptors are supported</span><br><span class="line">  get speed() &#123;&#125;,</span><br><span class="line">  fly() &#123;&#125;,</span><br><span class="line">  land() &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">@mixin(SingerMixin, FlyMixin)</span><br><span class="line">class Bird &#123;</span><br><span class="line">  singMatingCall() &#123;</span><br><span class="line">    this.sing(&#x27;tweet tweet&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var bird = new Bird();</span><br><span class="line">bird.singMatingCall();</span><br><span class="line">// alerts &quot;tweet tweet&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>mixin</code> 的一个简单实现如下</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function mixin(...mixins) &#123;</span><br><span class="line">  return target =&gt; &#123;</span><br><span class="line">    if (!mixins.length) &#123;</span><br><span class="line">      throw new SyntaxError(`@mixin() class $&#123;target.name&#125; requires at least one mixin as an argument`);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let i = 0, l = mixins.length; i &lt; l; i++) &#123;</span><br><span class="line">      const descs = Object.getOwnPropertyDescriptors(mixins[i]);</span><br><span class="line">      const keys = Object.getOwnPropertyNames(descs);</span><br><span class="line"></span><br><span class="line">      for (let j = 0, k = keys.length; j &lt; k; j++) &#123;</span><br><span class="line">        const key = keys[j];</span><br><span class="line"></span><br><span class="line">        if (!target.prototype.hasOwnProperty(key)) &#123;</span><br><span class="line">          Object.defineProperty(target.prototype, key, descs[key]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/es6/">#es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/04/20/http/1-http/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">http协议</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/04/15/html+css+js+ts/4-var%E3%80%81let%E3%80%81const/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">es6 var、let、const</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

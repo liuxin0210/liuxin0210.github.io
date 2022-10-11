@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            正则表达式 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">正则表达式</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-01-18 18:36:48</span>
+        <span class="mobile">2019-01-18 18:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><h3 id="1-1-正则表达式的web常见场合"><a href="#1-1-正则表达式的web常见场合" class="headerlink" title="1.1 正则表达式的web常见场合"></a>1.1 正则表达式的web常见场合</h3><ul>
+<li>邮箱验证</li>
+<li>用户名验证</li>
+<li>替换字符串某一部分</li>
+<li>信息采集 用来分析有效的代码段</li>
+</ul>
+<h3 id="1-2-字符串应用正则"><a href="#1-2-字符串应用正则" class="headerlink" title="1.2 字符串应用正则"></a>1.2 字符串应用正则</h3><ul>
+<li><code>string.match(reg)</code>正则查找字符串</li>
+<li><code>string.search(reg)</code> 正则查找位置</li>
+<li><code>string.replace(reg,&#39;newstr&#39;)</code>正则替换</li>
+<li><code>string.split（reg）</code>正则拆分</li>
+</ul>
+<h3 id="1-3-正则表达式3句话"><a href="#1-3-正则表达式3句话" class="headerlink" title="1.3 正则表达式3句话"></a>1.3 正则表达式3句话</h3><h4 id="1-3-1-要找什么字符？（5中方法）"><a href="#1-3-1-要找什么字符？（5中方法）" class="headerlink" title="1.3.1 要找什么字符？（5中方法）"></a>1.3.1 要找什么字符？（5中方法）</h4><ul>
+<li>字面值 比如：<code>hi</code>就是找<code>hi</code></li>
+<li>字符的集合<code>[abcd]</code>匹配<code>abdc</code>任意一个</li>
+<li>用范围来表示字符<code>[0-9] [a-z][A-Z]</code></li>
+<li>字符簇 就是系统为常用的字符集合创建的一个简写<ul>
+<li>例如：<code>\d</code> 表示<code>[0-9]</code> <code>\w</code>代表<code>[0-9a-zA-Z_]</code> <code>\s</code>代表<code>[\t\v\f\r\n]</code>（空白符）</li>
+</ul>
+</li>
+<li>补集的形式来表示字符集合<ul>
+<li>例如：<code>[0-9]</code> 补集 <code>[^0-9]</code></li>
+<li>对于字符簇只需把字母大写即可表示补集 <code>\d</code> –&gt;<code>\D</code>（非数字） <code>\w</code>–&gt;<code>\W</code> （代表<code>a-z0-9A-Z</code>之外的东西） <code>\s</code> –&gt;<code>\S</code>(代表非空白字符)</li>
+</ul>
+</li>
+<li>点代表 任意字符 (不包括换行符)</li>
+</ul>
+<h4 id="1-3-2-从哪里找-找到哪？"><a href="#1-3-2-从哪里找-找到哪？" class="headerlink" title="1.3.2 从哪里找,找到哪？"></a>1.3.2 从哪里找,找到哪？</h4><ul>
+<li><code>\b</code>单词边界 <code>\bhi</code>从单词边界开始匹配<code>hi</code></li>
+<li><code>\B</code> 单词的非边界 把单词的中间某一部分取出来 把中间含有hi的单词取出来 即<code>hi</code>不能再两端</li>
+<li><code>^</code> 从字符串的起始位置开始匹配</li>
+<li><code>$</code>匹配到字符串的额结束位置</li>
+</ul>
+<h4 id="1-3-3-找多少"><a href="#1-3-3-找多少" class="headerlink" title="1.3.3 找多少"></a>1.3.3 找多少</h4><ul>
+<li><code>*</code>表示匹配<code>0-</code>无穷<code>==</code>等价<code>(0,)</code></li>
+<li><code>+</code>表示匹配<code>1-</code>无穷 <code>==</code>等价<code>(1,)</code></li>
+<li><code>?</code>表示<code>[0,1] ==</code> 等价<code>(0,1)</code></li>
+<li><code>a(n)</code>: 字符a准确出<code>现n</code>次</li>
+<li><code>a(n,)</code>:字符<code>a</code>至少出现<code>n</code>次</li>
+<li><code>a(n,m):n</code>到<code>m</code>次</li>
+</ul>
+<h3 id="1-3-贪婪模式"><a href="#1-3-贪婪模式" class="headerlink" title="1.3 贪婪模式"></a>1.3 贪婪模式</h3><ul>
+<li>个数修饰符默认是贪婪模式 尽量多找</li>
+<li>是指在上面的个数修饰符后面加<code>?</code>，则为非贪婪模式，尽量少的找</li>
+</ul>
+<p><strong>模式</strong>：</p>
+<ul>
+<li>以匹配为例默认情况 match找到一次就结束 能否告诉匹配过程 一直找 在全文范围内一直找</li>
+<li><code>g</code> 表示全局模式 global 找所有的 而不是就找一行就结束</li>
+<li><code>i</code> ignore 忽略大小写</li>
+<li><code>s</code> 单行模式（把整篇文章看成一行）js不支持单行模式</li>
+<li><code>m</code> 多行模式</li>
+</ul>
+<h2 id="二、语法"><a href="#二、语法" class="headerlink" title="二、语法"></a>二、语法</h2><h3 id="2-1-基本元字符"><a href="#2-1-基本元字符" class="headerlink" title="2.1 基本元字符"></a>2.1 基本元字符</h3><ul>
+<li><code>.</code> ： 匹配除了换行符之外的任何单个字符</li>
+<li><code>\</code> ： 在非特殊字符之前的反斜杠表示下一个字符是特殊的</li>
+<li><code>|</code>： 逻辑或操作符</li>
+<li><code>[]</code> ：定义一个字符集合，匹配字符集合中的一个字符，在字符集合里面像 <code>.</code>，\这些字符都表示其本身</li>
+<li><code>[^]</code>：对上面一个集合取非</li>
+<li><code>-</code>：定义一个区间，例如<code>[A-Z]</code>，其首尾字符在 <code>ASCII</code> 字符集里面</li>
+</ul>
+<h3 id="2-2-数量元字符"><a href="#2-2-数量元字符" class="headerlink" title="2.2 数量元字符"></a>2.2 数量元字符</h3><ul>
+<li><code>&#123;m,n&#125;</code> ：匹配前面一个字符至少 <code>m</code> 次至多 <code>n</code> 次重复，还有<code>&#123;m&#125;</code>表示匹配 <code>m</code> 次，<code>&#123;m,&#125;</code>表示至少 <code>m</code> 次</li>
+<li><code>+</code> ： 匹配前面一个表达式一次或者多次，相当于<code>&#123;1,&#125;</code>，记忆方式追加<code>(+)</code>，起码得有一次</li>
+<li><code>*</code> ： 匹配前面一个表达式零次或者多次，相当于<code>&#123;0,&#125;</code>，记忆方式乘法<code>(*)</code>，可以一次都没有</li>
+<li><code>?</code> ： 单独使用匹配前面一个表达式零次或者一次，相当于 <code>&#123;0,1&#125;</code></li>
+</ul>
+<h3 id="2-3-位置元字符"><a href="#2-3-位置元字符" class="headerlink" title="2.3 位置元字符"></a>2.3 位置元字符</h3><ul>
+<li><code>^</code> ： 单独使用匹配表达式的开始</li>
+<li><code>\$</code>： 匹配表达式的结束</li>
+<li><code>\b</code>：匹配单词边界</li>
+<li><code>\B</code>：匹配非单词边界</li>
+<li><code>(?=p)</code>：匹配 <code>p</code> 前面的位置</li>
+<li><code>(?!p)</code>：匹配不是 <code>p</code> 前面的位置</li>
+</ul>
+<h3 id="2-4-特殊元字符"><a href="#2-4-特殊元字符" class="headerlink" title="2.4 特殊元字符"></a>2.4 特殊元字符</h3><ul>
+<li><code>\d</code>：<code>[0-9]</code>，表示一位数字，记忆方式 digit</li>
+<li><code>\D</code>：<code>[^0-9]</code>，表示一位非数字</li>
+<li><code>\s</code>：<code>[\t\v\n\r\f]</code>，表示空白符，包括空格，水平制表符（\t），垂直制表符（\v），换行符（\n），回车符（\r），换页符（\f），记忆方式 space character</li>
+<li><code>\S</code>：<code>[^\t\v\n\r\f]</code>，表示非空白符</li>
+<li><code>\w</code>：<code>[0-9a-zA-Z]</code>，表示数字大小写字母和下划线，记忆方式 word</li>
+<li><code>\W</code>：<code>[^0-9a-zA-Z]</code>，表示非单词字符</li>
+</ul>
+<h3 id="2-5-标志字符"><a href="#2-5-标志字符" class="headerlink" title="2.5 标志字符"></a>2.5 标志字符</h3><ul>
+<li><code>g</code> : 全局搜索 记忆方式global</li>
+<li><code>i</code> ：不区分大小写 记忆方式 ignore</li>
+<li><code>m</code> ：多行搜索</li>
+</ul>
+<h2 id="三、match，test，exec，search的返回值"><a href="#三、match，test，exec，search的返回值" class="headerlink" title="三、match，test，exec，search的返回值"></a>三、match，test，exec，search的返回值</h2><h3 id="3-1-match的用法"><a href="#3-1-match的用法" class="headerlink" title="3.1 match的用法"></a>3.1 match的用法</h3><p><strong>在不加全局“g”的情况下</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;wo shi zhong guo ren&quot;;</span><br><span class="line"></span><br><span class="line">console.log(str.match(/o/));</span><br><span class="line"></span><br><span class="line">// 返回的结果是：[&quot;o&quot;, index: 1, input: &quot;wo shi zhong guo ren&quot;]；</span><br></pre></td></tr></table></figure>
+
+<p><strong>在加全局“g”的情况下</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;wo shi zhong guo ren&quot;;</span><br><span class="line"></span><br><span class="line">console.log(str.match(/o/g));</span><br><span class="line"></span><br><span class="line">返回的结果是：[&quot;o&quot;, &quot;o&quot;, &quot;o&quot;]；</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-exec的用法"><a href="#3-2-exec的用法" class="headerlink" title="3.2 exec的用法"></a>3.2 exec的用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;wo shi zhong guo ren&quot;;</span><br><span class="line"></span><br><span class="line">var re=/o/;</span><br><span class="line"></span><br><span class="line">console.log(re.exec(str));</span><br><span class="line"></span><br><span class="line">// 返回的结果是：[&quot;o&quot;, index: 1, input: &quot;wo shi zhong guo ren&quot;]；</span><br><span class="line">// exec返回的和match不加全局“g”’一样</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-test的用法"><a href="#3-3-test的用法" class="headerlink" title="3.3 test的用法"></a>3.3 test的用法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;wo shi zhong guo ren&quot;;</span><br><span class="line"></span><br><span class="line">var re=/o/;</span><br><span class="line"></span><br><span class="line">console.log(re.test(str));</span><br><span class="line"></span><br><span class="line">// 返回的结果是：true（如果找不到返回的则是false）</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-search的用法"><a href="#3-4-search的用法" class="headerlink" title="3.4 search的用法"></a>3.4 search的用法</h3><ul>
+<li>关于search用法其实很简单，它和indexOf是一样的，就是找到index，而且是从前往后数的。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var str=&quot;wo shi zhong guo ren&quot;;</span><br><span class="line">var re=/o/;</span><br><span class="line"></span><br><span class="line">console.log(str.search(re));</span><br><span class="line"></span><br><span class="line">返回的结果是：1；</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、应用"><a href="#四、应用" class="headerlink" title="四、应用"></a>四、应用</h2><h3 id="4-1-例1"><a href="#4-1-例1" class="headerlink" title="4.1 例1"></a>4.1 例1</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/xWMRxR" >https://codepen.io/poetries/pen/xWMRxR<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;正则-例子1&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		textarea&#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 200px; </span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配hi&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;正匹配单词hi&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配hi开头的单词但不是hi&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /hi/;//仅仅是看字符串中有没有hi</span><br><span class="line">            	alert(reg.test(cv));//满足 返回true  不满足 返回false</span><br><span class="line">            &#125;</span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\bhi\b/;//正则测试单词hi</span><br><span class="line">            	alert(reg.test(cv));//满足 返回true  不满足 返回false</span><br><span class="line">            &#125;</span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\bhi\b/;//正则测试hi开头的单词但不是hi</span><br><span class="line">            	alert(reg.test(cv));//满足 返回true  不满足 返回false</span><br><span class="line">            &#125; </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-例2-要找什么字符串"><a href="#4-2-例2-要找什么字符串" class="headerlink" title="4.2 例2-要找什么字符串"></a>4.2 例2-要找什么字符串</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/oqmYNw" >https://codepen.io/poetries/pen/oqmYNw<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;要找什么字符&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">    	textarea&#123;</span><br><span class="line">    	width: 400px;</span><br><span class="line">    	height: 200px; </span><br><span class="line">    	&#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;找不好的数字&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;有没有数字&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;有没有大写字母&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;是否全为数字&quot; onclick=&quot;t4();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /[347]/;// 匹配347任意一个字符的集合[abcd] 匹配abdc任意一个</span><br><span class="line">            	alert(reg.test(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	//var reg = /[0123456789]/;</span><br><span class="line">            	//var reg = /[0-9]/;// 匹配有没有数字</span><br><span class="line">            	var reg = /\d/;// \d 表示[0-9]</span><br><span class="line">            	alert(reg.test(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /[A-Z]/;// 匹配有没有数字</span><br><span class="line">            	alert(reg.test(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t4()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /[^0-9]/;// 匹配非数字 0-9之外的字符  对于网上发布手机号之类的很有用 比如1300 把00换成OO 就没法认出</span><br><span class="line">            	if(reg.test(cv))&#123;</span><br><span class="line">            		alert(&#x27;有非数字存在&#x27;);</span><br><span class="line">            	&#125;else&#123;</span><br><span class="line">            		alert(&#x27;全是数字&#x27;);</span><br><span class="line">            	&#125;</span><br><span class="line">            &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-例3-从哪里开始匹配"><a href="#4-3-例3-从哪里开始匹配" class="headerlink" title="4.3 例3-从哪里开始匹配"></a>4.3 例3-从哪里开始匹配</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/jzdVOo" >https://codepen.io/poetries/pen/jzdVOo<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;74-从哪里开始匹配&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		textarea&#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 200px;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配hi&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配hi开头及hi开头的单词&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配hi开头的单词但不是hi&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配进行时的单词&quot; onclick=&quot;t4();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配un前缀的反义词&quot; onclick=&quot;t5();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配单词中间的hi部分&quot; onclick=&quot;t6();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配输入的名字是不是lisi&quot; onclick=&quot;t7();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /hi/;//仅仅是看字符串中有没有hi</span><br><span class="line">            	alert(reg.test(cv));//满足 返回true  不满足 返回false</span><br><span class="line">            &#125;</span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	//var reg = /\bhi.+/;// 错误1 匹配hi开头的单词</span><br><span class="line">            	////var reg = /\bhi\w+/;// 错误2</span><br><span class="line">            	var reg = /\bhi\w*/; </span><br><span class="line">            	alert(reg.exec(cv));//exec返回一个对象  没找到返回none</span><br><span class="line">            &#125;</span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\bhi/;//正则测试hi开头的单词但不是hi</span><br><span class="line">            	alert(reg.exec(cv));//exec返回一个对象  没找到返回none</span><br><span class="line">            &#125; </span><br><span class="line">            function t4()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\b[\w]+ing\b/;//*表示匹配0-无穷  +表示匹配1-无穷</span><br><span class="line">            	alert(reg.exec(cv));</span><br><span class="line">            &#125; </span><br><span class="line">            function t5()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\bun[\w]+\b/;//匹配un前缀的反义词</span><br><span class="line">            	alert(reg.exec(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t6()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\Bhi\B/;//匹配单词中间的hi部分</span><br><span class="line">            	alert(reg.exec(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t7()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /^lisi$/;//匹配输入的名字是不是lisi</span><br><span class="line">            	alert(reg.exec(cv));</span><br><span class="line">            &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-例4-正则应用字符串"><a href="#4-4-例4-正则应用字符串" class="headerlink" title="4.4 例4 正则应用字符串"></a>4.4 例4 正则应用字符串</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/dmaOPz" >https://codepen.io/poetries/pen/dmaOPz<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;正则应用字符串&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		textarea&#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 200px; </span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;查找中间含有hi的单词&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;查找所有中间含有hi的单词&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;查找所有中间含有hi的单词，不区分大小写&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;替换JavaScript标签&quot; onclick=&quot;t4();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;把连接换成空连接&quot; onclick=&quot;t5();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;把每一行的结尾的数字换成#&quot; onclick=&quot;t6();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;替换goods中多余的O&quot; onclick=&quot;t7();&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\Bhi\B/;//查找中间含有hi的单词</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125;</span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\Bhi\B/g;//查找所有中间含有hi的单词</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125;</span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\Bhi\B/gi;//查找所有中间含有hi的单词  g是全局 i ignore 忽略大小写</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125;</span><br><span class="line">            function t4()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var  reg = /&lt;script.*&lt;\/script&gt;/;//替换JavaScript标签</span><br><span class="line">            	alert(cv.replace(reg,&#x27;哈哈哈&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">            function t5()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	  /*</span><br><span class="line">                        . 代表任意,但不包括换行</span><br><span class="line">                        可以用一对反义词来匹配所有. \d\D等</span><br><span class="line">                        不能跨行（贪婪模式）</span><br><span class="line">                  */</span><br><span class="line">                 </span><br><span class="line">            	var reg = /&lt;a[\s]+[\d\D]*&lt;\/a&gt;/; //正则替换链接</span><br><span class="line">                    alert(cv.replace(reg,&#x27;&lt;a href=&quot;#&quot;&gt;文字&lt;/a&gt;&#x27;)); </span><br><span class="line">            &#125;</span><br><span class="line">            function t6()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var  reg = /\d+$/gm;//把每一行的结尾的数字换成#   m 多行模式</span><br><span class="line">            	alert(cv.replace(reg,&#x27;#&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">            function t7()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var  reg = /go&#123;3,&#125;?ds/;//替换goods中多余的O</span><br><span class="line">            	alert(cv.replace(reg,&#x27;goods&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-例5-预查"><a href="#4-5-例5-预查" class="headerlink" title="4.5 例5-预查"></a>4.5 例5-预查</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/MVLbwW" >https://codepen.io/poetries/pen/MVLbwW<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;预查&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		textarea&#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 200px; </span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配进行时的单词&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;匹配进行时的单词的词根部分,正向预查&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;查找winxp,负向预查&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;找出un*系列单词的词根&quot; onclick=&quot;t4();&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\b[\w]+ing\b/;</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125; </span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\b[\w]+(?=ing)/g;//匹配进行时的单词的词根部分  不要ing结尾  预查不消耗字符</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125; </span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\bwin(?!95)/g;//win98 win97 win95 win32 winxp win2003要求把win95过滤</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125; </span><br><span class="line">            function t4()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	//var reg = /\w+(?&lt;=un)/g;//找出un*系列单词的词根  js不支持向前正向预查</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125; </span><br><span class="line"> </span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6-例6-反向引用"><a href="#4-6-例6-反向引用" class="headerlink" title="4.6 例6-反向引用"></a>4.6 例6-反向引用</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/LdqbVL" >https://codepen.io/poetries/pen/LdqbVL<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;反向引用&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		textarea&#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 200px; </span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;把连接换成空连接，保留文字&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /&lt;a[\s]+[^&gt;]+&gt;([^&lt;&gt;]+)&lt;\/a&gt;/; //链接表达式  这个一部分是子表达式 ([^&lt;&gt;]+)</span><br><span class="line">                    // alert(reg.exec(cv)); </span><br><span class="line">                    </span><br><span class="line">                alert(cv.replace(reg,&#x27;&lt;a href=&quot;#&quot;&quot;&gt;$1&lt;/a&gt;&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-7-例7-正则练习"><a href="#4-7-例7-正则练习" class="headerlink" title="4.7 例7-正则练习"></a>4.7 例7-正则练习</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/dmaOYV" >https://codepen.io/poetries/pen/dmaOYV<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;正则练习&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		textarea&#123;</span><br><span class="line">			width: 400px;</span><br><span class="line">			height: 200px; </span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;1-找首尾相同的单词&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;2-手机号第4位到第七位换成*&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;3-统一空格&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;4-把名字中的,去掉&quot; onclick=&quot;t4();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;5-把aaabb换成ab&quot; onclick=&quot;t5();&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">           function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /\b([\w])[\w]*\1\b/g;// \1注意引用方式 [\w]任意一个 [\w]*任意多个 找首尾相同的单词</span><br><span class="line">            	/**</span><br><span class="line">            	 *  *如何引用子表达式所匹配的结果？</span><br><span class="line">             *</span><br><span class="line">             * 答： 在表达式内部 反向引用时 \n来匹配第N个子表达式的结果 子表达式当成变量来传递时，$N来匹配第N个子表达式的匹配结果</span><br><span class="line">             * </span><br><span class="line">            	 */</span><br><span class="line">            	alert(cv.match(reg));</span><br><span class="line">            &#125;</span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /(1(3|5|8|)\d)\d&#123;4&#125;(\d&#123;4&#125;)/;//字表达式(3|5|8|)  (\d&#123;4&#125;)  &#123;4&#125;代表任意4个  </span><br><span class="line">            	// alert(cv.match(reg));//打印结果18878553070，188，3070</span><br><span class="line">            	alert(cv.replace(reg,&#x27;$1****$3&#x27;));//188****4070</span><br><span class="line">            &#125;</span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /[ \t\u3000]+/g;//找空白符  第一个是半角的空格  \s包含所有空白符  \u3000表示 全角空格的16进制Unicode编码</span><br><span class="line">            	alert(cv.replace(reg,&#x27;,&#x27;));//</span><br><span class="line">            &#125;</span><br><span class="line">            function t4()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            var reg = /([\u4E00-\u9FA0]),([\u4E00-\u9FA0])/g;  // 找中文用Unicode编码表的中文范围</span><br><span class="line">            	alert(cv.replace(reg,&#x27;,&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">            function t5()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            var reg = //;  </span><br><span class="line">            	alert(cv.replace(reg,&#x27;,&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-8-例8-常用正则"><a href="#4-8-例8-常用正则" class="headerlink" title="4.8 例8-常用正则"></a>4.8 例8-常用正则</h3><blockquote>
+<p>在线演示 <a class="link"   target="_blank" rel="noopener" href="https://codepen.io/poetries/pen/GxzNoG" >https://codepen.io/poetries/pen/GxzNoG<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;常用正则解答&lt;/title&gt;</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            function t1()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /(\w)\1+/g; //查找连续多个字符  把aaabbccdd换成abcd这个格式</span><br><span class="line">            						/**\1 后向引用，表示表达式中，从左往右数，第一个左括号对应的括号内的内容。</span><br><span class="line">            以此类推，\2表示第二个，\0表示整个表达式**/</span><br><span class="line">            	alert(cv.replace(reg,&#x27;$1&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">            function t2()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	//手机号正则：</span><br><span class="line">            	//1开头</span><br><span class="line">            	//358第二位</span><br><span class="line">            	//后九位</span><br><span class="line">            	var reg = /1[358]\d&#123;9&#125;/g; // 这种情况适合在一段文本中分析出手机号</span><br><span class="line">            	alert(cv.match(reg));//分析手机号</span><br><span class="line">            &#125;</span><br><span class="line">            function t3()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /^1[358]\d&#123;9&#125;$/g;</span><br><span class="line">            	alert(reg.test(cv));// test 验证手机号</span><br><span class="line">            &#125;</span><br><span class="line">            function t4()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /^\s+|\s+$/g; // | 并列 或者 去除两端空格</span><br><span class="line">            	alert(&#x27;--&#x27;+cv.replace(reg,&#x27;&#x27;)+&#x27;--&#x27;);</span><br><span class="line">            &#125;</span><br><span class="line">            //借助正则限制在一个有限范围内 防止sql注入</span><br><span class="line">            function t5()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /^[\w\u4E00-\u9FA0]&#123;4,16&#125;$/; // \u4E00-\u9FA0 中文对应的Unicode编码 验证由字母数字下划线中文组合的4-16位用户名 </span><br><span class="line">            	alert(reg.test(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t6()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = /^[0-9a-zA-Z]\w*(\.[\w]+)*@[0-9a-zA-Z\-]+(\.[\w]+)+$/;</span><br><span class="line">            	alert(reg.test(cv));</span><br><span class="line">            &#125;</span><br><span class="line">            function t7()&#123;</span><br><span class="line">            	var cont = document.getElementById(&#x27;cont&#x27;);</span><br><span class="line">            	var cv = cont.value;</span><br><span class="line">            	var reg = //;</span><br><span class="line">            	alert(cv.replace(reg,&#x27;&#x27;));</span><br><span class="line">            &#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;textarea id=&#x27;cont&#x27;&gt;&lt;/textarea&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;1-替换相同字符串&quot; onclick=&quot;t1();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;2-分析出手机号&quot; onclick=&quot;t2();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;3-验证手机号&quot; onclick=&quot;t3();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;4-去除两端空格&quot; onclick=&quot;t4();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;5-验证由字母数字下划线中文组合的4-16位用户名&quot; onclick=&quot;t5();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;6-验证邮箱&quot; onclick=&quot;t6();&quot;&gt;&lt;/p&gt;</span><br><span class="line">	&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;7-清空script代码&quot; onclick=&quot;t7();&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">#正则表达式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/01/21/%E5%B7%A5%E5%85%B7/vs%20code%20%E7%9A%84%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vs code 的常用快捷键</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/01/13/%E5%B7%A5%E5%85%B7/Svn%E4%B8%8EGit%E7%9A%84%E5%8C%BA%E5%88%AB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Svn与Git的区别</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

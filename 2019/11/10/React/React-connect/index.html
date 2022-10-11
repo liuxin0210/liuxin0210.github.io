@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            React connect |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">React connect</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-11-10 17:26:13</span>
+        <span class="mobile">2019-11-10 17:26</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、connect用法"><a href="#一、connect用法" class="headerlink" title="一、connect用法"></a>一、connect用法</h2><blockquote>
+<p>作用：连接<code>React</code>组件与 <code>Redux store</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">connect([mapStateToProps], [mapDispatchToProps], [mergeProps],[options])</span><br><span class="line">// 这个函数允许我们将 store 中的数据作为 props 绑定到组件上</span><br><span class="line">const mapStateToProps = (state) =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    count: state.count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这个函数的第一个参数就是 <code>Redux</code> 的 <code>store</code>，我们从中摘取了 <code>count</code> 属性。你不必将 <code>state</code> 中的数据原封不动地传入组件，可以根据 <code>state</code> 中的数据，动态地输出组件需要的（最小）属性</li>
+<li>函数的第二个参数 <code>ownProps</code>，是组件自己的 <code>props</code></li>
+</ul>
+<blockquote>
+<p>当 <code>state</code> 变化，或者 <code>ownProps</code> 变化的时候，<code>mapStateToProps</code> 都会被调用，计算出一个新的 <code>stateProps</code>，（在与 <code>ownProps merge</code> 后）更新给组件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapDispatchToProps(dispatch, ownProps): dispatchProps</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect` 的第二个参数是 `mapDispatchToProps`，它的功能是，将 `action` 作为 `props`绑定到组件上，也会成为 `MyComp` 的 `props</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="二、原理解析"><a href="#二、原理解析" class="headerlink" title="二、原理解析"></a>二、原理解析</h2><blockquote>
+<p>首先<code>connect</code>之所以会成功，是因为<code>Provider</code>组件</p>
+</blockquote>
+<ul>
+<li>在原应用组件上包裹一层，使原来整个应用成为<code>Provider</code>的子组件</li>
+<li>接收<code>Redux</code>的<code>store</code>作为<code>props</code>，通过<code>context</code>对象传递给子孙组件上的<code>connect</code></li>
+</ul>
+<p><strong>connect做了些什么</strong></p>
+<blockquote>
+<p>它真正连接 <code>Redux</code> 和 <code>React</code>，它包在我们的容器组件的外一层，它接收上面 <code>Provider</code>提供的 <code>store</code> 里面的 <code>state</code>和 <code>dispatch</code>，传给一个构造函数，返回一个对象，以属性形式传给我们的容器组件</p>
+</blockquote>
+<h2 id="三、源码"><a href="#三、源码" class="headerlink" title="三、源码"></a>三、源码</h2><blockquote>
+<p><code>connect</code>是一个高阶函数，首先传入<code>mapStateToProps</code>、<code>mapDispatchToProps</code>，然后返回一个生产<code>Component</code>的函数(<code>wrapWithConnect</code>)，然后再将真正的<code>Component</code>作为参数传入<code>wrapWithConnect</code>，这样就生产出一个经过包裹的<code>Connect</code>组件，该组件具有如下特点</p>
+</blockquote>
+<ul>
+<li>通过<code>props.store</code>获取祖先<code>Component</code>的<code>store props</code>包括<code>stateProps</code>、<code>dispatchProps</code>、<code>parentProps</code>,合并在一起得到<code>nextState</code>，作为<code>props</code>传给真正的<code>Component</code></li>
+<li><code>componentDidMount</code>时，添加事件<code>this.store.subscribe(this.handleChange)</code>，实现页面交互</li>
+<li><code>shouldComponentUpdate</code>时判断是否有避免进行渲染，提升页面性能，并得到<code>nextState</code></li>
+<li><code>componentWillUnmount</code>时移除注册的事件<code>this.handleChange</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">// 主要逻辑</span><br><span class="line"></span><br><span class="line">export default function connect(mapStateToProps, mapDispatchToProps, mergeProps, options = &#123;&#125;) &#123;</span><br><span class="line">  return function wrapWithConnect(WrappedComponent) &#123;</span><br><span class="line">    class Connect extends Component &#123;</span><br><span class="line">      constructor(props, context) &#123;</span><br><span class="line">        // 从祖先Component处获得store</span><br><span class="line">        this.store = props.store || context.store</span><br><span class="line">        this.stateProps = computeStateProps(this.store, props)</span><br><span class="line">        this.dispatchProps = computeDispatchProps(this.store, props)</span><br><span class="line">        this.state = &#123; storeState: null &#125;</span><br><span class="line">        // 对stateProps、dispatchProps、parentProps进行合并</span><br><span class="line">        this.updateState()</span><br><span class="line">      &#125;</span><br><span class="line">      shouldComponentUpdate(nextProps, nextState) &#123;</span><br><span class="line">        // 进行判断，当数据发生改变时，Component重新渲染</span><br><span class="line">        if (propsChanged || mapStateProducedChange || dispatchPropsChanged) &#123;</span><br><span class="line">          this.updateState(nextProps)</span><br><span class="line">            return true</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        componentDidMount() &#123;</span><br><span class="line">          // 改变Component的state</span><br><span class="line">          this.store.subscribe(() = &#123;</span><br><span class="line">            this.setState(&#123;</span><br><span class="line">              storeState: this.store.getState()</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        render() &#123;</span><br><span class="line">          // 生成包裹组件Connect</span><br><span class="line">          return (</span><br><span class="line">            &lt;WrappedComponent &#123;...this.nextState&#125; /&gt;</span><br><span class="line">          )</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      Connect.contextTypes = &#123;</span><br><span class="line">        store: storeShape</span><br><span class="line">      &#125;</span><br><span class="line">      return Connect;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/React/">#React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/11/17/React/React-04-%E4%BA%8B%E4%BB%B6/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React 事件</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/11/04/React/React-03-%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React 声明周期</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            ES async/await |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">ES async/await</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-03-20 09:21:42</span>
+        <span class="mobile">2018-03-20 09:21</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/es6/">es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、含义"><a href="#一、含义" class="headerlink" title="一、含义"></a>一、含义</h2><blockquote>
+<p><code>async</code> 函数是什么？一句话，它就是 <code>Generator</code> 函数的语法糖</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 有一个 Generator 函数，依次读取两个文件</span><br><span class="line"></span><br><span class="line">const fs = require(&#x27;fs&#x27;);</span><br><span class="line"></span><br><span class="line">const readFile = function (fileName) &#123;</span><br><span class="line">  return new Promise(function (resolve, reject) &#123;</span><br><span class="line">    fs.readFile(fileName, function(error, data) &#123;</span><br><span class="line">      if (error) return reject(error);</span><br><span class="line">      resolve(data);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const gen = function* () &#123;</span><br><span class="line">  const f1 = yield readFile(&#x27;/etc/fstab&#x27;);</span><br><span class="line">  const f2 = yield readFile(&#x27;/etc/shells&#x27;);</span><br><span class="line">  console.log(f1.toString());</span><br><span class="line">  console.log(f2.toString());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面代码的函数<code>gen</code>可以写成<code>async</code>函数，就是下面这样</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const asyncReadFile = async function () &#123;</span><br><span class="line">  const f1 = await readFile(&#x27;/etc/fstab&#x27;);</span><br><span class="line">  const f2 = await readFile(&#x27;/etc/shells&#x27;);</span><br><span class="line">  console.log(f1.toString());</span><br><span class="line">  console.log(f2.toString());</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>async</code>函数就是将 <code>Generator</code> 函数的星号（<code>*</code>）替换成<code>async</code>，将<code>yield</code>替换成<code>await</code>，仅此而已</p>
+</blockquote>
+<p><strong>async函数对 Generator 函数的改进，体现在以下四点</strong></p>
+<ol>
+<li>内置执行器</li>
+</ol>
+<blockquote>
+<p><code>Generator</code>函数的执行必须靠执行器，所以才有了<code>co</code>模块，而<code>async</code>函数自带执行器。也就是说，<code>async</code>函数的执行，与普通函数一模一样，只要一行</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asyncReadFile();</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面的代码调用了<code>asyncReadFile</code>函数，然后它就会自动执行，输出最后结果。这完全不像 <code>Generator</code>函数，需要调用<code>next</code>方法，或者用<code>co</code>模块，才能真正执行，得到最后结果</p>
+</blockquote>
+<ol>
+<li>更好的语义</li>
+</ol>
+<blockquote>
+<p><code>async</code>和<code>await</code>，比起星号和<code>yield</code>，语义更清楚了。<code>async</code>表示函数里有异步操作，<code>await</code>表示紧跟在后面的表达式需要等待结果</p>
+</blockquote>
+<ol>
+<li>更广的适用性</li>
+</ol>
+<blockquote>
+<p><code>co</code>模块约定，<code>yield</code>命令后面只能是 <code>Thunk</code> 函数或 <code>Promise</code> 对象，而<code>async</code>函数的<code>await</code>命令后面，可以是 <code>Promise</code> 对象和原始类型的值（数值、字符串和布尔值，但这时等同于同步操作）</p>
+</blockquote>
+<ol>
+<li>返回值是 <code>Promise</code></li>
+</ol>
+<blockquote>
+<p><code>async</code>函数的返回值是 <code>Promise</code> 对象，这比 <code>Generator</code> 函数的返回值是 <code>Iterator</code> 对象方便多了。你可以用<code>then</code>方法指定下一步的操作</p>
+</blockquote>
+<p>进一步说，<code>async</code>函数完全可以看作多个异步操作，包装成的一个 <code>Promise</code> 对象，而<code>await</code>命令就是内部<code>then</code>命令的语法糖</p>
+<h2 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h2><blockquote>
+<p><code>async</code>函数返回一个 <code>Promise</code> 对象，可以使用<code>then</code>方法添加回调函数。当函数执行的时候，一旦遇到<code>await</code>就会先返回，等到异步操作完成，再接着执行函数体内后面的语句</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/53.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 调用该函数时，会立即返回一个Promise对象</span><br><span class="line">async function getStockPriceByName(name) &#123;</span><br><span class="line">  const symbol = await getStockSymbol(name);</span><br><span class="line">  const stockPrice = await getStockPrice(symbol);</span><br><span class="line">  return stockPrice;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getStockPriceByName(&#x27;goog&#x27;).then(function (result) &#123;</span><br><span class="line">  console.log(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>async 函数有多种使用形式</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 函数声明</span><br><span class="line">async function foo() &#123;&#125;</span><br><span class="line"></span><br><span class="line">// 函数表达式</span><br><span class="line">const foo = async function () &#123;&#125;;</span><br><span class="line"></span><br><span class="line">// 对象的方法</span><br><span class="line">let obj = &#123; async foo() &#123;&#125; &#125;;</span><br><span class="line">obj.foo().then(...)</span><br><span class="line"></span><br><span class="line">// Class 的方法</span><br><span class="line">class Storage &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    this.cachePromise = caches.open(&#x27;avatars&#x27;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  async getAvatar(name) &#123;</span><br><span class="line">    const cache = await this.cachePromise;</span><br><span class="line">    return cache.match(`/avatars/$&#123;name&#125;.jpg`);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const storage = new Storage();</span><br><span class="line">storage.getAvatar(&#x27;jake&#x27;).then(…);</span><br><span class="line"></span><br><span class="line">// 箭头函数</span><br><span class="line">const foo = async () =&gt; &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、语法"><a href="#三、语法" class="headerlink" title="三、语法"></a>三、语法</h2><blockquote>
+<p><code>async</code>函数的语法规则总体上比较简单，难点是错误处理机制</p>
+</blockquote>
+<h3 id="3-1-返回-Promise-对象"><a href="#3-1-返回-Promise-对象" class="headerlink" title="3.1 返回 Promise 对象"></a>3.1 返回 Promise 对象</h3><ul>
+<li><code>async</code>函数返回一个 <code>Promise</code> 对象</li>
+<li><code>async</code>函数内部<code>return</code>语句返回的值，会成为<code>then</code>方法回调函数的参数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 函数f内部return命令返回的值，会被then方法回调函数接收到</span><br><span class="line">async function f() &#123;</span><br><span class="line">  return &#x27;hello world&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(v =&gt; console.log(v))</span><br><span class="line">// &quot;hello world&quot;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>async</code>函数内部抛出错误，会导致返回的 <code>Promise</code> 对象变为<code>reject</code>状态。抛出的错误对象会被<code>catch</code>方法回调函数接收到</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  throw new Error(&#x27;出错了&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(</span><br><span class="line">  v =&gt; console.log(v),</span><br><span class="line">  e =&gt; console.log(e)</span><br><span class="line">)</span><br><span class="line">// Error: 出错了</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-Promise-对象的状态变化"><a href="#3-2-Promise-对象的状态变化" class="headerlink" title="3.2 Promise 对象的状态变化"></a>3.2 Promise 对象的状态变化</h3><blockquote>
+<p><code>async</code>函数返回的 <code>Promise</code> 对象，必须等到内部所有<code>await</code>命令后面的 <code>Promise</code> 对象执行完，才会发生状态改变，除非遇到<code>return</code>语句或者抛出错误。也就是说，只有<code>async</code>函数内部的异步操作执行完，才会执行<code>then</code>方法指定的回调函数</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">async function getTitle(url) &#123;</span><br><span class="line">  let response = await fetch(url);</span><br><span class="line">  let html = await response.text();</span><br><span class="line">  return html.match(/&lt;title&gt;([\s\S]+)&lt;\/title&gt;/i)[1];</span><br><span class="line">&#125;</span><br><span class="line">getTitle(&#x27;https://tc39.github.io/ecma262/&#x27;).then(console.log)</span><br><span class="line">// &quot;ECMAScript 2017 Language Specification&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-await-命令"><a href="#3-3-await-命令" class="headerlink" title="3.3 await 命令"></a>3.3 await 命令</h3><blockquote>
+<p>正常情况下，<code>await</code>命令后面是一个 <code>Promise</code> 对象，返回该对象的结果。如果不是 <code>Promise</code> 对象，就直接返回对应的值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  // 等同于</span><br><span class="line">  // return 123;</span><br><span class="line">  return await 123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(v =&gt; console.log(v))</span><br><span class="line">// 123</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>另一种情况是，<code>await</code>命令后面是一个<code>thenable</code>对象（即定义<code>then</code>方法的对象），那么<code>await</code>会将其等同于 <code>Promise</code> 对象</p>
+</blockquote>
+<ul>
+<li><code>await</code>命令后面的 <code>Promise</code> 对象如果变为<code>reject</code>状态，则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  await Promise.reject(&#x27;出错了&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f()</span><br><span class="line">.then(v =&gt; console.log(v))</span><br><span class="line">.catch(e =&gt; console.log(e))</span><br><span class="line">// 出错了</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意，上面代码中，<code>await</code>语句前面没有<code>return</code>，但是<code>reject</code>方法的参数依然传入了<code>catch</code>方法的回调函数。这里如果在<code>await</code>前面加上<code>return</code>，效果是一样的。</li>
+<li>任何一个<code>await</code>语句后面的 <code>Promise</code> 对象变为<code>reject</code>状态，那么整个<code>async</code>函数都会中断执行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  await Promise.reject(&#x27;出错了&#x27;);</span><br><span class="line">  await Promise.resolve(&#x27;hello world&#x27;); // 不会执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>有时，我们希望即使前一个异步操作失败，也不要中断后面的异步操作。这时可以将第一个<code>await</code>放在<code>try...catch</code>结构里面，这样不管这个异步操作是否成功，第二个<code>await</code>都会执行</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    await Promise.reject(&#x27;出错了&#x27;);</span><br><span class="line">  &#125; catch(e) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  return await Promise.resolve(&#x27;hello world&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f()</span><br><span class="line">.then(v =&gt; console.log(v))</span><br><span class="line">// hello world</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>另一种方法是<code>await</code>后面的 <code>Promise</code> 对象再跟一个<code>catch</code>方法，处理前面可能出现的错误。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  await Promise.reject(&#x27;出错了&#x27;)</span><br><span class="line">    .catch(e =&gt; console.log(e));</span><br><span class="line">  return await Promise.resolve(&#x27;hello world&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f()</span><br><span class="line">.then(v =&gt; console.log(v))</span><br><span class="line">// 出错了</span><br><span class="line">// hello world</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-错误处理"><a href="#3-4-错误处理" class="headerlink" title="3.4 错误处理"></a>3.4 错误处理</h3><blockquote>
+<p>如果<code>await</code>后面的异步操作出错，那么等同于<code>async</code>函数返回的 <code>Promise</code> 对象被<code>reject</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  await new Promise(function (resolve, reject) &#123;</span><br><span class="line">    throw new Error(&#x27;出错了&#x27;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f()</span><br><span class="line">.then(v =&gt; console.log(v))</span><br><span class="line">.catch(e =&gt; console.log(e))</span><br><span class="line">// Error：出错了</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>防止出错的方法，也是将其放在<code>try...catch</code>代码块之中</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">async function f() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    await new Promise(function (resolve, reject) &#123;</span><br><span class="line">      throw new Error(&#x27;出错了&#x27;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; catch(e) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  return await(&#x27;hello world&#x27;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果有多个<code>await</code>命令，可以统一放在<code>try...catch</code>结构中</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">async function main() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    const val1 = await firstStep();</span><br><span class="line">    const val2 = await secondStep(val1);</span><br><span class="line">    const val3 = await thirdStep(val1, val2);</span><br><span class="line"></span><br><span class="line">    console.log(&#x27;Final: &#x27;, val3);</span><br><span class="line">  &#125;</span><br><span class="line">  catch (err) &#123;</span><br><span class="line">    console.error(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-5-使用注意点"><a href="#3-5-使用注意点" class="headerlink" title="3.5 使用注意点"></a>3.5 使用注意点</h3><blockquote>
+<p>第一点：<code>await</code>命令后面的Promise对象，运行结果可能是<code>rejected</code>，所以最好把<code>await</code>命令放在<code>try...catch</code>代码块中</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">async function myFunction() &#123;</span><br><span class="line">  try &#123;</span><br><span class="line">    await somethingThatReturnsAPromise();</span><br><span class="line">  &#125; catch (err) &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 另一种写法</span><br><span class="line"></span><br><span class="line">async function myFunction() &#123;</span><br><span class="line">  await somethingThatReturnsAPromise()</span><br><span class="line">  .catch(function (err) &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第二点，多个<code>await</code>命令后面的异步操作，如果不存在继发关系，最好让它们同时触发</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// getFoo和getBar是两个独立的异步操作（即互不依赖），被写成继发关系。这样比较耗时，因为只有getFoo完成以后，才会执行getBar，完全可以让它们同时触发</span><br><span class="line"></span><br><span class="line">let foo = await getFoo();</span><br><span class="line">let bar = await getBar();</span><br><span class="line">// 两种写法，getFoo和getBar都是同时触发，这样就会缩短程序的执行时间。</span><br><span class="line"></span><br><span class="line">// 写法一</span><br><span class="line">let [foo, bar] = await Promise.all([getFoo(), getBar()]);</span><br><span class="line"></span><br><span class="line">// 写法二</span><br><span class="line">let fooPromise = getFoo();</span><br><span class="line">let barPromise = getBar();</span><br><span class="line">let foo = await fooPromise;</span><br><span class="line">let bar = await barPromise;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第三点，<code>await</code>命令只能用在<code>async</code>函数之中，如果用在普通函数，就会报错</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">async function dbFuc(db) &#123;</span><br><span class="line">  let docs = [&#123;&#125;, &#123;&#125;, &#123;&#125;];</span><br><span class="line"></span><br><span class="line">  // 报错</span><br><span class="line">  docs.forEach(function (doc) &#123;</span><br><span class="line">    await db.post(doc);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、async-函数的实现原理"><a href="#四、async-函数的实现原理" class="headerlink" title="四、async 函数的实现原理"></a>四、async 函数的实现原理</h2><blockquote>
+<p><code>async</code> 函数的实现原理，就是将 <code>Generator</code> 函数和自动执行器，包装在一个函数里</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">async function fn(args) &#123;</span><br><span class="line">  // ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 等同于</span><br><span class="line"></span><br><span class="line">function fn(args) &#123;</span><br><span class="line">  return spawn(function* () &#123;</span><br><span class="line">    // ...</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>所有的<code>async</code>函数都可以写成上面的第二种形式，其中的<code>spawn</code>函数就是自动执行器</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// spawn函数的实现，基本就是前文自动执行器的翻版</span><br><span class="line"></span><br><span class="line">function spawn(genF) &#123;</span><br><span class="line">  return new Promise(function(resolve, reject) &#123;</span><br><span class="line">    const gen = genF();</span><br><span class="line">    function step(nextF) &#123;</span><br><span class="line">      let next;</span><br><span class="line">      try &#123;</span><br><span class="line">        next = nextF();</span><br><span class="line">      &#125; catch(e) &#123;</span><br><span class="line">        return reject(e);</span><br><span class="line">      &#125;</span><br><span class="line">      if(next.done) &#123;</span><br><span class="line">        return resolve(next.value);</span><br><span class="line">      &#125;</span><br><span class="line">      Promise.resolve(next.value).then(function(v) &#123;</span><br><span class="line">        step(function() &#123; return gen.next(v); &#125;);</span><br><span class="line">      &#125;, function(e) &#123;</span><br><span class="line">        step(function() &#123; return gen.throw(e); &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    step(function() &#123; return gen.next(undefined); &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/es6/">#es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/03/23/html+css+js+ts/4-es6/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ES 2015~2019</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/03/18/html+css+js+ts/3-%E5%8E%9F%E5%9E%8B%E9%93%BE/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js-原型链</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

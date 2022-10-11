@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            vue-vuex使用 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">vue-vuex使用</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-07-20 16:34:22</span>
+        <span class="mobile">2018-07-20 16:34</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue/">vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><img src="https://vuex.vuejs.org/vuex.png" alt="img"></p>
+<h2 id="一、初始vuex"><a href="#一、初始vuex" class="headerlink" title="一、初始vuex"></a>一、初始vuex</h2><h3 id="1-1-vuex是什么"><a href="#1-1-vuex是什么" class="headerlink" title="1.1 vuex是什么"></a>1.1 vuex是什么</h3><blockquote>
+<ul>
+<li>&#96;&#96;&#96;<br>vuex<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">  就是把需要共享的变量全部存储在一个对象里面，然后将这个对象放在顶层组件中供其他组件使用</span><br><span class="line"></span><br><span class="line">  - 父子组件通信时，我们通常会采用 `props + emit` 这种方式。但当通信双方不是父子组件甚至压根不存在相关联系，或者一个状态需要共享给多个组件时，就会非常麻烦，数据也会相当难维护</span><br><span class="line"></span><br><span class="line">### 1.2 vuex中有什么</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+const store &#x3D; new Vuex.Store({<br>  state: {<br>  name: ‘weish’,<br>  age: 22<br>  },<br>  getters: {<br>  personInfo(state) {<br>      return <code>My name is $&#123;state.name&#125;, I am $&#123;state.age&#125;</code>;<br>  }<br>  }<br>  mutations: {<br>  SET_AGE(state, age) {<br>      commit(age, age);<br>  }<br>  },<br>  actions: {<br>  nameAsyn({commit}) {<br>      setTimeout(() &#x3D;&gt; {<br>          commit(‘SET_AGE’, 18);<br>      }, 1000);<br>  }<br>  },<br>  modules: {<br>  a: modulesA<br>  }<br>}</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 个就是最基本也是完整的`vuex`代码；`vuex` 包含有五个基本的对象</span><br><span class="line"></span><br><span class="line">- `state`：存储状态。也就是变量；</span><br><span class="line">- `getters`：派生状态。也就是`set`、`get`中的`get`，有两个可选参数：`state`、`getters`分别可以获取`state`中的变量和其他的`getters`。外部调用方式：`store.getters.personInfo()`。就和`vue`的`computed`差不多；</span><br><span class="line">- `mutations`：提交状态修改。也就是`set`、`get`中的`set`，这是`vuex`中唯一修改`state`的方式，但不支持异步操作。第一个参数默认是`state`。外部调用方式：`store.commit(&#x27;SET_AGE&#x27;, 18)`。和`vue`中的`methods`类似。</span><br><span class="line">- `actions`：和`mutations`类似。不过`actions`支持异步操作。第一个参数默认是和`store`具有相同参数属性的对象。外部调用方式：`store.dispatch(&#x27;nameAsyn&#x27;)`。</span><br><span class="line">- `modules`：`store`的子模块，内容就相当于是`store`的一个实例。调用方式和前面介绍的相似，只是要加上当前子模块名，如：`store.a.getters.xxx()`</span><br><span class="line"></span><br><span class="line">### 1.3 vue-cli中使用vuex的方式</span><br><span class="line"></span><br><span class="line">**目录结构**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>├── index.html<br>├── main.js<br>├── components<br>└── store<br>    ├── index.js          # 我们组装模块并导出 store 的地方<br>    ├── state.js          # 跟级别的 state<br>    ├── getters.js        # 跟级别的 getter<br>    ├── mutation-types.js # 根级别的mutations名称（官方推荐mutions方法名使用大写）<br>    ├── mutations.js      # 根级别的 mutation<br>    ├── actions.js        # 根级别的 action<br>    └── modules<br>        ├── m1.js         # 模块1<br>        └── m2.js         # 模块2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**state示例**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>const state &#x3D; {<br>    name: ‘weish’,<br>    age: 22<br>};</p>
+<p>export default state;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**getter示例**</span><br><span class="line"></span><br><span class="line">&gt; `getters.js`示例（我们一般使用`getters`来获取`state`的状态，而不是直接使用`state`）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export const name &#x3D; (state) &#x3D;&gt; {<br>    return state.name;<br>}</p>
+<p>export const age &#x3D; (state) &#x3D;&gt; {<br>    return state.age<br>}</p>
+<p>export const other &#x3D; (state) &#x3D;&gt; {<br>    return <code>My name is $&#123;state.name&#125;, I am $&#123;state.age&#125;.</code>;<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**mutation-type示例**</span><br><span class="line"></span><br><span class="line">&gt; 将所有`mutations`的函数名放在这个文件里</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export const SET_NAME &#x3D; ‘SET_NAME’;<br>export const SET_AGE &#x3D; ‘SET_AGE’;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**mutations示例**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import * as types from ‘.&#x2F;mutation-type.js’;</p>
+<p>export default {<br>    [types.SET_NAME](state, name) {<br>        state.name &#x3D; name;<br>    },<br>    [types.SET_AGE](state, age) {<br>        state.age &#x3D; age;<br>    }<br>};</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**actions示例**</span><br><span class="line"></span><br><span class="line">&gt; 异步操作、多个`commit`时</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import * as types from ‘.&#x2F;mutation-type.js’;</p>
+<p>export default {<br>    nameAsyn({commit}, {age, name}) {<br>        commit(types.SET_NAME, name);<br>        commit(types.SET_AGE, age);<br>    }<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**modules–m1.js示例**</span><br><span class="line"></span><br><span class="line">&gt; 如果不是很复杂的应用，一般来讲是不会分模块的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export default {<br>    state: {},<br>    getters: {},<br>    mutations: {},<br>    actions: {}<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**index.js示例（组装vuex)**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import vue from ‘vue’;<br>import vuex from ‘vuex’;<br>import state from ‘.&#x2F;state.js’;<br>import * as getters from ‘.&#x2F;getters.js’;<br>import mutations from ‘.&#x2F;mutations.js’;<br>import actions from ‘.&#x2F;actions.js’;<br>import m1 from ‘.&#x2F;modules&#x2F;m1.js’;<br>import m2 from ‘.&#x2F;modules&#x2F;m2.js’;<br>import createLogger from ‘vuex&#x2F;dist&#x2F;logger’; &#x2F;&#x2F; 修改日志</p>
+<p>vue.use(vuex);</p>
+<p>const debug &#x3D; process.env.NODE_ENV !&#x3D;&#x3D; ‘production’; &#x2F;&#x2F; 开发环境中为true，否则为false</p>
+<p>export default new vuex.Store({<br>    state,<br>    getters,<br>    mutations,<br>    actions,<br>    modules: {<br>        m1,<br>        m2<br>    },<br>    plugins: debug ? [createLogger()] : [] &#x2F;&#x2F; 开发环境下显示vuex的状态修改<br>});</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 最后将`store`实例挂载到`main.js`里面的`vue`上去就行了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import store from ‘.&#x2F;store&#x2F;index.js’;</p>
+<p>new Vue({<br>  el: ‘#app’,<br>  store,<br>  render: h &#x3D;&gt; h(App)<br>});</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 在`vue`组件中使用时，我们通常会使用`mapGetters`、`mapActions`、`mapMutations`，然后就可以按照`vue`调用`methods`和`computed`的方式去调用这些变量或函数，示例如</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import {mapGetters, mapMutations, mapActions} from ‘vuex’;</p>
+<p>&#x2F;* 只写组件中的script部分 *&#x2F;<br>export default {<br>    computed: {<br>        …mapGetters([<br>            name,<br>            age<br>        ])<br>    },<br>    methods: {<br>        …mapMutations({<br>            setName: ‘SET_NAME’,<br>            setAge: ‘SET_AGE’<br>        }),<br>        …mapActions([<br>            nameAsyn<br>        ])<br>    }<br>};</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 二、modules</span><br><span class="line"></span><br><span class="line">&gt; 在 src 目录下 , 新建一个 store 文件夹 , 然后在里面新建一个 index.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import Vue from ‘vue’<br>import vuex from ‘vuex’<br>Vue.use(vuex);</p>
+<p>export default new vuex.Store({<br>    state:{<br>        show:false<br>    }<br>})</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 在 `main.js` 里的代码应该改成,在实例化 `Vue`对象时加入 `store` 对象</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&#x2F;&#x2F;vuex<br>import store from ‘.&#x2F;store’</p>
+<p>new Vue({<br>  el: ‘#app’,<br>  router,<br>  store,&#x2F;&#x2F;使用store<br>  template: ‘<App/>‘,<br>  components: { App }<br>})</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 这样就把 `store` 分离出去了 , 那么还有一个问题是 : 这里 `$store.state.show` 无论哪个组件都可以使用 , 那组件多了之后 , 状态也多了 , 这么多状态都堆在 store 文件夹下的 `index.js` 不好维护怎么办 ?</span><br><span class="line"></span><br><span class="line">- 我们可以使用 `vuex` 的 `modules` , 把 `store` 文件夹下的 `index.js` 改成</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>import Vue from ‘vue’<br>import vuex from ‘vuex’<br>Vue.use(vuex);</p>
+<p>import dialog_store from ‘..&#x2F;components&#x2F;dialog_store.js’;&#x2F;&#x2F;引入某个store对象</p>
+<p>export default new vuex.Store({<br>    modules: {<br>        dialog: dialog_store<br>    }<br>})</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 这里我们引用了一个 `dialog_store.js` , 在这个 `js`文件里我们就可以单独写 `dialog` 组件的状态了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export default {<br>    state:{<br>        show:false<br>    }<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 做出这样的修改之后 , 我们将之前我们使用的 `$store.state.show` 统统改为 `$store.state.dialog.show`即可</span><br><span class="line"></span><br><span class="line">- 如果还有其他的组件需要使用 `vuex` , 就新建一个对应的状态文件 , 然后将他们加入 `store`文件夹下的 `index.js`文件中的 `modules` 中</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>modules: {<br>    dialog: dialog_store,<br>    other: other,&#x2F;&#x2F;其他组件<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 三、mutations</span><br><span class="line"></span><br><span class="line">&gt; 对`vuex` 的依赖仅仅只有一个 `$store.state.dialog.show` 一个状态 , 但是如果我们要进行一个操作 , 需要依赖很多很多个状态 , 那管理起来又麻烦了</span><br><span class="line"></span><br><span class="line">- `mutations`里的操作必须是同步的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export default {<br>    state:{&#x2F;&#x2F;state<br>        show:false<br>    },<br>    mutations:{<br>        switch_dialog(state){&#x2F;&#x2F;这里的state对应着上面这个state<br>            state.show &#x3D; state.show?false:true;<br>            &#x2F;&#x2F;你还可以在这里执行其他的操作改变state<br>        }<br>    }<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 使用 `mutations` 后 , 原先我们的父组件可以改为</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<template>
+  <div id="app">
+    <a class="link"   href="javascript:;"  @click="$store.commit('switch_dialog')">点击<i class="fas fa-external-link-alt"></i></a>
+    <t-dialog></t-dialog>
+  </div>
+</template>
+
+<script>
+import dialog from './components/dialog.vue'
+export default {
+  components:{
+    "t-dialog":dialog
+  }
+}
+</script>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 使用 `$store.commit(&#x27;switch_dialog&#x27;)` 来触发 `mutations` 中的 `switch_dialog` 方法</span><br><span class="line"></span><br><span class="line">## 四、actions</span><br><span class="line"></span><br><span class="line">&gt; 多个 `state` 的操作 , 使用 `mutations`会来触发会比较好维护 , 那么需要执行多个 `mutations` 就需要用 `action` 了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export default {<br>    state:{&#x2F;&#x2F;state<br>        show:false<br>    },<br>    mutations:{<br>        switch_dialog(state){&#x2F;&#x2F;这里的state对应着上面这个state<br>            state.show &#x3D; state.show?false:true;<br>            &#x2F;&#x2F;你还可以在这里执行其他的操作改变state<br>        }<br>    },<br>    actions:{<br>        switch_dialog(context){&#x2F;&#x2F;这里的context和我们使用的$store拥有相同的对象和方法<br>            context.commit(‘switch_dialog’);<br>            &#x2F;&#x2F;你还可以在这里触发其他的mutations方法<br>        },<br>    }<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 那么 , 在之前的父组件中 , 我们需要做修改 , 来触发 `action` 里的 `switch_dialog` 方法</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<template>
+  <div id="app">
+    <a class="link"   href="javascript:;"  @click="$store.dispatch('switch_dialog')">点击<i class="fas fa-external-link-alt"></i></a>
+    <t-dialog></t-dialog>
+  </div>
+</template>
+
+<script>
+import dialog from './components/dialog.vue'
+export default {
+  components:{
+    "t-dialog":dialog
+  }
+}
+</script>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 使用 `$store.dispatch(&#x27;switch_dialog&#x27;)` 来触发 `action` 中的 `switch_dialog` 方法。</span><br><span class="line">- 官方推荐 , 将异步操作放在 `action`中</span><br><span class="line"></span><br><span class="line">## 五、getters</span><br><span class="line"></span><br><span class="line">&gt; `getters`和 `vue` 中的`computed` 类似 , 都是用来计算 `state` 然后生成新的数据 ( 状态 ) 的</span><br><span class="line"></span><br><span class="line">- 假如我们需要一个与状态 `show` 刚好相反的状态 , 使用 `vue` 中的 `computed` 可以这样算出来</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>computed(){<br>    not_show(){<br>        return !this.$store.state.dialog.show;<br>    }<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 那么 , 如果很多很多个组件中都需要用到这个与 `show`刚好相反的状态 , 那么我们需要写很多很多个 `not_show`, 使用 `getters`就可以解决这种问题</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>export default {<br>    state:{&#x2F;&#x2F;state<br>        show:false<br>    },<br>    getters:{<br>        not_show(state){&#x2F;&#x2F;这里的state对应着上面这个state<br>            return !state.show;<br>        }<br>    },<br>    mutations:{<br>        switch_dialog(state){&#x2F;&#x2F;这里的state对应着上面这个state<br>            state.show &#x3D; state.show?false:true;<br>            &#x2F;&#x2F;你还可以在这里执行其他的操作改变state<br>        }<br>    },<br>    actions:{<br>        switch_dialog(context){&#x2F;&#x2F;这里的context和我们使用的$store拥有相同的对象和方法<br>            context.commit(‘switch_dialog’);<br>            &#x2F;&#x2F;你还可以在这里触发其他的mutations方法<br>        },<br>    }<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; 我们在组件中使用 `$store.state.dialog.show` 来获得状态 `show` , 类似的 , 我们可以使用 `$store.getters.not_show` 来获得状态 `not_show`</span><br><span class="line"></span><br><span class="line">- 注意 : `$store.getters.not_show` 的值是不能直接修改的 , 需要对应的 `state` 发生变化才能修改</span><br><span class="line"></span><br><span class="line">## 六、mapState、mapGetters、mapActions</span><br><span class="line"></span><br><span class="line">&gt; 很多时候 , `$store.state.dialog.show` 、`$store.dispatch(&#x27;switch_dialog&#x27;)` 这种写法很不方便</span><br><span class="line"></span><br><span class="line">- 使用 `mapState`、`mapGetters`、`mapActions` 就不会这么复杂了</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<template>
+  <el-dialog :visible.sync="show"></el-dialog>
+</template>
+
+<script>
+import {mapState} from 'vuex';
+export default {
+  computed:{
+
+    //这里的三点叫做 : 扩展运算符
+    ...mapState({
+      show:state=>state.dialog.show
+    }),
+  }
+}
+</script>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">相当于</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<template>
+  <el-dialog :visible.sync="show"></el-dialog>
+</template>
+
+<script>
+import {mapState} from 'vuex';
+export default {
+  computed:{
+    show(){
+        return this.$store.state.dialog.show;
+    }
+  }
+}
+</script>
+<p>&#96;&#96;&#96;</p>
+<blockquote>
+<p><code>mapGetters</code>、<code>mapActions</code> 和 <code>mapState</code> 类似 , <code>mapGetters</code> 一般也写在 <code>computed</code> 中 , <code>mapActions</code> 一般写在 <code>methods</code> 中</p>
+</blockquote>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/vue/">#vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/07/23/Vue/vue-%E9%83%A8%E7%BD%B2404%E9%97%AE%E9%A2%98/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-部署404问题</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/07/17/Vue/vue-Vue.observable/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-Vue.observable</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

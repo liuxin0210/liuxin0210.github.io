@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            TCP/IP协议 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">TCP/IP协议</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-05-11 11:13:48</span>
+        <span class="mobile">2018-05-11 11:13</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/http/">http</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/http/">http</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>TCP&#x2F;IP，<strong>传输控制协议</strong>&#x2F;<strong>网际协议</strong>，是指能够在多个不同网络间实现信息传输的协议簇</p>
+<ul>
+<li>TCP（传输控制协议）</li>
+</ul>
+<p>一种面向连接的、可靠的、基于字节流的传输层通信协议</p>
+<ul>
+<li>IP（网际协议）</li>
+</ul>
+<p>用于封包交换数据网络的协议</p>
+<p>TCP&#x2F;IP协议不仅仅指的是<code>TCP</code>和<code>IP</code>两个协议，而是指一个由<code>FTP</code>、<code>SMTP</code>、<code>TCP</code>、<code>UDP</code>、<code>IP</code>等协议构成的协议簇，</p>
+<p>只是因为在<code>TCP/IP</code>协议中<code>TCP</code>协议和<code>IP</code>协议最具代表性，所以通称为TCP&#x2F;IP协议族（英语：TCP&#x2F;IP Protocol Suite，或TCP&#x2F;IP Protocols）</p>
+<h2 id="二、划分"><a href="#二、划分" class="headerlink" title="二、划分"></a>二、划分</h2><p>TCP&#x2F;IP协议族按层次分别了五层体系或者四层体系</p>
+<p>五层体系的协议结构是综合了 OSI 和 TCP&#x2F;IP 优点的一种协议，包括应用层、传输层、网络层、数据链路层和物理层</p>
+<p>五层协议的体系结构只是为介绍网络原理而设计的，实际应用还是 TCP&#x2F;IP 四层体系结构，包括应用层、传输层、网络层（网际互联层）、网络接口层</p>
+<p>如下图所示：</p>
+<p><img src="https://static.vue-js.com/5bb93610-b647-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<h3 id="五层体系"><a href="#五层体系" class="headerlink" title="五层体系"></a>五层体系</h3><h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p><code>TCP/IP</code> 模型将 <code>OSI</code>参考模型中的会话层、表示层和应用层的功能合并到一个应用层实现，通过不同的应用层协议为不同的应用提供服务</p>
+<p>如：<code>FTP</code>、<code>Telnet</code>、<code>DNS</code>、<code>SMTP</code> 等</p>
+<h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p>该层对应于 OSI 参考模型的传输层，为上层实体提供源端到对端主机的通信功能</p>
+<p>传输层定义了两个主要协议：传输控制协议（TCP）和用户数据报协议（UDP）</p>
+<p>其中面向连接的 TCP 协议保证了数据的传输可靠性，面向无连接的 UDP 协议能够实现数据包简单、快速地传输</p>
+<h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>负责为分组网络中的不同主机提供通信服务，并通过选择合适的路由将数据传递到目标主机</p>
+<p>在发送数据时，网络层把运输层产生的报文段或用户数据封装成分组或包进行传送</p>
+<h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a><a class="link"   target="_blank" rel="noopener" href="https://vue3js.cn/interview/http/TCP_IP.html#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82" ><i class="fas fa-external-link-alt"></i></a>数据链路层</h4><p>数据链路层在两个相邻节点传输数据时，将网络层交下来的IP数据报组装成帧，在两个相邻节点之间的链路上传送帧</p>
+<h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>保数据可以在各种物理媒介上进行传输，为数据的传输提供可靠的环境</p>
+<h3 id="四层体系"><a href="#四层体系" class="headerlink" title="四层体系"></a>四层体系</h3><p>TCP&#x2F;IP 的四层结构则如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>层次名称</th>
+<th>单位</th>
+<th>功 能</th>
+<th>协 议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网络接口层</td>
+<td>帧</td>
+<td>负责实际数据的传输，对应OSI参考模型的下两层</td>
+<td>HDLC（高级链路控制协议）PPP（点对点协议） SLIP（串行线路接口协议）</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>数据报</td>
+<td>负责网络间的寻址数据传输，对应OSI参考模型的第三层</td>
+<td>IP（网际协议） ICMP（网际控制消息协议）ARP（地址解析协议） RARP（反向地址解析协议）</td>
+</tr>
+<tr>
+<td>传输层</td>
+<td>报文段</td>
+<td>负责提供可靠的传输服务，对应OSI参考模型的第四层</td>
+<td>TCP（控制传输协议） UDP（用户数据报协议）</td>
+</tr>
+<tr>
+<td>应用层</td>
+<td></td>
+<td>负责实现一切与应用程序相关的功能，对应OSI参考模型的上三层</td>
+<td>FTP（文件传输协议） HTTP（超文本传输协议） DNS（域名服务器协议）SMTP（简单邮件传输协议）NFS（网络文件系统协议）</td>
+</tr>
+</tbody></table>
+<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>OSI 参考模型与 TCP&#x2F;IP 参考模型区别如下：</p>
+<p>相同点：</p>
+<ul>
+<li>OSI 参考模型与 TCP&#x2F;IP 参考模型都采用了层次结构</li>
+<li>都能够提供面向连接和无连接两种通信服务机制</li>
+</ul>
+<p>不同点：</p>
+<ul>
+<li>OSI 采用的七层模型； TCP&#x2F;IP 是四层或五层结构</li>
+<li>TCP&#x2F;IP 参考模型没有对网络接口层进行细分，只是一些概念性的描述； OSI 参考模型对服务和协议做了明确的区分</li>
+<li>OSI 参考模型虽然网络划分为七层，但实现起来较困难。TCP&#x2F;IP 参考模型作为一种简化的分层结构是可以的</li>
+<li>TCP&#x2F;IP协议去掉表示层和会话层的原因在于会话层、表示层、应用层都是在应用程序内部实现的，最终产出的是一个应用数据包，而应用程序之间是几乎无法实现代码的抽象共享的，这也就造成 <code>OSI</code> 设想中的应用程序维度的分层是无法实现的</li>
+</ul>
+<p>三种模型对应关系如下图所示：</p>
+<p><img src="https://static.vue-js.com/3fbff4d0-b647-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/http/">#http</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/05/13/http/TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">TCP和UDP的区别</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/05/08/http/OSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">OSI七层模型</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

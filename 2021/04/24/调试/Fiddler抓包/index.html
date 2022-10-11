@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            Fiddler 抓包分析 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Fiddler 抓包分析</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-04-24 18:09:17</span>
+        <span class="mobile">2021-04-24 18:09</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%8A%93%E5%8C%85/">抓包</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、Fiddler简介"><a href="#一、Fiddler简介" class="headerlink" title="一、Fiddler简介"></a>一、Fiddler简介</h2><blockquote>
+<p><code>Fiddler</code>是位于客户端和服务器端的<code>HTTP</code>代理，也是目前最常用的<code>http</code>抓包工具之一 。 它能够记录客户端和服务器之间的所有 <code>HTTP</code>请求，可以针对特定的<code>HTTP</code>请求，分析请求数据、设置断点、调试<code>web</code>应用、修改请求的数据，甚至可以修改服务器返回的数据，功能非常强大，是<code>web</code>调试的利器</p>
+</blockquote>
+<ul>
+<li>客户端的所有请求都要先经过<code>Fiddler</code>，然后转发到相应的服务器，反之，服务器端的所有响应，也都会先经过<code>Fiddler</code>然后发送到客户端</li>
+<li>使用了<code>Fiddler</code>之后，web客户端和服务器的请求如下所示</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/187.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/188.png" alt="img"></p>
+<p><strong>主界面中主要包括四个常用的块</strong></p>
+<ul>
+<li><code>Fiddler</code>的菜单栏，上图绿色部分。包括捕获<code>http</code>请求，停止捕获请求，保存<code>http</code>请求，载入本地<code>session</code>、设置捕获规则等功能。</li>
+<li><code>Fiddler</code>的工具栏,上图红色部分。包括<code>Fiddler</code>针对当前<code>view</code>的操作（暂停，清除<code>session</code>,<code>decode</code>模式、清除缓存等）。</li>
+<li><code>web Session</code>面板，上图黄色区域，主要是<code>Fiddler</code>抓取到的每条<code>http</code>请求（每一条称为一个<code>session</code>）,主要包含了请求的<code>url</code>，协议，状态码，<code>body</code>等信息，详细的字段含义如下图所示</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/189.png" alt="img"></p>
+<h2 id="二、HTTP请求图标说明"><a href="#二、HTTP请求图标说明" class="headerlink" title="二、HTTP请求图标说明"></a>二、HTTP请求图标说明</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/190.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/191.png" alt="img"></p>
+<h2 id="三、Statistic"><a href="#三、Statistic" class="headerlink" title="三、Statistic"></a>三、Statistic</h2><blockquote>
+<p>关于HTTP请求的性能和其他数据分析</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/192.png" alt="img"></p>
+<blockquote>
+<p>我们可以从中看出一些基本性能数据：如DNS解析的时间消耗是<code>8ms</code>,建立<code>TCP/IP</code>连接的时间消耗是<code>8ms</code>等等信息</p>
+</blockquote>
+<h2 id="四、Inspectors"><a href="#四、Inspectors" class="headerlink" title="四、Inspectors"></a>四、Inspectors</h2><blockquote>
+<p>分为上下两个部分，上半部分是请求头部分，下半部分是响应头部分。对于每一部分，提供了多种不同格式查看每个请求和响应的内容。</p>
+</blockquote>
+<ul>
+<li>JPG 格式使用 ImageView 就可以看到图片</li>
+<li>HTML&#x2F;JS&#x2F;CSS 使用 TextView可以看到响应的内容。</li>
+<li>Raw标签可以查看原始的符合HTTP标准的请求和响应头。</li>
+<li>Auth则可以查看授权Proxy-Authorization 和 Authorization的相关信息。</li>
+<li>Cookies标签可以看到请求的cookie和响应的set-cookie头信息</li>
+</ul>
+<h2 id="五、Composer"><a href="#五、Composer" class="headerlink" title="五、Composer"></a>五、Composer</h2><blockquote>
+<p>老版本的<code>fiddler</code>中叫<code>request-builder</code>.顾名思义，可以构建相应的请求，有两种常用的方式构建请求</p>
+</blockquote>
+<ul>
+<li><code>Parsed 输入请求的url之后</code>executed<code>即可，也可以修改相应的头信息（如添加常用的</code>accept<code>,</code>host<code>,</code>referrer<code>,</code>cookie<code>，</code>cache-control<code>等头部）后</code>execute&#96;.</li>
+<li><code>Raw</code>。使用HTTP头部信息构建<code>http</code>请求。与上类似</li>
+</ul>
+<h2 id="六、fiddler过滤会话"><a href="#六、fiddler过滤会话" class="headerlink" title="六、fiddler过滤会话"></a>六、fiddler过滤会话</h2><blockquote>
+<p>问题：每次使用<code>Fiddler</code>,<br>打开一个网站，都能在<code>Fiddler</code>中看到几十个会话，看得眼花缭乱。</p>
+</blockquote>
+<ul>
+<li>期望：只想抓取自己想要的请求</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/193.png" alt="img"></p>
+<h2 id="七、Response乱码时的处理方法"><a href="#七、Response乱码时的处理方法" class="headerlink" title="七、Response乱码时的处理方法"></a>七、Response乱码时的处理方法</h2><blockquote>
+<p>问题：有时候我们看到<code>Response</code>中的<code>HTML</code>是乱码的， 这是因为<code>HTML</code>被压缩了， 我们可以通过两种方法去解压缩</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/194.png" alt="img"></p>
+<ul>
+<li>方法二：选中工具栏中的”Decode”。 这样会自动解压缩</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/195.png" alt="img"></p>
+<h2 id="八、反向代理-AutoResponder"><a href="#八、反向代理-AutoResponder" class="headerlink" title="八、反向代理-AutoResponder"></a>八、反向代理-AutoResponder</h2><blockquote>
+<p>原理：利用<code>fiddler</code>作為反向代理。意思就是将外界的<code>request</code>请求端口修改掉！ 改写返回数据，最实用的功能</p>
+</blockquote>
+<ul>
+<li>用浏览器随意输入一个网址，如<code>http://www.baidu.com/</code></li>
+<li>选中序号<code>16</code>记录，右击-勾选<code>“Unlock fo Editing”</code>,选择<code>Fiddler</code>右侧<code>reponse</code>块下的<code>TextView</code>，这里修改<code>title</code>,如图：</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/196.png" alt="img"></p>
+<ul>
+<li>选择<code>Fiddler</code>右侧<code>reponse</code>块下的<code>TextView</code>，这里修改<code>title</code>,如图：</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/197.png" alt="img"></p>
+<ul>
+<li>去掉<code>“Unlock for Editing”</code>，再选择右侧上方的<code>AutoResponder</code>,勾选下方的<code>checkbox</code>选框，并将序号<code>16</code>托到下方，同时，里面会多条记录，如下图：</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/198.png" alt="img"></p>
+<ul>
+<li>回到浏览器，刷新页面，如图，标题变为上面改的内容</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/199.png" alt="img"></p>
+<h2 id="九、fiddler提供了一个功能，让我们模拟低速网路环境"><a href="#九、fiddler提供了一个功能，让我们模拟低速网路环境" class="headerlink" title="九、fiddler提供了一个功能，让我们模拟低速网路环境"></a>九、fiddler提供了一个功能，让我们模拟低速网路环境</h2><blockquote>
+<p>启用方法如：Rules → Performances → Simulate Modem Speeds</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/200.png" alt="img"></p>
+<h2 id="十、直接在fiddler上配置host"><a href="#十、直接在fiddler上配置host" class="headerlink" title="十、直接在fiddler上配置host"></a>十、直接在fiddler上配置host</h2><blockquote>
+<p>点击<code>tools&gt;&gt;hosts</code>,在里面填写自己想要设置的<code>host</code>即可</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/201.png" alt="img"></p>
+<h2 id="十一、Fiddler显示请求服务器的ip及系统环境的配置方法"><a href="#十一、Fiddler显示请求服务器的ip及系统环境的配置方法" class="headerlink" title="十一、Fiddler显示请求服务器的ip及系统环境的配置方法"></a>十一、Fiddler显示请求服务器的ip及系统环境的配置方法</h2><ul>
+<li>打开<code>Rules——&gt;Customize Rules</code></li>
+<li>找到如下这段代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">static function Main()</span><br><span class="line">&#123;</span><br><span class="line">var today: Date = new Date();</span><br><span class="line">FiddlerObject.StatusText = &quot; CustomRules.js was loaded at: &quot; + today;</span><br><span class="line">// Uncomment to add a &quot;Server&quot; column containing the response &quot;Server&quot; header, if present</span><br><span class="line"></span><br><span class="line">在这一行后面添加如下代码：</span><br><span class="line"></span><br><span class="line">// 显示服务器web环境</span><br><span class="line">FiddlerObject.UI.lvSessions.AddBoundColumn(&quot;Server&quot;, 50, &quot;@response.server&quot;);</span><br><span class="line">// 显示服务器IP地址</span><br><span class="line">FiddlerObject.UI.lvSessions.AddBoundColumn(&quot;HostIP&quot;, 50, &quot;x-hostIP&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置后重启<code>fiddler</code>，效果如下</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/202.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/203.png" alt="img"></p>
+<h2 id="十二、fiddler断点调试"><a href="#十二、fiddler断点调试" class="headerlink" title="十二、fiddler断点调试"></a>十二、fiddler断点调试</h2><blockquote>
+<p>第一种方法：菜单栏 <code>Rules</code> –》 <code>Automatic Breakpoints</code> –》 <code>Before Requests</code>(请求被发送到服务器端之前)；或者 <code>After Responses</code>(响应返回客户端之前)，这种设置对客户机发出的所有请求都进行拦截</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/204.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/205.png" alt="img"></p>
+<h2 id="十三、配合SwitchySharp插件使用"><a href="#十三、配合SwitchySharp插件使用" class="headerlink" title="十三、配合SwitchySharp插件使用"></a>十三、配合SwitchySharp插件使用</h2><blockquote>
+<p>为<code>fiddler</code>创建一个规则，代理到本地的<code>8888</code>端口（<code>fiddler</code>所用的端口）<br><code>google</code>设置代理的方法：下载<code>SwitchySharp</code>插件，设置如下：</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/206.png" alt="img"></p>
+<ul>
+<li>接着点击保存即可~ 这样在需要的时候可以切换到<code>Fiddler</code></li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/207.png" alt="img"></p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%8A%93%E5%8C%85/">#抓包</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/29/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8%E6%8F%92%E7%AE%B1%E8%B7%A8%E5%9F%9F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">浏览器安全插箱跨域</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/03/30/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%9B%BE%E8%A7%A3%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">图解前端性能优化</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

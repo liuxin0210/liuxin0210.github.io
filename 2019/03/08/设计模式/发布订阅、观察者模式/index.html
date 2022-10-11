@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            发布订阅、观察者模式（观察者模式） |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">发布订阅、观察者模式（观察者模式）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-03-08 15:23:19</span>
+        <span class="mobile">2019-03-08 15:23</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、观察者模式"><a href="#一、观察者模式" class="headerlink" title="一、观察者模式"></a>一、观察者模式</h2><p>观察者模式定义了对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知，并自动更新</p>
+<p>观察者模式属于行为型模式，行为型模式关注的是对象之间的通讯，观察者模式就是观察者和被观察者之间的通讯</p>
+<p><img src="https://static.vue-js.com/d3a80020-3f7c-11ec-a752-75723a64e8f5.png" alt="img"></p>
+<p>例如生活中，我们可以用报纸期刊的订阅来形象的说明，当你订阅了一份报纸，每天都会有一份最新的报纸送到你手上，有多少人订阅报纸，报社就会发多少份报纸</p>
+<p>报社和订报纸的客户就形成了一对多的依赖关系</p>
+<p>实现代码如下：</p>
+<p>被观察者模式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Subject</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span> = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">addObserver</span>(<span class="params">observer</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">push</span>(observer);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">removeObserver</span>(<span class="params">observer</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> index = <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">findIndex</span>(<span class="function"><span class="params">o</span> =&gt;</span> o.<span class="property">name</span> === observer.<span class="property">name</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">observerList</span>.<span class="title function_">splice</span>(index, <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">notifyObservers</span>(<span class="params">message</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> observers = <span class="variable language_">this</span>.<span class="property">observeList</span>;</span><br><span class="line">    observers.<span class="title function_">forEach</span>(<span class="function"><span class="params">observer</span> =&gt;</span> observer.<span class="title function_">notified</span>(message));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>观察者：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Observer &#123;</span><br><span class="line"></span><br><span class="line">  constructor(name, subject) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    if (subject) &#123;</span><br><span class="line">      subject.addObserver(this);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  notified(message) &#123;</span><br><span class="line">    console.log(this.name, &#x27;got message&#x27;, message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> subject = <span class="keyword">new</span> <span class="title class_">Subject</span>();</span><br><span class="line"><span class="keyword">const</span> observerA = <span class="keyword">new</span> <span class="title class_">Observer</span>(<span class="string">&#x27;observerA&#x27;</span>, subject);</span><br><span class="line"><span class="keyword">const</span> observerB = <span class="keyword">new</span> <span class="title class_">Observer</span>(<span class="string">&#x27;observerB&#x27;</span>);</span><br><span class="line">subject.<span class="title function_">addObserver</span>(observerB);</span><br><span class="line">subject.<span class="title function_">notifyObservers</span>(<span class="string">&#x27;Hello from subject&#x27;</span>);</span><br><span class="line">subject.<span class="title function_">removeObserver</span>(observerA);</span><br><span class="line">subject.<span class="title function_">notifyObservers</span>(<span class="string">&#x27;Hello again&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码中，观察者主动申请加入被观察者的列表，被观察者主动将观察者加入列表</p>
+<h2 id="二、发布订阅模式"><a href="#二、发布订阅模式" class="headerlink" title="二、发布订阅模式"></a>二、发布订阅模式</h2><p>发布-订阅是一种消息范式，消息的发送者（称为发布者）不会将消息直接发送给特定的接收者（称为订阅者）。而是将发布的消息分为不同的类别，无需了解哪些订阅者（如果有的话）可能存在</p>
+<p>同样的，订阅者可以表达对一个或多个类别的兴趣，只接收感兴趣的消息，无需了解哪些发布者存在</p>
+<p><img src="https://static.vue-js.com/e24d3cd0-3f7c-11ec-8e64-91fdec0f05a1.png" alt="img"></p>
+<p>实现代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PubSub</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">messages</span> = &#123;&#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">listeners</span> = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加发布者</span></span><br><span class="line">  <span class="title function_">publish</span>(<span class="params">type, content</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> existContent = <span class="variable language_">this</span>.<span class="property">messages</span>[type];</span><br><span class="line">    <span class="keyword">if</span> (!existContent) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">messages</span>[type] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">messages</span>[type].<span class="title function_">push</span>(content);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加订阅者</span></span><br><span class="line">  <span class="title function_">subscribe</span>(<span class="params">type, cb</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> existListener = <span class="variable language_">this</span>.<span class="property">listeners</span>[type];</span><br><span class="line">    <span class="keyword">if</span> (!existListener) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">listeners</span>[type] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">listeners</span>[type].<span class="title function_">push</span>(cb);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 通知</span></span><br><span class="line">  <span class="title function_">notify</span>(<span class="params">type</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> messages = <span class="variable language_">this</span>.<span class="property">messages</span>[type];</span><br><span class="line">    <span class="keyword">const</span> subscribers = <span class="variable language_">this</span>.<span class="property">listeners</span>[type] || [];</span><br><span class="line">    subscribers.<span class="title function_">forEach</span>(<span class="function">(<span class="params">cb, index</span>) =&gt;</span> <span class="title function_">cb</span>(messages[index]));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>发布者代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Publisher</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, context</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">context</span> = context;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">publish</span>(<span class="params">type, content</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">context</span>.<span class="title function_">publish</span>(type, content);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>订阅者代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Subscriber</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">name, context</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">name</span> = name;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">context</span> = context;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">subscribe</span>(<span class="params">type, cb</span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">context</span>.<span class="title function_">subscribe</span>(type, cb);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">TYPE_A</span> = <span class="string">&#x27;music&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TYPE_B</span> = <span class="string">&#x27;movie&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">TYPE_C</span> = <span class="string">&#x27;novel&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pubsub = <span class="keyword">new</span> <span class="title class_">PubSub</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> publisherA = <span class="keyword">new</span> <span class="title class_">Publisher</span>(<span class="string">&#x27;publisherA&#x27;</span>, pubsub);</span><br><span class="line">publisherA.<span class="title function_">publish</span>(<span class="variable constant_">TYPE_A</span>, <span class="string">&#x27;we are young&#x27;</span>);</span><br><span class="line">publisherA.<span class="title function_">publish</span>(<span class="variable constant_">TYPE_B</span>, <span class="string">&#x27;the silicon valley&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> publisherB = <span class="keyword">new</span> <span class="title class_">Publisher</span>(<span class="string">&#x27;publisherB&#x27;</span>, pubsub);</span><br><span class="line">publisherB.<span class="title function_">publish</span>(<span class="variable constant_">TYPE_A</span>, <span class="string">&#x27;stronger&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> publisherC = <span class="keyword">new</span> <span class="title class_">Publisher</span>(<span class="string">&#x27;publisherC&#x27;</span>, pubsub);</span><br><span class="line">publisherC.<span class="title function_">publish</span>(<span class="variable constant_">TYPE_C</span>, <span class="string">&#x27;a brief history of time&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> subscriberA = <span class="keyword">new</span> <span class="title class_">Subscriber</span>(<span class="string">&#x27;subscriberA&#x27;</span>, pubsub);</span><br><span class="line">subscriberA.<span class="title function_">subscribe</span>(<span class="variable constant_">TYPE_A</span>, <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;subscriberA received&#x27;</span>, res)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> subscriberB = <span class="keyword">new</span> <span class="title class_">Subscriber</span>(<span class="string">&#x27;subscriberB&#x27;</span>, pubsub);</span><br><span class="line">subscriberB.<span class="title function_">subscribe</span>(<span class="variable constant_">TYPE_C</span>, <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;subscriberB received&#x27;</span>, res)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> subscriberC = <span class="keyword">new</span> <span class="title class_">Subscriber</span>(<span class="string">&#x27;subscriberC&#x27;</span>, pubsub);</span><br><span class="line">subscriberC.<span class="title function_">subscribe</span>(<span class="variable constant_">TYPE_B</span>, <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;subscriberC received&#x27;</span>, res)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">pubsub.<span class="title function_">notify</span>(<span class="variable constant_">TYPE_A</span>);</span><br><span class="line">pubsub.<span class="title function_">notify</span>(<span class="variable constant_">TYPE_B</span>);</span><br><span class="line">pubsub.<span class="title function_">notify</span>(<span class="variable constant_">TYPE_C</span>);</span><br></pre></td></tr></table></figure>
+
+<p>上述代码，发布者和订阅者需要通过发布订阅中心进行关联，发布者的发布动作和订阅者的订阅动作相互独立，无需关注对方，消息派发由发布订阅中心负责</p>
+<h2 id="三、区别"><a href="#三、区别" class="headerlink" title="三、区别"></a>三、区别</h2><p>两种设计模式思路是一样的，举个生活例子：</p>
+<ul>
+<li>观察者模式：某公司给自己员工发月饼发粽子，是由公司的行政部门发送的，这件事不适合交给第三方，原因是“公司”和“员工”是一个整体</li>
+<li>发布-订阅模式：某公司要给其他人发各种快递，因为“公司”和“其他人”是独立的，其唯一的桥梁是“快递”，所以这件事适合交给第三方快递公司解决</li>
+</ul>
+<p>上述过程中，如果公司自己去管理快递的配送，那公司就会变成一个快递公司，业务繁杂难以管理，影响公司自身的主营业务，因此使用何种模式需要考虑什么情况两者是需要耦合的</p>
+<p>两者区别如下图：</p>
+<p><img src="https://files.mdnice.com/user/155/9141682c-7386-4f12-8412-fb17a1cd4bf6.png" alt="img"></p>
+<ul>
+<li>在观察者模式中，观察者是知道Subject的，Subject一直保持对观察者进行记录。然而，在发布订阅模式中，发布者和订阅者不知道对方的存在。它们只有通过消息代理进行通信。</li>
+<li>在发布订阅模式中，组件是松散耦合的，正好和观察者模式相反。</li>
+<li>观察者模式大多数时候是同步的，比如当事件触发，Subject就会去调用观察者的方法。而发布-订阅模式大多数时候是异步的（使用消息队列）</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">#设计模式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/03/12/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">工厂模式</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/03/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">单例模式</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

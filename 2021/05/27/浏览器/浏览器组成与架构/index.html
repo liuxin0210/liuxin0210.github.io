@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            浏览器组成与架构 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">浏览器组成与架构</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-05-27 15:31:26</span>
+        <span class="mobile">2021-05-27 15:31</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h1><p>​        浏览器由shell（用户界面、网络、UI后端、JavaScript解释器、XML解析器、数据存储）和内核（浏览器引擎、渲染引擎）组成，内核是浏览器的核心。不同的浏览器有不同的内核，ie 浏览器是 Trident，Firefox 浏览器是 Geoko（Mozilla自主研发的渲染引擎），Safari 和 Chrome 使用的是 webkit （后来 Chrome 推出了 Blink）。</p>
+<h2 id="用户界面（User-Interface）"><a href="#用户界面（User-Interface）" class="headerlink" title="用户界面（User Interface）"></a>用户界面（User Interface）</h2><pre><code>    用户界面主要包括工具栏、地址栏、前进/后退按钮、书签菜单、可视化页面加载进度、智能下载处理、首选项、打印等。除了浏览器主窗口显示请求的页面之外，其他显示的部分都属于用户界面。
+
+    用户界面还可以与桌面环境集成，以提供浏览器会话管理或与其他桌面应用程序的通信。
+</code></pre>
+<h2 id="网络（Networking）"><a href="#网络（Networking）" class="headerlink" title="网络（Networking）"></a>网络（Networking）</h2><pre><code>    网络系统实现HTTP和FTP等文件传输协议。 网络系统可以在不同的字符集之间进行转换，为文件解析MIME媒体类型。 网络系统可以实现最近检索资源的缓存功能。
+</code></pre>
+<h2 id="UI后端（Display-Backend）"><a href="#UI后端（Display-Backend）" class="headerlink" title="UI后端（Display Backend）"></a>UI后端（Display Backend）</h2><pre><code>    UI后端提供绘图和窗口原语，包括：用户界面控件集合、字体集合。
+</code></pre>
+<h2 id="JavaScript解释器（JavaScript-Interpreter）"><a href="#JavaScript解释器（JavaScript-Interpreter）" class="headerlink" title="JavaScript解释器（JavaScript Interpreter）"></a>JavaScript解释器（JavaScript Interpreter）</h2><pre><code>    JavaScript解释器能够解释并执行嵌入在网页中的JavaScript（又称ECMAScript）代码。 为了安全起见，浏览器引擎或渲染引擎可能会禁用某些JavaScript功能，如弹出窗口的打开。
+</code></pre>
+<h2 id="XML解析器（XML-Parser）"><a href="#XML解析器（XML-Parser）" class="headerlink" title="XML解析器（XML Parser）"></a>XML解析器（XML Parser）</h2><pre><code>    XML解析器可以将XML文档解析成文档对象模型（Document Object Model，DOM）树。 XML解析器是浏览器架构中复用最多的子系统之一，几乎所有的浏览器实现都利用现有的XML解析器，而不是从头开始创建自己的XML解析器。
+</code></pre>
+<h2 id="数据存储（Data-Persistence）"><a href="#数据存储（Data-Persistence）" class="headerlink" title="数据存储（Data Persistence）"></a>数据存储（Data Persistence）</h2><pre><code>    数据存储将与浏览会话相关联的各种数据存储在硬盘上。 这些数据可能是诸如：书签、工具栏设置等这样的高级数据，也可能是诸如：Cookie，安全证书、缓存等这样的低级数据。
+</code></pre>
+<h2 id="浏览器引擎（Browser-Engine）"><a href="#浏览器引擎（Browser-Engine）" class="headerlink" title="浏览器引擎（Browser Engine）"></a>浏览器引擎（Browser Engine）</h2><pre><code>    浏览器引擎是一个可嵌入的组件，其为渲染引擎提供高级接口。浏览器引擎可以加载一个给定的URI，并支持诸如：前进/后退/重新加载等浏览操作。浏览器引擎提供查看浏览会话的各个方面的挂钩，例如：当前页面加载进度、JavaScript alert。浏览器引擎还允许查询/修改渲染引擎设置。
+</code></pre>
+<h2 id="渲染引擎（Rendering-Engine-或-layout-engineer）"><a href="#渲染引擎（Rendering-Engine-或-layout-engineer）" class="headerlink" title="渲染引擎（Rendering Engine 或 layout engineer）"></a>渲染引擎（Rendering Engine 或 layout engineer）</h2><pre><code>    渲染引擎负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。渲染引擎能够显示HTML和XML文档，可选择CSS样式，以及嵌入式内容（如图片）。渲染引擎能够准确计算页面布局，可使用“回流”算法逐步调整页面元素的位置。渲染引擎内部包含HTML解析器。
+</code></pre>
+<h1 id="软件构造"><a href="#软件构造" class="headerlink" title="软件构造"></a>软件构造</h1><p>​        不同的浏览器软件架构也不一样，好的软件都是支持多进程和多线程，进程与进程相互独立，不同的进程之间通过IPC（Inter Process Communication）进行通信。</p>
+<pre><code>    以 Chrome 浏览器为例，它的架构模式由浏览器进程（Browser Process）、渲染进程（Renderer Process）、插件进程（Plugin Process）、GPU进程（GPU Process）、网络进程（NetWork Process）和其他进程组成，每个进程都有自己核心的职责，它们相互配合完成浏览器的整体功能，每个进程中又包含多个线程，一个进程内的多个线程也会协同工作，配合完成所在进程的职责。和大多数浏览器不同，Chrome 浏览器的每个标签页都分别对应一个渲染引擎实例。每个标签页都是一个独立的进程，当标签页的数量足够多时（40个页面以上），会与之前的标签页共用同一个进程。
+</code></pre>
+<h2 id="浏览器进程（Browser-Process）"><a href="#浏览器进程（Browser-Process）" class="headerlink" title="浏览器进程（Browser Process）"></a>浏览器进程（Browser Process）</h2><pre><code>    主要负责界面显示、用户交互、子进程管理，同时提供存储等功能。控制应用程序的 chrome 部分，包括地址栏、书签、后退和前进等按钮，还处理Web浏览器的隐形、底层操作，例如网络请求和文件访问。 
+</code></pre>
+<h2 id="渲染进程（Renderer-Process）"><a href="#渲染进程（Renderer-Process）" class="headerlink" title="渲染进程（Renderer Process）"></a>渲染进程（Renderer Process）</h2><pre><code>    核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，渲染引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。
+</code></pre>
+<h2 id="GPU-进程（GPU-Process）"><a href="#GPU-进程（GPU-Process）" class="headerlink" title="GPU 进程（GPU Process）"></a>GPU 进程（GPU Process）</h2><pre><code>    GPU 进程的使用初衷是为了实现 3D CSS 的效果，随后网页、Chrome 的 UI 界面都选择采用 GPU 来绘制。
+</code></pre>
+<h2 id="网络进程（NetWork-Process）"><a href="#网络进程（NetWork-Process）" class="headerlink" title="网络进程（NetWork Process）"></a>网络进程（NetWork Process）</h2><pre><code>    主要负责页面的网络资源加载。
+</code></pre>
+<h2 id="插件进程（Plugin-Process）"><a href="#插件进程（Plugin-Process）" class="headerlink" title="插件进程（Plugin Process）"></a>插件进程（Plugin Process）</h2><pre><code>    主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。
+</code></pre>
+<h2 id="utility进程（Utility-Process）"><a href="#utility进程（Utility-Process）" class="headerlink" title="utility进程（Utility Process）"></a>utility进程（Utility Process）</h2><pre><code>    有时候浏览器主进程需要做一些“危险”的事情，比如图片解码、文件解压缩。如果这些“危险”的操作发生了失败，会导致整个主进程发生异常崩溃，这是我们不愿意看到的。因此Chromium设计出了一个utility进程的机制。主进程临时需要做一些不方便的任务的情况下，可以启动一个utility进程来代替主进程执行，主进程与utility进程之间通过IPC消息来通信。
+</code></pre>
+<h2 id="其他进程"><a href="#其他进程" class="headerlink" title="其他进程"></a>其他进程</h2><pre><code>    UI进程、存储进程、备进程、Audio进程、Video进程、Profile进程等等。
+</code></pre>
+<p>面向服务架构<br>        面向服务架构（Services Oriented Architecture，简称 SOA），后端技术开发中比较火热的微服务架构就是 SOA 的一种变体，Chrome 官方团队将原来的各种模块重构成独立的服务（Service），访问服务（Service）必须使用定义好的接口，通过 IPC 来通信，每个服务（Service）都可以在独立的进程中运行，并且可以轻松拆分为不同的进程或聚合为一个进程。当Chrome在功能强大的硬件上运行时，它可能会将每个服务拆分为不同的进程以提供更高的稳定性，但是如果是在资源受限的设备上，Chrome 会将服务整合到一个进程中以节省内存。</p>
+<pre><code>    在最新的 Chrome 浏览器中，可以在设置中打开更多工具，找到任务管理器并打开。
+
+
+
+     可以看到有部分的 Chrome Service 与进程同时在运行，Chrome 仍在努力的完善面向服务架构。
+</code></pre>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">#浏览器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/06/12/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88PWA(Progressive%20Web%20App)/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">浅谈PWA(Progressive Web App)</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/05/24/html+css+js+ts/await%20%E5%9C%A8%20forEach%20%E4%B8%AD%E4%B8%8D%E7%94%9F%E6%95%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">await 在 forEach 中不生效解决方案</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

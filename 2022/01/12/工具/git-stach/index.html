@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            git-stach |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">git-stach</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-01-12 11:57:49</span>
+        <span class="mobile">2022-01-12 11:57</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/git/">git</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>stash，译为存放，在 git 中，可以理解为保存当前工作进度，会把暂存区和工作区的改动进行保存，这些修改会保存在一个栈上</p>
+<p>后续你可以在任何时候任何分支重新将某次的修改推出来，重新应用这些更改的代码</p>
+<p>默认情况下，<code>git stash</code>会缓存下列状态的文件：</p>
+<ul>
+<li>添加到暂存区的修改（staged changes）</li>
+<li>Git跟踪的但并未添加到暂存区的修改（unstaged changes）</li>
+</ul>
+<p>但以下状态的文件不会缓存：</p>
+<ul>
+<li>在工作目录中新的文件（untracked files）</li>
+<li>被忽略的文件（ignored files）</li>
+</ul>
+<p>如果想要上述的文件都被缓存，可以使用<code>-u</code>或者<code>--include-untracked</code>可以工作目录新的文件，使用<code>-a</code>或者<code>--all</code>命令可以当前目录下的所有修改</p>
+<h2 id="二、如何使用"><a href="#二、如何使用" class="headerlink" title="二、如何使用"></a>二、如何使用</h2><p>关于<code>git stash</code>常见的命令如下：</p>
+<ul>
+<li>git stash</li>
+<li>git stash save</li>
+<li>git stash list</li>
+<li>git stash pop</li>
+<li>git stash apply</li>
+<li>git stash show</li>
+<li>git stash drop</li>
+<li>git stash clear</li>
+</ul>
+<h3 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h3><p>保存当前工作进度，会把暂存区和工作区的改动保存起来</p>
+<h3 id="git-stash-save"><a href="#git-stash-save" class="headerlink" title="git stash save"></a>git stash save</h3><p><code>git stash save</code>可以用于存储修改.并且将<code>git</code>的工作状态切回到<code>HEAD</code>也就是上一次合法提交上</p>
+<p>如果给定具体的文件路径,<code>git stash</code>只会处理路径下的文件.其他的文件不会被存储，其存在一些参数：</p>
+<ul>
+<li>–keep-index 或者 -k 只会存储为加入 git 管理的文件</li>
+<li>–include-untracked 为追踪的文件也会被缓存,当前的工作空间会被恢复为完全清空的状态</li>
+<li>-a 或者 –all 命令可以当前目录下的所有修改，包括被 git 忽略的文件</li>
+</ul>
+<h3 id="git-stash-list"><a href="#git-stash-list" class="headerlink" title="git stash list"></a>git stash list</h3><p>显示保存进度的列表。也就意味着，<code>git stash</code>命令可以多次执行，当多次使用<code>git stash</code>命令后，栈里会充满未提交的代码，如下：</p>
+<p><img src="https://static.vue-js.com/50216dd0-fccf-11eb-bc6f-3f06e1491664.png" alt="img"></p>
+<p>其中，<code>stash@&#123;0&#125;</code>、<code>stash@&#123;1&#125;</code>就是当前<code>stash</code>的名称</p>
+<h3 id="git-stash-pop"><a href="#git-stash-pop" class="headerlink" title="git stash pop"></a>git stash pop</h3><p><code>git stash pop</code> 从栈中读取最近一次保存的内容，也就是栈顶的<code>stash</code>会恢复到工作区</p>
+<p>也可以通过 <code>git stash pop</code> + <code>stash</code>名字执行恢复哪个<code>stash</code>恢复到当前目录</p>
+<p>如果从<code>stash</code>中恢复的内容和当前目录中的内容发生了冲突，则需要手动修复冲突或者创建新的分支来解决冲突</p>
+<h3 id="git-stash-apply"><a href="#git-stash-apply" class="headerlink" title="git stash apply"></a>git stash apply</h3><p>将堆栈中的内容应用到当前目录，不同于<code>git stash pop</code>，该命令不会将内容从堆栈中删除</p>
+<p>也就说该命令能够将堆栈的内容多次应用到工作目录中，适应于多个分支的情况</p>
+<p>同样，可以通过<code>git stash apply</code> + <code>stash</code>名字执行恢复哪个<code>stash</code>恢复到当前目录</p>
+<h3 id="git-stash-show"><a href="#git-stash-show" class="headerlink" title="git stash show"></a>git stash show</h3><p>查看堆栈中最新保存的<code>stash</code>和当前目录的差异</p>
+<p>通过使用<code>git stash show -p</code>查看详细的不同</p>
+<p>通过使用<code>git stash show stash@&#123;1&#125;</code>查看指定的<code>stash</code>和当前目录差异</p>
+<p><img src="https://static.vue-js.com/458620a0-fccf-11eb-bc6f-3f06e1491664.png" alt="img"></p>
+<h3 id="git-stash-drop"><a href="#git-stash-drop" class="headerlink" title="git stash drop"></a>git stash drop</h3><p><code>git stash drop</code> + <code>stash</code>名称表示从堆栈中移除某个指定的stash</p>
+<h3 id="git-stash-clear"><a href="#git-stash-clear" class="headerlink" title="git stash clear"></a>git stash clear</h3><p>删除所有存储的进度</p>
+<h2 id="三、应用场景"><a href="#三、应用场景" class="headerlink" title="三、应用场景"></a>三、应用场景</h2><p>当你在项目的一部分上已经工作一段时间后，所有东西都进入了混乱的状态， 而这时你想要切换到另一个分支或者拉下远端的代码去做一点别的事情</p>
+<p>但是你创建一次未完成的代码的<code>commit</code>提交，这时候就可以使用<code>git stash</code></p>
+<p>例如以下场景：</p>
+<p>当你的开发进行到一半,但是代码还不想进行提交 ,然后需要同步去关联远端代码时.如果你本地的代码和远端代码没有冲突时,可以直接通过<code>git pull</code>解决</p>
+<p>但是如果可能发生冲突怎么办.直接<code>git pull</code>会拒绝覆盖当前的修改，这时候就可以依次使用下述的命令：</p>
+<ul>
+<li>git stash</li>
+<li>git pull</li>
+<li>git stash pop</li>
+</ul>
+<p>或者当你开发到一半，现在要修改别的分支问题的时候，你也可以使用<code>git stash</code>缓存当前区域的代码</p>
+<ul>
+<li>git stash：保存开发到一半的代码</li>
+<li>git commit -m ‘修改问题’</li>
+<li>git stash pop：将代码追加到最新的提交之后</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/git/">#git</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/04/12/%E5%BE%AE%E5%89%8D%E7%AB%AF/qiankun%E5%BE%AE%E5%89%8D%E7%AB%AF/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">qiankun微前端</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/10/16/Vue/vue3%E4%BC%98%E5%8C%96/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue3优化</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

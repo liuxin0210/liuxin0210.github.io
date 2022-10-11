@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            webpack4与webpack5的区别 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">webpack4与webpack5的区别</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-10-14 09:36:54</span>
+        <span class="mobile">2020-10-14 09:36</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/webpack/">webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="Webpack5-关注下面内容："><a href="#Webpack5-关注下面内容：" class="headerlink" title="Webpack5 关注下面内容："></a>Webpack5 关注下面内容：</h1><p>通过持久缓存提高构建性能.</p>
+<p>使用更好的算法和默认值来改善长期缓存.</p>
+<p>通过更好的树摇和代码生成来改善捆绑包大小.</p>
+<p>清除处于怪异状态的内部结构，同时在 v4 中实现功能而不引入任何重大更改.</p>
+<p>下载:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack@5 webpack-cli -D</span><br></pre></td></tr></table></figure>
+<h2 id="一、压缩代码"><a href="#一、压缩代码" class="headerlink" title="一、压缩代码"></a>一、压缩代码</h2><p>1.webpack4</p>
+<p>webpack4 上需要下载安装 terser-webpack-plugin 插件，并且需要以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const TerserPlugin = require(&#x27;terser-webpack-plugin&#x27;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123; </span><br><span class="line">// ...other config</span><br><span class="line">optimization: &#123;</span><br><span class="line">  minimize: !isDev,</span><br><span class="line">  minimizer: [</span><br><span class="line">    new TerserPlugin(&#123;</span><br><span class="line">      extractComments: false, </span><br><span class="line">      terserOptions: &#123; </span><br><span class="line">        compress: &#123; </span><br><span class="line">          pure_funcs: [&#x27;console.log&#x27;] </span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;) ]</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p> 2.webpack5<br>内部本身就自带 js 压缩功能，他内置了 terser-webpack-plugin 插件，我们不用再下载安装。而且在 mode&#x3D;“production” 的时候会自动开启 js 压缩功能。</p>
+<p>如果你要在开发环境使用，就用下面：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// webpack.config.js中</span><br><span class="line">module.exports = &#123;</span><br><span class="line">   optimization: &#123;</span><br><span class="line">     usedExports: true, //只导出被使用的模块</span><br><span class="line">     minimize : true // 启动压缩</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、webpack-缓存"><a href="#二、webpack-缓存" class="headerlink" title="二、webpack 缓存"></a>二、webpack 缓存</h2><p>1.webpack4 缓存配置<br>npm install hard-source-webpack-plugin -D</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const HardSourceWebpackPlugin = require(&#x27;hard-source-webpack-plugin&#x27;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">plugins: [</span><br><span class="line">  // 其它 plugin...</span><br><span class="line">  new HardSourceWebpackPlugin(),</span><br><span class="line">] &#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>webpack5 缓存配置</li>
+</ol>
+<p>webpack5 内部内置了 cache 缓存机制。直接配置即可。</p>
+<p>cache 会在开发模式下被设置成 type： memory 而且会在生产模式把cache 给禁用掉。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// webpack.config.js</span><br><span class="line">module.exports= &#123;</span><br><span class="line">  // 使用持久化缓存</span><br><span class="line">  cache: &#123;</span><br><span class="line">    type: &#x27;filesystem&#x27;，</span><br><span class="line">    cacheDirectory: path.join(__dirname, &#x27;node_modules/.cac/webpack&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>type 的可选值为： memory 使用内容缓存，filesystem 使用文件缓存。</p>
+<h2 id="三、启动服务的差别"><a href="#三、启动服务的差别" class="headerlink" title="三、启动服务的差别"></a>三、启动服务的差别</h2><p>1.webpack4 启动服务</p>
+<p>通过 webpack-dev-server 启动服务</p>
+<p>2.webpack5 启动服务</p>
+<p>内置使用 webpack serve 启动，但是他的日志不是很好，所以一般都加都喜欢用 webpack-dev-server 优化。</p>
+<h2 id="四、devtool的差别"><a href="#四、devtool的差别" class="headerlink" title="四、devtool的差别"></a>四、devtool的差别</h2><p>ourceMap需要在 webpack.config.js里面直接配置 devtool 就可以实现了。而 devtool有很多个选项值，不同的选项值，不同的选项产生的 .map 文件不同，打包速度不同。</p>
+<p>一般情况下，我们一般在开发环境配置用“cheap-eval-module-source-map”，在生产环境用‘none’。</p>
+<p>devtool在webpack4和webpack5上也是有区别的</p>
+<p>v4: devtool: ‘cheap-eval-module-source-map’</p>
+<p>v5: devtool: ‘eval-cheap-module-source-map’</p>
+<h2 id="五、自动删除-Node-js-Polyfills"><a href="#五、自动删除-Node-js-Polyfills" class="headerlink" title="五、自动删除 Node.js Polyfills"></a>五、自动删除 Node.js Polyfills</h2><p>早期，webpack 的目标是允许在浏览器中运行大多数 node.js 模块，但是模块格局发生了变化，许多模块用途现在主要是为前端目的而编写的。webpack &lt;&#x3D; 4 附带了许多 node.js 核心模块的 polyfill，一旦模块使用任何核心模块（即 crypto 模块），这些模块就会自动应用。</p>
+<p>尽管这使使用为 node.js 编写的模块变得容易，但它会将这些巨大的 polyfill 添加到包中。在许多情况下，这些 polyfill 是不必要的。</p>
+<p>webpack 5 会自动停止填充这些核心模块，并专注于与前端兼容的模块。</p>
+<p>迁移：</p>
+<p>尽可能尝试使用与前端兼容的模块。</p>
+<p>可以为 node.js 核心模块手动添加一个 polyfill。错误消息将提示如何实现该目标。</p>
+<h2 id="六、Chunk-和-Chunk-ID"><a href="#六、Chunk-和-Chunk-ID" class="headerlink" title="六、Chunk 和  Chunk ID"></a>六、Chunk 和  Chunk ID</h2><p>添加了用于长期缓存的新算法。在生产模式下默认情况下启用这些功能。</p>
+<p>你可以不用使用 import(&#x2F;* webpackChunkName: “name” *&#x2F; “module”) 在开发环境来为 chunk 命名，生产环境还是有必要的</p>
+<p>webpack 内部有 chunk 命名规则，不再是以 id(0, 1, 2)命名了</p>
+<h2 id="七、Tree-Shaking"><a href="#七、Tree-Shaking" class="headerlink" title="七、Tree Shaking"></a>七、Tree Shaking</h2><p>果我们的项目中引入了 lodash 包，但是我只有了其中的一个方法。其他没有用到的方法是不是冗余的？此时 tree-shaking 就可以把没有用的那些东西剔除掉，来大大减少最终的bundle体积。</p>
+<p>usedExports : true, 标记没有用的叶子<br>minimize: true, 摇掉那些没有用的叶子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// webpack.config.js中</span><br><span class="line"></span><br><span class="line"> module.exports = &#123;</span><br><span class="line"></span><br><span class="line">    optimization: &#123;</span><br><span class="line"></span><br><span class="line">      usedExports: true, //只导出被使用的模块</span><br><span class="line"></span><br><span class="line">      minimize : true // 启动压缩</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在可以处理commonjs的tree shaking</p>
+<h2 id="八、默认值"><a href="#八、默认值" class="headerlink" title="八、默认值"></a>八、默认值</h2><p>entry: “.&#x2F;src&#x2F;index.js</p>
+<p>output.path: path.resolve(__dirname, “dist”)</p>
+<p>output.filename: “[name].js”</p>
+<h2 id="九、Caching"><a href="#九、Caching" class="headerlink" title="九、Caching"></a>九、Caching</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 配置缓存</span><br><span class="line">cache: &#123;</span><br><span class="line">  // 磁盘存储</span><br><span class="line">  type: &quot;filesystem&quot;,</span><br><span class="line">  buildDependencies: &#123;</span><br><span class="line">    // 当配置修改时，缓存失效</span><br><span class="line">    config: [__filename]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="十、SplitChunk"><a href="#十、SplitChunk" class="headerlink" title="十、SplitChunk"></a>十、SplitChunk</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// webpack4</span><br><span class="line">minSize: 30000;</span><br><span class="line"></span><br><span class="line">// webpack5</span><br><span class="line">minSize: &#123;</span><br><span class="line">  javascript: 30000,</span><br><span class="line">  style: 50000,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/webpack/">#webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/10/20/webpack/webpack-bundle-analyzer/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack-analyzer</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/10/09/webpack/webpack%20%E4%BC%98%E5%8C%96%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack优化前端性能</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

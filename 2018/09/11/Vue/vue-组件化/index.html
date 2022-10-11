@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            vue-组件化 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">vue-组件化</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-09-11 22:41:28</span>
+        <span class="mobile">2018-09-11 22:41</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue/">vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><blockquote>
+<p>vue组件系统提供了一种抽象，让我们可以使用独立可复用的组件来构建大型应用，任意类型的应用界 面都可以抽象为一个组件树。组件化能提高开发效率，方便重复使用，简化调试步骤，提升项目可维护 性，便于多人协同开发。</p>
+</blockquote>
+<p><img src="https://blog.poetries.top/img/static/images/20210313133919.png" alt="img"></p>
+<h2 id="组件通信常用方式"><a href="#组件通信常用方式" class="headerlink" title="组件通信常用方式"></a>组件通信常用方式</h2><h3 id="1-props"><a href="#1-props" class="headerlink" title="1. props"></a><strong>1. props</strong></h3><blockquote>
+<p>父给子传值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// child</span><br><span class="line">props: &#123; msg: String &#125;</span><br><span class="line">// parent</span><br><span class="line">&lt;HelloWorld msg=&quot;Welcome to Your Vue.js App&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自定义事件"><a href="#2-自定义事件" class="headerlink" title="2. 自定义事件"></a>2. 自定义事件</h3><blockquote>
+<p>子给父传值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// child this.$emit(&#x27;add&#x27;, good)</span><br><span class="line">// parent</span><br><span class="line">&lt;Cart @add=&quot;cartAdd($event)&quot;&gt;&lt;/Cart&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-事件总线"><a href="#3-事件总线" class="headerlink" title="3. 事件总线"></a>3. 事件总线</h3><blockquote>
+<p>任意两个组件之间传值常用事件总线 或 vuex的方式。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  // Bus:事件派发、监听和回调管理 class Bus &#123;</span><br><span class="line">constructor()&#123; this.callbacks = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  $on(name, fn)&#123;</span><br><span class="line">this.callbacks[name] = this.callbacks[name] || []</span><br><span class="line">this.callbacks[name].push(fn) &#125;</span><br><span class="line">$emit(name, args)&#123; if(this.callbacks[name])&#123;</span><br><span class="line">this.callbacks[name].forEach(cb =&gt; cb(args)) &#125;</span><br><span class="line">&#125; &#125;</span><br><span class="line">// main.js</span><br><span class="line">Vue.prototype.$bus = new Bus()</span><br><span class="line">// child1</span><br><span class="line">this.$bus.$on(&#x27;foo&#x27;, handle) // child2 this.$bus.$emit(&#x27;foo&#x27;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>实践中通常用Vue代替Bus，因为Vue已经实现了相应接口</p>
+</blockquote>
+<h3 id="4-vuex"><a href="#4-vuex" class="headerlink" title="4. vuex"></a><strong>4. vuex</strong></h3><blockquote>
+<p>创建唯一的全局数据管理者store，通过它管理数据并通知组件状态变更。</p>
+</blockquote>
+<h3 id="5-parent-x2F-root"><a href="#5-parent-x2F-root" class="headerlink" title="5. $parent&#x2F;$root"></a>5. <strong>$parent&#x2F;$root</strong></h3><blockquote>
+<p>兄弟组件之间通信可通过共同祖辈搭桥，<code>$parent</code>或<code>$root</code>。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// brother1</span><br><span class="line">this.$parent.$on(&#x27;foo&#x27;, handle)</span><br><span class="line">// brother2 </span><br><span class="line">this.$parent.$emit(&#x27;foo&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-children"><a href="#6-children" class="headerlink" title="6. $children"></a>6. <strong>$children</strong></h3><blockquote>
+<p>父组件可以通过<code>$children</code>访问子组件实现父子通信。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// parent </span><br><span class="line">this.$children[0].xx = &#x27;xxx&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-attrs-x2F-listeners"><a href="#7-attrs-x2F-listeners" class="headerlink" title="7. $attrs&#x2F;$listeners"></a>7. <strong>$attrs&#x2F;$listeners</strong></h3><blockquote>
+<p>包含了父作用域中不作为 <strong>prop</strong> 被识别 (且获取) 的特性绑定 ( class 和 style 除外)。当一个组件没有 声明任何 prop 时，这里会包含所有父作用域的绑定 ( class 和 style 除外)，并且可以通过 <code>v- bind=&quot;$attrs&quot;</code> 传入内部组件——在创建高级别的组件时非常有用。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// child:并未在props中声明foo </span><br><span class="line">&lt;p&gt;&#123;&#123;$attrs.foo&#125;&#125;&lt;/p&gt;</span><br><span class="line">// parent</span><br><span class="line">&lt;HelloWorld foo=&quot;foo&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-refs"><a href="#8-refs" class="headerlink" title="8. refs"></a>8. <strong>refs</strong></h3><blockquote>
+<p>获取子节点引用</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// parent</span><br><span class="line">&lt;HelloWorld ref=&quot;hw&quot;/&gt;</span><br><span class="line">mounted() &#123; </span><br><span class="line">  this.$refs.hw.xx = &#x27;xxx&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-provide-x2F-inject"><a href="#9-provide-x2F-inject" class="headerlink" title="9. provide&#x2F;inject"></a>9. <strong>provide&#x2F;inject</strong></h3><blockquote>
+<p>能够实现祖先和后代之间传值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// ancestor</span><br><span class="line">provide() &#123;</span><br><span class="line">  return &#123;foo: &#x27;foo&#x27;&#125;</span><br><span class="line">&#125;</span><br><span class="line">// descendant</span><br><span class="line">inject: [&#x27;foo&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>实例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">// index.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;组件通信&lt;/h2&gt;</span><br><span class="line">    &lt;!-- props, 自定义事件 --&gt;</span><br><span class="line">    &lt;Child1 msg=&quot;some msg from parent&quot; @some-event=&quot;onSomeEvent&quot;&gt;&lt;/Child1&gt;</span><br><span class="line">    &lt;!-- 事件总线 --&gt;</span><br><span class="line">    &lt;Child2 msg=&quot;other msg&quot;&gt;&lt;/Child2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Child1 from &#x27;@/components/communication/Child1.vue&#x27;</span><br><span class="line">  import Child2 from &#x27;@/components/communication/Child2.vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">      Child1, Child2,</span><br><span class="line">      // Child3: () =&gt; import(&#x27;./Child3.vue&#x27;)</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      onSomeEvent(msg) &#123;</span><br><span class="line">        console.log(&#x27;Communition:&#x27;, msg);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted () &#123;</span><br><span class="line">      // $children持有所有自定义组件</span><br><span class="line">      // 它不保证顺序</span><br><span class="line">      console.log(this.$children);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">// child1.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div @click=&quot;$emit(&#x27;some-event&#x27;, &#x27;msg from child1&#x27;)&quot;&gt;</span><br><span class="line">    &lt;h3&gt;child1&lt;/h3&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">      msg: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted () &#123;</span><br><span class="line">      // this.$bus.$on(&#x27;event-from-child2&#x27;, msg =&gt; &#123;</span><br><span class="line">      //   console.log(&#x27;Child1:&#x27;, msg);</span><br><span class="line">      // &#125;);</span><br><span class="line">      this.$parent.$on(&#x27;event-from-child2&#x27;, msg =&gt; &#123;</span><br><span class="line">        console.log(&#x27;Child1:&#x27;, msg);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line">// child2.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- 展开$attrs对象 --&gt;</span><br><span class="line">    &lt;h3 v-bind=&quot;$attrs&quot;&gt;child2&lt;/h3&gt;</span><br><span class="line">    &lt;button @click=&quot;sendToChild1&quot;&gt;给child1发送消息&lt;/button&gt;</span><br><span class="line">    &lt;!-- $attrs --&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;$attrs.msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;!-- inject --&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;foo&#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    inheritAttrs: false,</span><br><span class="line">    inject: [&#x27;foo&#x27;],</span><br><span class="line">    methods: &#123;</span><br><span class="line">      sendToChild1() &#123;</span><br><span class="line">        // 利用事件总线发送事件</span><br><span class="line">        // this.$bus.$emit(&#x27;event-from-child2&#x27;, &#x27;some msg from child2&#x27;)</span><br><span class="line">        this.$parent.$emit(&#x27;event-from-child2&#x27;, &#x27;some msg from child2&#x27;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h2><blockquote>
+<p>插槽语法是Vue 实现的内容分发 API，用于复合组件开发。该技术在通用组件库开发中有大量应用</p>
+</blockquote>
+<h3 id="1-匿名插槽"><a href="#1-匿名插槽" class="headerlink" title="1. 匿名插槽"></a>1. 匿名插槽</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// comp1</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// parent</span><br><span class="line">&lt;comp&gt;hello&lt;/comp&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-具名插槽"><a href="#2-具名插槽" class="headerlink" title="2. 具名插槽"></a>2. 具名插槽</h3><blockquote>
+<p>将内容分发到子组件指定位置</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// comp2</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">&lt;slot name=&quot;content&quot;&gt;&lt;/slot&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// parent</span><br><span class="line">&lt;Comp2&gt;</span><br><span class="line">&lt;!-- 默认插槽用default做参数 --&gt;</span><br><span class="line">&lt;template v-slot:default&gt;具名插槽&lt;/template&gt; &lt;!-- 具名插槽用插槽名做参数 --&gt;</span><br><span class="line">&lt;template v-slot:content&gt;内容...&lt;/template&gt;</span><br><span class="line">&lt;/Comp2&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-作用域插槽"><a href="#3-作用域插槽" class="headerlink" title="3. 作用域插槽"></a>3. 作用域插槽</h3><blockquote>
+<p>分发内容要用到子组件中的数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// comp3</span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;slot :foo=&quot;foo&quot;&gt;&lt;/slot&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">// parent</span><br><span class="line">&lt;Comp3&gt;</span><br><span class="line">&lt;!-- 把v-slot的值指定为作用域上下文对象 --&gt; &lt;template v-slot:default=&quot;slotProps&quot;&gt; 来自子组件数据:&#123;&#123;slotProps.foo&#125;&#125; &lt;/template&gt;</span><br><span class="line">&lt;/Comp3&gt;</span><br></pre></td></tr></table></figure>
+
+<p>范例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">// 子组件 Layout.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div class=&quot;header&quot;&gt;</span><br><span class="line">      &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;body&quot;&gt;</span><br><span class="line">      &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">      &lt;slot name=&quot;footer&quot; :fc=&quot;footerContent&quot;&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        remark: [</span><br><span class="line">          &#x27;好好学习，天天向上&#x27;,</span><br><span class="line">          &#x27;学习永远不晚&#x27;,</span><br><span class="line">          &#x27;学习知识要善于思考,思考,再思考&#x27;,</span><br><span class="line">          &#x27;学习的敌人是自己的满足,要认真学习一点东西,必须从不自满开始&#x27;,</span><br><span class="line">          &#x27;构成我们学习最大障碍的是已知的东西,而不是未知的东西&#x27;,</span><br><span class="line">          &#x27;在今天和明天之间,有一段很长的时间;趁你还有精神的时候,学习迅速办事&#x27;,</span><br><span class="line">          &#x27;三人行必有我师焉；择其善者而从之，其不善者而改之&#x27;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed: &#123;</span><br><span class="line">      footerContent() &#123;</span><br><span class="line">        return this.remark[new Date().getDay() - 1] </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.header &#123;</span><br><span class="line">  background-color: rgb(252, 175, 175);</span><br><span class="line">&#125;</span><br><span class="line">.body &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  background-color: rgb(144, 250, 134);</span><br><span class="line">  min-height: 100px;</span><br><span class="line">  align-items: center;</span><br><span class="line">  justify-content: center;</span><br><span class="line">&#125;</span><br><span class="line">.footer &#123;</span><br><span class="line">  background-color: rgb(114, 116, 255);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">//父组件 index.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h2&gt;插槽&lt;/h2&gt;</span><br><span class="line">    &lt;!-- 插槽 --&gt;</span><br><span class="line">    &lt;Layout&gt;</span><br><span class="line">      &lt;!-- 具名插槽 --&gt;</span><br><span class="line">      &lt;template v-slot:header&gt;全栈工程师&lt;/template&gt;</span><br><span class="line">      &lt;!-- 匿名插槽 --&gt;</span><br><span class="line">      &lt;template&gt;content...&lt;/template&gt;</span><br><span class="line">      &lt;!-- 作用域插槽 --&gt;</span><br><span class="line">      &lt;template v-slot:footer=&quot;&#123;fc&#125;&quot;&gt;&#123;&#123;fc&#125;&#125;&lt;/template&gt;</span><br><span class="line">    &lt;/Layout&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Layout from &#x27;@/components/slots/Layout.vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">      Layout</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="组件化实战"><a href="#组件化实战" class="headerlink" title="组件化实战"></a>组件化实战</h2><h3 id="通用表单组件"><a href="#通用表单组件" class="headerlink" title="通用表单组件"></a>通用表单组件</h3><blockquote>
+<p>收集数据、校验数据并提交。</p>
+</blockquote>
+<ul>
+<li>实现KForm 指定数据、校验规则</li>
+<li>KformItem<ul>
+<li>label标签添加</li>
+<li>执行校验</li>
+<li>显示错误信息</li>
+</ul>
+</li>
+<li>KInput<ul>
+<li>维护数据</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-form :model=&quot;userInfo&quot; :rules=&quot;rules&quot; ref=&quot;loginForm&quot;&gt;</span><br><span class="line">    &lt;el-form-item label=&quot;用户名&quot; prop=&quot;name&quot;&gt;</span><br><span class="line">      &lt;el-input v-model=&quot;userInfo.name&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">    &lt;/el-form-item&gt;</span><br><span class="line">    &lt;el-form-item label=&quot;密码&quot; prop=&quot;password&quot;&gt;</span><br><span class="line">      &lt;el-input v-model=&quot;userInfo.password&quot; type=&quot;password&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">    &lt;/el-form-item&gt;</span><br><span class="line">    &lt;el-form-item&gt;</span><br><span class="line">      &lt;el-button @click=&quot;login&quot;&gt;登录&lt;/el-button&gt;</span><br><span class="line">    &lt;/el-form-item&gt;</span><br><span class="line">  &lt;/el-form&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      userInfo: &#123;</span><br><span class="line">        username: &quot;&quot;,</span><br><span class="line">        password: &quot;&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      rules: &#123;</span><br><span class="line">        username: [&#123; required: true, message: &quot;请输入用户名称&quot; &#125;],</span><br><span class="line">        password: [&#123; required: true, message: &quot;请输入密码&quot; &#125;]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    login() &#123;</span><br><span class="line">      this.$refs[&quot;loginForm&quot;].validate(valid =&gt; &#123;</span><br><span class="line">        if (valid) &#123;</span><br><span class="line">          alert(&quot;submit&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          console.log(&quot;error submit!&quot;);</span><br><span class="line">          return false;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.</strong> KInput</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">// 创建components/form/KInput.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- 管理数据：实现双绑 --&gt;</span><br><span class="line">    &lt;!-- :value, @input --&gt;</span><br><span class="line">    &lt;input :type=&quot;type&quot; :value=&quot;value&quot; @input=&quot;onInput&quot;</span><br><span class="line">      v-bind=&quot;$attrs&quot;&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    inheritAttrs: false , // 关闭特性继承</span><br><span class="line">    props: &#123;</span><br><span class="line">      value: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      type: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &#x27;text&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      onInput(e) &#123;</span><br><span class="line">        this.$emit(&#x27;input&#x27;, e.target.value)</span><br><span class="line"></span><br><span class="line">        // 值发生变化的时候就是需要校验的时候</span><br><span class="line">        this.$parent.$emit(&#x27;validate&#x27;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<strong>KInput</strong></li>
+</ol>
+<p>创建components&#x2F;form&#x2F;index.vue，添加如下代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">&lt;h3&gt;KForm表单&lt;/h3&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">&lt;k-input v-model=&quot;model.username&quot;&gt;&lt;/k-input&gt;</span><br><span class="line">&lt;k-input type=&quot;password&quot; v-model=&quot;model.password&quot;&gt;&lt;/k-input&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">  KInput</span><br><span class="line">&#125;, </span><br><span class="line">  data() &#123;</span><br><span class="line">   return &#123;</span><br><span class="line">      model: &#123; username: &quot;tom&quot;, password: &quot;&quot; &#125;,</span><br><span class="line">    &#125;; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>实现<strong>KFormItem</strong></li>
+</ol>
+<p>创建components&#x2F;form&#x2F;KFormItem.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- label标签 --&gt;</span><br><span class="line">    &lt;label v-if=&quot;label&quot;&gt;&#123;&#123;label&#125;&#125;&lt;/label&gt;</span><br><span class="line">    &lt;!-- 容器，放插槽 --&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">    &lt;!-- 错误信息展示 --&gt;</span><br><span class="line">    &lt;p v-if=&quot;error&quot; class=&quot;error&quot;&gt;&#123;&#123;error&#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import Schema from &#x27;async-validator&#x27;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    inject: [&#x27;form&#x27;],</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        error: &#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    props: &#123;</span><br><span class="line">      label: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      prop: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        default: &#x27;&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted () &#123;</span><br><span class="line">      // 监听校验事件</span><br><span class="line">      this.$on(&#x27;validate&#x27;, () =&gt; &#123;</span><br><span class="line">        this.validate()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      validate() &#123;</span><br><span class="line">        // 执行校验</span><br><span class="line">        // 1.获取值和校验规则</span><br><span class="line">        const rules = this.form.rules[this.prop]</span><br><span class="line">        const value = this.form.model[this.prop]</span><br><span class="line"></span><br><span class="line">        // 2.执行校验：使用官方也使用的async-validator</span><br><span class="line">        // 创建描述对象</span><br><span class="line">        const descriptor = &#123;[this.prop]:rules&#125;</span><br><span class="line">        // 创建校验器</span><br><span class="line">        const validator = new Schema(descriptor)</span><br><span class="line">        // 执行校验</span><br><span class="line">        return validator.validate(&#123;[this.prop]:value&#125;, errors =&gt; &#123;</span><br><span class="line">          // 如果errors存在，则说明校验失败</span><br><span class="line">          if (errors) &#123;</span><br><span class="line">            this.error = errors[0].message</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            this.error = &#x27;&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.error&#123;</span><br><span class="line">  color: red</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<strong>KFormItem</strong></li>
+</ol>
+<p>components&#x2F;form&#x2F;index.vue，添加基础代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">&lt;h3&gt;KForm表单&lt;/h3&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">&lt;k-form-item label=&quot;用户名&quot; prop=&quot;username&quot;&gt;</span><br><span class="line">&lt;k-input v-model=&quot;model.username&quot;&gt;&lt;/k-input&gt; &lt;/k-form-item&gt;</span><br><span class="line">&lt;k-form-item label=&quot;确认密码&quot; prop=&quot;password&quot;&gt;</span><br><span class="line">&lt;k-input type=&quot;password&quot; v-model=&quot;model.password&quot;&gt;&lt;/k-input&gt;</span><br><span class="line">&lt;/k-form-item&gt; &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>实现<strong>KForm</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;!-- 容器：存放所有表单项 --&gt;</span><br><span class="line">    &lt;!-- 存储值载体：保存大家数据和校验规则 --&gt;</span><br><span class="line">    &lt;slot&gt;&lt;/slot&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 我们平时写的组件是一个组件配置对象</span><br><span class="line">export default &#123;</span><br><span class="line">  provide() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      // 直接把当前组件实例传递下去</span><br><span class="line">      // 传递下去的对象是响应式的则还可以响应式</span><br><span class="line">      form: this</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    // 数据模型</span><br><span class="line">    model: &#123;</span><br><span class="line">      type: Object,</span><br><span class="line">      required: true</span><br><span class="line">    &#125;,</span><br><span class="line">    rules: Object</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    validate(cb) &#123;</span><br><span class="line">      // 遍历肚子里面的所有FormItem，执行他们的validate方法</span><br><span class="line">      // 全部通过才算通过</span><br><span class="line">      // tasks是校验结果的Promise组成的数组</span><br><span class="line">      const tasks = this.$children</span><br><span class="line">        .filter(item =&gt; item.prop)</span><br><span class="line">        .map(item =&gt; item.validate());</span><br><span class="line">      // 统一判断</span><br><span class="line">      Promise.all(tasks)</span><br><span class="line">        .then(() =&gt; cb(true))</span><br><span class="line">        .catch(() =&gt; cb(false));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<strong>KForm</strong></li>
+</ol>
+<p>components&#x2F;form&#x2F;index.vue，添加基础代码:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt; template &gt; &lt;div &gt; &lt;h3 &gt; KForm表单 &lt; /h3&gt;</span><br><span class="line">&lt;hr&gt;</span><br><span class="line">&lt;k-form :model=&quot;model&quot; :rules=&quot;rules&quot; ref=&quot;loginForm&quot;&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/k - form &gt; &lt;/div&gt;</span><br><span class="line">&lt;/template &gt; &lt;script &gt; import KForm from &quot;./KForm&quot;;</span><br><span class="line">export default &#123;</span><br><span class="line">        components:</span><br><span class="line">        &#123;</span><br><span class="line">            KForm,</span><br><span class="line">        &#125;,</span><br><span class="line">        data() &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                rules: &#123;</span><br><span class="line">                    username: [&#123;</span><br><span class="line">                        required: true,</span><br><span class="line">                        message: &quot;请输入用户名&quot;</span><br><span class="line">                    &#125;],</span><br><span class="line">                    password: [&#123;</span><br><span class="line">                        required: true,</span><br><span class="line">                        message: &quot;请输入密码&quot;</span><br><span class="line">                    &#125;]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            submitForm() &#123;</span><br><span class="line">                this.$refs[&#x27;loginForm&#x27;].validate(valid = &gt;&#123;</span><br><span class="line">                    if (valid) &#123;</span><br><span class="line">                        alert(&quot;请求登录!&quot;);</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        alert(&quot;校验失败!&quot;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;; &lt; /script&gt;/</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>数据校验</li>
+</ol>
+<p>Input通知校验</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">onInput(e) &#123; // ...</span><br><span class="line">    // $parent指FormItem</span><br><span class="line">    this.$parent.$emit(&#x27;validate&#x27;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>FormItem监听校验通知，获取规则并执行校验</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">inject: [&#x27;form&#x27;],</span><br><span class="line">// 注入 mounted()&#123;// 监听校验事件</span><br><span class="line">this.$on(&#x27;validate&#x27;, () = &gt;&#123;</span><br><span class="line">    this.validate()</span><br><span class="line">&#125;)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    validate() &#123;</span><br><span class="line">        // 获取对应FormItem校验规则 console.log(this.form.rules[this.prop]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">import Schema from &quot;async-validator&quot;;</span><br><span class="line"></span><br><span class="line">validate() &#123;</span><br><span class="line">    // 获取对应FormItem校验规则</span><br><span class="line">    const rules = this.form.rules[this.prop];</span><br><span class="line">    // 获取校验值</span><br><span class="line">    const value = this.form.model[this.prop];</span><br><span class="line">    // 校验</span><br><span class="line">    const schema = new Schema(descriptor);</span><br><span class="line">    // 返回Promise，没有触发catch就说明验证通过</span><br><span class="line">    return schema.validate(&#123; [this.prop] : value</span><br><span class="line">    &#125;,</span><br><span class="line">    errors = &gt;&#123;</span><br><span class="line">        if (errors) &#123;</span><br><span class="line">            // 将错误信息显示</span><br><span class="line">            this.error = errors[0].message;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 校验通过 this.error = &quot;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>表单全局验证，为<code>Form</code>提供<code>validate</code>方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">validate(cb) &#123;</span><br><span class="line">    // 调用所有含有prop属性的子组件的validate方法并得到Promise数组 const tasks = this.$children</span><br><span class="line">    .filter(item = &gt;item.prop).map(item = &gt;item.validate());</span><br><span class="line">    // 所有任务必须全部成功才算校验通过，任一失败则校验失败</span><br><span class="line">    Promise.all(tasks).then(() = &gt;cb(true)).catch(() = &gt;cb(false))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现弹窗组件"><a href="#实现弹窗组件" class="headerlink" title="实现弹窗组件"></a>实现弹窗组件</h3><blockquote>
+<p>弹窗这类组件的特点是它们在当前<strong>vue</strong>实例之外独立存在，通常挂载于body;它们是通过JS动态创建的，不需要在任何组件中声明。常⻅使用姿势</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this.$create(Notice, &#123;</span><br><span class="line">    title: &#x27;喊你来搬砖&#x27;,</span><br><span class="line">    message: &#x27;提示信息&#x27;,</span><br><span class="line">    duration: 1000</span><br><span class="line">&#125;).show();</span><br></pre></td></tr></table></figure>
+
+<p>create函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &quot;vue&quot;;</span><br><span class="line">// 创建函数接收要创建组件定义</span><br><span class="line">function create(Component, props) &#123;</span><br><span class="line">    // 创建一个Vue新实例 const vm = new Vue(&#123;</span><br><span class="line">    render(h) &#123;</span><br><span class="line">        // render函数将传入组件配置对象转换为虚拟dom console.log(h(Component, &#123; props &#125;)); return h(Component, &#123; props &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).$mount(); //执行挂载函数，但未指定挂载目标，表示只执行初始化工作</span><br><span class="line"></span><br><span class="line">  // 将生成dom元素追加至</span><br><span class="line">  body document.body.appendChild(vm.$el);</span><br><span class="line"></span><br><span class="line">  // 给组件实例添加销毁方法</span><br><span class="line">  const comp = vm.$children[0];</span><br><span class="line">  comp.remove = () = &gt;&#123;</span><br><span class="line">      document.body.removeChild(vm.$el);</span><br><span class="line">      vm.$destroy();</span><br><span class="line">  &#125;;</span><br><span class="line">  return comp;</span><br><span class="line">&#125;</span><br><span class="line">// 暴露调用接口</span><br><span class="line">export default create</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>另一种创建组件实例的方式: <code>Vue.extend(Component)</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const Ctor = Vue.extend(Component) </span><br><span class="line">const comp = new Ctor(&#123;</span><br><span class="line">    propsData: props</span><br><span class="line">&#125;) </span><br><span class="line">comp.$mount();</span><br><span class="line"></span><br><span class="line">document.body.appendChild(comp.$el) </span><br><span class="line"></span><br><span class="line">comp.remove = () = &gt;&#123;</span><br><span class="line">    // 移除dom document.body.removeChild(comp.$el) // 销毁组件</span><br><span class="line">    comp.$destroy();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="通知组件"><a href="#通知组件" class="headerlink" title="通知组件"></a>通知组件</h3><p>建通知组件，Notice.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;box&quot; v-if=&quot;isShow&quot;&gt;</span><br><span class="line">    &lt;h3&gt;&#123;&#123;title&#125;&#125;&lt;/h3&gt;</span><br><span class="line">    &lt;p class=&quot;box-content&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      default: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    message: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      default: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    duration: &#123;</span><br><span class="line">      type: Number,</span><br><span class="line">      default: 2000</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      isShow: false</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    show() &#123;</span><br><span class="line">      this.isShow = true;</span><br><span class="line">      setTimeout(this.hide, this.duration);</span><br><span class="line">    &#125;,</span><br><span class="line">    hide() &#123;</span><br><span class="line">      this.isShow = false;</span><br><span class="line">      this.remove();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.box &#123;</span><br><span class="line">  position: fixed;</span><br><span class="line">  width: 100%;</span><br><span class="line">  top: 16px;</span><br><span class="line">  left: 0;</span><br><span class="line">  text-align: center;</span><br><span class="line">  pointer-events: none;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  border: grey 3px solid;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">&#125;</span><br><span class="line">.box-content &#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">  margin: 10px auto;</span><br><span class="line">  font-size: 14px;  </span><br><span class="line">  padding: 8px 16px;</span><br><span class="line">  background: #fff;</span><br><span class="line">  border-radius: 3px;</span><br><span class="line">  margin-bottom: 8px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用插件进一步封装便于使用，<code>create.js</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import Notice from &#x27;@/components/Notice.vue&#x27; //...</span><br><span class="line">export default &#123;</span><br><span class="line">  install(Vue) &#123;</span><br><span class="line">      Vue.prototype.$notice = function(options) &#123;</span><br><span class="line">          return create(Notice, options)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/vue/">#vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/09/15/Vue/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-组件通信</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/09/10/Vue/vue-%E7%BB%84%E4%BB%B6%E5%92%8C%E6%8F%92%E4%BB%B6%E7%9A%84%E5%8C%BA%E5%88%AB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-组件和插件的区别</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

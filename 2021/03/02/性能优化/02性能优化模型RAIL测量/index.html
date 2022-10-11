@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            前端性能优化-02 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">前端性能优化-02</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-03-02 20:49:27</span>
+        <span class="mobile">2021-03-02 20:49</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">前端性能优化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E4%BC%98%E5%8C%96/">优化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="什么是RAIL："><a href="#什么是RAIL：" class="headerlink" title="什么是RAIL："></a>什么是RAIL：</h2><p>缩写每一个字母表示一个性能指标</p>
+<p>Response：响应  对用户而言用户点击有没有即使访问</p>
+<p>Animation：动画 给用户的体验好。会不会出现卡顿</p>
+<p>Idie：空闲 有足够的空闲时间才能够进行响应交互   不让他始终处于繁忙的时间，不然无法处理其他请求</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427100359004.png" alt="image-20220427100359004"></p>
+<p>Load：加载 资源网络加载的时间</p>
+<p><strong>RAIL目标</strong></p>
+<p><strong>评估指标</strong></p>
+<p>响应：处理时间应在50ms以内完成</p>
+<p>动画：没10ms产生一帧</p>
+<p>空闲：尽可能增加空闲时间</p>
+<p>加载：在5s内完成内容加载并可以交互</p>
+<p>逐步发现问题解决问题</p>
+<p>性能测量工具</p>
+<p>Chrome DevTools 开发者调试工具，性能评测</p>
+<p>Lighthouse 网站整体质量评估</p>
+<p>WebPageTest 多测量地点、全面行能报告（通过 它的问斩对自己的网站就行进行评估）</p>
+<h2 id="WenPageTest"><a href="#WenPageTest" class="headerlink" title="WenPageTest"></a><strong>WenPageTest</strong></h2><p>webpagetest.org</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427101136898.png" alt="image-20220427101136898"></p>
+<p>用户首次方位  第二次访问  （第一次对一些静态资源做缓存）</p>
+<p>录视频</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427101340209.png" alt="image-20220427101340209"></p>
+<p>测试结果：</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427101426225.png" alt="image-20220427101426225"></p>
+<p>第一次加载，首屏渲染，</p>
+<p>speed 速度指数等</p>
+<p>图片并行加载  时间有加载最长时间决定</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103510108.png" alt="image-20220427103510108"></p>
+<p>高亮（重定向了）  可以优化  直接去访问重定向后的位置</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103527654.png" alt="image-20220427103527654"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103716493.png" alt="image-20220427103716493"></p>
+<p>前提：docker</p>
+<p>docker pull webpagetest&#x2F;server</p>
+<p>docker pull webpagetest&#x2F;a</p>
+<p>docker run -d -p 4000:80 webpagetest&#x2F;server</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103841249.png" alt="image-20220427103841249"></p>
+<p>自定义镜像</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103951183.png" alt="image-20220427103951183"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103923723.png" alt="image-20220427103923723"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427103940202.png" alt="image-20220427103940202"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427104025309.png" alt="image-20220427104025309"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427104016148.png" alt="image-20220427104016148"></p>
+<p>打包</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427104104578.png" alt="image-20220427104104578"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427104110269.png" alt="image-20220427104110269"></p>
+<p>这样就可以本地测试了。</p>
+<h2 id="Lighthouse"><a href="#Lighthouse" class="headerlink" title="Lighthouse"></a>Lighthouse</h2><p>npm install -g lighthouse</p>
+<p>lighthouse 测试网站地址</p>
+<p>自动打开一个浏览器窗口</p>
+<p>生成而是报告到本地</p>
+<p>打开即可查看</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427104412546.png" alt="image-20220427104412546"></p>
+<p>第一个有意义的内容</p>
+<p>什么时候用户可以交互了</p>
+<p>用户访问过程截屏。</p>
+<p>Opportunity：告诉我们还可以做些什么做到了可以提升那些多长时间</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427104938078.png" alt="image-20220427104938078"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427105002256.png" alt="image-20220427105002256"></p>
+<p>可以指定什么样的资源不进行加载。</p>
+<h2 id="Chrome-devtool调试"><a href="#Chrome-devtool调试" class="headerlink" title="Chrome devtool调试"></a>Chrome devtool调试</h2><p>Network：</p>
+<p>资源名称  大小   耗时</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427133838888.png" alt="image-20220427133838888"></p>
+<p>对请求资源进行压缩在返回前端</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427134024090.png" alt="image-20220427134024090"></p>
+<p>实际大小 parse  1.4MB   网络传输（index）55kb</p>
+<p>Performance：</p>
+<p>开始出现性能分析：可以定位出导致长任务（耗费时间长）的方法。</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427134236511.png" alt="image-20220427134236511"></p>
+<p>主线程任务。</p>
+<p>Disabel cache缓存。 Online：选择网络</p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427134610044.png" alt="image-20220427134610044"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427134719082.png" alt="image-20220427134719082"></p>
+<p><img src="C:\Users\dell\AppData\Roaming\Typora\typora-user-images\image-20220427134737203.png" alt="image-20220427134737203"></p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E4%BC%98%E5%8C%96/">#优化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/03/09/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/03%E6%80%A7%E8%83%BD%E6%B5%8B%E9%87%8FAPI%EF%BC%88web%E6%8F%90%E4%BE%9B%EF%BC%8C%E5%8A%A8%E6%80%81%E6%B5%8B%E9%87%8F%EF%BC%89/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">前端性能优化-03</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/02/26/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/01%E9%A1%B9%E7%9B%AE%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%A6%82%E8%BF%B0/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">前端性能优化-01</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

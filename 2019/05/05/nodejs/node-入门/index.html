@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            node-入门 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">node-入门</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-05-05 18:22:19</span>
+        <span class="mobile">2019-05-05 18:22</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/nodejs/">nodejs</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>nodejs是事件驱动、非阻塞I&#x2F;O模型</p>
+</blockquote>
+<ul>
+<li>阻塞：i&#x2F;o时进程休眠等待完成后进行下一步</li>
+<li>非阻塞：i&#x2F;o时函数立即返回，进程不等待i&#x2F;o返回</li>
+</ul>
+<blockquote>
+<p>i&#x2F;o完成后通知主程序，如何告诉呢？通过事件驱动</p>
+</blockquote>
+<p><strong>事件驱动</strong></p>
+<ul>
+<li>i&#x2F;o等异步操作结束后通知</li>
+<li>内部实现是观察者模式</li>
+</ul>
+<p><strong>CPU密集和I&#x2F;O密集</strong></p>
+<ul>
+<li><code>CPU</code>密集：压缩、解压、加密、解密</li>
+<li><code>I/O</code>密集：文件操作、网络操作、数据库</li>
+</ul>
+<p><strong>web常见场景(web是一个I&#x2F;O密集)</strong></p>
+<ul>
+<li>静态资源读取</li>
+<li>数据库操作</li>
+<li>渲染页面</li>
+</ul>
+<p><strong>高并发应用之道</strong></p>
+<ul>
+<li>增加机器数</li>
+<li>增加每台机器CPU数-多核</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/347.png" alt="img"></p>
+<p><strong>进程、线程</strong></p>
+<ul>
+<li>进程：一个运行的程序（进程包括线程，如何水分子里面还有分子原子）</li>
+<li>线程：进程内一个独立的，可调度的执行单元</li>
+<li>多线程：启动一个进程，在一个进程内启动多个线程，这样多个线程可以执行多个任务</li>
+</ul>
+<p><strong>Nodejs的单线程</strong></p>
+<ul>
+<li>单线程只是针对主进程，I&#x2F;O操作系统底层多线程调度</li>
+<li>单线程并不是单进程</li>
+</ul>
+<p><strong>Nodejs原理</strong></p>
+<ul>
+<li>Node是单线程的，只开一个进程，一个进程也只开一个线程。一个CPU上只开一个进程，一个进程里面只有一个线程</li>
+</ul>
+<p><strong>nodejs高性能的前提</strong></p>
+<ul>
+<li>高并发</li>
+<li><code>I/O</code>密集</li>
+</ul>
+<p><strong>常用场景</strong></p>
+<ul>
+<li><code>web Server</code></li>
+<li>本地代码构建 (<code>webpack/grunt/gulp</code>)</li>
+<li>使用工具的开发</li>
+</ul>
+<h2 id="二、nodejs与JavaScrip异同"><a href="#二、nodejs与JavaScrip异同" class="headerlink" title="二、nodejs与JavaScrip异同"></a>二、nodejs与JavaScrip异同</h2><ul>
+<li><code>ECMAScript</code></li>
+<li>语法</li>
+<li>内置对象、方法</li>
+</ul>
+<p><strong>顶层对象</strong></p>
+<ul>
+<li><code>JavaScript</code>：<code>window</code></li>
+<li><code>nodejs</code>: <code>global</code></li>
+<li>在ECMA部分node和JavaScript是一样的，比如数据类型的定义，语法结构、内置对象</li>
+</ul>
+<h2 id="三、模块"><a href="#三、模块" class="headerlink" title="三、模块"></a>三、模块</h2><ul>
+<li>在<code>node</code>中文件和模块是一一对应的，也就是一个文件一个模块。**file是每个模块下必有的一个属性，输出文件的绝对路径。<code>**dirname</code> 是文件夹名称绝对路径</li>
+<li>每个模块都有自己的作用域</li>
+<li>我们通过var声明的变量并非全局，而是该模块作用域下的</li>
+</ul>
+<p><strong>模块加载机制</strong></p>
+<ul>
+<li><code>require</code>加载模块</li>
+<li>1、首先按照加载模块的文件名称进行查找</li>
+<li>2、如果没有找到就会在文件模块文件名称后加载<code>.js</code>进行查找</li>
+<li>3、如果还没有找到，就在文件名称后加载<code>.json</code>后缀，进行查找</li>
+<li>4、如果还没找到，就会在文件名称后加上<code>.node</code>进行查找</li>
+<li>查找流程：<strong>文件名称-&gt;.js -&gt; .json-&gt;.node</strong></li>
+</ul>
+<p><strong>exports、module</strong></p>
+<ul>
+<li>保存当前模块有关的一些信息</li>
+<li><code>module.exports</code> 一般使用这个,把一个模块中的变量对外提供访问</li>
+<li>在模块作用域，还有一个内置的模块对象，<code>exports</code>其实就是<code>module.exports</code>,他们两个都是指向同一个对象</li>
+</ul>
+<h2 id="四、node目录的配置"><a href="#四、node目录的配置" class="headerlink" title="四、node目录的配置"></a>四、node目录的配置</h2><ul>
+<li><p>配置文件 :</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package.json</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dependencies : 当前项目所使用到的依赖模块</li>
+<li>安装方式: <code>npm install</code> 自动读取<code>package.json</code>自动安装</li>
+</ul>
+</li>
+<li><p><code>router</code>目录 用来存放路由文件</p>
+</li>
+<li><p><code>views</code>目录 用来存放<code>html</code>模板文件</p>
+</li>
+<li><p><code>module</code>目录 自己写的一些模块</p>
+</li>
+</ul>
+<h2 id="五、第一个node服务器"><a href="#五、第一个node服务器" class="headerlink" title="五、第一个node服务器"></a>五、第一个node服务器</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//   安装好node就有的一个模块</span><br><span class="line">//  用来创建http服务器的</span><br><span class="line">const http = require(`http`);</span><br><span class="line"></span><br><span class="line">http.createServer((request,response) =&gt; &#123;</span><br><span class="line">    //request 请求对象     浏览器 请求 服务器所有的内容保存在这个对象里</span><br><span class="line">    //response 响应对象     服务器响应浏览器 所有的方法</span><br><span class="line">    response.writeHead(200 , &#123; &#x27;Content-Type&#x27;:&#x27;text/html&#x27; &#125; );</span><br><span class="line">    //  .end() 结束响应 同时发送一个 Hello Word</span><br><span class="line">    response.end(&#x27;Hello Word&#x27;)</span><br><span class="line">&#125;).listen(233);</span><br><span class="line">//.listen(); 监听端口 233  自定义的端口号</span><br><span class="line">// 如果开启了node服务器  修改完之后的代码必须 重启才能生效</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/nodejs/">#nodejs</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/05/14/nodejs/node-%E5%9F%BA%E7%A1%80%E7%AF%87/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">node-基础总结</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/04/07/%E6%95%B0%E6%8D%AE%E5%BA%93/MongoDB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">mongodb</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

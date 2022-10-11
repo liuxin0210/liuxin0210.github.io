@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            浏览器安全插箱跨域 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">浏览器安全插箱跨域</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-04-29 15:31:05</span>
+        <span class="mobile">2021-04-29 15:31</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">浏览器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><strong>什么是跨域？</strong></p>
+<ul>
+<li>概念如下：只要协议、域名、端口有任何一个不同，都被当作是不同的域</li>
+</ul>
+<p><strong>下面是具体的跨域情况详解</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">URL</th>
+<th align="left">说明</th>
+<th align="left">是否允许通信</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com/a.js%E3%80%81http://www.a.com/b.js" >http://www.a.com/a.js、http://www.a.com/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">同一域名下</td>
+<td align="left">允许</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com/lab/a.js%E3%80%81http://www.a.com/script/b.js" >http://www.a.com/lab/a.js、http://www.a.com/script/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">同一域名下不同文件夹</td>
+<td align="left">允许</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com:8000/a.js%E3%80%81http://www.a.com/b.js" >http://www.a.com:8000/a.js、http://www.a.com/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">同一域名，不同端口</td>
+<td align="left">不允许</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com/a.js%E3%80%81https://www.a.com/b.js" >http://www.a.com/a.js、https://www.a.com/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">同一域名，不同协议</td>
+<td align="left">不允许</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com/a.js%E3%80%81http://70.32.92.74/b.js" >http://www.a.com/a.js、http://70.32.92.74/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">域名和域名对应ip</td>
+<td align="left">不允许</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com/a.js%E3%80%81http://script.a.com/b.js" >http://www.a.com/a.js、http://script.a.com/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">主域相同，子域不同</td>
+<td align="left">不允许（cookie这种情况下也不允许访问）</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.a.com/a.js%E3%80%81http://a.com/b.js" >http://www.a.com/a.js、http://a.com/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">同一域名，不同二级域名（同上）</td>
+<td align="left">不允许（cookie这种情况下也不允许访问）</td>
+</tr>
+<tr>
+<td align="left"><a class="link"   target="_blank" rel="noopener" href="http://www.cnblogs.com/a.js%E3%80%81http://www.a.com/b.js" >http://www.cnblogs.com/a.js、http://www.a.com/b.js<i class="fas fa-external-link-alt"></i></a></td>
+<td align="left">不同域名</td>
+<td align="left">不允许</td>
+</tr>
+</tbody></table>
+<h2 id="一、document-domain跨域"><a href="#一、document-domain跨域" class="headerlink" title="一、document.domain跨域"></a>一、document.domain跨域</h2><hr>
+<ul>
+<li>原理：相同主域名不同子域名下的页面，可以设置<code>document.domain</code>让它们同域</li>
+<li>限制：同域<code>document</code>提供的是页面间的互操作，需要载入<code>iframe</code>页面</li>
+</ul>
+<blockquote>
+<p>下面几个域名下的页面都是可以通过<code>document.domain</code>跨域互操作的： <code>http://a.com/foo</code>, <code>http://b.a.com/bar</code>, <code>http://c.a.com/bar</code>。 但只能以页面嵌套的方式来进行页面互操作，比如常见的<code>iframe</code>方式就可以完成页面嵌套</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// URL http://a.com/foo</span><br><span class="line">var ifr = document.createElement(&#x27;iframe&#x27;);</span><br><span class="line">ifr.src = &#x27;http://b.a.com/bar&#x27;; </span><br><span class="line">ifr.onload = function()&#123;</span><br><span class="line">    var ifrdoc = ifr.contentDocument || ifr.contentWindow.document;</span><br><span class="line">    ifrdoc.getElementsById(&quot;foo&quot;).innerHTML);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ifr.style.display = &#x27;none&#x27;;</span><br><span class="line">document.body.appendChild(ifr);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上述代码所在的<code>URL</code>是<code>http://a.com/foo</code>，它对<code>http://b.a.com/bar</code>的<code>DOM</code>访问要求后者将 <code>document.domain</code>往上设置一级</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// URL http://b.a.com/bar</span><br><span class="line">document.domain = &#x27;a.com&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>document.domain</code>只能从子域设置到主域，往下设置以及往其他域名设置都是不允许的， 在<code>Chrome</code>中给出的错误是这样的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught DOMException: Failed to set the &#x27;domain&#x27; property on &#x27;Document&#x27;: &#x27;baidu.com&#x27; is not a suffix of &#x27;b.a.com&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、有src的标签"><a href="#二、有src的标签" class="headerlink" title="二、有src的标签"></a>二、有src的标签</h2><hr>
+<ul>
+<li>原理：所有具有<code>src</code>属性的<code>HTML</code>标签都是可以跨域的，包括<code>, </code></li>
+<li>限制：需要创建一个<code>DOM</code>对象，只能用于<code>GET</code>方法</li>
+</ul>
+<blockquote>
+<ul>
+<li>在<code>document.body</code>中<code>append</code>一个具有<code>src</code>属性的<code>HTML</code>标签， <code>src</code>属性值指向的<code>URL</code>会以<code>GET</code>方法被访问，该访问是可以跨域的</li>
+<li>其实样式表的&#96;&#96;标签也是可以跨域的，只要是有<code>src</code>或<code>href</code>的<code>HTML</code>标签都有跨域的能力</li>
+</ul>
+</blockquote>
+<ul>
+<li>不同的<code>HTML</code>标签发送<code>HTTP</code>请求的时机不同，例如&#96;&#96;在更改<code>src</code>属性时就会发送请求，而<code>script</code>, <code>iframe</code>, <code>link[rel=stylesheet]</code>只有在添加到<code>DOM</code>树之后才会发送<code>HTTP</code>请求：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.src = &#x27;http://some/picture&#x27;;        // 发送HTTP请求</span><br><span class="line"></span><br><span class="line">var ifr = $(&#x27;&lt;iframe&gt;&#x27;, &#123;src: &#x27;http://b.a.com/bar&#x27;&#125;);</span><br><span class="line">$(&#x27;body&#x27;).append(ifr);                  // 发送HTTP请求</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、JSONP"><a href="#三、JSONP" class="headerlink" title="三、JSONP"></a>三、JSONP</h2><hr>
+<ul>
+<li>原理：&#96;&#96;是可以跨域的，而且在跨域脚本中可以直接回调当前脚本的函数</li>
+<li>限制：需要创建一个<code>DOM</code>对象并且添加到<code>DOM</code>树，只能用于<code>GET</code>方法</li>
+</ul>
+<blockquote>
+<p><code>JSONP</code>利用的是&#96;&#96;可以跨域的特性，跨域<code>URL</code>返回的脚本不仅包含数据，还包含一个回调</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// URL: http://b.a.com/foo</span><br><span class="line">var data = &#123;</span><br><span class="line">    foo: &#x27;bar&#x27;,</span><br><span class="line">    bar: &#x27;foo&#x27;</span><br><span class="line">&#125;;</span><br><span class="line">callback(data);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>然后在我们在主站<code>http://a.com</code>中，可以这样来跨域获取<code>http://b.a.com</code>的数据：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// URL: http://a.com/foo</span><br><span class="line">var callback = function(data)&#123;</span><br><span class="line">    // 处理跨域请求得到的数据</span><br><span class="line">&#125;;</span><br><span class="line">var script = $(&#x27;&lt;script&gt;&#x27;, &#123;src: &#x27;http://b.a.com/bar&#x27;&#125;);</span><br><span class="line">$(&#x27;body&#x27;).append(script);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其实<code>jQuery</code>已经封装了<code>JSONP</code>的使用，我们可以这样来</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON( &quot;http://b.a.com/bar?callback=callback&quot;, function( data )&#123;</span><br><span class="line">    // 处理跨域请求得到的数据</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>$.getJSON</code>与<code>$.get</code>的区别是前者会把<code>responseText</code>转换为<code>JSON</code>，而且当<code>URL</code>具有<code>callback</code>参数时， <code>jQuery</code>将会把它解释为一个<code>JSONP</code>请求，创建一个&#96;&#96;标签来完成该请求</p>
+</blockquote>
+<h2 id="四、navigation-对象"><a href="#四、navigation-对象" class="headerlink" title="四、navigation 对象"></a>四、navigation 对象</h2><hr>
+<ul>
+<li>原理：<code>iframe</code>之间是共享<code>navigator</code>对象的，用它来传递信息</li>
+<li>要求：<code>IE6/7</code></li>
+</ul>
+<blockquote>
+<p>有些人注意到了<code>IE6/7</code>的一个漏洞：<code>iframe</code>之间的<code>window.navigator</code>对象是共享的。 我们可以把它作为一个<code>Messenger</code>，通过它来传递信息。比如一个简单的委托：</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// a.com</span><br><span class="line">navigation.onData()&#123;</span><br><span class="line">    // 数据到达的处理函数</span><br><span class="line">&#125;</span><br><span class="line">typeof navigation.getData === &#x27;function&#x27; </span><br><span class="line">    || navigation.getData()</span><br><span class="line">// b.com</span><br><span class="line">navigation.getData = function()&#123;</span><br><span class="line">    $.get(&#x27;/path/under/b.com&#x27;)</span><br><span class="line">        .success(function(data)&#123;</span><br><span class="line">            typeof navigation.onData === &#x27;function&#x27;</span><br><span class="line">                || navigation.onData(data)</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>与<code>document.navigator</code>类似，<code>window.name</code>也是当前窗口所有页面所共享的。也可以用它来传递信息。 同样蛋疼的办法还有传递<code>Hash</code>（有些人叫锚点），这是因为每次浏览器打开一个<code>URL</code>时，<code>URL</code>后面的<code>#xxx</code>部分会保留下来，那么新的页面可以从这里获得上一个页面的数据</p>
+</blockquote>
+<h2 id="五、跨域资源共享（CORS）"><a href="#五、跨域资源共享（CORS）" class="headerlink" title="五、跨域资源共享（CORS）"></a>五、跨域资源共享（CORS）</h2><hr>
+<ul>
+<li>原理：服务器设置<code>Access-Control-Allow-OriginHTTP</code>响应头之后，浏览器将会允许跨域请求</li>
+<li>限制：浏览器需要支持<code>HTML5</code>，可以支持<code>POST</code>，<code>PUT</code>等方法</li>
+</ul>
+<blockquote>
+<p>前面提到的跨域手段都是某种意义上的<code>Hack</code>， <code>HTML5</code>标准中提出的跨域资源共享（<code>Cross Origin Resource Share</code>，<code>CORS</code>）才是正道。 它支持其他的<code>HTTP</code>方法如<code>PUT</code>, <code>POST</code>等，可以从本质上解决跨域问题。</p>
+</blockquote>
+<ul>
+<li>例如，从<code>http://a.com</code>要访问<code>http://b.com</code>的数据，通常情况下<code>Chrome</code>会因跨域请求而报错</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XMLHttpRequest cannot load http://b.com. No &#x27;Access-Control-Allow-Origin&#x27; header is present on the requested resource. Origin &#x27;http://a.com&#x27; is therefore not allowed access</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>错误原因是被请求资源没有设置<code>Access-Control-Allow-Origin</code>，所以我们在<code>b.com</code>的服务器中设置这个响应头字段即可</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *              # 允许所有域名访问，或者</span><br><span class="line">Access-Control-Allow-Origin: http://a.com   # 只允许所有域名访问</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、window-postMessage"><a href="#六、window-postMessage" class="headerlink" title="六、window.postMessage"></a>六、window.postMessage</h2><hr>
+<ul>
+<li>原理：<code>HTML5</code>允许窗口之间发送消息</li>
+<li>限制：浏览器需要支持<code>HTML5</code>，获取窗口句柄后才能相互通信</li>
+</ul>
+<blockquote>
+<p>这是一个安全的跨域通信方法，<code>postMessage(message,targetOrigin)</code>也是<code>HTML5</code>引入的特性。 可以给任何一个<code>window</code>发送消息，不论是否同源。第二个参数可以是*但如果你设置了一个<code>URL</code>但不相符，那么该事件不会被分发。看一个普通的使用方式吧</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// URL: http://a.com/foo</span><br><span class="line">var win = window.open(&#x27;http://b.com/bar&#x27;);</span><br><span class="line">win.postMessage(&#x27;Hello, bar!&#x27;, &#x27;http://b.com&#x27;);</span><br><span class="line">// URL: http://b.com/bar</span><br><span class="line">window.addEventListener(&#x27;message&#x27;,function(event) &#123;</span><br><span class="line">    console.log(event.data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、访问控制安全的讨论"><a href="#七、访问控制安全的讨论" class="headerlink" title="七、访问控制安全的讨论"></a>七、访问控制安全的讨论</h2><hr>
+<ul>
+<li>在<code>HTML5</code>之前，<code>JSONP</code>已经成为跨域的事实标准了，<code>jQuery</code>都给出了支持。 值得注意的是它只是<code>Hack</code>，并没有产生额外的安全问题。 因为<code>JSONP</code>要成功获取数据，需要跨域资源所在服务器的配合，比如资源所在服务器需要自愿地回调一个合适的函数，所以服务器仍然有能力控制资源的跨域访问</li>
+<li>跨域的正道还是要使用<code>HTML5</code>提供的CORS头字段以及<code>window.postMessage</code>， 可以支持<code>POST</code>, <code>PUT</code>等<code>HTTP</code>方法，从机制上解决跨域问题。 值得注意的是<code>Access-Control-Allow-Origin</code>头字段是资源所在服务器设置的， 访问控制的责任仍然是在提供资源的服务器一方，这和<code>JSONP</code>是一样的</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">#浏览器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/05/07/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E5%8E%9F%E7%90%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">浏览器缓存原理</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/04/24/%E8%B0%83%E8%AF%95/Fiddler%E6%8A%93%E5%8C%85/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Fiddler 抓包分析</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            js-OOP面向对象 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js-OOP面向对象</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2017-12-25 16:56:13</span>
+        <span class="mobile">2017-12-25 16:56</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>一般面向对象包含：继承，封装，多态，抽象</p>
+</blockquote>
+<h4 id="对象形式的继承"><a href="#对象形式的继承" class="headerlink" title="对象形式的继承"></a>对象形式的继承</h4><hr>
+<h5 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var Person = &#123;</span><br><span class="line">    name: &#x27;allin&#x27;,</span><br><span class="line">    age: 18,</span><br><span class="line">    address: &#123;</span><br><span class="line">        home: &#x27;home&#x27;,</span><br><span class="line">        office: &#x27;office&#x27;,</span><br><span class="line">    &#125;</span><br><span class="line">    sclools: [&#x27;x&#x27;,&#x27;z&#x27;],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var programer = &#123;</span><br><span class="line">    language: &#x27;js&#x27;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function extend(p, c)&#123;</span><br><span class="line">    var c = c || &#123;&#125;;</span><br><span class="line">    for( var prop in p)&#123;</span><br><span class="line">        c[prop] = p[prop];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">extend(Person, programer);</span><br><span class="line">programer.name;  // allin</span><br><span class="line">programer.address.home;  // home</span><br><span class="line">programer.address.home = &#x27;house&#x27;;  //house</span><br><span class="line">Person.address.home;  // house</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从上面的结果看出，浅拷贝的缺陷在于修改了子对象中引用类型的值，会影响到父对象中的值，因为在浅拷贝中对引用类型的拷贝只是拷贝了地址，指向了内存中同一个副本</li>
+</ul>
+<h5 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function extendDeeply(p, c)&#123;</span><br><span class="line">    var c = c || &#123;&#125;;</span><br><span class="line">    for (var prop in p)&#123;</span><br><span class="line">        if(typeof p[prop] === &quot;object&quot;)&#123;</span><br><span class="line">            c[prop] = (p[prop].constructor === Array)?[]:&#123;&#125;;</span><br><span class="line">            extendDeeply(p[prop], c[prop]);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            c[prop] = p[prop];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>利用递归进行深拷贝，这样子对象的修改就不会影响到父对象</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extendDeeply(Person, programer);</span><br><span class="line">programer.address.home = &#x27;allin&#x27;;</span><br><span class="line">Person.address.home; // home</span><br></pre></td></tr></table></figure>
+
+<h5 id="利用call和apply继承"><a href="#利用call和apply继承" class="headerlink" title="利用call和apply继承"></a>利用call和apply继承</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Parent()&#123;</span><br><span class="line">    this.name = &quot;abc&quot;;</span><br><span class="line">    this.address = &#123;home: &quot;home&quot;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">    Parent.call(this);</span><br><span class="line">    this.language = &quot;js&quot;; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="ES5中的Object-create"><a href="#ES5中的Object-create" class="headerlink" title="ES5中的Object.create()"></a>ES5中的Object.create()</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var p = &#123; name : &#x27;allin&#x27;&#125;;</span><br><span class="line">var obj = Object.create(o);</span><br><span class="line">obj.name; // allin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Object.create()</code>作为<code>new</code>操作符的替代方案是<code>ES5</code>之后才出来的。我们也可以自己模拟该方法：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//模拟Object.create()方法</span><br><span class="line">function myCreate(o)&#123;</span><br><span class="line">    function F()&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    o = new F();</span><br><span class="line">    return o;</span><br><span class="line">&#125;</span><br><span class="line">var p = &#123; name : &#x27;allin&#x27;&#125;;</span><br><span class="line">var obj = myCreate(o);</span><br><span class="line">obj.name; // allin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>目前，各大浏览器的最新版本（包括<code>IE9</code>）都部署了这个方法。如果遇到老式浏览器，可以用下面的代码自行部署</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　if (!Object.create) &#123;</span><br><span class="line">　　　　Object.create = function (o) &#123;</span><br><span class="line">　　　　　　 function F() &#123;&#125;</span><br><span class="line">　　　　　　F.prototype = o;</span><br><span class="line">　　　　　　return new F();</span><br><span class="line">　　　　&#125;;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h4><hr>
+<h5 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age)&#123;&#125;</span><br><span class="line">Person.prototype.headCount = 1;</span><br><span class="line">Person.prototype.eat = function()&#123;</span><br><span class="line">    console.log(&#x27;eating...&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">function Programmer(name, age, title)&#123;&#125;</span><br><span class="line"></span><br><span class="line">Programmer.prototype = Object.create(Person.prototype); //建立继承关系</span><br><span class="line">Programmer.prototype.constructor = Programmer;  // 修改constructor的指向</span><br></pre></td></tr></table></figure>
+
+<h5 id="调用父类方法"><a href="#调用父类方法" class="headerlink" title="调用父类方法"></a>调用父类方法</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function Person(name, age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.headCount = 1;</span><br><span class="line">Person.prototype.eat = function()&#123;</span><br><span class="line">    console.log(&#x27;eating...&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Programmer(name, age, title)&#123;</span><br><span class="line">    Person.apply(this, arguments); // 调用父类的构造器</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Programmer.prototype = Object.create(Person.prototype);</span><br><span class="line">Programmer.prototype.constructor = Programmer;</span><br><span class="line"></span><br><span class="line">Programmer.prototype.language = &quot;js&quot;;</span><br><span class="line">Programmer.prototype.work = function()&#123;</span><br><span class="line">    console.log(&#x27;i am working code in &#x27;+ this.language);</span><br><span class="line">    Person.prototype.eat.apply(this, arguments); // 调用父类上的方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><hr>
+<h5 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h5><hr>
+<ul>
+<li><code>js</code>是没有命名空间的，因此可以用对象模拟</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var app = &#123;&#125;;  // 命名空间app</span><br><span class="line">//模块1</span><br><span class="line">app.module1 = &#123;</span><br><span class="line">    name: &#x27;allin&#x27;,</span><br><span class="line">    f: function()&#123;</span><br><span class="line">        console.log(&#x27;hi robot&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">app.module1.name; // &quot;allin&quot;</span><br><span class="line">app.module1.f();  // hi robot</span><br></pre></td></tr></table></figure>
+
+<h5 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">    var age = 100;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//静态成员</span><br><span class="line">Person.walk = function()&#123;</span><br><span class="line">    console.log(&#x27;static&#x27;);</span><br><span class="line">&#125;;</span><br><span class="line">Person.walk();  // static</span><br></pre></td></tr></table></figure>
+
+<h5 id="私有与公有"><a href="#私有与公有" class="headerlink" title="私有与公有"></a>私有与公有</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Person(id)&#123;</span><br><span class="line">    // 私有属性与方法</span><br><span class="line">    var name = &#x27;allin&#x27;;</span><br><span class="line">    var work = function()&#123;</span><br><span class="line">        console.log(this.id);</span><br><span class="line">    &#125;;</span><br><span class="line">    //公有属性与方法</span><br><span class="line">    this.id = id;</span><br><span class="line">    this.say = function()&#123;</span><br><span class="line">        console.log(&#x27;say hello&#x27;);</span><br><span class="line">        work.call(this);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">var p1 = new Person(123);</span><br><span class="line">p1.name; // undefined</span><br><span class="line">p1.id;  // 123</span><br><span class="line">p1.say();  // say hello 123</span><br></pre></td></tr></table></figure>
+
+<h5 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var moduleA;</span><br><span class="line">moduleA = function() &#123;</span><br><span class="line">    var prop = 1;</span><br><span class="line"></span><br><span class="line">    function func() &#123;&#125;</span><br><span class="line"></span><br><span class="line">    return &#123;</span><br><span class="line">        func: func,</span><br><span class="line">        prop: prop</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;(); // 立即执行匿名函数</span><br></pre></td></tr></table></figure>
+
+<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><hr>
+<h5 id="模拟方法重载"><a href="#模拟方法重载" class="headerlink" title="模拟方法重载"></a>模拟方法重载</h5><hr>
+<ul>
+<li><code>arguments</code>属性可以取得函数调用的实参个数，可以利用这一点模拟方法的重载</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">function demo(a, b )&#123;</span><br><span class="line">    console.log(demo.length); // 得到形参个数</span><br><span class="line">    console.log(arguments.length); //得到实参个数</span><br><span class="line">    console.log(arguments[0]);  // 第一个实参 4</span><br><span class="line">    console.log(arguments[1]);  // 第二个实参 5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo(4, 5, 6);</span><br><span class="line">//实现可变长度实参的相加</span><br><span class="line">function add()&#123;</span><br><span class="line">    var total = 0;</span><br><span class="line">    for( var i = arguments.length - 1; i &gt;= 0; i--)&#123;</span><br><span class="line">        total += arguments[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.log(add(1));  // 1</span><br><span class="line">console.log(add(1, 2, 3));  // 7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 参数不同的情况</span><br><span class="line">function fontSize()&#123;</span><br><span class="line">    var ele = document.getElementById(&#x27;js&#x27;);</span><br><span class="line">    if(arguments.length == 0)&#123;</span><br><span class="line">        return ele.style.fontSize;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        ele.style.fontSize = arguments[0];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">fontSize(18);</span><br><span class="line">console.log(fontSize());</span><br><span class="line"></span><br><span class="line">// 类型不同的情况</span><br><span class="line">function setting()&#123;</span><br><span class="line">    var ele = document.getElementById(&#x27;js&#x27;);</span><br><span class="line">    if(typeof arguments[0] === &quot;object&quot;)&#123;</span><br><span class="line">        for(var p in arguments[0])&#123;</span><br><span class="line">            ele.style[p] = arguments[0][p];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        ele.style.fontSize = arguments[0];</span><br><span class="line">        ele.style.backgroundColor = arguments[1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">setting(18, &#x27;red&#x27;);</span><br><span class="line">setting(&#123;fontSize:20, backgroundColor: &#x27;green&#x27;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h5><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function F()&#123;&#125;</span><br><span class="line">var f = new F();</span><br><span class="line">F.prototype.run = function()&#123;</span><br><span class="line">    console.log(&#x27;F&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">f.run(); // F</span><br><span class="line"></span><br><span class="line">f.run = function()&#123;</span><br><span class="line">    console.log(&#x27;fff&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">f.run();  // fff</span><br></pre></td></tr></table></figure>
+
+<h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><hr>
+<ul>
+<li>在构造器中 <code>throw new Error(&#39;&#39;)</code>; 抛异常。这样防止这个类被直接调用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">function DetectorBase() &#123;</span><br><span class="line">    throw new Error(&#x27;Abstract class can not be invoked directly!&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DetectorBase.prototype.detect = function() &#123;</span><br><span class="line">    console.log(&#x27;Detection starting...&#x27;);</span><br><span class="line">&#125;;</span><br><span class="line">DetectorBase.prototype.stop = function() &#123;</span><br><span class="line">    console.log(&#x27;Detection stopped.&#x27;);</span><br><span class="line">&#125;;</span><br><span class="line">DetectorBase.prototype.init = function() &#123;</span><br><span class="line">    throw new Error(&#x27;Error&#x27;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// var d = new DetectorBase();</span><br><span class="line">// Uncaught Error: Abstract class can not be invoked directly!</span><br><span class="line"></span><br><span class="line">function LinkDetector() &#123;&#125;</span><br><span class="line">LinkDetector.prototype = Object.create(DetectorBase.prototype);</span><br><span class="line">LinkDetector.prototype.constructor = LinkDetector;</span><br><span class="line"></span><br><span class="line">var l = new LinkDetector();</span><br><span class="line">console.log(l); //LinkDetector &#123;&#125;__proto__: LinkDetector</span><br><span class="line">l.detect(); //Detection starting...</span><br><span class="line">l.init(); //Uncaught Error: Error</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2017/12/27/html+css+js+ts/3-js-OOP%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js-OOP原型与原型链</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2017/12/22/html+css+js+ts/3-js-json.stringify/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js JSON.Stringify</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

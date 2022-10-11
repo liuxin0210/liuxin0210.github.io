@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            闭包 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">闭包</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-01-03 12:56:45</span>
+        <span class="mobile">2018-01-03 12:56</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>闭包的形成跟变量的作用域以及变量的生存周期密切相关</p>
+</blockquote>
+<h2 id="一、变量的作用域-是指变量的有效范围"><a href="#一、变量的作用域-是指变量的有效范围" class="headerlink" title="一、变量的作用域,是指变量的有效范围"></a>一、变量的作用域,是指变量的有效范围</h2><ul>
+<li>当在函数中声明一个变量的时候,如果该变量前面没有带上关键字 <code>var</code>,这个变量就会成为全局变量 ,这当然是一种很容易造成命名冲突的做法。<br>另外一种情况是用 <code>var</code> 关键字在函数中声明变量,这时候的变量即是局部变量,只有在该函数内部才能访问到这个变量,在函数外面是访问不到的。</li>
+</ul>
+<p>例：变量的搜索是从内到外而非从外到 内的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var a=1;</span><br><span class="line">var func1 = function()&#123; </span><br><span class="line">    var b=2;</span><br><span class="line">    var func2 = function()&#123; </span><br><span class="line">        var c=3;</span><br><span class="line">        console.log ( b ); // 输出:2 </span><br><span class="line">        console.log ( a );// 输出:1</span><br><span class="line">    &#125;</span><br><span class="line">    func2();</span><br><span class="line">    console.log(c);//输出:Uncaught ReferenceError: c is not defined</span><br><span class="line">&#125;; </span><br><span class="line">func1();</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、变量的生存周期"><a href="#二、变量的生存周期" class="headerlink" title="二、变量的生存周期"></a>二、变量的生存周期</h2><ul>
+<li>对于全局变量来说,全局变量的生存周期当然是的永久,除非我们主动销毁这个全局变量。</li>
+<li>而对于在函数内用<code>var</code>关键字声明的局部变量来说,当退出函数时,这些局部变量即失去了 它们的价值,它们都会随着函数的调用的结束而销毁</li>
+</ul>
+<p>例一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var func = function()&#123; </span><br><span class="line">    var a=1;</span><br><span class="line">    return function()&#123; </span><br><span class="line">        a++;</span><br><span class="line">        console.log(a);</span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br><span class="line">var f=func();</span><br><span class="line">f();// 输出:2 </span><br><span class="line">f();// 输出:3</span><br><span class="line">f();// 输出:4</span><br><span class="line">f();// 输出:5</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>跟我们之前的结论相反,上面的例子在当退出函数后,局部变量<code>a</code> 并没有消失,而是似乎一直在某个地方 存活着。这是因为当执行 <code>var f = func();</code>时,<code>f</code> 返回了一个名函数的引用,它可以问到<code>func()</code> 被调用时产生的环境,而局部变量 <code>a</code> 一直处在这个环境里。既然外局部变量所在的环境还能被外 界访问,这个局部变量就有了不被销毁的理由。在这里生了一个闭包结构,局部变量的声明看起来被延续了。</li>
+</ul>
+<p>例二，假设页面上有 5 个 div 节点,我们通过循环来给每个 div绑定 onclick 事件,按照索引顺序,点击第 1 个 div 时弹出 0,点击第 2 个 div 时出 1,以此类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var nodes = document.getElementsByTagName( &#x27;div&#x27; );</span><br><span class="line">for(var i=0,len=nodes.length;i&amp;lt;len;i++)&#123; </span><br><span class="line">    nodes[ i ].onclick = function()&#123;</span><br><span class="line">        alert(i); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试这段代码会发现,无论点击哪个 div,最后弹出的结果都是 5</li>
+<li>这是因为 <code>div</code> 节点的 <code>onclick</code> 事件是被异步触发的,当事件被触发的时候,<code>for</code>循环早已结束,此时 i 的值已经是 <code>5</code>,</li>
+<li>所以在 <code>div</code>的 <code>onclick</code> 事件函数中顺着作用域链从内到外查找变量 i 时,查找到的值总是 <code>5</code>。</li>
+<li>解决方法是在闭包的帮助下,每次循环的<code>i</code> 值都封闭起来。当在事件函数中顺着作用域链从内到外查找变量 <code>i</code>时,会先找到被封闭在闭包环境中的<code>i,</code>如果有<code>5</code>个<code>div</code>,这里的<code>i</code>分别 是 <code>0,1,2,3,4</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(var i=0,len=nodes.length;i&amp;lt;len;i++)&#123; </span><br><span class="line">    (function( i )&#123;</span><br><span class="line">        nodes[ i ].onclick = function()&#123; </span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、闭包的作用"><a href="#三、闭包的作用" class="headerlink" title="三、闭包的作用"></a>三、闭包的作用</h2><h3 id="1、封装变量—-闭包可以帮助一些不需要暴露在全局的变量封装成“私有变量”"><a href="#1、封装变量—-闭包可以帮助一些不需要暴露在全局的变量封装成“私有变量”" class="headerlink" title="1、封装变量—-闭包可以帮助一些不需要暴露在全局的变量封装成“私有变量”"></a>1、封装变量—-闭包可以帮助一些不需要暴露在全局的变量封装成“私有变量”</h3><ul>
+<li>例一，计算乘积</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var mult = function()&#123; </span><br><span class="line">    var a=1;</span><br><span class="line">    for(var i=0,l=arguments.length;i&amp;lt;l;i++)&#123; </span><br><span class="line">        a = a * arguments[i];</span><br><span class="line">    &#125;</span><br><span class="line">    return a; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、延续局部变量的寿命"><a href="#2、延续局部变量的寿命" class="headerlink" title="2、延续局部变量的寿命"></a>2、延续局部变量的寿命</h3><h2 id="四、闭包与内存泄漏"><a href="#四、闭包与内存泄漏" class="headerlink" title="四、闭包与内存泄漏"></a>四、闭包与内存泄漏</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    var i = 0;</span><br><span class="line"></span><br><span class="line">    function b() &#123;</span><br><span class="line">        console.log(++i);</span><br><span class="line">    &#125;</span><br><span class="line">    return b;</span><br><span class="line">&#125;</span><br><span class="line">var c = a();</span><br><span class="line">c();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>首先有一个封闭的函数<code>a</code>（即自定义的一个<code>function a()</code>方法），该函数内部的变量<code>b</code>（局部变量&#x2F;局部方法）外部无法直接调用；但如果把这个函数赋值给一个全部变量<code>c</code>时，</li>
+<li>全局变量c就获取到了函数局部变量b的值，从而使局部变量<code>b</code>的值得到了保存，即延长了一个局部变量<code>b</code>的生命周期，除非主动销毁这个全局变量<code>c</code>。<br>此时，我们也就制造出来了一个“闭包”。简单说“闭包是指有权限访问另一个函数作用域的变量的函数”。</li>
+<li>在这个过程中，因为局部变量b的声明周期延长，使得<code>Javascript</code>的垃圾回收机制不会收回函数<code>a</code>所占用的资源,因为函数a的局部变量<code>b</code>的执行需要依赖函数a中的变量。</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/01/05/html+css+js+ts/3-js%E5%B8%B8%E7%94%A8api/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js-api</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/01/01/html+css+js+ts/3-jsPromise%E5%8E%9F%E7%90%86/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ES Promise.all/race</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

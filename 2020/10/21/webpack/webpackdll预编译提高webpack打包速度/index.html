@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            webpackdll预编译提高webpack打包速度 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">webpackdll预编译提高webpack打包速度</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-10-21 11:49:18</span>
+        <span class="mobile">2020-10-21 11:49</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/webpack/">webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>博客链接 <a class="link"   target="_blank" rel="noopener" href="http://blog.poetries.top/2018/11/23/webpack-dll" >http://blog.poetries.top/2018/11/23/webpack-dll<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="一、webpack的dll功能"><a href="#一、webpack的dll功能" class="headerlink" title="一、webpack的dll功能"></a>一、webpack的dll功能</h2><blockquote>
+<p>基于<code>webpack3</code>构建</p>
+</blockquote>
+<h3 id="1-1-dll介绍"><a href="#1-1-dll介绍" class="headerlink" title="1.1 dll介绍"></a>1.1 dll介绍</h3><blockquote>
+<p>我们构建前端项目的时候，往往希望第三方库（<code>vendors</code>）和自己写的代码可以分开打包，因为第三方库往往不需要经常打包更新。对此<code>Webpack</code>的文档建议用<code>CommonsChunkPlugin</code>来单独打包第三方库</p>
+</blockquote>
+<ul>
+<li>我们这里的<code>dll.js</code> 是提前打包好了的，而不是在每次<code>build</code>的时候去打包输出的；这样才能做到依赖包一次构建，无限次使用</li>
+<li><code>webpack</code>输出的文件名都带有<code>hash</code>值； 而用<code>dll</code>构建后输出的文件名是固定的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">  vendor: [&quot;jquery&quot;, &quot;other-lib&quot;],</span><br><span class="line">  app: &quot;./entry&quot;</span><br><span class="line">&#125;</span><br><span class="line">new CommonsChunkPlugin(&#123;</span><br><span class="line">  name: &quot;vendor&quot;,</span><br><span class="line"></span><br><span class="line">  // filename: &quot;vendor.js&quot;</span><br><span class="line">  // (Give the chunk a different name)</span><br><span class="line"></span><br><span class="line">  minChunks: Infinity,</span><br><span class="line">  // (with more entries, this ensures that no other module</span><br><span class="line">  //  goes into the vendor chunk)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通常为了对抗缓存，我们会给售出文件的文件名中加入<code>hash</code>的后缀——但是——我们编辑了<code>app</code>部分的代码后，重新打包，发现<code>vendor</code>的<code>hash</code>也变化了</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/639.png" alt="img"></p>
+<blockquote>
+<p>这么一来，意味着每次发布版本的时候，vendor代码都要刷新，即使我并没有修改其中的代码。这样并不符合我们分开打包的初衷</p>
+</blockquote>
+<ul>
+<li><code>Dll</code>是<code>Webpack</code>最近新加的功能</li>
+<li><code>Dll</code>这个概念应该是借鉴了<code>Windows</code>系统的<code>dll</code>。一个<code>dll</code>包，就是一个纯纯的依赖库，它本身不能运行，是用来给你的<code>app</code>引用的</li>
+<li>打包<code>dll</code>的时候，<code>Webpack</code>会将所有包含的库做一个索引，写在一个<code>manifest</code>文件中，而引用<code>dll</code>的代码（<code>dll user</code>）在打包的时候，只需要读取这个<code>manifest</code>文件，就可以了。</li>
+</ul>
+<p><strong>优势</strong></p>
+<ul>
+<li><code>Dll</code>打包以后是独立存在的，只要其包含的库没有增减、升级，<code>hash</code>也不会变化，因此线上的<code>dll</code>代码不需要随着版本发布频繁更新</li>
+<li><code>App</code>部分代码修改后，只需要编译<code>app</code>部分的代码，<code>dll</code>部分，只要包含的库没有增减、升级，就不需要重新打包。这样也大大提高了每次编译的速度</li>
+<li>假设你有多个项目，使用了相同的一些依赖库，它们就可以共用一个<code>dll</code></li>
+</ul>
+<h3 id="1-2-dll使用"><a href="#1-2-dll使用" class="headerlink" title="1.2 dll使用"></a>1.2 dll使用</h3><blockquote>
+<p>首先要先建立一个<code>dll</code>的配置文件，<code>entry</code>只包含第三方库</p>
+</blockquote>
+<p><strong>第一步：新建webpack.dll.conf.js</strong></p>
+<ul>
+<li><code>webpack.DllPlugin</code>的选项中，<code>path</code>是<code>manifest</code>文件的输出路径；<code>name</code>是<code>dll</code>暴露的对象名，要跟<code>output.library</code>保持一致</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// build/webpack.dll.conf.js</span><br><span class="line"></span><br><span class="line">const path = require(&#x27;path&#x27;)</span><br><span class="line">const webpack = require(&#x27;webpack&#x27;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    // 把这些资源打包成dll，提高编译速度</span><br><span class="line">    react: [&#x27;react&#x27;,&#x27;react-router-dom&#x27;,&#x27;redux&#x27;,&#x27;redux-immutable&#x27;,&#x27;immutable&#x27;,&#x27;react-redux&#x27;,&#x27;react-router&#x27;,&#x27;redux-logger&#x27;,&#x27;redux-thunk&#x27;,&#x27;styled-components&#x27;],</span><br><span class="line">    ui: [&#x27;antd-mobile&#x27;,&#x27;antd&#x27;],</span><br><span class="line">    others: [&#x27;react-icons&#x27;,&#x27;axios&#x27;,&#x27;clipboard&#x27;,&#x27;humps&#x27;,&#x27;lodash&#x27;,&#x27;md5&#x27;,&#x27;moment&#x27;,&#x27;normalizr&#x27;]</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, &quot;../dist/static/js&quot;),</span><br><span class="line">    filename: `[name].dll.js`,</span><br><span class="line">    library: &#x27;[name]_library&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line"> ...Object.keys([&#x27;react&#x27;,&#x27;ui&#x27;,&#x27;others&#x27;]).map(name =&gt; &#123;</span><br><span class="line">      return new webpack.DllReferencePlugin(&#123;</span><br><span class="line">        context: &#x27;.&#x27;,</span><br><span class="line">        manifest: require(`../static/$&#123;name&#125;.manifest.json`),</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：加一个命令</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dll&quot;: &quot;webpack --config config/webpack.dll.conf.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>执行<code>npm run dll</code></p>
+</blockquote>
+<ul>
+<li>运行<code>Webpack</code>，会输出两个文件一个是打包好的<code>vendor.js</code>，一个就是<code>manifest.json</code>，长这样</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;vendor_ac51ba426d4f259b8b18&quot;,</span><br><span class="line">  &quot;content&quot;: &#123;</span><br><span class="line">    &quot;./node_modules/antd/dist/antd.js&quot;: 1,</span><br><span class="line">    &quot;./node_modules/react/react.js&quot;: 2,</span><br><span class="line">    &quot;./node_modules/react/lib/React.js&quot;: 3,</span><br><span class="line">    &quot;./node_modules/react/node_modules/object-assign/index.js&quot;: 4,</span><br><span class="line">    &quot;./node_modules/react/lib/ReactChildren.js&quot;: 5,</span><br><span class="line">    &quot;./node_modules/react/lib/PooledClass.js&quot;: 6,</span><br><span class="line">    &quot;./node_modules/react/lib/reactProdInvariant.js&quot;: 7,</span><br><span class="line">    &quot;./node_modules/fbjs/lib/invariant.js&quot;: 8,</span><br><span class="line">    &quot;./node_modules/react/lib/ReactElement.js&quot;: 9,</span><br><span class="line">    </span><br><span class="line">    ............</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>Webpack</code>将每个库都进行了编号索引，之后的<code>dll user</code>可以读取这个文件，直接用<code>id</code>来引用</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/640.png" alt="img"></p>
+<p><strong>第三步： 在plugins中增加配置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// build/webpack.prod.conf.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">   plugins: [</span><br><span class="line">        new webpack.DllReferencePlugin(&#123;</span><br><span class="line">          manifest: require(&#x27;../dll/react-manifest.json&#x27;)</span><br><span class="line">        &#125;),</span><br><span class="line">        new webpack.DllReferencePlugin(&#123;</span><br><span class="line">          manifest: require(&#x27;../dll/ui-manifest.json&#x27;)</span><br><span class="line">        &#125;),</span><br><span class="line">        new webpack.DllReferencePlugin(&#123;</span><br><span class="line">          manifest: require(&#x27;../dll/others-manifest.json&#x27;)</span><br><span class="line">        &#125;)</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>再次执行<code>npm run build</code></p>
+</blockquote>
+<p>之前<br><img src="https://poetries1.gitee.io/img-repo/2019/10/641.png" alt="img"></p>
+<p>之后<br><img src="https://poetries1.gitee.io/img-repo/2019/10/642.png" alt="img"></p>
+<h2 id="二、happypack-多线程打包"><a href="#二、happypack-多线程打包" class="headerlink" title="二、happypack 多线程打包"></a>二、happypack 多线程打包</h2><blockquote>
+<p>一般情况下，js是单线程执行的，但<code>node</code>不是。利用<code>node</code>提供的多线程环境，<code>happypack</code>是可以多线程打包的。基本上打开官网看了一下readme就可以配置了，特别是我只针对js的编译进行优化，配置还是比较简单的。</p>
+</blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.npmjs.com/package/happypack" >https://www.npmjs.com/package/happypack<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li><code>happyPack</code>把所有串行的东西并行处理,使得<code>loader</code>并行处理，较少文件处理时间</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// build/webpack.prod.conf.js</span><br><span class="line"></span><br><span class="line">// @file: webpack.config.js</span><br><span class="line">const HappyPack = require(&#x27;happypack&#x27;);</span><br><span class="line"> </span><br><span class="line">exports.module = &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123;</span><br><span class="line">      test: /.js$/,</span><br><span class="line">      // 1) replace your original list of loaders with &quot;happypack/loader&quot;:</span><br><span class="line">      // loaders: [ &#x27;babel-loader?presets[]=es2015&#x27; ],</span><br><span class="line">      use: &#x27;happypack/loader&#x27;,</span><br><span class="line">      include: [ /* ... */ ],</span><br><span class="line">      exclude: [ /* ... */ ]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">     // 2) create the plugin:</span><br><span class="line">    new HappyPack(&#123;</span><br><span class="line">        // 3) re-add the loaders you replaced above in #1:</span><br><span class="line">        loaders: [ &#x27;babel-loader?presets[]=es2015&#x27; ]</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时的编译时间也减小了一些</p>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/643.png" alt="img"></p>
+<blockquote>
+<p>更多详情 <a class="link"   target="_blank" rel="noopener" href="http://blog.poetries.top/2018/11/21/webpack-review/#6-1-%E5%88%86%E6%9E%90%E6%89%93%E5%8C%85%E7%BB%93%E6%9E%9C" >http://blog.poetries.top/2018/11/21/webpack-review/#6-1-%E5%88%86%E6%9E%90%E6%89%93%E5%8C%85%E7%BB%93%E6%9E%9C<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h2 id="三、更多参考"><a href="#三、更多参考" class="headerlink" title="三、更多参考"></a>三、更多参考</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.jeffjade.com/2017/08/06/124-webpack-packge-optimization-for-volume/" >Webpack 打包优化之体积篇<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://www.jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/" >Webpack 打包优化之速度篇<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000007104372" >预打包Dll，实现webpack音速编译<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://juejin.im/post/5a4f031b518825733e6040c0" >利用DllPlugin分割你的第三方库<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://github.com/p2227/p2227.github.io/issues/21" >提高webpack的打包速度：happypack和dll打包<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/webpack/">#webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/10/26/webpack/webpack-proxy%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack proxy工作原理</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/10/20/webpack/webpack-bundle-analyzer/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack-analyzer</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

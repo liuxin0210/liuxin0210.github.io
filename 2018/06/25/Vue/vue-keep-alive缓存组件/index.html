@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            vue-keep-alive缓存组件 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">vue-keep-alive缓存组件</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-06-25 14:23:37</span>
+        <span class="mobile">2018-06-25 14:23</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/vue/">vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、Keep-alive-是什么"><a href="#一、Keep-alive-是什么" class="headerlink" title="一、Keep-alive 是什么"></a>一、Keep-alive 是什么</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keep-alive`是`vue`中的内置组件，能在组件切换过程中将状态保留在内存中，防止重复渲染`DOM</span><br></pre></td></tr></table></figure>
+
+<p><code>keep-alive</code> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们</p>
+<p><code>keep-alive</code>可以设置以下<code>props</code>属性：</p>
+<ul>
+<li><code>include</code> - 字符串或正则表达式。只有名称匹配的组件会被缓存</li>
+<li><code>exclude</code> - 字符串或正则表达式。任何名称匹配的组件都不会被缓存</li>
+<li><code>max</code> - 数字。最多可以缓存多少组件实例</li>
+</ul>
+<p>关于<code>keep-alive</code>的基本用法：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>includes</code>和<code>exclude</code>：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive include=<span class="string">&quot;a,b&quot;</span>&gt;</span><br><span class="line">  &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 正则表达式 (使用 <span class="string">`v-bind`</span>) --&gt;</span><br><span class="line">&lt;keep-alive :include=<span class="string">&quot;/a|b/&quot;</span>&gt;</span><br><span class="line">  &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 数组 (使用 <span class="string">`v-bind`</span>) --&gt;</span><br><span class="line">&lt;keep-alive :include=<span class="string">&quot;[&#x27;a&#x27;, &#x27;b&#x27;]&quot;</span>&gt;</span><br><span class="line">  &lt;component :is=<span class="string">&quot;view&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+
+<p>匹配首先检查组件自身的 <code>name</code> 选项，如果 <code>name</code> 选项不可用，则匹配它的局部注册名称 (父组件 <code>components</code> 选项的键值)，匿名组件不能被匹配</p>
+<p>设置了 keep-alive 缓存的组件，会多出两个生命周期钩子（<code>activated</code>与<code>deactivated</code>）：</p>
+<ul>
+<li>首次进入组件时：<code>beforeRouteEnter</code> &gt; <code>beforeCreate</code> &gt; <code>created</code>&gt; <code>mounted</code> &gt; <code>activated</code> &gt; … … &gt; <code>beforeRouteLeave</code> &gt; <code>deactivated</code></li>
+<li>再次进入组件时：<code>beforeRouteEnter</code> &gt;<code>activated</code> &gt; … … &gt; <code>beforeRouteLeave</code> &gt; <code>deactivated</code></li>
+</ul>
+<h2 id="二、使用场景"><a href="#二、使用场景" class="headerlink" title="二、使用场景"></a>二、使用场景</h2><p>使用原则：当我们在某些场景下不需要让页面重新加载时我们可以使用<code>keepalive</code></p>
+<p>举个栗子:</p>
+<p>当我们从<code>首页</code>–&gt;<code>列表页</code>–&gt;<code>商详页</code>–&gt;<code>再返回</code>，这时候列表页应该是需要<code>keep-alive</code></p>
+<p>从<code>首页</code>–&gt;<code>列表页</code>–&gt;<code>商详页</code>–&gt;<code>返回到列表页(需要缓存)</code>–&gt;<code>返回到首页(需要缓存)</code>–&gt;<code>再次进入列表页(不需要缓存)</code>，这时候可以按需来控制页面的<code>keep-alive</code></p>
+<p>在路由中设置<code>keepAlive</code>属性判断是否需要缓存</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">&#x27;list&#x27;</span>,</span><br><span class="line">  name: <span class="string">&#x27;itemList&#x27;</span>, <span class="comment">// 列表页</span></span><br><span class="line">  component (resolve) &#123;</span><br><span class="line">    require([<span class="string">&#x27;@/pages/item/list&#x27;</span>], resolve)</span><br><span class="line"> &#125;,</span><br><span class="line"> meta: &#123;</span><br><span class="line">  keepAlive: <span class="literal">true</span>,</span><br><span class="line">  title: <span class="string">&#x27;列表页&#x27;</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span> class=<span class="string">&#x27;wrapper&#x27;</span>&gt;</span><br><span class="line">    &lt;keep-alive&gt;</span><br><span class="line">        &lt;!-- 需要缓存的视图组件 --&gt; </span><br><span class="line">        &lt;router-view v-<span class="keyword">if</span>=<span class="string">&quot;$route.meta.keepAlive&quot;</span>&gt;&lt;/router-view&gt;</span><br><span class="line">     &lt;/keep-alive&gt;</span><br><span class="line">      &lt;!-- 不需要缓存的视图组件 --&gt;</span><br><span class="line">     &lt;router-view v-<span class="keyword">if</span>=<span class="string">&quot;!$route.meta.keepAlive&quot;</span>&gt;&lt;/router-view&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、原理分析"><a href="#三、原理分析" class="headerlink" title="三、原理分析"></a>三、原理分析</h2><p><code>keep-alive</code>是<code>vue</code>中内置的一个组件</p>
+<p>源码位置：src&#x2F;core&#x2F;components&#x2F;keep-alive.js</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">export <span class="keyword">default</span> &#123;</span><br><span class="line">  name: <span class="string">&#x27;keep-alive&#x27;</span>,</span><br><span class="line">  abstract: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">  props: &#123;</span><br><span class="line">    include: [String, RegExp, Array],</span><br><span class="line">    exclude: [String, RegExp, Array],</span><br><span class="line">    max: [String, Number]</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  created () &#123;</span><br><span class="line">    this.cache = Object.create(null)</span><br><span class="line">    this.keys = []</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  destroyed () &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> key in this.cache) &#123;</span><br><span class="line">      pruneCacheEntry(this.cache, key, this.keys)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  mounted () &#123;</span><br><span class="line">    this.$watch(<span class="string">&#x27;include&#x27;</span>, val =&gt; &#123;</span><br><span class="line">      pruneCache(this, name =&gt; matches(val, name))</span><br><span class="line">    &#125;)</span><br><span class="line">    this.$watch(<span class="string">&#x27;exclude&#x27;</span>, val =&gt; &#123;</span><br><span class="line">      pruneCache(this, name =&gt; !matches(val, name))</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="comment">/* 获取默认插槽中的第一个组件节点 */</span></span><br><span class="line">    <span class="keyword">const</span> slot = this.$slots.<span class="keyword">default</span></span><br><span class="line">    <span class="keyword">const</span> vnode = getFirstComponentChild(slot)</span><br><span class="line">    <span class="comment">/* 获取该组件节点的componentOptions */</span></span><br><span class="line">    <span class="keyword">const</span> componentOptions = vnode &amp;&amp; vnode.componentOptions</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (componentOptions) &#123;</span><br><span class="line">      <span class="comment">/* 获取该组件节点的名称，优先获取组件的name字段，如果name不存在则获取组件的tag */</span></span><br><span class="line">      <span class="keyword">const</span> name = getComponentName(componentOptions)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> &#123; include, exclude &#125; = this</span><br><span class="line">      <span class="comment">/* 如果name不在inlcude中或者存在于exlude中则表示不缓存，直接返回vnode */</span></span><br><span class="line">      <span class="keyword">if</span> (</span><br><span class="line">        (include &amp;&amp; (!name || !matches(include, name))) ||</span><br><span class="line">        <span class="comment">// excluded</span></span><br><span class="line">        (exclude &amp;&amp; name &amp;&amp; matches(exclude, name))</span><br><span class="line">      ) &#123;</span><br><span class="line">        <span class="keyword">return</span> vnode</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> &#123; cache, keys &#125; = this</span><br><span class="line">      <span class="comment">/* 获取组件的key值 */</span></span><br><span class="line">      <span class="keyword">const</span> key = vnode.key == null</span><br><span class="line">        <span class="comment">// same constructor may get registered as different local components</span></span><br><span class="line">        <span class="comment">// so cid alone is not enough (#3269)</span></span><br><span class="line">        ? componentOptions.Ctor.cid + (componentOptions.tag ? <span class="string">`::$&#123;componentOptions.tag&#125;`</span> : <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        : vnode.key</span><br><span class="line">     <span class="comment">/*  拿到key值后去this.cache对象中去寻找是否有该值，如果有则表示该组件有缓存，即命中缓存 */</span></span><br><span class="line">      <span class="keyword">if</span> (cache[key]) &#123;</span><br><span class="line">        vnode.componentInstance = cache[key].componentInstance</span><br><span class="line">        <span class="comment">// make current key freshest</span></span><br><span class="line">        remove(keys, key)</span><br><span class="line">        keys.push(key)</span><br><span class="line">      &#125;</span><br><span class="line">        <span class="comment">/* 如果没有命中缓存，则将其设置进缓存 */</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">        cache[key] = vnode</span><br><span class="line">        keys.push(key)</span><br><span class="line">        <span class="comment">// prune oldest entry</span></span><br><span class="line">        <span class="comment">/* 如果配置了max并且缓存的长度超过了this.max，则从缓存中删除第一个 */</span></span><br><span class="line">        <span class="keyword">if</span> (this.max &amp;&amp; keys.length &gt; parseInt(this.max)) &#123;</span><br><span class="line">          pruneCacheEntry(cache, keys[<span class="number">0</span>], keys, this._vnode)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      vnode.data.keepAlive = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> vnode || (slot &amp;&amp; slot[<span class="number">0</span>])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到该组件没有<code>template</code>，而是用了<code>render</code>，在组件渲染的时候会自动执行<code>render</code>函数</p>
+<p><code>this.cache</code>是一个对象，用来存储需要缓存的组件，它将以如下形式存储：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this.cache = &#123;</span><br><span class="line">    <span class="string">&#x27;key1&#x27;</span>:<span class="string">&#x27;组件1&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;key2&#x27;</span>:<span class="string">&#x27;组件2&#x27;</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在组件销毁的时候执行<code>pruneCacheEntry</code>函数</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function pruneCacheEntry (</span><br><span class="line">  cache: VNodeCache,</span><br><span class="line">  key: <span class="type">string</span>,</span><br><span class="line">  keys: Array&lt;<span class="type">string</span>&gt;,</span><br><span class="line">  current?: VNode</span><br><span class="line">) &#123;</span><br><span class="line">  <span class="keyword">const</span> cached = cache[key]</span><br><span class="line">  <span class="comment">/* 判断当前没有处于被渲染状态的组件，将其销毁*/</span></span><br><span class="line">  <span class="keyword">if</span> (cached &amp;&amp; (!current || cached.tag !== current.tag)) &#123;</span><br><span class="line">    cached.componentInstance.$destroy()</span><br><span class="line">  &#125;</span><br><span class="line">  cache[key] = null</span><br><span class="line">  remove(keys, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>mounted</code>钩子函数中观测 <code>include</code> 和 <code>exclude</code> 的变化，如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mounted () &#123;</span><br><span class="line">    this.$watch(<span class="string">&#x27;include&#x27;</span>, val =&gt; &#123;</span><br><span class="line">        pruneCache(this, name =&gt; matches(val, name))</span><br><span class="line">    &#125;)</span><br><span class="line">    this.$watch(<span class="string">&#x27;exclude&#x27;</span>, val =&gt; &#123;</span><br><span class="line">        pruneCache(this, name =&gt; !matches(val, name))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果<code>include</code> 或<code>exclude</code> 发生了变化，即表示定义需要缓存的组件的规则或者不需要缓存的组件的规则发生了变化，那么就执行<code>pruneCache</code>函数，函数如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function pruneCache (keepAliveInstance, filter) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; cache, keys, _vnode &#125; = keepAliveInstance</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key in cache) &#123;</span><br><span class="line">    <span class="keyword">const</span> cachedNode = cache[key]</span><br><span class="line">    <span class="keyword">if</span> (cachedNode) &#123;</span><br><span class="line">      <span class="keyword">const</span> name = getComponentName(cachedNode.componentOptions)</span><br><span class="line">      <span class="keyword">if</span> (name &amp;&amp; !filter(name)) &#123;</span><br><span class="line">        pruneCacheEntry(cache, key, keys, _vnode)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在该函数内对<code>this.cache</code>对象进行遍历，取出每一项的<code>name</code>值，用其与新的缓存规则进行匹配，如果匹配不上，则表示在新的缓存规则下该组件已经不需要被缓存，则调用<code>pruneCacheEntry</code>函数将其从<code>this.cache</code>对象剔除即可</p>
+<p>关于<code>keep-alive</code>的最强大缓存功能是在<code>render</code>函数中实现</p>
+<p>首先获取组件的<code>key</code>值：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> key = vnode.key == null? </span><br><span class="line">componentOptions.Ctor.cid + (componentOptions.tag ? <span class="string">`::$&#123;componentOptions.tag&#125;`</span> : <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">: vnode.key</span><br></pre></td></tr></table></figure>
+
+<p>拿到<code>key</code>值后去<code>this.cache</code>对象中去寻找是否有该值，如果有则表示该组件有缓存，即命中缓存，如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 如果命中缓存，则直接从缓存中拿 vnode 的组件实例 */</span></span><br><span class="line"><span class="keyword">if</span> (cache[key]) &#123;</span><br><span class="line">    vnode.componentInstance = cache[key].componentInstance</span><br><span class="line">    <span class="comment">/* 调整该组件key的顺序，将其从原来的地方删掉并重新放在最后一个 */</span></span><br><span class="line">    remove(keys, key)</span><br><span class="line">    keys.push(key)</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>直接从缓存中拿 <code>vnode</code> 的组件实例，此时重新调整该组件<code>key</code>的顺序，将其从原来的地方删掉并重新放在<code>this.keys</code>中最后一个</p>
+<p><code>this.cache</code>对象中没有该<code>key</code>值的情况，如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 如果没有命中缓存，则将其设置进缓存 */</span></span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    cache[key] = vnode</span><br><span class="line">    keys.push(key)</span><br><span class="line">    <span class="comment">/* 如果配置了max并且缓存的长度超过了this.max，则从缓存中删除第一个 */</span></span><br><span class="line">    <span class="keyword">if</span> (this.max &amp;&amp; keys.length &gt; parseInt(this.max)) &#123;</span><br><span class="line">        pruneCacheEntry(cache, keys[<span class="number">0</span>], keys, this._vnode)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>表明该组件还没有被缓存过，则以该组件的<code>key</code>为键，组件<code>vnode</code>为值，将其存入<code>this.cache</code>中，并且把<code>key</code>存入<code>this.keys</code>中</p>
+<p>此时再判断<code>this.keys</code>中缓存组件的数量是否超过了设置的最大缓存数量值<code>this.max</code>，如果超过了，则把第一个缓存组件删掉</p>
+<h2 id="四、思考题：缓存后如何获取数据"><a href="#四、思考题：缓存后如何获取数据" class="headerlink" title="四、思考题：缓存后如何获取数据"></a>四、思考题：缓存后如何获取数据</h2><p>解决方案可以有以下两种：</p>
+<ul>
+<li>beforeRouteEnter</li>
+<li>actived</li>
+</ul>
+<h3 id="beforeRouteEnter"><a href="#beforeRouteEnter" class="headerlink" title="beforeRouteEnter"></a>beforeRouteEnter</h3><p>每次组件渲染的时候，都会执行<code>beforeRouteEnter</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter(to, from, next)&#123;</span><br><span class="line">    next(vm=&gt;&#123;</span><br><span class="line">        console.log(vm)</span><br><span class="line">        <span class="comment">// 每次进入路由执行</span></span><br><span class="line">        vm.getData()  <span class="comment">// 获取数据</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="actived"><a href="#actived" class="headerlink" title="actived"></a>actived</h3><p>在<code>keep-alive</code>缓存的组件被激活的时候，都会执行<code>actived</code>钩子</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">activated()&#123;</span><br><span class="line">   this.getData() <span class="comment">// 获取数据</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>注意：服务器端渲染期间<code>avtived</code>不被调用</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/vue/">#vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/06/27/Vue/vue-key%E5%80%BC%E4%BD%9C%E7%94%A8/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-key值作用</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/06/23/Vue/vue-data%E5%B1%9E%E6%80%A7%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E8%80%8C%E4%B8%8D%E6%98%AF%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">vue-data属性是一个函数而不是一个对象</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

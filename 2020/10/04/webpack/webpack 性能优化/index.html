@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            webpack性能优化 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">webpack性能优化</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-10-04 14:09:48</span>
+        <span class="mobile">2020-10-04 14:09</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/webpack/">webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="提升构建性能"><a href="#提升构建性能" class="headerlink" title="提升构建性能"></a>提升构建性能</h1><p>澄清：有时候我们会笼统的说webpack的性能提升，实际上webpack的性能提升可以分为两类  第一类是通过webpack来提升我们项目性能  如：网站的首屏到达时间，这个优化的受益者是c端的用户  ，2.提升webpack的构建编译性能，如：提高打包速度，降低打包时间，这个优化的受益者是我们的开发人员。   本章讲的是第二种<br>把官网上提出的webpack5 提升构建性能的点  列：<br><strong>注意：</strong>  webpack 每个版本的优化点都是不一样的<br>通用环境：这些优化既适用于开发化境也适用于生产环境。<br>开发环境：<br>生产环境：</p>
+<h3 id="通用环境"><a href="#通用环境" class="headerlink" title="通用环境"></a><strong>通用环境</strong></h3><p>无论你是在 开发环境 还是在 生产环境 下运行构建脚本，以下最佳实践都会有所帮助。</p>
+<p>1、更新到最新版本<br>使用最新的 webpack 版本。我们会经常进行性能优化。webpack 的最新稳定版本是：<br>将 Node.js 更新到最新版本，也有助于提高性能。除此之外，将你的 package 管理工具（例如 npm 或者 yarn ）更新到最新版本，也有助于提高性能。较新的版本能够建立更高效的模块树以及提高解析速度。</p>
+<p>2、loader<br>将 loader 应用于最少数量的必要模块。而非如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"> //...</span><br><span class="line"> module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.js$/,</span><br><span class="line">    loader: &#x27;babel-loader&#x27;,</span><br><span class="line">  &#125;,</span><br><span class="line"> ],</span><br><span class="line">&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过使用 include 字段，仅将 loader 应用在实际需要将其转换的模块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line"> //...</span><br><span class="line"> module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.js$/,</span><br><span class="line">    include: path.resolve(__dirname, &#x27;src&#x27;),</span><br><span class="line">    loader: &#x27;babel-loader&#x27;,</span><br><span class="line">  &#125;,</span><br><span class="line"> ],</span><br><span class="line">&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>3、引导(bootstrap)<br>每个额外的 loader&#x2F;plugin 都有其启动时间。尽量少地使用工具。</p>
+<p>4、解析<br>以下步骤可以提高解析速度：<br>减少 resolve.modules , resolve.extensions , resolve.mainFiles ,resolve.descriptionFiles 中条目数量，因为他们会增加文件系统调用的次数。</p>
+<p>如果你不使用 symlinks（例如 npm link 或者 yarn link ），可以设置resolve.symlinks: false 。</p>
+<p>如果你使用自定义 resolve plugin 规则，并且没有指定 context 上下文，可以设置 resolve.cacheWithContext: false 。</p>
+<p>5、小即是快(smaller &#x3D; faster)<br>减少编译结果的整体大小，以提高构建性能。尽量保持 chunk 体积小。使用数量更少&#x2F;体积更小的 library。</p>
+<p>在多页面应用程序中使用 SplitChunksPlugin 。<br>在多页面应用程序中使用 SplitChunksPlugin ，并开启 async 模式。<br>移除未引用代码。<br>只编译你当前正在开发的那些代码。</p>
+<p>6、持久化缓存<br>在 webpack 配置中使用 cache 选项。使用 package.json 中的 “postinstall”清除缓存目录。<br>将 cache 类型设置为内存或者文件系统。 memory 选项很简单，它告诉 webpack在内存中存储缓存，不允许额外的配置：<br>webpack.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"> //...</span><br><span class="line"> cache: &#123;</span><br><span class="line">  type: &#x27;memory&#x27;,</span><br><span class="line">&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>7、自定义 plugin&#x2F;loader<br>对它们进行概要分析，以免在此处引入性能问题。<br>8、dll<br>使用 DllPlugin 为更改不频繁的代码生成单独的编译结果。这可以提高应用程序的编译速度，尽管它增加了构建过程的复杂度。</p>
+<p>webpack.all.config.js  配置关于dll相关的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&#x27;path&#x27;)</span><br><span class="line">const webpack = require(&#x27;webpack&#x27;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">	mode:&#x27;production&#x27;   // 在生产环境下面去做事情</span><br><span class="line">	entry:&#123;</span><br><span class="line">		jquery:[&#x27;jquery&#x27;],</span><br><span class="line">	&#125;,  //注意：这个entry不是配置本地的包，而是要配置我们在node_modules里面安装的第三方的包</span><br><span class="line">	output:&#123;</span><br><span class="line">		filename:&#x27;[name].js&#x27;     // [name]  取到的是本身的jquery的chunk的名字</span><br><span class="line">		path:path.resolve(__dirname,&#x27;dll&#x27;),</span><br><span class="line">		library:&#x27;[name]_[hash]&#x27;    // 把他导出一个库    给这个包起了一个名字，打他导出一个第三方的包。</span><br><span class="line">	&#125;,</span><br><span class="line">	plugins:[</span><br><span class="line">		new webpack.DllPlugin(&#123;</span><br><span class="line">			name:&#x27;[name]_[hash]&#x27;,     //名字和上面library取的名字是一样的</span><br><span class="line">			path:path.resolve(__dirname,&#x27;dll/manifest.json&#x27;)      // 把一个manifest的文件给生成出来</span><br><span class="line">		&#125;)</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">package.json</span><br><span class="line">&#123;</span><br><span class="line">	&quot;scripts&quot;:&#123;</span><br><span class="line">		&quot;all&quot;:&quot;webpack --config ./webpack.dll.config.js&quot;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">webpack.config.js</span><br><span class="line">const webpack = require(&#x27;webpack&#x27;)</span><br><span class="line">const path = require(&#x27;path&#x27;)</span><br><span class="line">plugins:[</span><br><span class="line">	new webpack.DllReferencePlugin(&#123;</span><br><span class="line">		manifest:path.resolve(__dirname,&#x27;./all/manifest.json&#x27;)     // 它的值就是刚刚生成的manifest</span><br><span class="line">	&#125;)    //和刚才的DllPlugin做了一个呼应</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>仅仅是提高了构建速度  如果想把jquery放到页面上显示的话还是有些问题的。   还需要对dll文件进行一次打包   可以使用插件来完成<br>npm install add-asset-html-webpack-plugin -D<br>webpack.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const AddAssetHtmlPlugin = require(&#x27;add-asset-html-webpack-plugin&#x27;)</span><br><span class="line">plugins:[</span><br><span class="line">	new AddAssetHtmlPlugin(&#123;</span><br><span class="line">		filepath:path.resolve(__dirname,&#x27;./dll/jquery.js&#x27;),</span><br><span class="line">		publicPath:&#x27;./&#x27;</span><br><span class="line">	&#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>编译大小有右边回来之前的大小，但是jquery会单独做成一个文件打出来，那我们可以在最后的时候在做一次打包，之前打包的时候可以使用dll这个所谓的link，实时上他还是通过link去加载的我们的jquery.js文件</p>
+<p>9、worker 池(worker pool)<br>thread-loader 可以将非常消耗资源的 loader 分流给一个 worker pool。</p>
+<p>该怎么去测试worker pool  ，定义：它的实现原理就是我们可以把他定义在其他的loader前面然后把其他的loader放在另外一个worker pool的池里面去运行来提高我们的打包速度，其实就是把他放到另外一个cpu去运行了，来利用我们电脑的cpu。<br>npm install thread-loader -D</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">module:&#123;</span><br><span class="line">	rules:[</span><br><span class="line">		&#123;</span><br><span class="line">			test:/\.js$/,</span><br><span class="line">			exclude:/node_modules/,</span><br><span class="line">			use:[</span><br><span class="line">				&#123;</span><br><span class="line">					loader:&#x27;babel-loader&#x27;   //问了提高Babel-loader的打包速度可以把他放在 worker pool里运行（可以在单独的cpu里去运行）</span><br><span class="line">				options:&#123;</span><br><span class="line">					presets:[&#x27;@babel/preset-env&#x27;]   //这样他就可以解析我们js里面的一些es6的代码了</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				&#123;  // thread-loader启动需要大概耗费600ms的时间（有开销），这个loader对耗时非常打的loader有意义。</span><br><span class="line">					loader:&#x27;thread-loader&#x27;,</span><br><span class="line">					options:&#123;</span><br><span class="line">						workers:2    // cpu的数量</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不要使用太多的 worker，因为 Node.js 的 runtime 和 loader 都有启动开销。最小化 worker 和 mainprocess(主进程) 之间的模块传输。进程间通讯(IPC,inter process communication)是非常消耗资源的。</p>
+<p>10、Progress plugin<br>将 ProgressPlugin 从 webpack 中删除，可以缩短构建时间。请注意，<br>ProgressPlugin 可能不会为快速构建提供太多价值，因此，请权衡利弊再使用。</p>
+<h3 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a><strong>开发环境</strong></h3><p>1、代码压缩<br>Webpack 默认使用的是 TerserWebpackPlugin，默认开启了多进程和缓存，构建时，你的项目中可以看到 terser 的缓存文件 node_modules&#x2F;.cache&#x2F;terser-webpack-plugin。<br>2、抽离公共代码<br>主要是配置 optimazation.splitChunks<br>&#x2F;&#x2F;webpack.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">optimization: &#123;</span><br><span class="line">		 runtimeChunk: &#123;</span><br><span class="line">            name: &#x27;manifest&#x27;</span><br><span class="line">        &#125;，</span><br><span class="line">        splitChunks: &#123;//分割代码块</span><br><span class="line">            cacheGroups: &#123;</span><br><span class="line">                vendor: &#123;</span><br><span class="line">                    //第三方依赖</span><br><span class="line">                    priority: 1, //设置优先级，首先抽离第三方模块</span><br><span class="line">                    name: &#x27;vendor&#x27;,</span><br><span class="line">                    test: /node_modules/,</span><br><span class="line">                    chunks: &#x27;initial&#x27;,</span><br><span class="line">                    minSize: 0,</span><br><span class="line">                    minChunks: 1 //最少引入了1次</span><br><span class="line">                &#125;,</span><br><span class="line">                //缓存组</span><br><span class="line">                common: &#123;</span><br><span class="line">                    //公共模块</span><br><span class="line">                    chunks: &#x27;initial&#x27;,</span><br><span class="line">                    name: &#x27;common&#x27;,</span><br><span class="line">                    minSize: 100, //大小超过100个字节</span><br><span class="line">                    minChunks: 3 //最少引入了3次</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以下步骤对于 开发环境 特别有帮助。<br>1、增量编译<br>使用 webpack 的 watch mode(监听模式)。而不使用其他工具来 watch 文件和调用webpack 。内置的 watch mode 会记录时间戳并将此信息传递给 compilation 以使缓存失效。</p>
+<p>在某些配置环境中，watch mode 会回退到 poll mode(轮询模式)。监听许多文件会导致 CPU 大量负载。在这些情况下，可以使用 watchOptions.poll 来增加轮询的间隔时间。</p>
+<p>2、在内存中编译<br>下面几个工具通过在内存中（而不是写入磁盘）编译和 serve 资源来提高性能：</p>
+<p>webpack-dev-server<br>webpack-hot-middleware<br>webpack-dev-middleware<br>3、stats.toJson 加速<br>webpack 4 默认使用 stats.toJson() 输出大量数据。除非在增量步骤中做必要的统计，否则请避免获取 stats 对象的部分内容。 webpack-dev-server 在 v3.1.3 以后的版本，包含一个重要的性能修复，即最小化每个增量构建步骤中，从 stats 对象获取的数据量。</p>
+<p>4、Devtool<br>需要注意的是不同的 devtool 设置，会导致性能差异。</p>
+<p>“eval” 具有最好的性能，但并不能帮助你转译代码。<br>如果你能接受稍差一些的 map 质量，可以使用 cheap-source-map 变体配置来提高性能<br>使用 eval-source-map 变体配置进行增量编译。</p>
+<p>在大多数情况下，最佳选择是 eval-cheap-module-source-map 。</p>
+<p>5、避免在生产环境下才会用到的工具<br>某些 utility, plugin 和 loader 都只用于生产环境。例如，在开发环境下使用TerserPlugin 来 minify(压缩) 和 mangle(混淆破坏) 代码是没有意义的。通常在开发环境下，应该排除以下这些工具：</p>
+<p>TerserPlugin<br>[fullhash] &#x2F; [chunkhash] &#x2F; [contenthash]<br>AggressiveSplittingPlugin<br>AggressiveMergingPlugin<br>ModuleConcatenationPlugin</p>
+<p>6、最小化 entry chunk<br>Webpack 只会在文件系统中输出已经更新的 chunk。某些配置选项（HMR,output.chunkFilename 的 [name] &#x2F; [chunkhash]&#x2F;[contenthash] ，[fullhash] ）来说，除了对已经更新的 chunk 无效之外，对于 entry chunk 也不会生效。<br>确保在生成 entry chunk 时，尽量减少其体积以提高性能。下面的配置为运行时代码创建了一个额外的 chunk，所以它的生成代价较低：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"> // ...</span><br><span class="line"> optimization: &#123;</span><br><span class="line">  runtimeChunk: true,</span><br><span class="line">&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>7、避免额外的优化步骤<br>Webpack 通过执行额外的算法任务，来优化输出结果的体积和加载性能。这些优化适用于小型代码库，但是在大型代码库中却非常耗费性能：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"> // ...</span><br><span class="line"> optimization: &#123;</span><br><span class="line">  removeAvailableModules: false,</span><br><span class="line">  removeEmptyChunks: false,</span><br><span class="line">  splitChunks: false,</span><br><span class="line">&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>8、输出结果不携带路径信息<br>Webpack 会在输出的 bundle 中生成路径信息。然而，在打包数千个模块的项目中，这会导致造成垃圾回收性能压力。在 options.output.pathinfo 设置中关闭：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"> // ...</span><br><span class="line"> output: &#123;</span><br><span class="line">  pathinfo: false,</span><br><span class="line">&#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>9、Node.js 版本 8.9.10-9.11.1<br>Node.js v8.9.10 - v9.11.1 中的 ES2015 Map 和 Set 实现，存在 性能回退。Webpack 大量地使用这些数据结构，因此这次回退也会影响编译时间。<br>之前和之后的 Node.js 版本不受影响。</p>
+<p>10、TypeScript loader<br>你可以为 loader 传入 transpileOnly 选项，以缩短使用 ts-loader 时的构建时间。使用此选项，会关闭类型检查。如果要再次开启类型检查，请使用<br>ForkTsCheckerWebpackPlugin 。使用此插件会将检查过程移至单独的进程，可以加快 TypeScript 的类型检查和 ESLint 插入的速度。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line"> // ...</span><br><span class="line"> test: /\.tsx?$/,</span><br><span class="line"> use: [</span><br><span class="line"> &#123;</span><br><span class="line">   loader: &#x27;ts-loader&#x27;,</span><br><span class="line">   options: &#123;</span><br><span class="line">    transpileOnly: true,</span><br><span class="line">  &#125;,</span><br><span class="line"> &#125;,</span><br><span class="line">],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>11.预获取，预加载</p>
+<p>12.CDN</p>
+<p>13.Tree Shaking</p>
+<p>14.postCSS</p>
+<p>15.gzip压缩</p>
+<p>16.InlineChunkHtmlPlugin</p>
+<p>17.webpack-bundle-analyzer</p>
+<h3 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a><strong>生产环境</strong></h3><p>以下步骤对于 生产环境 特别有帮助。<br>Source Maps<br>source map 相当消耗资源。你真的需要它们？</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/webpack/">#webpack</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/10/09/webpack/webpack%20%E4%BC%98%E5%8C%96%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack优化前端性能</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/09/30/webpack/webpack%20%E7%83%AD%E5%8A%A0%E8%BD%BD%E5%8E%9F%E7%90%86/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">webpack 热加载原理</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

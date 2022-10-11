@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            js-arguments对象 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js-arguments对象</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2017-12-15 22:16:32</span>
+        <span class="mobile">2017-12-15 22:16</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>每个函数都会有一个Arguments对象实例arguments，它引用着函数的实参，可以用数组下标的方式”[]”引用arguments的元素。<code>arguments.length</code>为函数实参个数，<code>arguments.callee</code>引用函数自身。</p>
+<h3 id="Arguments对象介绍"><a href="#Arguments对象介绍" class="headerlink" title="Arguments对象介绍"></a>Arguments对象介绍</h3><p>Arguments对象是一个伪数组对象，它有length属性，可以arguments[i]来访问对象中的元素，但它不能用数组的一些方法，例如push，pop，slice等。</p>
+<h4 id="Arguments的length属性"><a href="#Arguments的length属性" class="headerlink" title="Arguments的length属性"></a>Arguments的length属性</h4><p>Arguments的length属性，表示function函数实际所传参数的个数。函数名点length可以获取函数期望的传参个数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function argTest(a,b,c)&#123;</span><br><span class="line">	var t = arguments.length; //实际传参个数</span><br><span class="line">	var e = argTest.length;   //期望传参个数</span><br><span class="line"></span><br><span class="line">	console.log(t);</span><br><span class="line">	console.log(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">argTest(11,12);       //t=2,e=3</span><br><span class="line">argTest(11,12,13);    //t=3,e=3</span><br><span class="line">argTest(11,12,13,14); //t=4,e=3</span><br></pre></td></tr></table></figure>
+
+<h4 id="Arguments的参数访问"><a href="#Arguments的参数访问" class="headerlink" title="Arguments的参数访问"></a>Arguments的参数访问</h4><p>Arguments对象的参数访问可以用arguments[i]来访问函数所传的参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function argTest(a,b,c)&#123;</span><br><span class="line">	var arg = [];</span><br><span class="line">	for(var i=0;i&lt;arguments.length;i++)&#123;</span><br><span class="line">		arg.push(arguments[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(arg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">argTest(11,12);       //[11, 12]</span><br><span class="line">argTest(11,12,13);    //[11, 12, 13]</span><br><span class="line">argTest(11,12,13,14); //[11, 12, 13, 14]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Arguments的callee调用"><a href="#Arguments的callee调用" class="headerlink" title="Arguments的callee调用"></a>Arguments的callee调用</h4><p>Arguments的callee属性可以调用函数本身，当函数正在执行时才可调用，可以实现方法的递归调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function argTest(a,b,c)&#123;</span><br><span class="line">	var e = arguments.callee.toString();</span><br><span class="line">	console.log(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">argTest(); //打印出函数本身</span><br></pre></td></tr></table></figure>
+
+<h4 id="Function对象caller属性"><a href="#Function对象caller属性" class="headerlink" title="Function对象caller属性"></a>Function对象caller属性</h4><p>Function对象的caller属性可以指向当前函数的调用者，当调用者函数正在执行时才可调用，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function callerTest()&#123;</span><br><span class="line"></span><br><span class="line">	if(callerTest.caller)&#123;</span><br><span class="line">		var caller = callerTest.caller.toString();</span><br><span class="line">		console.log(caller);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log(&quot;no caller&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handler()&#123;</span><br><span class="line">	callerTest();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function handlerToHandler()&#123;</span><br><span class="line">	handler();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">callerTest();        //no caller</span><br><span class="line">handler();           //返回调用者handler函数</span><br><span class="line">handlerToHandler();  //返回调用者handler函数</span><br></pre></td></tr></table></figure>
+
+<h3 id="Arguments的作用"><a href="#Arguments的作用" class="headerlink" title="Arguments的作用"></a>Arguments的作用</h3><h4 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h4><p>方法重载是指在一个类中定义多个同名的方法，但要求每个方法具有不同的参数的类型或参数的个数。<br>Javascript并没有重载函数的功能，但是Arguments对象能够模拟重载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">//普通方法实现方法重载</span><br><span class="line"></span><br><span class="line">function test(a,b,c)&#123;</span><br><span class="line">	if(a &amp;&amp; b &amp;&amp; c)&#123;</span><br><span class="line">		console.log(a + b + c);</span><br><span class="line">	&#125;else if(a &amp;&amp; b)&#123;</span><br><span class="line">		console.log(a + b);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log(a);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();           //undefined</span><br><span class="line">test(11,12);      //23</span><br><span class="line">test(11,12,13)    //36</span><br><span class="line">//Arguments对象实现方法重载</span><br><span class="line"></span><br><span class="line">function test()&#123;</span><br><span class="line">	var sum = 0;</span><br><span class="line">	for(var i=0;i&lt;arguments.length;i++)&#123;</span><br><span class="line">		sum += arguments[i];</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();          //0</span><br><span class="line">test(11,12);     //23</span><br><span class="line">test(11,12,13);  //36</span><br><span class="line">//ES6实现方法重载</span><br><span class="line"></span><br><span class="line">function test(...nums)&#123;</span><br><span class="line">	var sum = 0;</span><br><span class="line">	for(var i=0;i&lt;nums.length;i++)&#123;</span><br><span class="line">		sum += nums[i];</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();          //0</span><br><span class="line">test(11,12);     //23</span><br><span class="line">test(11,12,13);  //36</span><br></pre></td></tr></table></figure>
+
+<h4 id="递归调用"><a href="#递归调用" class="headerlink" title="递归调用"></a>递归调用</h4><p>这样的好处就是可以实现匿名函数的递归调用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//实现一个阶乘函数</span><br><span class="line"></span><br><span class="line">function factorial(n)&#123;</span><br><span class="line">	if(n == 1)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		n * arguments.callee(n-1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">factorial(1); //1</span><br><span class="line">factorial(5); //120</span><br></pre></td></tr></table></figure>
+
+<h4 id="不定参问题"><a href="#不定参问题" class="headerlink" title="不定参问题"></a>不定参问题</h4><p>比如说，我想判断你传给我的一些数字的大小，取出最大的那个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function max()&#123;</span><br><span class="line">	var maxNum = Number.NEGATIVE_INFINITY;;</span><br><span class="line">	for(var i=0;i&lt;arguments.length;i++)&#123;</span><br><span class="line">		if(arguments[i]&gt; maxNum)&#123;</span><br><span class="line">			maxNum = arguments[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return maxNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">max(1,2,3,11,4,10); //11</span><br><span class="line">max(2,-10,22,11);   //22</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2017/12/16/html+css+js+ts/3-js-call+apply+bind/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js-call apply bind</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2017/12/11/html+css+js+ts/3-JavaScript%E6%95%B0%E7%BB%84%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%81%E5%AF%B9%E8%B1%A1%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js-字符串,对象,数组常用方法</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

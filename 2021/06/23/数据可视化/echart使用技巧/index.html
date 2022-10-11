@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            echart使用小结 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">echart使用小结</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-06-23 19:34:07</span>
+        <span class="mobile">2021-06-23 19:34</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/echart/">echart</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>十一个组件选项主要用来进行交互</p>
+</blockquote>
+<h2 id="一、Timeline选项"><a href="#一、Timeline选项" class="headerlink" title="一、Timeline选项"></a>一、Timeline选项</h2><ul>
+<li>时间轴，每个图表最多仅有一个时间轴控件</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/45.png" alt="img"></p>
+<h2 id="二、Title选项"><a href="#二、Title选项" class="headerlink" title="二、Title选项"></a>二、Title选项</h2><ul>
+<li>每个图表最多仅有一个标题控件，每个标题控件可设主副标题</li>
+</ul>
+<blockquote>
+<p>可以对标题文字的大小样式进行设置</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/46.png" alt="img"></p>
+<h2 id="三、toolbox"><a href="#三、toolbox" class="headerlink" title="三、toolbox"></a>三、toolbox</h2><ul>
+<li>工具箱，每个图表最多仅有一个工具箱。工具箱里面可以实现图表类型的切换，保存图片，刷新，查看数据等功能。可以对其像素进行设置</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/47.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    mark : &#123;</span><br><span class="line"></span><br><span class="line">        show : false,</span><br><span class="line"></span><br><span class="line">        title : &#123;</span><br><span class="line"></span><br><span class="line">            mark : &#x27;辅助线开关&#x27;,</span><br><span class="line"></span><br><span class="line">            markUndo : &#x27;删除辅助线&#x27;,</span><br><span class="line"></span><br><span class="line">            markClear : &#x27;清空辅助线&#x27;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        lineStyle : &#123;</span><br><span class="line"></span><br><span class="line">            width : 2,</span><br><span class="line"></span><br><span class="line">            color : &#x27;#1e90ff&#x27;,</span><br><span class="line"></span><br><span class="line">            type : &#x27;dashed&#x27;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    dataZoom : &#123;</span><br><span class="line"></span><br><span class="line">        show : false,</span><br><span class="line"></span><br><span class="line">        title : &#123;</span><br><span class="line"></span><br><span class="line">            dataZoom : &#x27;区域缩放&#x27;,</span><br><span class="line"></span><br><span class="line">            dataZoomReset : &#x27;区域缩放后退&#x27;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    dataView : &#123;</span><br><span class="line"></span><br><span class="line">        show : false,</span><br><span class="line"></span><br><span class="line">        title : &#x27;数据视图&#x27;,</span><br><span class="line"></span><br><span class="line">        readOnly: false,</span><br><span class="line"></span><br><span class="line">        lang: [&#x27;数据视图&#x27;, &#x27;关闭&#x27;, &#x27;刷新&#x27;]</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    magicType: &#123;</span><br><span class="line"></span><br><span class="line">        show : false,</span><br><span class="line"></span><br><span class="line">        title : &#123;</span><br><span class="line"></span><br><span class="line">            line : &#x27;折线图切换&#x27;,</span><br><span class="line"></span><br><span class="line">            bar : &#x27;柱形图切换&#x27;,</span><br><span class="line"></span><br><span class="line">            stack : &#x27;堆积&#x27;,</span><br><span class="line"></span><br><span class="line">            tiled : &#x27;平铺&#x27;,</span><br><span class="line"></span><br><span class="line">            force: &#x27;力导向布局图切换&#x27;,</span><br><span class="line"></span><br><span class="line">            chord: &#x27;和弦图切换&#x27;,</span><br><span class="line"></span><br><span class="line">            pie: &#x27;饼图切换&#x27;,</span><br><span class="line"></span><br><span class="line">            funnel: &#x27;漏斗图切换&#x27;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        option: &#123;</span><br><span class="line"></span><br><span class="line">            // line: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // bar: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // stack: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // tiled: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // force: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // chord: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // pie: &#123;...&#125;,</span><br><span class="line"></span><br><span class="line">            // funnel: &#123;...&#125;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        type : []</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    restore : &#123;</span><br><span class="line"></span><br><span class="line">        show : false,</span><br><span class="line"></span><br><span class="line">        title : &#x27;还原&#x27;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    saveAsImage : &#123;</span><br><span class="line"></span><br><span class="line">        show : false,</span><br><span class="line"></span><br><span class="line">        title : &#x27;保存为图片&#x27;,</span><br><span class="line"></span><br><span class="line">        type : &#x27;png&#x27;,</span><br><span class="line"></span><br><span class="line">        lang : [&#x27;点击保存&#x27;]</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、tooltip"><a href="#四、tooltip" class="headerlink" title="四、tooltip"></a>四、tooltip</h2><ul>
+<li>提示框，鼠标悬浮交互时的信息提示</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/48.png" alt="img"></p>
+<h2 id="五、legend"><a href="#五、legend" class="headerlink" title="五、legend"></a>五、legend</h2><ul>
+<li>图例，每个图表最多仅有一个图例，混搭图表共享</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/49.png" alt="img"></p>
+<h2 id="六、dataRange"><a href="#六、dataRange" class="headerlink" title="六、dataRange"></a>六、dataRange</h2><ul>
+<li>值域选择，每个图表最多仅有一个值域控件</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/50.png" alt="img"></p>
+<h2 id="七、dataZoom"><a href="#七、dataZoom" class="headerlink" title="七、dataZoom"></a>七、dataZoom</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="http://echarts.baidu.com/echarts2/doc/example/dataZoom.html" >数据区域缩放<i class="fas fa-external-link-alt"></i></a>。与toolbox.feature.dataZoom同步，仅对直角坐标系图表有效</li>
+</ul>
+<h2 id="roamController"><a href="#roamController" class="headerlink" title="roamController"></a>roamController</h2><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="http://echarts.baidu.com/echarts2/doc/example/map1.html" >缩放漫游组件<i class="fas fa-external-link-alt"></i></a>，仅对地图有效</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/51.png" alt="img"></p>
+<h2 id="八、grid"><a href="#八、grid" class="headerlink" title="八、grid"></a>八、grid</h2><blockquote>
+<p>直角坐标系内绘图网格</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/52.png" alt="img"></p>
+<h2 id="九、xAxis"><a href="#九、xAxis" class="headerlink" title="九、xAxis"></a>九、xAxis</h2><blockquote>
+<p>直角坐标系中横轴数组，数组中每一项代表一条横轴坐标轴，仅有一条时可省略数组。最多同时存在2条横轴，单条横轴时可指定安放于grid的底部（默认）或顶部，2条同时存在时位置互斥，默认第一条安放于底部，第二条安放于顶部</p>
+</blockquote>
+<h2 id="十、yAxis"><a href="#十、yAxis" class="headerlink" title="十、yAxis"></a>十、yAxis</h2><blockquote>
+<p>直角坐标系中纵轴数组，数组中每一项代表一条纵轴坐标轴，仅有一条时可省略数组。最多同时存在2条纵轴，单条纵轴时可指定安放于grid的左侧（默认）或右侧，2条同时存在时位置互斥，默认第一条安放于左侧，第二条安放于右侧</p>
+</blockquote>
+<ul>
+<li>坐标轴有三种类型，类目型、数值型和时间型，纵轴通常为数值型，但条形图时则纵轴为类目型</li>
+</ul>
+<h2 id="十一、series（通用）"><a href="#十一、series（通用）" class="headerlink" title="十一、series（通用）"></a>十一、series（通用）</h2><blockquote>
+<p>驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据，其中个别选项仅在部分图表类型中有效，请注意适用类型</p>
+</blockquote>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/echart/">#echart</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/07/16/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/Graphviz%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Graphviz绘制流程图</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/06/12/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%85%E8%B0%88PWA(Progressive%20Web%20App)/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">浅谈PWA(Progressive Web App)</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

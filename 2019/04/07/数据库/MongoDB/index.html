@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            mongodb |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">mongodb</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2019-04-07 20:31:27</span>
+        <span class="mobile">2019-04-07 20:31</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/mongodb/">mongodb</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h1><h2 id="1-1-mongodb简介"><a href="#1-1-mongodb简介" class="headerlink" title="1.1 mongodb简介"></a>1.1 mongodb简介</h2><ul>
+<li><code>MongoDB</code>旨在为WEB应用提供可扩展的高性能数据存储解决方案</li>
+<li><code>MongoDB</code> 将数据存储为一个文档，数据结构由键值(<code>key=&gt;value</code>)对组成。<code>MongoDB</code> 文档类似于 <code>JSON</code>对象。字段值可以包含其他文档，数组及文档数组</li>
+</ul>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/10/crud-annotated-document.png" alt="img"></p>
+<p><strong>主要特点</strong></p>
+<ul>
+<li>高可扩展性</li>
+<li>分布式存储</li>
+<li>低成本</li>
+<li>结构灵活</li>
+</ul>
+<h2 id="1-2-window下mongodb环境搭建"><a href="#1-2-window下mongodb环境搭建" class="headerlink" title="1.2 window下mongodb环境搭建"></a>1.2 window下mongodb环境搭建</h2><ul>
+<li>下载安装包或压缩包</li>
+<li>添加<code>db</code>存储和日志存储文件夹</li>
+<li>添加服务、配置环境变量、启动<code>Mongo</code></li>
+</ul>
+<blockquote>
+<p>配置演示</p>
+</blockquote>
+<ul>
+<li>在任意目录创建几个文件夹</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/12/182.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/12/183.png" alt="img"></p>
+<p><strong>通过命令行启动服务</strong></p>
+<blockquote>
+<p>配置环境变量</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#  --dbpath指定数据存储位置</span><br><span class="line">C:\Program Files\MongoDB\Server\3.4\bin\mongod --dbpath d:\mongodb\data</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://poetries1.gitee.io/img-repo/2019/12/184.png" alt="img"></p>
+<p><strong>通配置启动服务</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 配置d:\mongodb\etc\mongodb.conf</span><br><span class="line"></span><br><span class="line">#数据库路径</span><br><span class="line">dbpath=d:\mongodb\data\</span><br><span class="line"></span><br><span class="line">#日志输出文件路径</span><br><span class="line">logpath=d:\mongodb\logs\mongodb.log</span><br><span class="line"></span><br><span class="line">#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件</span><br><span class="line">logappend=true</span><br><span class="line"></span><br><span class="line">#启用日志文件，默认启用</span><br><span class="line">journal=true</span><br><span class="line"></span><br><span class="line">#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false</span><br><span class="line">quiet=true</span><br><span class="line"></span><br><span class="line">#端口号 默认为27017</span><br><span class="line">port=27017</span><br><span class="line"></span><br><span class="line">#指定存储引擎（默认先不加此引擎，如果报错了，大家在加进去）</span><br><span class="line">storageEngine=mmapv1</span><br><span class="line"></span><br><span class="line">#http配置 开启这个服务才可以在网页中访问 端口28017</span><br><span class="line">httpinterface=true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动方式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MongoDB\Server\3.4\bin\mongod --config d:\mongodb\data</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/349.png" alt="img"></p>
+<p><strong>更加简洁的启动方式</strong></p>
+<blockquote>
+<p>安装到<code>window</code>的服务里面，打开Windows看一下</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\MongoDB\Server\3.4\bin\mongod --config d:\mongodb\data --install --serviceName &quot;MongoDB&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/350.png" alt="img"></p>
+<p><strong>使用MongoVue连接数据库</strong></p>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/351.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/352.png" alt="img"></p>
+<h2 id="1-3-linux下mongodb环境搭建"><a href="#1-3-linux下mongodb环境搭建" class="headerlink" title="1.3 linux下mongodb环境搭建"></a>1.3 linux下mongodb环境搭建</h2><ul>
+<li>下载安装包或压缩包</li>
+<li>添加<code>db</code>存储和日志存储文件夹</li>
+<li>添加服务、配置环境变量、启动<code>Mongo</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 远程登录服务器</span><br><span class="line">ssh root@123.142.25.365</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上传本地的安装包</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 上传文件夹，传文件不需要r</span><br><span class="line">scp /mongodb/... -r root@123.142.25.365:/home</span><br><span class="line"></span><br><span class="line"># 传到服务器的/home/</span><br><span class="line"># 在指定的目录创建启动需要的文件</span><br><span class="line"></span><br><span class="line">$ cd /home/</span><br><span class="line">$ mkdir etc logs data</span><br><span class="line">$ touch logs/mongodb.log etc/mongo.conf</span><br><span class="line"># /home/etc/mongo.conf配置</span><br><span class="line"></span><br><span class="line">dbpath=/home/mongodb/data</span><br><span class="line">logpath=/mongodb/logs/mongodb.log</span><br><span class="line">logappend=true</span><br><span class="line">journal=true</span><br><span class="line">quiet=true</span><br><span class="line">port=2701</span><br><span class="line"># 启动服务</span><br><span class="line">mongod -f /home/mongodb/etc/mongo.conf</span><br><span class="line"># 创建软连接</span><br><span class="line"></span><br><span class="line">ln -s /home/mongodb/bin/mongo /usr/local/bin/mongo</span><br><span class="line"></span><br><span class="line">ln -s /home/mongodb/bin/mongod /usr/local/bin/mongod</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h1><h2 id="2-1-数据库对比"><a href="#2-1-数据库对比" class="headerlink" title="2.1 数据库对比"></a>2.1 数据库对比</h2><table>
+<thead>
+<tr>
+<th align="left">SQL术语&#x2F;概念</th>
+<th align="left">MongoDB术语&#x2F;概念</th>
+<th align="left">解析&#x2F;说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>database</code></td>
+<td align="left"><code>database</code></td>
+<td align="left">数据库</td>
+</tr>
+<tr>
+<td align="left"><code>table</code></td>
+<td align="left"><code>collection</code></td>
+<td align="left">数据表&#x2F;集合</td>
+</tr>
+<tr>
+<td align="left"><code>row</code></td>
+<td align="left"><code>document</code></td>
+<td align="left">数据记录&#x2F;文档</td>
+</tr>
+<tr>
+<td align="left"><code>column</code></td>
+<td align="left"><code>field</code></td>
+<td align="left">数据记录行&#x2F;文档</td>
+</tr>
+<tr>
+<td align="left"><code>index</code></td>
+<td align="left"><code>index</code></td>
+<td align="left">索引</td>
+</tr>
+<tr>
+<td align="left"><code>table</code></td>
+<td align="left"><code>joins</code></td>
+<td align="left">表连接，<code>MongoDB</code>不支持</td>
+</tr>
+<tr>
+<td align="left"><code>primary key</code></td>
+<td align="left"><code>primary key</code></td>
+<td align="left">主键,<code>MongoDB</code>自动将<code>_id</code>字段设置为主键</td>
+</tr>
+</tbody></table>
+<p><img src="http://www.runoob.com/wp-content/uploads/2013/10/Figure-1-Mapping-Table-to-Collection-1.png" alt="img"></p>
+<h2 id="2-2-数据库"><a href="#2-2-数据库" class="headerlink" title="2.2 数据库"></a>2.2 数据库</h2><ul>
+<li>一个<code>mongodb</code>中可以建立多个数据库</li>
+<li><code>MongoDB</code>的默认数据库为”<code>db</code>“，该数据库存储在<code>data</code>目录中</li>
+<li><code>&quot;show dbs&quot;</code> 命令可以显示所有数据的列表</li>
+<li>执行 <code>&quot;db&quot;</code> 命令可以显示当前数据库对象或集合</li>
+<li><code>&quot;use&quot;</code>命令，可以连接到一个指定的数据库</li>
+</ul>
+<h2 id="2-3-文档"><a href="#2-3-文档" class="headerlink" title="2.3 文档"></a>2.3 文档</h2><ul>
+<li>文档是一组键值(<code>key-value</code>)对(即<code>BSON</code>)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;site&quot;:&quot;www.runoob.com&quot;, &quot;name&quot;:&quot;菜鸟教程&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-插入文档"><a href="#2-4-插入文档" class="headerlink" title="2.4 插入文档"></a>2.4 插入文档</h2><ul>
+<li><p>切换数据库</p>
+<ul>
+<li><code>use</code> 数据库名(没有就创建)</li>
+</ul>
+</li>
+<li><p>&#96;&#96;&#96;<br>db.createCollection(“user”)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 创建集合相当于创建表名</span><br><span class="line">  - 或者这样创建</span><br><span class="line">    - `db.user.inert(&#123;id:123&#125;)`</span><br><span class="line"></span><br><span class="line">## 2.5 插入数据表</span><br><span class="line"></span><br><span class="line">**1. 手动插入**</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="切换创建数据库"><a href="#切换创建数据库" class="headerlink" title="切换创建数据库"></a>切换创建数据库</h1><p>use demo </p>
+<h1 id="goods相当于数据表"><a href="#goods相当于数据表" class="headerlink" title="goods相当于数据表"></a>goods相当于数据表</h1><p>db.goods.insert({“prodictId”:”10001”,”productName”:”aaa”,”slaePrice”:246,”productImage”:”1.jpg”})</p>
+<h1 id="创建数据表，暂时不需插入数据"><a href="#创建数据表，暂时不需插入数据" class="headerlink" title="创建数据表，暂时不需插入数据"></a>创建数据表，暂时不需插入数据</h1><p>db.createCollection(“goods”)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**2. 客户端插入**</span><br><span class="line"></span><br><span class="line">&gt; 利用`mongodbVue`导入</span><br><span class="line"></span><br><span class="line"># 三、常用操作</span><br><span class="line"></span><br><span class="line">## 3.1 创建用户</span><br><span class="line"></span><br><span class="line">**1. 创建管理员**</span><br><span class="line"></span><br><span class="line">- 开启服务</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="–auth进行授权，需要认证才可以"><a href="#–auth进行授权，需要认证才可以" class="headerlink" title="–auth进行授权，需要认证才可以"></a>–auth进行授权，需要认证才可以</h1><p>mongod -f d:&#x2F;mongodb&#x2F;etc&#x2F;mongodb.conf –auth</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**2. 通过非授权的方式启动服务**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="创建admin数据库"><a href="#创建admin数据库" class="headerlink" title="创建admin数据库"></a>创建admin数据库</h1><p>use admin </p>
+<h1 id="给admin数据库创建账号"><a href="#给admin数据库创建账号" class="headerlink" title="给admin数据库创建账号"></a>给admin数据库创建账号</h1><p>db.createUser({user:”admin”,pwd:”admin”,roles:[“root”]}) # 3.4<br>db.addUser # 2.x</p>
+<h1 id="创建成功需要认证"><a href="#创建成功需要认证" class="headerlink" title="创建成功需要认证"></a>创建成功需要认证</h1><p>db.auth(“admin”,”admin”) # 账号、密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/353.png)</span><br><span class="line"></span><br><span class="line">**3. 给使用的数据库添加用户**</span><br><span class="line"></span><br><span class="line">1. 创建用户</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/354.png)</span><br><span class="line"></span><br><span class="line">1. 然后在授权登录试一下</span><br><span class="line"></span><br><span class="line">## 3.2 MongoDB 创建数据库</span><br><span class="line"></span><br><span class="line">- `MongoDB` 创建数据库的语法格式如下</span><br><span class="line">- 如果数据库不存在，则创建数据库，否则切换到指定数据库</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>use DATABASE_NAME</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 查看所有数据库</span><br><span class="line">  - `show dbs`</span><br><span class="line">- 我们刚创建的数据库 runoob 并不在数据库的列表中， 要显示它，我们需要向 runoob 数据库插入一些数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>db.runoob.insert({“name”:”poetries”})<br>WriteResult({ “nInserted” : 1 })<br>show dbs</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3.3 MongoDB 删除数据库</span><br><span class="line"></span><br><span class="line">- `MongoDB`删除数据库的语法格式如下</span><br><span class="line">- 删除当前数据库，默认为 `test`，你可以使用 `db` 命令查看当前数据库名</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>db.dropDatabase()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3.4 删除集合</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>db.collection.drop()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3.5 MongoDB 插入文档</span><br><span class="line"></span><br><span class="line">&gt; 文档的数据结构和`JSON`基本一样</span><br><span class="line"></span><br><span class="line">## 3.6 插入文档</span><br><span class="line"></span><br><span class="line">- `MongoDB` 使用 `insert()`或 `save()` 方法向集合中插入文档，语法如下</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>db.COLLECTION_NAME.insert(document)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 以下文档可以存储在 `MongoDB` 的 `runoob`数据库 的 `col` 集合中</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>db.col.insert({title: ‘MongoDB 学习’,<br>    description: ‘MongoDB 是一个 Nosql 数据库’,<br>    by: ‘poetries’,<br>    url: ‘<a class="link"   target="_blank" rel="noopener" href="http://blog.poetries.top&/#39;" >http://blog.poetries.top&#39;<i class="fas fa-external-link-alt"></i></a>,<br>    tags: [‘mongodb’, ‘database’, ‘NoSQL’],<br>    likes: 100<br>})</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 以上实例中 `col` 是我们的集合名，如果该集合不在该数据库中， `MongoDB` 会自动创建该集合并插入文档。</span><br><span class="line">- 查看已插入文档</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>db.col.find()<br>db.col.find().pretty() #格式化方式查看</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 3.7 MongoDB 更新文档</span><br><span class="line"></span><br><span class="line">- `MongoDB` 使用 `update()` 和 `save()` 方法来更新集合中的文档</span><br><span class="line"></span><br><span class="line">## 3.7 update() 方法</span><br><span class="line"></span><br><span class="line">&gt; `update()` 方法用于更新已存在的文档。语法格式如下</span><br><span class="line"></span><br><span class="line">- 通过 `update()`方法来更新标题(`title`):</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>db.col.update({‘title’:’MongoDB 学习’},{$set:{‘title’:’MongoDB’}})</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 四、常用查询语句</span><br><span class="line"></span><br><span class="line">| mongo                                                       | sql                                                          | 说明                                 |</span><br><span class="line">| :---------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------- |</span><br><span class="line">| `db.users.find()`                                           | `select * from users`                                        | 从`user`表中查询所有数据             |</span><br><span class="line">| `db.users.find(&#123;“username” : “joe”, “age” : 27&#125;)`           | `select * from users where “username” = “joe” and age = 27`  | 查找`username = joe`且`age = 27`的人 |</span><br><span class="line">| `db.users.find(&#123;&#125;, &#123;“username” : 1, “email” : 1&#125;)`          | `select username, email from users`                          | 查找`username`,`email`这`2`个子项    |</span><br><span class="line">| `db.users.find(&#123;“age” : &#123;“$gt” : 18&#125;&#125;)`                     | `select * from users where age &gt;18`                          | 查找`age &gt; 18`的会员                 |</span><br><span class="line">| `db.users.find(&#123;“age” : &#123;“$gte” : 18&#125;&#125;)`                    | `select * from users where age &gt;=18`                         | 查找`age &gt;= 18`的人                  |</span><br><span class="line">| `db.users.find(&#123;“age” : &#123;“$lt” : 18&#125;&#125;)`                     | `select * from users where age &lt;18`                          | 查找`age &lt; 18`的人                   |</span><br><span class="line">| `db.users.find(&#123;“age” : &#123;“$lte” : 18&#125;&#125;)`                    | `select * from users where age &lt;=18`                         | 查找`age &lt;= 18`的人                  |</span><br><span class="line">| `db.users.find(&#123;“username” : &#123;“$ne” : “joe”&#125;&#125;)`             | `select * from users where username &lt;&gt; “joe”`                | 查找 `username != joe`的会员         |</span><br><span class="line">| `db.users.find(&#123;“ticket_no” : &#123;“$in” : [725, 542, 390]&#125;&#125;)`  | `select * from users where ticket_no in (725, 542, 390)`     | 符合`tickt_no`在此范围的结果         |</span><br><span class="line">| `db.users.find(&#123;“ticket_no” : &#123;“$nin” : [725, 542, 390]&#125;&#125;)` | `select * from users where ticket_no not in (725, 542, 390)` | 符合`tickt_no`不在此范围的结果       |</span><br><span class="line">| `db.users.find(&#123;“name” : /joey^/&#125;)`                         | `select * from users where name like “joey%”`                | 查找前`4`个字符为`joey`的人          |</span><br><span class="line"></span><br><span class="line"># 五、MongoDB链接</span><br><span class="line"></span><br><span class="line">## 5.1 MongoDB链接express</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>const express &#x3D; require(‘express’);<br>const mongoose &#x3D; require(‘mongoose’);<br>const app &#x3D; express();</p>
+<p>&#x2F;&#x2F; 连接mongo 并且使用React这个集合，没有就会新建<br>const DB_URL &#x3D; ‘mongodb:&#x2F;&#x2F;127.0.0.1:27017&#x2F;react’;<br>mongoose.connect(DB_URL);<br>mongoose.connection.on(‘connected’,()&#x3D;&gt;{<br>    console.log(‘mongo connect success’);<br>})</p>
+<p>&#x2F;&#x2F; 类似于MySQL的表 mongo里有文档、字段的概念</p>
+<p>const User &#x3D; mongoose.model(‘user’,new mongoose.Schema({<br>    user:{type:String,require:true},<br>    age:{type:Number,require:true}<br>}))</p>
+<p>&#x2F;&#x2F;新增数据<br>&#x2F;&#x2F; User.create({<br>&#x2F;&#x2F;     user:’小胡’,<br>&#x2F;&#x2F;     age:18<br>&#x2F;&#x2F; },(err,doc)&#x3D;&gt;{<br>&#x2F;&#x2F;     if(!err) {<br>&#x2F;&#x2F;         console.log(doc)<br>&#x2F;&#x2F;     } else {<br>&#x2F;&#x2F;         console.log(err)<br>&#x2F;&#x2F;     }<br>&#x2F;&#x2F; })</p>
+<p>&#x2F;&#x2F; 删除数据 {}过滤对象<br>&#x2F;&#x2F; User.remove({age:22},(err,doc)&#x3D;&gt;{<br>&#x2F;&#x2F;     console.log(doc)<br>&#x2F;&#x2F; })<br>&#x2F;&#x2F; 更新<br>User.update({‘user’:’小明’},{‘$set’:{age:30}},(err,doc)&#x3D;&gt;{<br>    console.log(doc)<br>})<br>app.get(‘&#x2F;‘,(req,res)&#x3D;&gt;{<br>    res.send(‘<h1>Hello word!</h1>‘)<br>})<br>app.get(‘&#x2F;data’,(req,res)&#x3D;&gt;{<br>    &#x2F;&#x2F; findOne 只返回一条，返回对象直接使用，而不是返回数组<br>    User.findOne({‘user’:’小明’},(err,doc)&#x3D;&gt;{<br>        res.json(doc)<br>    })<br>})</p>
+<p>app.listen(9000,()&#x3D;&gt;{<br>    console.log(‘Node app listen 9000’)<br>})<br>&#96;&#96;&#96;</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/mongodb/">#mongodb</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2019/05/05/nodejs/node-%E5%85%A5%E9%97%A8/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">node-入门</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2019/03/15/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">mysql</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

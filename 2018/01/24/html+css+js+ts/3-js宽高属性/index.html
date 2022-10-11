@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            js宽高属性 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js宽高属性</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-01-24 11:35:46</span>
+        <span class="mobile">2018-01-24 11:35</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="第一部分-JavaScript中的宽高属性"><a href="#第一部分-JavaScript中的宽高属性" class="headerlink" title="第一部分 JavaScript中的宽高属性"></a>第一部分 JavaScript中的宽高属性</h2><hr>
+<h3 id="一、与window相关的宽高属性"><a href="#一、与window相关的宽高属性" class="headerlink" title="一、与window相关的宽高属性"></a>一、与window相关的宽高属性</h3><hr>
+<h4 id="1-1-window-location和document-location"><a href="#1-1-window-location和document-location" class="headerlink" title="1.1 window.location和document.location"></a>1.1 window.location和document.location</h4><hr>
+<ul>
+<li><p><code>window</code>对象的<code>location</code>属性引用的是<code>location</code>对象，表示该窗口中当前显示文档的<code>URL</code></p>
+</li>
+<li><p><code>document</code>的对象的<code>location</code>属性也是引用<code>location</code>对象</p>
+</li>
+<li><p>所以</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location === document.location</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//true</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="1-2-window-screen"><a href="#1-2-window-screen" class="headerlink" title="1.2 window.screen"></a>1.2 window.screen</h4></li>
+</ul>
+<hr>
+<ul>
+<li>&#96;&#96;&#96;<br>window.screen<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  包含有关用户屏幕的信息。它包括：</span><br><span class="line"></span><br><span class="line">  - `window.screen.width`</span><br><span class="line">  - `window.screen.height`</span><br><span class="line">  - `window.screen.availHeight`</span><br><span class="line">  - `window.screen.availWidth`</span><br><span class="line">  - `window.screenTop`</span><br><span class="line">  - `window.screenLeft`</span><br><span class="line"></span><br><span class="line">![window.screen](http://upload-images.jianshu.io/upload_images/1480597-d7979b36ca991d9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">**1.3 与window相关的宽高**</span><br><span class="line"></span><br><span class="line">- `window.innerWidth` 内部的宽度</span><br><span class="line">- `window.innerHeight` 内部的高度</span><br><span class="line">- `window.outWidth` 外部的宽度</span><br><span class="line">- `window.outHeight` 外部的高度</span><br><span class="line"></span><br><span class="line">![与window相关的宽高](http://upload-images.jianshu.io/upload_images/1480597-7c90cc88a3355d8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">### 二、与document相关的宽高属性</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 2.1与client相关的宽高</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- `document.body.clientWidth` 元素宽度（可视内容区+内边距）</span><br><span class="line">- `document.body.clientHeight`元素高度（可视内容区+内边距）</span><br><span class="line"></span><br><span class="line">该属性指的是元素的可视部分宽度和高度，即`padding+content`</span><br><span class="line">如果没有滚动条，即为元素设定的宽度和高度</span><br><span class="line">如果出现滚动条，滚动条会遮盖元素的宽高，那么该属性就是其本来宽高减去滚动条的宽高</span><br><span class="line"></span><br><span class="line">example1：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+body{<br>  border: 20px solid #000;<br>  margin: 10px;<br>  padding: 40px;<br>  background: #eee;<br>  height: 350px;<br>  width: 500px;<br>  overflow: scroll;<br>}<br>console.log(document.body.clientWidth);  &#x2F;&#x2F; 350+padding(80) &#x3D; 430<br>console.log(document.body.clientHeight);  &#x2F;&#x2F; 500 + padding(80) &#x3D; 580<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">example2: 在div中添加文字， 指导出现滚动条</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>#exp2 {<br>    width:200px;<br>    height:200px;<br>    background:red;<br>    border:1px solid #000;<br>    overflow:auto;<br>}</p>
+<p>var test &#x3D; document.getElementById(“exp2”);</p>
+<p>console,log(test.clientHeight); &#x2F;&#x2F; 200<br>console.log(test.clientWidth); &#x2F;&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/322.png)</span><br><span class="line"></span><br><span class="line">- **小结clientWidth和clientHeight**</span><br><span class="line">  - 无`padding`无滚动 ： `clientWidth` = 盒子的`width`</span><br><span class="line">  - 有`padding`无滚动 ： `clientWidth` = 盒子的`width` + 盒子的`padding * 2`</span><br><span class="line">  - 有`padding`有滚动 ： `clientWidth` = 盒子和`width` + 盒子的`padding * 2`- 滚动轴宽度</span><br><span class="line"></span><br><span class="line">- `document.body.clientLeft`</span><br><span class="line">- `document.body.clientTop`</span><br><span class="line"></span><br><span class="line">这两个返回的是元素周围边框的厚度，如果不指定一个边框或者不定位该元素，它的值就是0</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>body{<br>    border: 20px solid #000;<br>    margin: 10px;<br>    padding: 40px;<br>    background: #eee;<br>    height: 350px;<br>    width: 500px;<br>    overflow: scroll;<br>}<br>console.log(document.body.clientLeft);  &#x2F;&#x2F; 20<br>console.log(document.body.clientTop);  &#x2F;&#x2F; 20</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**小结clientLeft和clientTop**</span><br><span class="line"></span><br><span class="line">- 这一对属性是用来读取元素的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>  border<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  的宽度和高度的</span><br><span class="line"></span><br><span class="line">  - `clientTop = border-top`</span><br><span class="line">  - `clientLeft = border-left`</span><br><span class="line"></span><br><span class="line">#### 2.2 与offset相关的宽高</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- **document.body.offsetWidth（元素的border+padding+content的宽度）**</span><br><span class="line">- **document.body.offsetHeight（元素的border+padding+content的高度）**</span><br><span class="line"></span><br><span class="line">该属性和其内部的内容是否超出元素大小无关，只和本来设定的border以及width和height有关</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>body{<br>    border: 20px solid #000;<br>    margin: 10px;<br>    padding: 40px;<br>    background: #eee;<br>    height: 350px;<br>    width: 500px;<br>    overflow: scroll;<br>}<br>console.log(document.body.offsetWidth);  &#x2F;&#x2F; 470 &#x3D; padding<em>2 + 350 + border</em>2<br>console.log(document.body.offsetHeight);  &#x2F;&#x2F; 620 &#x3D; padding<em>2 + 500 + border</em>2</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**小结offsetWidth和offsetHeight**</span><br><span class="line"></span><br><span class="line">- 无padding</span><br><span class="line"></span><br><span class="line">  无滚动无border</span><br><span class="line">  </span><br><span class="line">  - offsetWidth = clientWidth = 盒子的宽度</span><br><span class="line"></span><br><span class="line">- 有padding</span><br><span class="line"></span><br><span class="line">  无滚动有border</span><br><span class="line">  </span><br><span class="line">  - offsetWidth = 盒子的宽度 + 盒子padding*2 + 盒子边框*2 = clientWidth + 边框宽度*2</span><br><span class="line"></span><br><span class="line">- 有padding</span><br><span class="line"></span><br><span class="line">  有滚动，且滚动是显示的，有border</span><br><span class="line">  </span><br><span class="line">  - offsetWidth = 盒子宽度 + 盒子padding*2 + 盒子边框*2 = clientWidth + 滚动轴宽度 + 边框宽度*2</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- **document.offsetLeft**</span><br><span class="line">- **document.offsetTop**</span><br><span class="line"></span><br><span class="line">了解这两个属性我们必须先了解它，什么是`offsetParent`</span><br><span class="line"></span><br><span class="line">- 如果当前元素的父级元素没有进行`CSS`定位（`position`为`absolute`或`relative`）,`offsetParent`为`body.`</span><br><span class="line">- 假如当前元素的父级元素中有`CSS`定位，`offsetParent`取最近的那个父级元素</span><br><span class="line"></span><br><span class="line">**offsetLeft的兼容性问题：**</span><br><span class="line"></span><br><span class="line">- 在`IE6/7`中</span><br><span class="line">  - `offsetLeft` = offsetParent的padding-left + 当前元素的margin-left</span><br><span class="line">- 在`IE8/9/10`以及`chrome`中</span><br><span class="line">  - `offsetLeft` = offsetParent的margin-left + offsetParent的border宽度 + offsetParent的padding-left + 当前元素的margin-left</span><br><span class="line">- 在`FireFox`中</span><br><span class="line">  - `offsetLeft` = offsetParent的margin-left + 当前元素的margin-left + offsetParent的padding-left</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>body{<br>    border: 20px solid #000;<br>    margin: 10px;<br>    padding: 40px;<br>    background: #eee;<br>    height: 350px;<br>    width: 500px;<br>    overflow: scroll;<br>} </p>
+<p>#exp {<br>   width:400px;<br>   height:200px;<br>   padding:20px;<br>   margin:10px;<br>   background:red;<br>   border:20px solid #000;<br>   overflow:auto;<br>}<br>var div &#x3D; document.getElementById(“exp”);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在IE8/9/10以及chrome中：</span><br><span class="line">  - div.offsetLeft = 本身的margin10 + 父级元素的padding40 + margin10 + border20 = 80</span><br><span class="line">  - div.offsetTop = 本身的margin10 + 父级元素的padding40 + margin10 + border20 = 80</span><br><span class="line">- 在FireFox：（相比chrome中少了border）</span><br><span class="line">  - div.offsetLeft = 本身的margin10 + 父级元素的padding40 + margin10 = 60</span><br><span class="line">  - div.offsetTop = 本身的margin10 + 父级元素的padding40 + margin10 = 60</span><br><span class="line">- 在IE6/7中：（相比在FireFox，不但少了border还少了父级元素的margin）</span><br><span class="line">  - `div.offsetLeft` = 本身的`margin10` + 父级元素的`padding40` = 50</span><br><span class="line">  - `div.offsetTop` = 本身的`margin10` + 父级元素的`padding40` = 50</span><br><span class="line"></span><br><span class="line">#### 2.3与scroll相关的宽高 (实际项目中用的最多)</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- **document.body.scrollWidth**</span><br><span class="line">- **document.body.scrollHeight**</span><br><span class="line"></span><br><span class="line">document.body的scrollWidth和scrollHeight与div的scrollWidth和scrollHeight是有区别的</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>body{<br>    border: 20px solid #000;<br>    margin: 10px;<br>    padding: 40px;<br>    background: #eee;<br>    height: 350px;<br>    width: 500px;<br>    overflow: scroll;<br>}</p>
+<p>document.body.scrollHeight; &#x2F;&#x2F;<br>document.body.scrollWidth; &#x2F;&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 当给定宽高小于浏览器窗口的宽高</span><br><span class="line">  - scrollWidth = 通常是浏览器窗口的宽度</span><br><span class="line">  - scrollHeight = 通常是浏览器窗口的高度</span><br><span class="line">- 当给定宽高大于浏览器窗口的宽高，且内容小于给定宽高的时候</span><br><span class="line">  - scrollWidth = 给定宽度 + 其所有的padding + margin + border</span><br><span class="line">  - scrollHeight = 给定高度 + 其所有的padding + margin + border</span><br><span class="line">- 当给定宽高大于浏览器窗口宽高，且内容大于给定宽高</span><br><span class="line">  - scrollWidth = 内容宽度 + 其所有的padding + margin + border</span><br><span class="line">  - scrollHeight = 内容高度 + 其所有的padding + margin + border</span><br><span class="line"></span><br><span class="line">**在某div中的scrollWidth和scrollHeight**</span><br><span class="line"></span><br><span class="line">- 无滚动轴时：</span><br><span class="line">  - scrollWidth = clientWidth = 盒子宽度 + 盒子padding*2</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/323.png)</span><br><span class="line"></span><br><span class="line">- 有滚动轴时：</span><br><span class="line">  - scrollWidth = 实际内容的宽度 + padding*2</span><br><span class="line">  - scrollHeight = 实际内容的高度 + padding*2</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/324.png)</span><br><span class="line"></span><br><span class="line">- **document.body.scrollLeft**</span><br><span class="line">- **document.body.scrollTop**</span><br><span class="line"></span><br><span class="line">与前面不同的是，这对属性是可读写的，指的是当元素其中的超出其宽高的时候，元素被卷起来的高度和宽度</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#exp {<br>   width:400px;<br>   height:200px;<br>   padding:20px;<br>   margin:10px;<br>   background:red;<br>   border:20px solid #000;<br>   overflow-y:scroll;<br>}</p>
+<p>var mydiv &#x3D; document.getElementById(“exp”);</p>
+<p>mydiv.scrollTop ;  &#x2F;&#x2F;默认情况下是0<br>mydiv.scrollLeft ; &#x2F;&#x2F;默认情况下是0 </p>
+<p>&#x2F;&#x2F;可以改写它</p>
+<p>mydiv.scrollTop &#x3D; 20;<br>console.log(mydiv.scrollTop)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/325.png)</span><br><span class="line"></span><br><span class="line">**obj.style.width和obj.style.height**</span><br><span class="line"></span><br><span class="line">对于一个`DOM`元素，它的`style`属性返回的是一个对象，这个对象的任意一个属性是可读写的，`style.width`等于`css`属性中的宽度。`style.height`等于`css`属性中的高度</span><br><span class="line"></span><br><span class="line">#### 2.4 documentElement和body的关系</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">是父子级的关系</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>body{<br>    border: 20px solid #000;<br>    margin: 10px;<br>    padding: 40px;<br>    background: #eee;<br>    height: 350px;<br>    width: 500px;<br>    overflow: scroll;<br>}</p>
+<p>#exp {<br>   width:400px;<br>   height:200px;<br>   padding:20px;<br>   margin:10px;<br>   background:red;<br>   border:20px solid #000;<br>   overflow-y:scroll;<br>}</p>
+<p>console.log(document); &#x2F;&#x2F;document<br>console.log(document.documentElement); &#x2F;&#x2F;html<br>console.log(document.body); &#x2F;&#x2F;body</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/326.png)</span><br><span class="line"></span><br><span class="line">- 兼容问题推荐使用 获取浏览器窗口可视区域大小</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>document.body.clientWidth || document.documentElement.clientWidth;<br>document.body.clientHeight || document.documentElement.clientHeight;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 三、Event对象的5种坐标</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/327.png)</span><br><span class="line"></span><br><span class="line">例：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="example" 
+style="width: 200px;height: 200px;background: red;margin: 100px auto;"></div>
+var example = document.getElementById("example");
+example.onclick = function(e){
+    console.log("clientX "+e.clientX + " : " + " clientY "+e.clientY);
+    console.log("screenX "+e.screenX + " : " + " screenY "+e.screenY);
+    console.log("offsetX "+e.offsetX + " : " + " offsetY "+e.offsetY);
+    console.log("pageX "+e.pageX + " : " + " pageY "+e.pageY);
+    console.log("x "+e.x + " : " + " y "+e.y);
+}
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/328.png)</span><br><span class="line"></span><br><span class="line">### 四、 js各种宽高的应用</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- **example1：可视区域加载**</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/329.png)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="example1" ></div>
+#example1 {
+            width: 500px;
+            height: 350px;
+            background: red;
+            margin: 1000px auto 0 auto;
+        }
+        @-webkit-keyframes fadeInLeft{
+            0%{
+                opacity: 0;
+                transform: translate3d(-100%,0,0);
+            }
+            100%{
+                opacity: 1;
+                transform: none;
+                
+<pre><code>        &#125;
+    &#125;
+        .fadeInLeft &#123;
+            animation-name: fadeInLeft;
+            animation-duration: 2s;
+        &#125;
+</code></pre>
+<p>function showDiv(){<br>            var example &#x3D; document.getElementById(“example”);<br>            var clients &#x3D; window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;&#x2F;&#x2F;可视区域的高度<br>            var divTop &#x3D; example.getBoundingClientRect().top;<br>            if(divTop &lt;&#x3D; clients){<br>                example.classList.add(“fadeInLeft”);<br>                              &#x2F;&#x2F;  这里可以通过setAttribute设置图片的src按需加载<br>            }<br>            document.title &#x3D; clients+”—“+divTop;<br>        }</p>
+<p>window.onscroll &#x3D; showDiv;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[在线演示](http://codepen.io/poetries/pen/RoeJgG)</span><br><span class="line"></span><br><span class="line">- **example2：网页滚动到顶部或者底部**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="example2" ></div>
+#example2 {
+            width: 500px;
+            height: 350px;
+            background: red;
+            margin: 1000px auto 0 auto;
+}
+function scrollTopOrBottom(){
+            var example2 = document.getElementById("example");
+            var clients = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;//可视区域的高度，兼容性写法
+            var scrollTop = document.body.scrollTop;
+            var wholeHeight = document.body.scrollHeight;
+            if(clients + scrollTop >= wholeHeight){
+                alert("我已经到了底部!");
+                              // 这里可以调用Ajax分页加载到页面中，实现多页加载功能
+            }else if(scrollTop == 0){
+                alert("我已经到了顶部了!");
+                      
+<pre><code>        &#125;
+        document.title = (clients + scrollTop)+&quot;---&quot;+wholeHeight+&quot;--&quot;+scrollTop;
+    &#125;
+    
+</code></pre>
+<p>window.onscroll &#x3D; scrollTopOrBottom;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[在线演示](http://codepen.io/poetries/pen/WoayJy)</span><br><span class="line"></span><br><span class="line">- **example3：DIV滚动到底部加载**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="example3" >
+            DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载
+            DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载
+            DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载
+            DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载
+            DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载
+            DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载DIV滚动到底部加载
+</div>
+#example3 {
+            width: 500px;
+            height: 400px;
+            background: red;
+            margin: 10px auto;
+            padding: 10px;
+            overflow-y: scroll;
+}
+var div = document.getElementById("example3");
+        function divScroll(){
+            
+<pre><code>        var wholeHeight = div.scrollHeight;//滚动区域高度
+        var divScrollTop = div.scrollTop;//卷上去的那部分高度
+        var divHeight = div.clientHeight; //div的可视区域的高度
+        
+        
+        if(divScrollTop + divHeight &gt;= wholeHeight)&#123;
+            alert(&quot;我已经到了底部!&quot;);
+           // 这里可以在div中通过滚动加载分页按需显示
+        &#125;else if(divScrollTop == 0)&#123;
+            alert(&quot;我已经到了顶部了!&quot;);
+        &#125;
+        document.title = (divScrollTop + divHeight)+&quot;---&quot;+wholeHeight+&quot;--&quot;+divScrollTop;
+</code></pre>
+<p>}</p>
+<p>div.onscroll &#x3D; divScroll;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[在线演示](http://codepen.io/poetries/pen/vyVrvm)</span><br><span class="line"></span><br><span class="line">- **example4：计算滚动轴的宽度**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>&#x2F;&#x2F;获取滚动轴的宽度<br>    function getScrollBar(){<br>        var el &#x3D; document.createElement(“p”);<br>        var styles &#x3D; {<br>            width:”100px”,<br>            height:”100px”,<br>            overflowY:”scroll”<br>        };<br>        for (var prop in styles){<br>            el.style[prop] &#x3D; styles[prop];&#x2F;&#x2F;把 styles上的属性全部遍历拷贝到el.style上</p>
+<pre><code>    &#125;
+    document.body.appendChild(el);
+    var scrollBarWidth = el.offsetWidth - el.clientWidth;
+    el.remove();
+    return scrollBarWidth;
+&#125;
+alert(getScrollBar());//17
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[在线演示](http://codepen.io/poetries/pen/RoeBbL)</span><br><span class="line"></span><br><span class="line">### 五、js中的宽高属性总结</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/330.png)</span><br><span class="line"></span><br><span class="line">![img](https://camo.githubusercontent.com/3318530334bbc8f5e7ce267866c43ba72fa01f32/687474703a2f2f6f61376436647871742e626b742e636c6f7564646e2e636f6d2f626c6f672f696d616765732f3038313734323039323736363338392e6a7067)</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/331.png)</span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/332.png)</span><br><span class="line"></span><br><span class="line">## 第二部分 jQuery中的宽高属性</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### 一、jquery相关宽高介绍</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- 1.1 width()</span><br><span class="line">  - 特殊元素`window.document`只可以读，普通元素可以读写，`width()`返回结果无单位，`css(&quot;width&quot;)`的结果有单位</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/333.png)</span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/334.png)</span><br><span class="line"></span><br><span class="line">- 1.2 innerWidth()</span><br><span class="line">  - 包含padding（不推荐window,document调用）</span><br><span class="line">- **1.3 innerHeight()**</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/335.png)</span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/336.png)</span><br><span class="line"></span><br><span class="line">- 1.4 outerWidth()</span><br><span class="line">  - 包含padding和border，当传true时包含marging，不传时不包含marging（不推荐window,document调用）</span><br><span class="line">- **1.5 outerHeight()**</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/337.png)</span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/338.png)</span><br><span class="line"></span><br><span class="line">- 1.6 scrollLeft():</span><br><span class="line">  - 相对于水平滚动条左边的距离，如果滚动条非常左、或者元素不能被滚动，这个值为0；</span><br><span class="line">- **1.7 scrollTop():**</span><br><span class="line">  - 相对于垂直滚动条上边的距离，如果滚动条非常上、或者元素不能被滚动，这个值为0；</span><br><span class="line">- **1.8 .offset():**</span><br><span class="line">  - 相对于document的当前坐标值(相对于body左上角的left,top的值)；</span><br><span class="line">- 1.9 .position():</span><br><span class="line">  - 相对于offset parent的当前坐标值(相对于offset parent元素的左上角的left、top的值)</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/339.png)</span><br><span class="line"></span><br><span class="line">### 二、jquery相关宽高举例</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">**2.1 exmaple1**</span><br><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/340.png)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="parentDiv">
+    <div class="childrenDiv"></div>
+</div>
+html,body {
+    margin:10px;
+    border:5px solid red;
+    padding:20px;
+}
+.parentDiv {
+    width:800px;
+    height:500px;
+    margin:5px auto;
+    background:#FF6600;
+    border:5px dashed green;padding:30px;position:relative;
+
+<p>}<br>.childrenDiv {<br>    width:300px;<br>    height:500px;<br>    margin:5px auto;<br>    background:yellow;<br>    border:5px solid black;<br>    padding:5px;<br>    box-sizing:border-box;&#x2F;<em>包括padding和border的值</em>&#x2F;<br>}<br>&#x2F;&#x2F;特殊元素的高度<br>&#x2F;&#x2F;window  document<br>console.log(“$(window).height()”+$(window).height());<br>console.log(“$(document).height()”+$(document).height());</p>
+<p>&#x2F;&#x2F;innerHeight<br>console.log(“$(window).innerHeight()”+$(window).innerHeight());<br>console.log(“$(document).innerHeight()”+$(document).innerHeight());</p>
+<p>&#x2F;&#x2F;普通child元素的高度</p>
+<p>&#x2F;&#x2F;480 &#x3D; 500 - border<em>2 - padding</em>2 (因为设置了box-sizing，box-sizing把border和padding的值计算了进去)<br>console.log(‘$(“.childrenDiv”).height()’+ $(“.childrenDiv”).height());</p>
+<p>&#x2F;&#x2F;490 &#x3D; 500 - border<em>2 - padding</em>2（innerHeight不包括padding）<br>console.log(‘$(“.childrenDiv”).innerHeight()’+ $(“.childrenDiv”).innerHeight());</p>
+<p>&#x2F;&#x2F;500 &#x3D; 500  不包括margin<br>console.log(‘$(“.childrenDiv”).outerHeight()’+ $(“.childrenDiv”).outerHeight());</p>
+<p>&#x2F;&#x2F;510 &#x3D; 500 + margin true包括margin<br>console.log(‘$(“.childrenDiv”).outerHeight()’+ $(“.childrenDiv”).outerHeight(true));</p>
+<p>&#x2F;&#x2F;scrollTop</p>
+<p>$(window).scroll(function(){<br>    document.title &#x3D; “scrollTop  “+$(this).scrollTop();<br>});</p>
+<p>&#x2F;&#x2F; jquery宽高演示之offset和position</p>
+<p>console.log(‘$(“.childrenDiv”).offset().top ‘+$(“.childrenDiv”).offset().top);<br>console.log(‘$(“.childrenDiv”).offset().left ‘+$(“.childrenDiv”).offset().left);<br>console.log(‘$(“.childrenDiv”).position().top ‘+$(“.childrenDiv”).position().top);<br>console.log(‘$(“.childrenDiv”).position().top ‘+$(“.childrenDiv”).position().left);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/341.png)</span><br><span class="line">![img](https://poetries1.gitee.io/img-repo/2019/10/342.png)</span><br><span class="line"></span><br><span class="line">[在线演示](http://codepen.io/poetries/pen/yVRqZO)</span><br><span class="line"></span><br><span class="line">### 三、jquery各种宽高应用</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">**3.1 jquery可视区域加载**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="example" ></div>
+#example {
+            width: 500px;
+            height: 350px;
+            background: red;
+            margin: 1000px auto 0 auto;
+        }
+        @-webkit-keyframes fadeInLeft{
+            0%{
+                opacity: 0;
+                transform: translate3d(-100%,0,0);
+            }
+            100%{
+                opacity: 1;
+                transform: none;
+                
+<pre><code>        &#125;
+    &#125;
+        .fadeInLeft &#123;
+            animation-name: fadeInLeft;
+            animation-duration: 2s;
+        &#125;
+</code></pre>
+<p>$(window).scroll(function(){<br>    var ks_area &#x3D; $(window).height();&#x2F;&#x2F;可视区域高度<br>    var scrollHeight &#x3D; $(window).scrollTop();&#x2F;&#x2F;被卷上去的那部分<br>    var divTop &#x3D; $(“#example”).offset().top;&#x2F;&#x2F;盒子距离浏览器顶部的距离</p>
+<pre><code>if(ks_area + scrollHeight &gt;= divTop)&#123;
+    $(&quot;#example&quot;).addClass(&quot;fadeInLeft&quot;);
+&#125;
+document.title = ks_area+&#39;-&#39;+scrollHeight+&#39;-&#39;+divTop;
+</code></pre>
+<p>});</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[在线演示](http://codepen.io/poetries/pen/MbPqVE)</span><br><span class="line"></span><br><span class="line">**3.2 jquery滚动到底部和顶部加载**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div id="example" ></div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+#example {
+            width: 500px;
+            height: 350px;
+            background: red;
+            margin: 1000px auto 0 auto;
+}
+$(window).scroll(function(){
+    var ks_area = $(window).height();
+    var scrollTop = $(window).scrollTop();
+    var wholeHeight = $(document).height();
+    
+<pre><code>if(ks_area + scrollTop &gt;=wholeHeight )&#123;
+    alert(&quot;已经到底部了&quot;);
+&#125;else if(scrollTop == 0)&#123;
+    alert(&quot;已经到头部了&quot;);
+&#125;
+</code></pre>
+<p>})<br>&#96;&#96;&#96;</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/01/26/html+css+js+ts/1-h5-api/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">html-api</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/01/22/html+css+js+ts/3-js-%E7%BB%A7%E6%89%BF/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js 继承</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

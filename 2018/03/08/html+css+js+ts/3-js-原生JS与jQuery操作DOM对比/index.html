@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            js 原生js与jquery操作dom的对比 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js 原生js与jquery操作dom的对比</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-03-08 06:46:34</span>
+        <span class="mobile">2018-03-08 06:46</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="一、创建元素节点"><a href="#一、创建元素节点" class="headerlink" title="一、创建元素节点"></a>一、创建元素节点</h3><hr>
+<h4 id="1-1-原生JS创建元素节点"><a href="#1-1-原生JS创建元素节点" class="headerlink" title="1.1 原生JS创建元素节点"></a>1.1 原生<code>JS</code>创建元素节点</h4><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.createElement(&quot;p&quot;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-jQuery创建元素节点"><a href="#1-2-jQuery创建元素节点" class="headerlink" title="1.2 jQuery创建元素节点"></a>1.2 <code>jQuery</code>创建元素节点</h4><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&#x27;&lt;p&gt;&lt;/p&gt;&#x27;);`</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、创建并添加文本节点"><a href="#二、创建并添加文本节点" class="headerlink" title="二、创建并添加文本节点"></a>二、创建并添加文本节点</h3><hr>
+<h4 id="2-1-原生JS创建文本节点"><a href="#2-1-原生JS创建文本节点" class="headerlink" title="2.1 原生JS创建文本节点"></a>2.1 原生JS创建文本节点</h4><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`document.createTextNode(&quot;Text Content&quot;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通常创建文本节点和创建元素节点配合使用，比如：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var textEl = document.createTextNode(&quot;Hello World.&quot;);</span><br><span class="line">var pEl = document.createElement(&quot;p&quot;);</span><br><span class="line">pEl.appendChild(textEl);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-jQuery创建并添加文本节点："><a href="#2-2-jQuery创建并添加文本节点：" class="headerlink" title="2.2 jQuery创建并添加文本节点："></a>2.2 <code>jQuery</code>创建并添加文本节点：</h4><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var $p = $(&#x27;&lt;p&gt;Hello World.&lt;/p&gt;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、复制节点"><a href="#三、复制节点" class="headerlink" title="三、复制节点"></a>三、复制节点</h3><hr>
+<h4 id="3-1-原生JS复制节点"><a href="#3-1-原生JS复制节点" class="headerlink" title="3.1 原生JS复制节点:"></a>3.1 原生<code>JS</code>复制节点:</h4><hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var newEl = pEl.cloneNode(true);  `</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>&#96;&#96;&#96;<br>true和false的区别：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - `true` ：克隆整个`&#x27;Hello World.&#x27;`节点</span><br><span class="line">  - `false`：只克隆`&#x27;&#x27;` ，不克隆文本`Hello World.&#x27;`</span><br><span class="line"></span><br><span class="line">#### 3.2 `jQuery`复制节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$newEl &#x3D; $(‘#pEl’).clone(true);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 注意：克隆节点要避免`ID重复</span><br><span class="line"></span><br><span class="line">### 四、 插入节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 4.1 原生JS向子节点列表的末尾添加新的子节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+El.appendChild(newNode);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 原生JS在节点的已有子节点之前插入一个新的子节点：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+El.insertBefore(newNode, targetNode);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4.2 在jQuery中，插入节点的方法比原生JS多的多</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">- 在匹配元素子节点列表结尾添加内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘#El’).append(‘<p>Hello World.</p>‘);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 把匹配元素添加到目标元素子节点列表结尾</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘<p>Hello World.</p>‘).appendTo(‘#El’);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在匹配元素子节点列表开头添加内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘#El’).prepend(‘<p>Hello World.</p>‘);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 把匹配元素添加到目标元素子节点列表开头</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘<p>Hello World.</p>‘).prependTo(‘#El’);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在匹配元素之前添加目标内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘#El’).before(‘<p>Hello World.</p>‘);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 把匹配元素添加到目标元素之前</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘<p>Hello World.</p>‘).insertBefore(‘#El’);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在匹配元素之后添加目标内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘#El’).after(‘<p>Hello World.</p>‘);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 把匹配元素添加到目标元素之后</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘<p>Hello World.</p>‘).insertAfter(‘#El’);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 五、删除节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 5.1 原生JS删除节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+El.parentNode.removeChild(El);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5.2 jQuery删除节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘#El’).remove();<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 六、替换节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 6.1 原生JS替换节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+El.repalceChild(newNode, oldNode);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 注意：`oldNode`必须是`parentEl`真实存在的一个子节点</span><br><span class="line"></span><br><span class="line">#### 6.2 jQuery替换节点</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(‘p’).replaceWith(‘<p>Hello World.</p>‘);<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 七、设置属性/获取属性</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### 7.1 原生JS设置属性/获取属性</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+imgEl.setAttribute(“title”, “logo”);<br>imgEl.getAttribute(“title”);<br>checkboxEl.checked &#x3D; true;<br>checkboxEl.checked;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 7.2 jQuery设置属性/获取属性:</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+$(“#logo”).attr({“title”: “logo”});<br>$(“#logo”).attr(“title”);<br>$(“#checkbox”).prop({“checked”: true});<br>$(“#checkbox”).prop(“checked”);</li>
+</ul>
+<p>&#96;&#96;&#96;</p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/03/11/html+css+js+ts/3-js%E4%BD%9C%E7%94%A8%E5%9F%9F/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js 作用域</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/03/06/html+css+js+ts/3-js%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js 异步处理</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

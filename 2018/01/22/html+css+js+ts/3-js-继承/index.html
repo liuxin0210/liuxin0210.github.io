@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            js 继承 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js 继承</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-01-22 20:16:15</span>
+        <span class="mobile">2018-01-22 20:16</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>JavaScript继承本质和原型链有关</p>
+</blockquote>
+<ul>
+<li>原型、实例、构造函数、原型链之间的关系</li>
+</ul>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/321.png" alt="img"></p>
+<h2 id="一、借助构造函数实现继承"><a href="#一、借助构造函数实现继承" class="headerlink" title="一、借助构造函数实现继承"></a>一、借助构造函数实现继承</h2><ul>
+<li>缺点：实例无法访问父类原型上的属性</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Parent1 () &#123;</span><br><span class="line">    this.name = &#x27;parent1&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">Parent1.prototype.say = function () &#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line">function Child1 () &#123;</span><br><span class="line">    Parent1.call(this);</span><br><span class="line">    this.type = &#x27;child1&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">// Parent1原型上的say没法拿到</span><br><span class="line">console.log(new Child1(), new Child1().say());</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、借助原型链实现继承"><a href="#二、借助原型链实现继承" class="headerlink" title="二、借助原型链实现继承"></a>二、借助原型链实现继承</h2><ul>
+<li>缺点：子类和父类公用一个原型,最后导致子类的多个实例都是一样的，无法隔离</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Parent2 () &#123;</span><br><span class="line">    this.name = &#x27;parent2&#x27;;</span><br><span class="line">    this.play = [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">function Child2 () &#123;</span><br><span class="line">    this.type = &#x27;child2&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">Child2.prototype = new Parent2();</span><br><span class="line"></span><br><span class="line">var s1 = new Child2();</span><br><span class="line">var s2 = new Child2();</span><br><span class="line">s1.play.push(4);</span><br><span class="line">console.log(s1.play, s2.play); // [1, 2, 3, 4] [1, 2, 3,4] 结果是一样的，说明两个实例无法隔离</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、组合继承方式"><a href="#三、组合继承方式" class="headerlink" title="三、组合继承方式"></a>三、组合继承方式</h2><ul>
+<li>此方法解决了上面的实例相同的问题，但是父类的构造函数执行了多次</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Parent3 () &#123;</span><br><span class="line">    this.name = &#x27;parent3&#x27;;</span><br><span class="line">    this.play = [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">function Child3 () &#123;</span><br><span class="line">    Parent3.call(this);</span><br><span class="line">    this.type = &#x27;child3&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">Child3.prototype = new Parent3(); // 把Parent3的实例指向Child3的原型</span><br><span class="line">var s3 = new Child3();</span><br><span class="line">var s4 = new Child3();</span><br><span class="line">s3.play.push(4);</span><br><span class="line">console.log(s3.play, s4.play); // [1, 2, 3, 4] [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优化组合继承1：此方法解决了父类的构造函数执行了多次问题，但是无法判断实例是由子类创建的，还是父类创建的</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function Parent4 () &#123;</span><br><span class="line">    this.name = &#x27;parent4&#x27;;</span><br><span class="line">    this.play = [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">function Child4 () &#123;</span><br><span class="line">    Parent4.call(this);</span><br><span class="line">    this.type = &#x27;child4&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">Child4.prototype = Parent4.prototype; // Child4和Parent4公用一个原型了</span><br><span class="line">var s5 = new Child4();</span><br><span class="line">var s6 = new Child4();</span><br><span class="line">console.log(s5, s6);</span><br><span class="line"></span><br><span class="line">console.log(s5 instanceof Child4, s5 instanceof Parent4); // 都是返回true</span><br><span class="line">console.log(s5.constructor); // 这里返回的构造函数是Parent4，而不是Child4，问题所在</span><br><span class="line">​``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 优化组合继承2：完美解决方案</span><br><span class="line"></span><br><span class="line">​```javascript</span><br><span class="line">function Parent5 () &#123;</span><br><span class="line">    this.name = &#x27;parent5&#x27;;</span><br><span class="line">    this.play = [1, 2, 3];</span><br><span class="line">&#125;</span><br><span class="line">function Child5 () &#123;</span><br><span class="line">    Parent5.call(this);</span><br><span class="line">    this.type = &#x27;child5&#x27;;</span><br><span class="line">&#125;</span><br><span class="line">Child5.prototype = Object.create(Parent5.prototype);</span><br><span class="line">Child5.prototype.constructor = Child5;	 //重新修改了Child5的构造函数为Child5</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/01/24/html+css+js+ts/3-js%E5%AE%BD%E9%AB%98%E5%B1%9E%E6%80%A7/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js宽高属性</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/01/19/html+css+js+ts/3-js-%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js-复制粘贴</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

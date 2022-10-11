@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            ES6 Symbol |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">ES6 Symbol</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-04-12 21:42:25</span>
+        <span class="mobile">2018-04-12 21:42</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/es6/">es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><blockquote>
+<p><code>ES6</code>新加入了一种原始数据类型<code>Symbol</code>，表示独一无二的值，这是<code>js</code>的第七种数据类型，前六种是：<code>Undefined</code>、<code>Null</code>、布尔值（<code>Boolean</code>）、字符串（<code>String</code>）、数值（<code>Number</code>）、对象（<code>Object</code>）</p>
+</blockquote>
+<ul>
+<li>对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的<code>Symbol</code>类型。凡是属性名属于<code>Symbol</code>类型，就都是独一无二的，可以保证不会与其他属性名产生冲突</li>
+</ul>
+<h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Symbol([description])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参数 <code>description</code> 是一个可选参数，是一个字符串，可以用于调试，但不能访问<code>Symbol</code> 自身</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var sym1 = Symbol();</span><br><span class="line">var sym2 = Symbol(&#x27;foo&#x27;);</span><br><span class="line">var sym3 = Symbol(&#x27;foo&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-值唯一性"><a href="#1-2-值唯一性" class="headerlink" title="1.2 值唯一性"></a>1.2 值唯一性</h3><blockquote>
+<p>每一个 <code>Symbol()</code>返回的值都是唯一的。一个<code>Symbol</code> 值能作为对象属性的标识符，这是改数据类型仅有的目的</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Symbol(&quot;yuan&quot;) === Symbol(&quot;yuan&quot;); // false</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-不可以使用-new-操作符"><a href="#1-3-不可以使用-new-操作符" class="headerlink" title="1.3 不可以使用 new 操作符"></a>1.3 不可以使用 new 操作符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var sym = new Symbol(); // TypeError报错</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-结合-Object-函数"><a href="#1-4-结合-Object-函数" class="headerlink" title="1.4 结合 Object() 函数"></a>1.4 结合 Object() 函数</h3><blockquote>
+<p>结合 <code>Object()</code> 函数，创建一个 <code>Symbol</code> 包装器对象</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var sym = Symbol();</span><br><span class="line">typeof sym;  // &quot;symbol“”</span><br><span class="line">var symobj = Object(sym);</span><br><span class="line">typeof symobj; // &quot;object&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-全局共享-Symbol"><a href="#1-5-全局共享-Symbol" class="headerlink" title="1.5 全局共享 Symbol"></a>1.5 全局共享 Symbol</h3><blockquote>
+<p>使用<code>Symbol.for()</code> 方法会根据给定的键 <code>key</code>，来从运行时的 <code>symbol</code> 注册表中找到对应的 <code>symbol</code>，如果找到了，则返回它，否则，新建一个与该键关联的 <code>symbol</code>，并放入全局 <code>symbol</code> 注册表中</p>
+</blockquote>
+<h3 id="1-6-在对象中查找-Symbol-属性"><a href="#1-6-在对象中查找-Symbol-属性" class="headerlink" title="1.6 在对象中查找 Symbol 属性"></a>1.6 在对象中查找 Symbol 属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;;</span><br><span class="line">var a = Symbol(&quot;a&quot;);</span><br><span class="line">var b = Symbol.for(&quot;b&quot;);</span><br><span class="line"></span><br><span class="line">obj[a] = &quot;localSymbol&quot;;</span><br><span class="line">obj[b] = &quot;globalSymbol&quot;;</span><br><span class="line"></span><br><span class="line">var objectSymbols = Object.getOwnPropertySymbols(obj);</span><br><span class="line"></span><br><span class="line">console.log(objectSymbols)         // [Symbol(a), Symbol(b)]</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、静态属性"><a href="#二、静态属性" class="headerlink" title="二、静态属性"></a>二、静态属性</h2><h3 id="2-1-length-属性"><a href="#2-1-length-属性" class="headerlink" title="2.1 length 属性"></a>2.1 length 属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Symbol 的长度属性值为0.</span><br><span class="line">Symbol.length // 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-迭代-Symbols"><a href="#2-2-迭代-Symbols" class="headerlink" title="2.2 迭代 Symbols"></a>2.2 迭代 Symbols</h3><blockquote>
+<p><code>Symbol.iterator</code> 该方法为每一个对象定义了默认的迭代器。该迭代器可以被 <code>for.. of</code> 循环使用。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 自定义迭代器</span><br><span class="line">var myIterator = &#123;&#125;;</span><br><span class="line">myIterator[Symbol.iterator] = function* () &#123;</span><br><span class="line">    yield 1;</span><br><span class="line">    yield 2;</span><br><span class="line">    yield 3;</span><br><span class="line">&#125;;</span><br><span class="line">[...myIterator] // [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>Symbols</code> 与 <code>for... in</code> 迭代</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;&#125;;</span><br><span class="line">obj[Symbol(&quot;a&quot;)] = &quot;a&quot;;</span><br><span class="line">obj[Symbol.for(&quot;b&quot;)] = &quot;b&quot;;</span><br><span class="line">obj[&quot;c&quot;] = &quot;c&quot;;</span><br><span class="line">obj.d = &quot;d&quot;;</span><br><span class="line"></span><br><span class="line">for (var i in obj) &#123;</span><br><span class="line">   console.log(i); </span><br><span class="line">&#125;</span><br><span class="line">// &quot;c&quot;</span><br><span class="line">// &quot;d&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-Symbol的正则表达式"><a href="#2-3-Symbol的正则表达式" class="headerlink" title="2.3 Symbol的正则表达式"></a>2.3 Symbol的正则表达式</h3><blockquote>
+<p>用于标识对象是否具有正则表达式的行为。<code>Symbol.match</code>:对象是否具有指定的匹配的正则表达式</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;/bar/&quot;.startsWith(/bar/); </span><br><span class="line">// Throws TypeError, 因为 /bar/ 是一个正则表达式</span><br><span class="line">// 且 Symbol.match 没有修改。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果你将 <code>Symbol.match</code> 置为 <code>false</code>，使用 <code>match</code> 属性的表达式检查会认为该象不是正则表达式对象。<code>startsWith</code> 和 <code>endsWith</code> 方法将不会抛出 <code>TypeError</code></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var re = /foo/;</span><br><span class="line">re[Symbol.match] = false;</span><br><span class="line"></span><br><span class="line">&quot;/foo/&quot;.startsWith(re); // true</span><br><span class="line">&quot;/baz/&quot;.endsWith(re);   // false</span><br></pre></td></tr></table></figure>
+
+<p><strong>Symbol.replace</strong></p>
+<blockquote>
+<p>这个属性指定了当一个字符串替换所匹配字符串时所调用的方法。<code>String.prototype.replace()</code> 方法会调用此方法。</p>
+</blockquote>
+<p><strong>Symbol.search</strong></p>
+<blockquote>
+<p>指定了一个搜索方法，这个方法接受用户输入的正则表达式，返回该正则表达式在字符串中匹配到的下标，这个方法由以下的方法来调用 <code>String.prototype.search()</code></p>
+</blockquote>
+<p><strong>Symbol.split</strong></p>
+<blockquote>
+<p>指向 一个正则表达式的索引处分割字符串的方法。 这个方法通过<code>String.prototype.split()</code> 调用</p>
+</blockquote>
+<h3 id="2-4-其他属性"><a href="#2-4-其他属性" class="headerlink" title="2.4 其他属性"></a>2.4 其他属性</h3><p><strong>Symbol.hasInstance</strong></p>
+<blockquote>
+<p>一个确定一个构造器对象识别的对象是否为它的实例的方法</p>
+</blockquote>
+<p><strong>Symbol.toStringTag</strong></p>
+<blockquote>
+<p>用于对象的默认描述的字符串值。使用<code>Object.prototype.toString().</code></p>
+</blockquote>
+<h2 id="三、静态方法"><a href="#三、静态方法" class="headerlink" title="三、静态方法"></a>三、静态方法</h2><h3 id="3-1-Symbol-for-key"><a href="#3-1-Symbol-for-key" class="headerlink" title="3.1 Symbol.for(key)"></a>3.1 Symbol.for(key)</h3><blockquote>
+<p>根据给定的键 <code>key</code>， 从运行时的 <code>symbol</code> 注册表中找到对应的 <code>symbol</code>，如果找到了，则返回它，否则，新建一个与该键关联的 <code>symbol</code>，并放入全局 <code>symbol</code> 注册表</p>
+</blockquote>
+<ul>
+<li>这里的参数<code>key</code>，是一个字符串，作为 <code>symbol</code> 注册表中与某 <code>symbol</code> 关联的键</li>
+<li>和 <code>Symbol()</code> 不同的是，用<code>Symbol.for()</code> 方法创建的 <code>symbol</code> 会被放入一个全局 symbol 注册表中</li>
+<li><code>Symbol.for()</code> 并不是每次都会创建一个新的 symbol，它会首先检查给定的 <code>key</code> 是否已经在注册表中了，如果是，则会直接返回上次存储的那个。否则，会再新建一个</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Symbol.for(&quot;foo&quot;); // 创建一个 symbol 并放入 symbol 注册表中，键为 &quot;foo&quot;</span><br><span class="line">Symbol.for(&quot;foo&quot;); // 从 symbol 注册表中读取键为&quot;foo&quot;的 symbol</span><br><span class="line"></span><br><span class="line">Symbol.for(&quot;bar&quot;) === Symbol.for(&quot;bar&quot;); // true，证明了上面说的</span><br><span class="line">Symbol(&quot;bar&quot;) === Symbol(&quot;bar&quot;); // false，Symbol() 函数每次都会返回新的一个 symbol</span><br><span class="line"></span><br><span class="line">var sym = Symbol.for(&quot;mario&quot;);</span><br><span class="line">sym.toString(); </span><br><span class="line">// &quot;Symbol(mario)&quot;，mario 既是该 symbol 在 symbol 注册表中的键名，又是该 symbol 自身的描述字符串</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-Symbol-keyFor-sym"><a href="#3-2-Symbol-keyFor-sym" class="headerlink" title="3.2 Symbol.keyFor(sym)"></a>3.2 Symbol.keyFor(sym)</h3><ul>
+<li>该方法用来获取 <code>symbol</code> 注册表中与某个 <code>symbol</code> 关联的键。</li>
+<li>参数 <code>sym</code> 是指存储在 <code>symbol</code> 注册表中的某个 <code>symbol</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个 symbol 并放入 Symbol 注册表，key 为 &quot;foo&quot;</span><br><span class="line">var globalSym = Symbol.for(&quot;foo&quot;); </span><br><span class="line">Symbol.keyFor(globalSym); // &quot;foo&quot;</span><br><span class="line"></span><br><span class="line">// 创建一个 symbol，但不放入 symbol 注册表中</span><br><span class="line">var localSym = Symbol(); </span><br><span class="line">Symbol.keyFor(localSym); // undefined，所以是找不到 key 的</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、遍历"><a href="#四、遍历" class="headerlink" title="四、遍历"></a>四、遍历</h2><blockquote>
+<p><code>Symbol</code>定义的属性不会出现在下面循环中</p>
+</blockquote>
+<ul>
+<li><code>for in</code>:可获取原型属性，不可获取不可枚举属性</li>
+<li><code>for of</code>:不可遍历对象，可遍历数组</li>
+<li><code>Object.keys</code>：原型属性和不可枚举属性都不能获取</li>
+<li><code>Object.getOwnPropertyByNames</code>：不可获取原型属性，可获取不可枚举属性</li>
+<li><code>JSON.stringify</code>：原型属性和不可枚举属性都不能获取</li>
+<li><code>Reflect.ownKeys</code>：可获取不可枚举和<code>Symbol</code>，不可获取原型</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var p = &#123;w:2&#125;;</span><br><span class="line">var obj = Object.create(p);</span><br><span class="line">obj.a = 1;</span><br><span class="line">Object.defineProperty(obj,&quot;b&quot;,&#123;</span><br><span class="line">    value:123</span><br><span class="line">&#125;)</span><br><span class="line">var a = Symbol(&#x27;a&#x27;);</span><br><span class="line">var b = Symbol(&#x27;b&#x27;);</span><br><span class="line"></span><br><span class="line">obj[a] = &#x27;Hello&#x27;;</span><br><span class="line">obj[b] = &#x27;World&#x27;;</span><br><span class="line"></span><br><span class="line">Reflect.ownKeys(obj);// [Symbol(a), Symbol(b)]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>或者使用<code>Object.getOwnPropertySymbols(obj)</code>遍历</p>
+</blockquote>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/es6/">#es6</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/04/15/html+css+js+ts/4-var%E3%80%81let%E3%80%81const/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">es6 var、let、const</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/04/10/html+css+js+ts/4-set+map/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">ES6 Set-Map</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

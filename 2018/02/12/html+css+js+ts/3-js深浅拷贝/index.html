@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            js深浅拷贝 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">js深浅拷贝</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2018-02-12 14:35:26</span>
+        <span class="mobile">2018-02-12 14:35</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/javascript/">javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><blockquote>
+<p>在<code>js</code>中，变量的类型可以大致分成两种：基本数据类型和引用数据类型，其中基本数据类型指的是简单的数据段，包括：</p>
+</blockquote>
+<ul>
+<li><code>undefined</code></li>
+<li><code>Null</code></li>
+<li><code>Boolean</code></li>
+<li><code>Number</code></li>
+<li><code>String</code>(字符串在一些其他语言中是被当做对象使用的，属于引用类型，但在<code>js</code>里是基本类型)</li>
+</ul>
+<blockquote>
+<p>而引用类型的值指的是可能包含多个值的对象。本质上，是因为基本数据类型保存在栈内存,而引用类型保存在堆内存中。为什么要分两种保存方式呢？ 根本原因在于保存在栈内存的必须是大小固定的数据，引用类型的大小不固定，只能保存在堆内存中，但是我们可以把它的地址写在占内存中以供我们访问</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = 1;//定义了一个number类型</span><br><span class="line">var obj1 = &#123;//定义了一个objr类型</span><br><span class="line">    name:&#x27;obj&#x27;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在执行这段代码后，内存空间里是这样的</p>
+</blockquote>
+<p><img src="https://poetries1.gitee.io/img-repo/2019/10/314.png" alt="img"></p>
+<blockquote>
+<p>因为这种保存方式的存在，所以我们在操作变量的时候，如果是基本数据类型，则按值访问，操作的就是变量保存的值；如果是引用类型的值，我们只是通过保存在变量中的引用类型的地址类操作实际对象。从而也引出了所谓的深浅复制问题</p>
+</blockquote>
+<h2 id="二、浅拷贝"><a href="#二、浅拷贝" class="headerlink" title="二、浅拷贝"></a>二、浅拷贝</h2><p><strong>方法一</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 假设有两个对象</span><br><span class="line"></span><br><span class="line">var objA = &#123;</span><br><span class="line">  a: &#x27;aa&#x27;,</span><br><span class="line">  b: &#x27;bb&#x27;</span><br><span class="line">&#125;;</span><br><span class="line">var objB = &#123;&#125;;</span><br><span class="line">// 现在想把对象A的值复制给B，由于对象A的两个值都是原始类型，用浅复制即可</span><br><span class="line"></span><br><span class="line">function copy(sub, sup) &#123;</span><br><span class="line">  for (var key in sup) &#123;</span><br><span class="line">    sub[key] = sup[key];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">copy(objB, objA);</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.assign() (兼容性不好)</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法三</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_.clone()</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法四</strong></p>
+<blockquote>
+<p>数组中<code>concat</code>和<code>slice</code>方法</p>
+</blockquote>
+<p><strong>方法五</strong></p>
+<blockquote>
+<p>ES6展开运算</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var arr = [&#123;name:&#x27;poetries&#x27;,age:22&#125;]</span><br><span class="line"></span><br><span class="line">var target = [...arr]</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、深拷贝"><a href="#三、深拷贝" class="headerlink" title="三、深拷贝"></a>三、深拷贝</h2><blockquote>
+<p>简单来说深复制就是当遇到值是对象类型的时候就再运行一遍复制</p>
+</blockquote>
+<p><strong>方法一 JSON.parse(JSON.stringify(obj))</strong></p>
+<blockquote>
+<p>简单粗暴又有点<code>dirty</code>，但是能满足日常需求，只能处理<code>json</code>能理解的数据格式，当然不包括函数了，性能也没有特别好</p>
+</blockquote>
+<p><strong>方法二 lodash —— _.cloneDeep()</strong></p>
+<blockquote>
+<p>很好地兼容了ES6的新引用类型，而且处理了环型对象的情况</p>
+</blockquote>
+<p><strong>方法三 jQuery —— $.clone() &#x2F; $.extend()</strong></p>
+<blockquote>
+<p>源码适合初学者学习，比较好理解</p>
+</blockquote>
+<p><strong>方法四 自己实现一个</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function deepCopy (obj) &#123;</span><br><span class="line">    var result;</span><br><span class="line"></span><br><span class="line">    //引用类型分数组和对象分别递归</span><br><span class="line">    if (Object.prototype.toString.call(obj) == &#x27;[object Array]&#x27;) &#123;</span><br><span class="line">      result = []</span><br><span class="line">      for (i = 0; i &lt; obj.length; i++) &#123;</span><br><span class="line">        result[i] = deepCopy(obj[i])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; else if (Object.prototype.toString.call(obj) == &#x27;[object Object]&#x27;) &#123;</span><br><span class="line">      result = &#123;&#125;</span><br><span class="line">      for (var attr in obj) &#123;</span><br><span class="line">        result[attr] = deepCopy(obj[attr])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //值类型直接返回</span><br><span class="line">    else &#123;</span><br><span class="line">      return obj</span><br><span class="line">    &#125;</span><br><span class="line">    return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/javascript/">#javascript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/02/13/html+css+js+ts/3-js-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E3%80%81%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">js事件绑定、事件监听、事件委托</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2018/02/09/html+css+js+ts/3-js%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%92%8C%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">3-js内存泄漏和垃圾回收机制</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

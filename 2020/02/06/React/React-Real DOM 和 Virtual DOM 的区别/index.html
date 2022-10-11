@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="千千厥歌">
+    
+    <title>
+        
+            Real DOM 和 Virtual DOM 的区别 |
+        
+        热心市民小刘.Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                热心市民小刘.Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                主页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                文档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">主页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">文档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Real DOM 和 Virtual DOM 的区别</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">千千厥歌</span>
+                        
+                            <span class="author-label">Lv6</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2020-02-06 14:26:43</span>
+        <span class="mobile">2020-02-06 14:26</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%A1%86%E6%9E%B6/">框架</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/React/">React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>Real DOM，真实 <code>DOM</code>，意思为文档对象模型，是一个结构化文本的抽象，在页面渲染出的每一个结点都是一个真实 <code>DOM</code> 结构，如下：</p>
+<p><img src="https://static.vue-js.com/fc7ba8d0-d302-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><code>Virtual Dom</code>，本质上是以 <code>JavaScript</code> 对象形式存在的对 <code>DOM</code> 的描述</p>
+<p>创建虚拟 <code>DOM</code> 目的就是为了更好将虚拟的节点渲染到页面视图中，虚拟 <code>DOM</code> 对象的节点与真实 <code>DOM</code>的属性一一照应</p>
+<p>在 <code>React</code> 中，<code>JSX</code> 是其一大特性，可以让你在 <code>JS</code> 中通过使用 <code>XML</code> 的方式去直接声明界面的 <code>DOM</code>结构</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 h1 标签，右边千万不能加引号</span></span><br><span class="line"><span class="keyword">const</span> vDom = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>; </span><br><span class="line"><span class="comment">// 找到 &lt;div id=&quot;root&quot;&gt;&lt;/div&gt; 节点</span></span><br><span class="line"><span class="keyword">const</span> root = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;root&quot;</span>); </span><br><span class="line"><span class="comment">// 把创建的 h1 标签渲染到 root 节点上</span></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(vDom, root); </span><br></pre></td></tr></table></figure>
+
+<p>上述中，<code>ReactDOM.render()</code> 用于将你创建好的虚拟 <code>DOM</code> 节点插入到某个真实节点上，并渲染到页面上</p>
+<p><code>JSX</code> 实际是一种语法糖，在使用过程中会被 <code>babel</code> 进行编译转化成 <code>JS</code> 代码，上述 <code>VDOM</code> 转化为如下：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vDom = <span class="title class_">React</span>.<span class="title function_">createElement</span>(</span><br><span class="line">  <span class="string">&#x27;h1&#x27;</span>，</span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">&#x27;hClass&#x27;</span>, <span class="attr">id</span>: <span class="string">&#x27;hId&#x27;</span> &#125;,</span><br><span class="line">  <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，<code>JSX</code> 就是为了简化直接调用 <code>React.createElement()</code> 方法：</p>
+<ul>
+<li>第一个参数是标签名，例如 h1、span、table…</li>
+<li>第二个参数是个对象，里面存着标签的一些属性，例如 id、class 等</li>
+<li>第三个参数是节点中的文本</li>
+</ul>
+<p>通过 <code>console.log(VDOM)</code>，则能够得到虚拟 <code>VDOM</code> 消息</p>
+<p><img src="https://static.vue-js.com/1716b9a0-d303-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p>所以可以得到，<code>JSX</code> 通过 <code>babel</code> 的方式转化成 <code>React.createElement</code> 执行，返回值是一个对象，也就是虚拟 <code>DOM</code></p>
+<h2 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h2><p>两者的区别如下：</p>
+<ul>
+<li>虚拟 DOM 不会进行排版与重绘操作，而真实 DOM 会频繁重排与重绘</li>
+<li>虚拟 DOM 的总损耗是“虚拟 DOM 增删改+真实 DOM 差异增删改+排版与重绘”，真实 DOM 的总损耗是“真实 DOM 完全增删改+排版与重绘”</li>
+</ul>
+<p>拿<a class="link"   target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU1OTgxNDQ1Nw==&mid=2247484516&idx=1&sn=965a4ce32bf93adb9ed112922c5cb8f5&chksm=fc10c632cb674f2484fdf914d76fba55afcefca3b5adcbe6cf4b0c7fd36e29d0292e8cefceb5&scene=178&cur_album_id=1711105826272116736#rd" >以前文章 (opens new window)<i class="fas fa-external-link-alt"></i></a>举过的例子：</p>
+<p>传统的原生 <code>api</code> 或 <code>jQuery</code> 去操作 <code>DOM</code> 时，浏览器会从构建 <code>DOM</code> 树开始从头到尾执行一遍流程</p>
+<p>当你在一次操作时，需要更新 10 个 <code>DOM</code> 节点，浏览器没这么智能，收到第一个更新 <code>DOM</code> 请求后，并不知道后续还有 9 次更新操作，因此会马上执行流程，最终执行 10 次流程</p>
+<p>而通过 <code>VNode</code>，同样更新 10 个 <code>DOM</code> 节点，虚拟 <code>DOM</code> 不会立即操作 <code>DOM</code>，而是将这 10 次更新的 <code>diff</code> 内容保存到本地的一个 <code>js</code> 对象中，最终将这个 <code>js</code> 对象一次性 <code>attach</code> 到 <code>DOM</code> 树上，避免大量的无谓计算</p>
+<h2 id="三、优缺点"><a href="#三、优缺点" class="headerlink" title="三、优缺点"></a>三、优缺点</h2><p>真实 <code>DOM</code> 的优势：</p>
+<ul>
+<li>易用</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>效率低，解析速度慢，内存占用量过高</li>
+<li>性能差：频繁操作真实 DOM，易于导致重绘与回流</li>
+</ul>
+<p>使用虚拟 <code>DOM</code> 的优势如下：</p>
+<ul>
+<li>简单方便：如果使用手动操作真实 <code>DOM</code> 来完成页面，繁琐又容易出错，在大规模应用下维护起来也很困难</li>
+<li>性能方面：使用 Virtual DOM，能够有效避免真实 DOM 数频繁更新，减少多次引起重绘与回流，提高性能</li>
+<li>跨平台：React 借助虚拟 DOM，带来了跨平台的能力，一套代码多端运行</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>在一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化</li>
+<li>首次渲染大量 DOM 时，由于多了一层虚拟 DOM 的计算，速度比正常稍慢</li>
+</ul>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/React/">#React</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/02/13/%E5%B0%8F%E7%A8%8B%E5%BA%8F+uniapp/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">小程序实现原理</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/02/03/React/React-Jsx%E8%BD%AC%E6%8D%A2%E6%88%90%E7%9C%9F%E5%AE%9EDOM%E8%BF%87%E7%A8%8B/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">React-Jsx转换成真实DOM过程</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2007</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">千千厥歌</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+</div>
+
+
+
+</body>
+</html>

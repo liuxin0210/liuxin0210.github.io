@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -840,6 +858,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：opencv进阶</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2020-07-04 14:31:08</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2020/07/04/python/opencv进阶篇/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -927,6 +962,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -957,11 +996,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -974,17 +1018,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenCV%E8%BF%9B%E9%98%B6%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">OpenCV进阶篇</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC10%E7%AB%A0-%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D"><span class="nav-number">2.</span> <span class="nav-text">第10章　模板匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">10.1　模板匹配方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-%E5%8D%95%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D"><span class="nav-number">2.2.</span> <span class="nav-text">10.2　单模板匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-1-%E5%8D%95%E7%9B%AE%E6%A0%87%E5%8C%B9%E9%85%8D"><span class="nav-number">2.2.1.</span> <span class="nav-text">10.2.1　单目标匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-2-2-%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%8C%B9%E9%85%8D"><span class="nav-number">2.2.2.</span> <span class="nav-text">10.2.2　多目标匹配</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-3-%E5%A4%9A%E6%A8%A1%E6%9D%BF%E5%8C%B9%E9%85%8D"><span class="nav-number">2.3.</span> <span class="nav-text">10.3　多模板匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-4-%E5%B0%8F%E7%BB%93"><span class="nav-number">2.4.</span> <span class="nav-text">10.4　小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC11%E7%AB%A0-%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">第11章　滤波器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-%E5%9D%87%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">11.1　均值滤波器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-2-%E4%B8%AD%E5%80%BC%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">11.2　中值滤波器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-3-%E9%AB%98%E6%96%AF%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">11.3　高斯滤波器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-4-%E5%8F%8C%E8%BE%B9%E6%BB%A4%E6%B3%A2%E5%99%A8"><span class="nav-number">3.4.</span> <span class="nav-text">11.4　双边滤波器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-5-%E5%B0%8F%E7%BB%93"><span class="nav-number">3.5.</span> <span class="nav-text">11.5　小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC12%E7%AB%A0-%E8%85%90%E8%9A%80%E4%B8%8E%E8%86%A8%E8%83%80"><span class="nav-number">4.</span> <span class="nav-text">第12章　腐蚀与膨胀</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#12-1-%E8%85%90%E8%9A%80"><span class="nav-number">4.1.</span> <span class="nav-text">12.1　腐蚀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-2-%E8%86%A8%E8%83%80"><span class="nav-number">4.2.</span> <span class="nav-text">12.2　膨胀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-3-%E5%BC%80%E8%BF%90%E7%AE%97"><span class="nav-number">4.3.</span> <span class="nav-text">12.3　开运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-4-%E9%97%AD%E8%BF%90%E7%AE%97"><span class="nav-number">4.4.</span> <span class="nav-text">12.4　闭运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-5-%E5%BD%A2%E6%80%81%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.</span> <span class="nav-text">12.5　形态学运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#12-5-1-%E6%A2%AF%E5%BA%A6%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.1.</span> <span class="nav-text">12.5.1　梯度运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-5-2-%E9%A1%B6%E5%B8%BD%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.2.</span> <span class="nav-text">12.5.2　顶帽运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-5-3-%E9%BB%91%E5%B8%BD%E8%BF%90%E7%AE%97"><span class="nav-number">4.5.3.</span> <span class="nav-text">12.5.3　黑帽运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-6-%E5%B0%8F%E7%BB%93"><span class="nav-number">4.6.</span> <span class="nav-text">12.6　小结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC13%E7%AB%A0-%E5%9B%BE%E5%BD%A2%E6%A3%80%E6%B5%8B"><span class="nav-number">5.</span> <span class="nav-text">第13章　图形检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#13-1-%E5%9B%BE%E5%83%8F%E7%9A%84%E8%BD%AE%E5%BB%93"><span class="nav-number">5.1.</span> <span class="nav-text">13.1　图像的轮廓</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-2-%E8%BD%AE%E5%BB%93%E6%8B%9F%E5%90%88"><span class="nav-number">5.2.</span> <span class="nav-text">13.2　轮廓拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-1-%E7%9F%A9%E5%BD%A2%E5%8C%85%E5%9B%B4%E6%A1%86"><span class="nav-number">5.2.1.</span> <span class="nav-text">13.2.1　矩形包围框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-2-%E5%9C%86%E5%BD%A2%E5%8C%85%E5%9B%B4%E6%A1%86"><span class="nav-number">5.2.2.</span> <span class="nav-text">13.2.2　圆形包围框</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3-%E5%87%B8%E5%8C%85"><span class="nav-number">5.3.</span> <span class="nav-text">13.3　凸包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-4-Canny%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B"><span class="nav-number">5.4.</span> <span class="nav-text">13.4　Canny边缘检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-5-%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2"><span class="nav-number">5.5.</span> <span class="nav-text">13.5　霍夫变换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-5-1-%E7%9B%B4%E7%BA%BF%E6%A3%80%E6%B5%8B"><span class="nav-number">5.5.1.</span> <span class="nav-text">13.5.1　直线检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-5-2-%E5%9C%86%E7%8E%AF%E6%A3%80%E6%B5%8B"><span class="nav-number">5.5.2.</span> <span class="nav-text">13.5.2　圆环检测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-6-%E5%B0%8F%E7%BB%93"><span class="nav-number">5.6.</span> <span class="nav-text">13.6　小结</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -1005,14 +1091,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

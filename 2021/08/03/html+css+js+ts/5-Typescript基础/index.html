@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -398,6 +416,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Typescript基础总结</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2021-08-03 21:18:43</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2021/08/03/html+css+js+ts/5-Typescript基础/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -485,6 +520,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -515,11 +554,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -532,17 +576,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81typescript-%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">一、typescript 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">二、数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8Bboolean"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 布尔类型boolean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8Bnumber"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 数字类型number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8Bstring"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 字符串类型string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E6%95%B0%E7%BB%84-Array"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 数组 Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E5%85%83%E7%BB%84%E7%B1%BB%E5%9E%8Btuple"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 元组类型tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8Benum"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 枚举类型enum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-%E4%BB%BB%E6%84%8F%E7%B1%BB%E5%9E%8B-any"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 任意类型 any</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-null-undefined%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 null undefined类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-void%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 void类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-never%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.10.</span> <span class="nav-text">2.10 never类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-%E6%88%91%E4%BB%AC%E8%A6%81%E6%90%9E%E6%98%8E%E7%99%BDany%E3%80%81never%E3%80%81void"><span class="nav-number">2.11.</span> <span class="nav-text">2.11 我们要搞明白any、never、void</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">三、函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 函数定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 函数参数处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 函数重载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">四、类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%B1%BB"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 定义一个类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 类的继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E7%B1%BB%E7%9A%84%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 类的修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E9%9D%99%E6%80%81%E5%B1%9E%E6%80%A7%E3%80%81%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 静态属性、静态方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 抽象类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">五、接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 接口规范对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 接口规范函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E6%95%B0%E7%BB%84"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 接口规范数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83%E7%B1%BB"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 接口规范类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-%E6%8E%A5%E5%8F%A3%E7%BB%A7%E6%89%BF%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 接口继承接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%B3%9B%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">六、泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E5%87%BD%E6%95%B0%E7%9A%84%E6%B3%9B%E5%9E%8B"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 函数的泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E7%B1%BB%E7%9A%84%E6%B3%9B%E5%9E%8B"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 类的泛型</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -563,14 +649,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

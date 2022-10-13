@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -571,6 +589,23 @@ Idea集成GitLab
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：git总结</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2018-11-18 11:35:18</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2018/11/18/工具/git总结/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -658,6 +693,10 @@ Idea集成GitLab
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -688,11 +727,16 @@ Idea集成GitLab
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -705,17 +749,59 @@ Idea集成GitLab
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Git%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、Git简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1 项目的版本管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%9B%A2%E9%98%9F%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2 团队协同开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E2%80%94Git"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3 版本管理工具—Git</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Git%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">二、Git下载及安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E4%B8%8B%E8%BD%BDGit"><span class="nav-number">2.0.1.</span> <span class="nav-text">2.1 下载Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%AE%89%E8%A3%85Git"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.2 安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E6%A3%80%E6%9F%A5"><span class="nav-number">2.0.3.</span> <span class="nav-text">2.3 检查</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Git%E6%9E%B6%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">三、Git架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">四、Git基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">4.0.1.</span> <span class="nav-text">4.1 创建版本库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%BA%93%E7%8A%B6%E6%80%81"><span class="nav-number">4.0.2.</span> <span class="nav-text">4.2 查看版本库状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E5%B0%86%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4%E7%9A%84%E4%BF%AE%E6%94%B9%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-number">4.0.3.</span> <span class="nav-text">4.3 将工作空间的修改添加到暂存区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E5%B0%86%E6%9A%82%E5%AD%98%E5%8C%BA%E5%86%85%E5%AE%B9%E6%8F%90%E4%BA%A4%E5%88%B0%E7%89%88%E6%9C%AC%E5%BA%93%EF%BC%88%E4%BB%93%E5%BA%93%EF%BC%89"><span class="nav-number">4.0.4.</span> <span class="nav-text">4.4 将暂存区内容提交到版本库（仓库）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%BA%93%E4%B8%AD%E7%9A%84%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC"><span class="nav-number">4.0.5.</span> <span class="nav-text">4.5 查看版本库中的历史版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">4.0.6.</span> <span class="nav-text">4.6 设置用户信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-%E5%90%8C%E6%AD%A5%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC%E5%88%B0%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="nav-number">4.0.7.</span> <span class="nav-text">4.7 同步历史版本到工作空间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">5.</span> <span class="nav-text">五、远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">5.0.1.</span> <span class="nav-text">5.1 远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">5.0.2.</span> <span class="nav-text">5.2 如何获得远程仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89"><span class="nav-number">5.0.3.</span> <span class="nav-text">5.3 创建远程仓库（码云）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">六、远程仓库操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-push%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">6.0.1.</span> <span class="nav-text">6.1 push本地仓库到远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#6-1-1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">6.0.1.0.1.</span> <span class="nav-text">6.1.1 准备工作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-1-2-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">6.0.1.0.2.</span> <span class="nav-text">6.1.2 本地仓库关联远程仓库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-1-3-%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%8A%B6%E6%80%81"><span class="nav-number">6.0.1.0.3.</span> <span class="nav-text">6.1.3 查看远程仓库状态</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-1-4-%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93push%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">6.0.1.0.4.</span> <span class="nav-text">6.1.4 将本地仓库push到远程仓库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-%E5%85%B6%E4%BB%96%E5%BC%80%E5%8F%91%E8%80%85pull%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">6.0.2.</span> <span class="nav-text">6.2 其他开发者pull远程仓库到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#6-2-1-%E5%85%88%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-number">6.0.2.0.1.</span> <span class="nav-text">6.2.1 先创建本地仓库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-2-2-%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-number">6.0.2.0.2.</span> <span class="nav-text">6.2.2 拉取远程仓库到本地</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-%E8%A7%A3%E5%86%B3%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98"><span class="nav-number">6.0.3.</span> <span class="nav-text">6.3 解决协同开发冲突问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">七、分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="nav-number">7.0.1.</span> <span class="nav-text">7.1 什么是分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-%E5%88%86%E6%94%AF%E7%89%B9%E6%80%A7"><span class="nav-number">7.0.2.</span> <span class="nav-text">7.2 分支特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">7.0.3.</span> <span class="nav-text">7.3 分支操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#7-3-1-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">7.0.3.0.1.</span> <span class="nav-text">7.3.1 创建分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-3-2-%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF"><span class="nav-number">7.0.3.0.2.</span> <span class="nav-text">7.3.2 查看分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-3-3-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="nav-number">7.0.3.0.3.</span> <span class="nav-text">7.3.3 切换分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-3-4-%E6%A3%80%E5%87%BA%E5%88%86%E6%94%AF"><span class="nav-number">7.0.3.0.4.</span> <span class="nav-text">7.3.4 检出分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-3-5-%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6"><span class="nav-number">7.0.3.0.5.</span> <span class="nav-text">7.3.5 分支合并</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81Idea%E6%95%B4%E5%90%88Git%E4%BD%BF%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">八、Idea整合Git使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-IDEA%E5%85%B3%E8%81%94Git"><span class="nav-number">8.0.1.</span> <span class="nav-text">8.1 IDEA关联Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-IDEA%E4%B8%ADGit%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="nav-number">8.0.2.</span> <span class="nav-text">8.2 IDEA中Git版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#8-2-1-%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">8.0.2.0.1.</span> <span class="nav-text">8.2.1 创建本地版本库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-2-2-%E8%AE%BE%E7%BD%AE%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="nav-number">8.0.2.0.2.</span> <span class="nav-text">8.2.2 设置忽略文件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-2-3-%E5%B0%86%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4add%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-number">8.0.2.0.3.</span> <span class="nav-text">8.2.3 将工作空间add到暂存区</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-2-4-%E5%B0%86%E6%9A%82%E5%AD%98%E5%8C%BA%E6%8F%90%E4%BA%A4%E5%88%B0%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">8.0.2.0.4.</span> <span class="nav-text">8.2.4 将暂存区提交到版本库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-3-IDEA%E4%B8%ADGit%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="nav-number">8.0.3.</span> <span class="nav-text">8.3 IDEA中Git分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#8-3-1-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="nav-number">8.0.3.0.1.</span> <span class="nav-text">8.3.1 创建分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-3-2-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="nav-number">8.0.3.0.2.</span> <span class="nav-text">8.3.2 切换分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-3-3-%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="nav-number">8.0.3.0.3.</span> <span class="nav-text">8.3.3 删除分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-3-4-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="nav-number">8.0.3.0.4.</span> <span class="nav-text">8.3.4 合并分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-4-IDEA%E4%B8%AD%E4%BD%BF%E7%94%A8Git%E8%BF%9B%E8%A1%8C%E5%9B%A2%E9%98%9F%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91"><span class="nav-number">8.0.4.</span> <span class="nav-text">8.4 IDEA中使用Git进行团队协同开发</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#8-4-1-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E8%80%85"><span class="nav-number">8.0.4.0.1.</span> <span class="nav-text">8.4.1 项目管理者</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-4-2-%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E8%80%85"><span class="nav-number">8.0.4.0.2.</span> <span class="nav-text">8.4.2 项目开发者</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-5-%E8%A7%A3%E5%86%B3%E5%9B%A2%E9%98%9F%E5%8D%8F%E5%90%8C%E5%BC%80%E5%8F%91%E7%9A%84%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98"><span class="nav-number">8.0.5.</span> <span class="nav-text">8.5 解决团队协同开发的冲突问题</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -736,14 +822,68 @@ Idea集成GitLab
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

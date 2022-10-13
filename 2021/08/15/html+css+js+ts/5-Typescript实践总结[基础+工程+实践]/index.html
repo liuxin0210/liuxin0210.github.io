@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -792,6 +810,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：Typescript实践总结[基础+工程+实践]</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2021-08-15 14:31:08</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2021/08/15/html+css+js+ts/5-Typescript实践总结[基础+工程+实践]/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -879,6 +914,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -909,11 +948,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -926,17 +970,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-number">1.</span> <span class="nav-text">第一章 基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">一、基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BB%BB%E6%84%8F%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">二、任意值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%B1%BB%E5%9E%8B%E6%8E%A8%E8%AE%BA"><span class="nav-number">1.3.</span> <span class="nav-text">三、类型推论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">四、联合类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%B1%BB%E5%9E%8B%E2%80%94%E2%80%94%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.5.</span> <span class="nav-text">五、对象的类型——接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E7%BB%84%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.6.</span> <span class="nav-text">六、数组的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.7.</span> <span class="nav-text">七、函数的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E5%87%BD%E6%95%B0%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E6%A2%B3%E7%90%86"><span class="nav-number">1.7.1.</span> <span class="nav-text">7.1 函数相关知识点梳理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80"><span class="nav-number">1.8.</span> <span class="nav-text">八、类型断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="nav-number">1.9.</span> <span class="nav-text">九、类型别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%9E%9A%E4%B8%BE"><span class="nav-number">1.10.</span> <span class="nav-text">十、枚举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E7%B1%BB"><span class="nav-number">1.11.</span> <span class="nav-text">十一、类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#11-1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.11.1.</span> <span class="nav-text">11.1类与接口的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81public-private-%E5%92%8C-protected"><span class="nav-number">1.12.</span> <span class="nav-text">十二、public private 和 protected</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E6%B3%9B%E5%9E%8B"><span class="nav-number">1.13.</span> <span class="nav-text">十三、泛型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-1-%E6%B3%9B%E5%9E%8B%E5%87%BD%E6%95%B0%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.13.1.</span> <span class="nav-text">13.1 泛型函数和接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-2-%E6%B3%9B%E5%9E%8B%E7%B1%BB%E4%B8%8E%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F"><span class="nav-number">1.13.2.</span> <span class="nav-text">13.2 泛型类与泛型约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">1.14.</span> <span class="nav-text">十四、类型检查机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#14-1-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E6%9C%BA%E5%88%B6"><span class="nav-number">1.14.1.</span> <span class="nav-text">14.1 类型检查机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-2-%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6"><span class="nav-number">1.14.2.</span> <span class="nav-text">14.2 类型保护机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#14-2-1-%E7%94%A8%E6%88%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.14.2.1.</span> <span class="nav-text">14.2.1 用户自定义的类型保护</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-2-2-typeof-%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.14.2.2.</span> <span class="nav-text">14.2.2 typeof 类型保护</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-2-3-instanceof-%E7%B1%BB%E5%9E%8B%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.14.2.3.</span> <span class="nav-text">14.2.3 instanceof 类型保护</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81%E9%AB%98%E7%BA%A7%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.15.</span> <span class="nav-text">十五、高级类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15-1-%E4%BA%A4%E5%8F%89%E7%B1%BB%E5%9E%8B%EF%BC%88%E5%8F%96%E5%B9%B6%E9%9B%86%EF%BC%89"><span class="nav-number">1.15.1.</span> <span class="nav-text">15.1 交叉类型（取并集）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-2-%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.15.2.</span> <span class="nav-text">15.2 索引类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-3-%E6%98%A0%E5%B0%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.15.3.</span> <span class="nav-text">15.3 映射类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-4-%E6%9D%A1%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.15.4.</span> <span class="nav-text">15.4 条件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-5-%E8%81%94%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.15.5.</span> <span class="nav-text">15.5 联合类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E3%80%81%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84%E5%9B%B0%E6%83%91"><span class="nav-number">1.16.</span> <span class="nav-text">十六、初学者的困惑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#16-1-%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E5%A3%B0%E6%98%8E%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.16.1.</span> <span class="nav-text">16.1 如何优雅的声明类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#16-1-1-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.16.1.1.</span> <span class="nav-text">16.1.1 基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-1-2-%E7%B3%85%E5%90%88"><span class="nav-number">1.16.1.2.</span> <span class="nav-text">16.1.2 糅合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-2-%E5%A6%82%E4%BD%95%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8%E5%BA%93"><span class="nav-number">1.16.2.</span> <span class="nav-text">16.2 如何引用外部库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-3-%E5%A6%82%E4%BD%95%E7%BB%84%E7%BB%87%E4%B8%80%E4%B8%AA-TS-%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.16.3.</span> <span class="nav-text">16.3 如何组织一个 TS 项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-4-TSX-%E5%92%8C-JSX"><span class="nav-number">1.16.4.</span> <span class="nav-text">16.4 TSX 和 JSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-5-%E5%8F%98%E9%87%8F%E7%9A%84-Type-%E6%80%8E%E4%B9%88%E6%89%BE"><span class="nav-number">1.16.5.</span> <span class="nav-text">16.5 变量的 Type 怎么找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-6-%E5%B8%B8%E8%A7%81-Types-%E4%B9%8B-DOM"><span class="nav-number">1.16.6.</span> <span class="nav-text">16.6 常见 Types 之 DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-7-%E5%B8%B8%E8%A7%81-Types-%E4%B9%8B-React"><span class="nav-number">1.16.7.</span> <span class="nav-text">16.7 常见 Types 之 React</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-8-%E5%A4%9A%E9%87%8D-extends"><span class="nav-number">1.16.8.</span> <span class="nav-text">16.8 多重 extends</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-9-obj-prop-%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number">1.16.9.</span> <span class="nav-text">16.9 obj[prop] 无法访问怎么办</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E4%B8%83%E3%80%81%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7"><span class="nav-number">1.17.</span> <span class="nav-text">十七、其他技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%B7%A5%E7%A8%8B%E7%AF%87"><span class="nav-number">2.</span> <span class="nav-text">第二章 工程篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">2.1.</span> <span class="nav-text">一、使用命名空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%90%86%E8%A7%A3%E8%81%94%E5%90%88%E5%A3%B0%E6%98%8E"><span class="nav-number">2.2.</span> <span class="nav-text">二、理解联合声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6%E2%80%93%E5%BC%95%E5%85%A5%E7%B1%BB%E5%BA%93"><span class="nav-number">2.3.</span> <span class="nav-text">三、如何编写声明文件–引入类库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%BA%93%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6%E5%86%99%E6%B3%95"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 三种类库声明文件写法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-1-%E5%85%A8%E5%B1%80%E5%BA%93"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">3.1.1 全局库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-2-%E6%A8%A1%E5%9D%97%E7%B1%BB%E5%BA%93"><span class="nav-number">2.3.1.2.</span> <span class="nav-text">3.1.2 模块类库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-3-UMD%E7%B1%BB%E5%BA%93"><span class="nav-number">2.3.1.3.</span> <span class="nav-text">3.1.3 UMD类库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E4%B8%A4%E7%A7%8D%E6%8F%92%E4%BB%B6%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6%E5%86%99%E6%B3%95"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 两种插件声明文件写法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-%E6%A8%A1%E5%9D%97%E5%8C%96%E6%8F%92%E4%BB%B6declare-module"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">3.2.1 模块化插件declare module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-%E5%85%A8%E5%B1%80%E6%8F%92%E4%BB%B6declare-global"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">3.2.2 全局插件declare global</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-jquery%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 jquery声明文件示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AEtsconfig-json"><span class="nav-number">2.4.</span> <span class="nav-text">四、配置tsconfig.json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 基础配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%B7%A5%E7%A8%8B%E5%BC%95%E7%94%A8%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 工程引用配置多个项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7ts-loader%E3%80%81ts-lint"><span class="nav-number">2.5.</span> <span class="nav-text">五、编译工具ts-loader、ts-lint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%BD%BF%E7%94%A8jest%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">2.6.</span> <span class="nav-text">六、使用jest进行单元测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98"><span class="nav-number">3.</span> <span class="nav-text">第三章 项目实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE"><span class="nav-number">3.1.</span> <span class="nav-text">一、思维导图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81React%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="nav-number">3.2.</span> <span class="nav-text">二、React项目实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%89%8B%E5%8A%A8%E5%88%9B%E5%BB%BAreact%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.2.1.</span> <span class="nav-text">2.1 手动创建react项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E4%BD%BF%E7%94%A8%E8%84%9A%E6%89%8B%E6%9E%B6%E5%AE%89%E8%A3%85"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.2 使用脚手架安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-1-%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">2.2.1 函数组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-2-%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">2.2.2 类组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-3-%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">2.2.3 高阶组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-4-Hooks%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">2.2.4 Hooks组件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-5-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E4%B8%8E%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82"><span class="nav-number">3.2.2.5.</span> <span class="nav-text">2.2.5 事件处理与数据请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-6-%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93"><span class="nav-number">3.2.2.6.</span> <span class="nav-text">2.2.6 列表渲染</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-7-Redux%E4%B8%8E%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.2.7.</span> <span class="nav-text">2.2.7 Redux与类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%BD%BF%E7%94%A8Typescript"><span class="nav-number">3.2.3.</span> <span class="nav-text">2.3 服务端使用Typescript</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81Vue%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="nav-number">3.3.</span> <span class="nav-text">三、Vue项目实践</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">更多资料</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -957,14 +1043,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

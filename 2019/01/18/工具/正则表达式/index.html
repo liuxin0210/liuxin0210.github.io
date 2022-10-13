@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -349,6 +367,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：正则表达式</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2019-01-18 18:36:48</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2019/01/18/工具/正则表达式/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -436,6 +471,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -466,11 +505,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -483,17 +527,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84web%E5%B8%B8%E8%A7%81%E5%9C%BA%E5%90%88"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 正则表达式的web常见场合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BA%94%E7%94%A8%E6%AD%A3%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 字符串应用正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F3%E5%8F%A5%E8%AF%9D"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 正则表达式3句话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-%E8%A6%81%E6%89%BE%E4%BB%80%E4%B9%88%E5%AD%97%E7%AC%A6%EF%BC%9F%EF%BC%885%E4%B8%AD%E6%96%B9%E6%B3%95%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 要找什么字符？（5中方法）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-%E4%BB%8E%E5%93%AA%E9%87%8C%E6%89%BE-%E6%89%BE%E5%88%B0%E5%93%AA%EF%BC%9F"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 从哪里找,找到哪？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-%E6%89%BE%E5%A4%9A%E5%B0%91"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 找多少</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%B4%AA%E5%A9%AA%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">1.3 贪婪模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">二、语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 基本元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%95%B0%E9%87%8F%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 数量元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E4%BD%8D%E7%BD%AE%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 位置元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E7%89%B9%E6%AE%8A%E5%85%83%E5%AD%97%E7%AC%A6"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 特殊元字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%A0%87%E5%BF%97%E5%AD%97%E7%AC%A6"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 标志字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81match%EF%BC%8Ctest%EF%BC%8Cexec%EF%BC%8Csearch%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">三、match，test，exec，search的返回值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-match%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 match的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-exec%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 exec的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-test%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 test的用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-search%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 search的用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%BA%94%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">四、应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E4%BE%8B1"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E4%BE%8B2-%E8%A6%81%E6%89%BE%E4%BB%80%E4%B9%88%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 例2-要找什么字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E4%BE%8B3-%E4%BB%8E%E5%93%AA%E9%87%8C%E5%BC%80%E5%A7%8B%E5%8C%B9%E9%85%8D"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 例3-从哪里开始匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E4%BE%8B4-%E6%AD%A3%E5%88%99%E5%BA%94%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 例4 正则应用字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-%E4%BE%8B5-%E9%A2%84%E6%9F%A5"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 例5-预查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-6-%E4%BE%8B6-%E5%8F%8D%E5%90%91%E5%BC%95%E7%94%A8"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 例6-反向引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-7-%E4%BE%8B7-%E6%AD%A3%E5%88%99%E7%BB%83%E4%B9%A0"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 例7-正则练习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-8-%E4%BE%8B8-%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99"><span class="nav-number">4.8.</span> <span class="nav-text">4.8 例8-常用正则</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -514,14 +600,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

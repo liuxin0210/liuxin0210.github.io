@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -1107,6 +1125,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：node-基础总结</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2019-05-14 22:21:25</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2019/05/14/nodejs/node-基础篇/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -1194,6 +1229,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -1224,11 +1263,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -1241,17 +1285,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81nodejs%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">一、nodejs介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-NodeJs-%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 NodeJs 的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-NodeJs-%E9%80%82%E5%90%88%E5%81%9A%E4%BB%80%E4%B9%88"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 NodeJs 适合做什么</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81HTTP%E6%A8%A1%E5%9D%97%E3%80%81URL%E6%A8%A1%E5%9D%97-supervisor%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">二、HTTP模块、URL模块 supervisor工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 创建一个简单的程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-HTTP-%E6%A8%A1%E5%9D%97%E3%80%81URL%E6%A8%A1%E5%9D%97"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 HTTP 模块、URL模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1%E3%80%81HTTP-%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1、HTTP 模块的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2%E3%80%81URL-%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2、URL 模块的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Nodejs-%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B7%A5%E5%85%B7-supervisor"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Nodejs 自启动工具 supervisor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81CommonJs-%E5%92%8C-Nodejs-%E6%A8%A1%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">三、CommonJs 和 Nodejs 模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BB%80%E4%B9%88%E6%98%AF-CommonJs"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 什么是 CommonJs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Nodejs-%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Nodejs 中的模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E5%9C%A8-Node-%E4%B8%AD%EF%BC%8C%E6%A8%A1%E5%9D%97%E5%88%86%E4%B8%BA%E4%B8%A4%E7%B1%BB"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 在 Node 中，模块分为两类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-CommonJS-Nodejs-%E4%B8%AD%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E7%9A%84%E8%A7%84%E5%AE%9A"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 CommonJS(Nodejs)中自定义模块的规定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-%E5%AE%9A%E4%B9%89%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 定义使用模块</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81NPM%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%E5%92%8Cpackage"><span class="nav-number">4.</span> <span class="nav-text">四、NPM第三方模块和package</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E5%8C%85%E4%B8%8E-NPM"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 包与 NPM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-%E5%8C%85"><span class="nav-number">4.1.1.</span> <span class="nav-text">4.1.1 包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-NPM-%E4%BB%8B%E7%BB%8D"><span class="nav-number">4.1.2.</span> <span class="nav-text">4.1.2 NPM 介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-package-json"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E5%AE%89%E8%A3%85%E6%B7%98%E5%AE%9D%E9%95%9C%E5%83%8F"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 安装淘宝镜像</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81fs%E6%A8%A1%E5%9D%97"><span class="nav-number">5.</span> <span class="nav-text">五、fs模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-fs-stat-%E6%A3%80%E6%B5%8B%E6%98%AF%E6%96%87%E4%BB%B6%E8%BF%98%E6%98%AF%E7%9B%AE%E5%BD%95"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 fs.stat 检测是文件还是目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-fs-mkdir-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 fs.mkdir 创建目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-fs-writeFile-%E5%88%9B%E5%BB%BA%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 fs.writeFile 创建写入文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-fs-appendFile-%E8%BF%BD%E5%8A%A0%E6%96%87%E4%BB%B6"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 fs.appendFile 追加文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-fs-readFile-%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 fs.readFile 读取文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-fs-readdir-%E8%AF%BB%E5%8F%96%E7%9B%AE%E5%BD%95"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 fs.readdir 读取目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-fs-rename-%E9%87%8D%E5%91%BD%E5%90%8D"><span class="nav-number">5.7.</span> <span class="nav-text">5.7 fs.rename 重命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-fs-rmdir-%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95"><span class="nav-number">5.8.</span> <span class="nav-text">5.8 fs.rmdir 删除目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-9-fs-unlink-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-number">5.9.</span> <span class="nav-text">5.9 fs.unlink 删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-10-fs-createReadStream-%E4%BB%8E%E6%96%87%E4%BB%B6%E6%B5%81%E4%B8%AD%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">5.10.</span> <span class="nav-text">5.10 fs.createReadStream 从文件流中读取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-11-fs-createWriteStream-%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="nav-number">5.11.</span> <span class="nav-text">5.11 fs.createWriteStream 写入文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-12-%E7%AE%A1%E9%81%93%E6%B5%81"><span class="nav-number">5.12.</span> <span class="nav-text">5.12 管道流</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA-WEB-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">六、创建一个 WEB 服务器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81Nodejs-%E7%9A%84%E9%9D%9E%E9%98%BB%E5%A1%9E-I-x2F-O%E3%80%81%E5%BC%82%E6%AD%A5%E3%80%81%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="nav-number">7.</span> <span class="nav-text">七、Nodejs 的非阻塞 I&#x2F;O、异步、事件驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-Nodejs%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B-%E9%9D%9E%E9%98%BB%E5%A1%9EI-x2F-O%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 Nodejs的单线程 非阻塞I&#x2F;O事件驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-Nodejs-%E5%9B%9E%E8%B0%83%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 Nodejs 回调处理异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-Nodejs-events-%E6%A8%A1%E5%9D%97%E5%A4%84%E7%90%86%E5%BC%82%E6%AD%A5"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 Nodejs events 模块处理异步</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E6%89%98%E7%AE%A1-GET-POST%E8%B7%AF%E7%94%B1EJS%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">8.</span> <span class="nav-text">八、静态文件托管 GET POST路由EJS模板引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-%E8%B7%AF%E7%94%B1"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E5%88%9D%E8%AF%86-EJS-%E6%A8%A1%E5%9D%97%E5%BC%95%E6%93%8E"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 初识 EJS 模块引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-Get%E3%80%81Post"><span class="nav-number">8.3.</span> <span class="nav-text">8.3 Get、Post</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%E3%80%81MongoDb-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BB%8B%E7%BB%8D%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E4%BD%BF%E7%94%A8"><span class="nav-number">9.</span> <span class="nav-text">九、MongoDb 数据库介绍、安装、使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 数据库和文件的主要区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-NoSql-%E4%BB%8B%E7%BB%8D"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 NoSql 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-1-NoSQL-%E4%BB%8B%E7%BB%8D"><span class="nav-number">9.2.1.</span> <span class="nav-text">9.2.1 NoSQL 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-2-NoSQL-%E5%BA%94%E7%94%A8%E6%83%85%E5%86%B5%E4%BB%8B%E7%BB%8D"><span class="nav-number">9.2.2.</span> <span class="nav-text">9.2.2 NoSQL 应用情况介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8-NoSql"><span class="nav-number">9.3.</span> <span class="nav-text">9.3 什么时候建议使用 NoSql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-NoSql-%E5%92%8C%E4%BC%A0%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E5%AF%B9%E6%AF%94"><span class="nav-number">9.4.</span> <span class="nav-text">9.4 NoSql 和传统数据库简单对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-5-NoSql-%E7%A7%8D%E7%B1%BB"><span class="nav-number">9.5.</span> <span class="nav-text">9.5 NoSql 种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-6-MongoDb-%E4%BB%8B%E7%BB%8D"><span class="nav-number">9.6.</span> <span class="nav-text">9.6 MongoDb 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-7-MongoDb-%E5%AE%89%E8%A3%85"><span class="nav-number">9.7.</span> <span class="nav-text">9.7 MongoDb 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-8-%E4%BD%BF%E7%94%A8-MongoDb"><span class="nav-number">9.8.</span> <span class="nav-text">9.8 使用 MongoDb</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E3%80%81MongoDB-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E3%80%81%E8%A1%A8%EF%BC%88%E9%9B%86%E5%90%88%EF%BC%89%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E3%80%81%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="nav-number">10.</span> <span class="nav-text">十、MongoDB 数据库创建删除、表（集合）创建删除、数据增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="nav-number">10.1.</span> <span class="nav-text">10.1 数据库使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">10.2.</span> <span class="nav-text">10.2 创建数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-3-%E6%8F%92%E5%85%A5-%E5%A2%9E%E5%8A%A0-%E6%95%B0%E6%8D%AE"><span class="nav-number">10.3.</span> <span class="nav-text">10.3 插入(增加)数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-4-%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="nav-number">10.4.</span> <span class="nav-text">10.4 查找数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-5-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE"><span class="nav-number">10.5.</span> <span class="nav-text">10.5 修改数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-6-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">10.6.</span> <span class="nav-text">10.6 删除数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81MongoDB-%E7%B4%A2%E5%BC%95-explain-%E5%88%86%E6%9E%90%E6%9F%A5%E8%AF%A2%E9%80%9F%E5%BA%A6"><span class="nav-number">11.</span> <span class="nav-text">十一、MongoDB 索引 explain 分析查询速度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-%E7%B4%A2%E5%BC%95%E5%9F%BA%E7%A1%80"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 索引基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-2-%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 唯一索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-3-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="nav-number">11.3.</span> <span class="nav-text">11.3 索引的一些参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-4-%E4%BD%BF%E7%94%A8-explain"><span class="nav-number">11.4.</span> <span class="nav-text">11.4 使用 explain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-5-explain-executionStats-%E6%9F%A5%E8%AF%A2%E5%85%B7%E4%BD%93%E7%9A%84%E6%89%A7%E8%A1%8C-%E6%97%B6%E9%97%B4"><span class="nav-number">11.5.</span> <span class="nav-text">11.5 explain executionStats 查询具体的执行 时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81nodejs%E6%93%8D%E4%BD%9Cmongodb3-x%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">12.</span> <span class="nav-text">十二、nodejs操作mongodb3.x数据库的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81NodeJs%E6%93%8D%E4%BD%9CMongoDb%E6%95%B0%E6%8D%AE%E5%BA%93-%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A2%9E%E5%8A%A0-%E4%BF%AE%E6%94%B9-%E5%88%A0%E9%99%A4"><span class="nav-number">13.</span> <span class="nav-text">十三、NodeJs操作MongoDb数据库 数据的增加 修改 删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#13-1-%E5%9C%A8-Nodejs-%E4%B8%AD%E4%BD%BF%E7%94%A8-Mongodb"><span class="nav-number">13.1.</span> <span class="nav-text">13.1 在 Nodejs 中使用 Mongodb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-2-Nodejs-%E8%BF%9E%E6%8E%A5-MongoDb-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">13.2.</span> <span class="nav-text">13.2 Nodejs 连接 MongoDb 数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3-Nodejs-%E6%9F%A5%E6%89%BE-MongoDb-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E5%90%88"><span class="nav-number">13.3.</span> <span class="nav-text">13.3 Nodejs 查找 MongoDb 数据库集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-4-Nodejs-%E7%BB%99-MongoDb-%E5%A2%9E%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-number">13.4.</span> <span class="nav-text">13.4 Nodejs 给 MongoDb 增加数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-5-Nodejs-%E4%BF%AE%E6%94%B9-MongoDb-%E6%95%B0%E6%8D%AE"><span class="nav-number">13.5.</span> <span class="nav-text">13.5 Nodejs 修改 MongoDb 数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-6-Nodejs-%E5%88%A0%E9%99%A4-MongoDb-%E6%95%B0%E6%8D%AE"><span class="nav-number">13.6.</span> <span class="nav-text">13.6 Nodejs 删除 MongoDb 数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81Express-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">14.</span> <span class="nav-text">十四、Express 安装和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#14-1-Express-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">14.1.</span> <span class="nav-text">14.1 Express 简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-2-Express-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="nav-number">14.2.</span> <span class="nav-text">14.2 Express 安装使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-3-Express-%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="nav-number">14.3.</span> <span class="nav-text">14.3 Express 框架中的路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-4-Express-%E6%A1%86%E6%9E%B6%E4%B8%AD-ejs-%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="nav-number">14.4.</span> <span class="nav-text">14.4 Express 框架中 ejs 的安装使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-5-%E5%88%A9%E7%94%A8-Express-static-%E6%89%98%E7%AE%A1%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">14.5.</span> <span class="nav-text">14.5 利用 Express.static 托管静态文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-6-Express-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">14.6.</span> <span class="nav-text">14.6 Express 中间件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-7-%E8%8E%B7%E5%8F%96-Get-Post-%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">14.7.</span> <span class="nav-text">14.7 获取 Get Post 请求的参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E3%80%81express%E4%B8%AD%E9%97%B4%E4%BB%B6cookie%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">15.</span> <span class="nav-text">十五、express中间件cookie的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#15-1-Cookie-%E7%AE%80%E4%BB%8B"><span class="nav-number">15.1.</span> <span class="nav-text">15.1 Cookie 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-2-Cookie-%E7%89%B9%E7%82%B9"><span class="nav-number">15.2.</span> <span class="nav-text">15.2 Cookie 特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-3-Cookie-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">15.3.</span> <span class="nav-text">15.3 Cookie 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-4-%E5%8A%A0%E5%AF%86-Cookie"><span class="nav-number">15.4.</span> <span class="nav-text">15.4 加密 Cookie</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E3%80%81express%E4%B8%AD%E9%97%B4%E4%BB%B6express-session%E5%B8%B8%E8%A7%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8"><span class="nav-number">16.</span> <span class="nav-text">十六、express中间件express-session常见参数配置使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#16-1-Session-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">16.1.</span> <span class="nav-text">16.1 Session 简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-2-Session-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">16.2.</span> <span class="nav-text">16.2 Session 的工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-3-express-session-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">16.3.</span> <span class="nav-text">16.3 express-session 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-4-express-session-%E7%9A%84%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-number">16.4.</span> <span class="nav-text">16.4 express-session 的常用参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-5-express-session-%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">16.5.</span> <span class="nav-text">16.5 express-session 的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-6-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E9%85%8D%E7%BD%AE-Session%EF%BC%8C%E6%8A%8A-Session-%E4%BF%9D%E5%AD%98%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93-%E9%87%8C%E9%9D%A2"><span class="nav-number">16.6.</span> <span class="nav-text">16.6 负载均衡配置 Session，把 Session 保存到数据库 里面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-7-Cookie-%E5%92%8C-Session-%E5%8C%BA%E5%88%AB"><span class="nav-number">16.7.</span> <span class="nav-text">16.7 Cookie 和 Session 区别</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -1272,14 +1358,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

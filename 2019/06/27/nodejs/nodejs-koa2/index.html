@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -404,6 +422,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：node-koa2总结</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2019-06-27 09:27:18</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2019/06/27/nodejs/nodejs-koa2/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -491,6 +526,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -521,11 +560,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -538,17 +582,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Koa%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8AKoa%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">一、Koa框架介绍以及Koa环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Koa-%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Koa 框架介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Koa2-x-%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 Koa2.x 框架的安装使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81koa-%E8%B7%AF%E7%94%B1-get%E4%BC%A0%E5%80%BC%E3%80%81%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">二、koa 路由 get传值、动态路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Koa-%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Koa 路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Koa-%E8%B7%AF%E7%94%B1-get-%E4%BC%A0%E5%80%BC"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Koa 路由 get 传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Koa-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Koa 动态路由</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81koa-%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%8F%8A%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">三、koa 中间件及执行流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-koa%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%B4%8B%E8%91%B1%E5%9B%BE%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 koa中间件的洋葱图执行流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-koa-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 koa 中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E4%BB%80%E4%B9%88%E6%98%AF-Koa-%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 什么是 Koa 的中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-Koa-%E5%BA%94%E7%94%A8%E5%8F%AF%E4%BD%BF%E7%94%A8%E5%A6%82%E4%B8%8B%E5%87%A0%E7%A7%8D%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 Koa 应用可使用如下几种中间件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-Koa-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 Koa 中间件的执行顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81koa-ejs%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8-%E4%BB%A5%E5%8F%8Aejs%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E6%95%B0%E6%8D%AE"><span class="nav-number">4.</span> <span class="nav-text">四、koa ejs模板引擎使用 以及ejs配置全局数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81koa-post-%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE-koa-bodyparser-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">五、koa post 提交数据 koa-bodyparser 中间件的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%8E%9F%E7%94%9F-Nodejs-%E8%8E%B7%E5%8F%96-post-%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 原生 Nodejs 获取 post 提交数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-Koa-%E4%B8%AD-koa-bodyparser-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Koa 中 koa-bodyparser 中间件的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81koa-static%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">六、koa-static静态资源中间件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81koa-art-template%E9%AB%98%E6%80%A7%E8%83%BD%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">七、koa art-template高性能模板引擎的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E5%B8%B8%E8%A7%81%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 常见模板引擎的性能对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E5%9C%A8-Koa-%E4%B8%AD%E4%BD%BF%E7%94%A8-art-template-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 在 Koa 中使用 art-template 模板引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-art-template-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E8%AF%AD%E6%B3%95"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 art-template 模板引擎语法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81koa-Cookie%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">八、koa Cookie的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-Koa-Cookie-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">8.1.</span> <span class="nav-text">8.1 Koa Cookie 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-Koa-%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%B8%AD%E6%96%87-Cookie"><span class="nav-number">8.2.</span> <span class="nav-text">8.2 Koa 中设置中文 Cookie</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%E3%80%81koa-Session-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">9.</span> <span class="nav-text">九、koa Session 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-Session-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">9.1.</span> <span class="nav-text">9.1 Session 简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-Session-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">9.2.</span> <span class="nav-text">9.2 Session 的工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-koa-session-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">9.3.</span> <span class="nav-text">9.3 koa-session 的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-Cookie-%E5%92%8C-Session-%E5%8C%BA%E5%88%AB"><span class="nav-number">9.4.</span> <span class="nav-text">9.4 Cookie 和 Session 区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E3%80%81Koa-%E6%93%8D%E4%BD%9C-Mongodb-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">10.</span> <span class="nav-text">十、Koa 操作 Mongodb 数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81Koa-%E5%BA%94%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8%E4%BB%A5%E5%8F%8A-Koa-%E8%B7%AF%E7%94%B1%E6%A8%A1-%E5%9D%97%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text">十一、Koa 应用生成器以及 Koa 路由模 块化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-1-koa-%E5%BA%94%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number">11.1.</span> <span class="nav-text">11.1 koa 应用生成器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-2-koa-%E6%90%AD%E5%BB%BA%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1-x2F-%E5%B1%82%E7%BA%A7%E8%B7%AF%E7%94%B1"><span class="nav-number">11.2.</span> <span class="nav-text">11.2 koa 搭建模块化路由&#x2F;层级路由</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -569,14 +655,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

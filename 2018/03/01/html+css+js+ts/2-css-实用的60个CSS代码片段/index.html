@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -412,6 +430,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：css-60个常见案例</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2018-03-01 11:31:51</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2018/03/01/html+css+js+ts/2-css-实用的60个CSS代码片段/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -499,6 +534,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -529,11 +568,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -546,17 +590,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%9E%82%E7%9B%B4%E5%AF%B9%E9%BD%90"><span class="nav-number">1.</span> <span class="nav-text">1、垂直对齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E4%BC%B8%E5%B1%95%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E5%88%B0%E7%AA%97%E5%8F%A3%E9%AB%98%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">2、伸展一个元素到窗口高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E5%9F%BA%E4%BA%8E%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E4%BD%BF%E7%94%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">3、基于文件格式使用不同的样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E5%88%9B%E5%BB%BA%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%9B%BE%E5%83%8F%E7%81%B0%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">4、创建跨浏览器的图像灰度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81%E8%83%8C%E6%99%AF%E6%B8%90%E5%8F%98%E5%8A%A8%E7%94%BB"><span class="nav-number">5.</span> <span class="nav-text">5、背景渐变动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6%E3%80%81CSS%EF%BC%9A%E8%A1%A8%E6%A0%BC%E5%88%97%E5%AE%BD%E8%87%AA%E9%80%82%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">6、CSS：表格列宽自适用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7%E3%80%81%E5%8F%AA%E5%9C%A8%E4%B8%80%E8%BE%B9%E6%88%96%E4%B8%A4%E8%BE%B9%E6%98%BE%E7%A4%BA%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1"><span class="nav-number">7.</span> <span class="nav-text">7、只在一边或两边显示盒子阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8%E3%80%81%E5%8C%85%E8%A3%B9%E9%95%BF%E6%96%87%E6%9C%AC"><span class="nav-number">8.</span> <span class="nav-text">8、包裹长文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9%E3%80%81%E5%88%B6%E9%80%A0%E6%A8%A1%E7%B3%8A%E6%96%87%E6%9C%AC"><span class="nav-number">9.</span> <span class="nav-text">9、制造模糊文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10%E3%80%81%E7%94%A8CSS%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E7%9C%81%E7%95%A5%E5%8F%B7%E5%8A%A8%E7%94%BB"><span class="nav-number">10.</span> <span class="nav-text">10、用CSS动画实现省略号动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11%E3%80%81%E6%A0%B7%E5%BC%8F%E9%87%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">11、样式重置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12%E3%80%81%E5%85%B8%E5%9E%8B%E7%9A%84CSS%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-number">12.</span> <span class="nav-text">12、典型的CSS清除浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13%E3%80%81%E6%96%B0%E7%89%88%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%EF%BC%882011%EF%BC%89"><span class="nav-number">13.</span> <span class="nav-text">13、新版清除浮动（2011）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14%E3%80%81%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%80%8F%E6%98%8E"><span class="nav-number">14.</span> <span class="nav-text">14、跨浏览器的透明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15%E3%80%81CSS%E5%BC%95%E7%94%A8%E6%A8%A1%E6%9D%BF"><span class="nav-number">15.</span> <span class="nav-text">15、CSS引用模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16%E3%80%81%E4%B8%AA%E6%80%A7%E5%9C%86%E8%A7%92"><span class="nav-number">16.</span> <span class="nav-text">16、个性圆角</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#17%E3%80%81%E9%80%9A%E7%94%A8%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-number">17.</span> <span class="nav-text">17、通用媒体查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#18%E3%80%81%E7%8E%B0%E4%BB%A3%E5%AD%97%E4%BD%93%E6%A0%88"><span class="nav-number">18.</span> <span class="nav-text">18、现代字体栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#19%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E6%96%87%E6%9C%AC%E9%80%89%E6%8B%A9"><span class="nav-number">19.</span> <span class="nav-text">19、自定义文本选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#20%E3%80%81%E4%B8%BAlogo%E9%9A%90%E8%97%8FH1"><span class="nav-number">20.</span> <span class="nav-text">20、为logo隐藏H1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#21%E3%80%81%E5%9B%BE%E7%89%87%E8%BE%B9%E6%A1%86%E5%81%8F%E5%85%89"><span class="nav-number">21.</span> <span class="nav-text">21、图片边框偏光</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#22%E3%80%81%E9%94%9A%E9%93%BE%E6%8E%A5%E4%BC%AA%E7%B1%BB"><span class="nav-number">22.</span> <span class="nav-text">22、锚链接伪类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#23%E3%80%81%E5%A5%87%E7%89%B9%E7%9A%84CSS%E5%BC%95%E7%94%A8"><span class="nav-number">23.</span> <span class="nav-text">23、奇特的CSS引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#24%E3%80%81CSS3%EF%BC%9A%E5%85%A8%E5%B1%8F%E8%83%8C%E6%99%AF"><span class="nav-number">24.</span> <span class="nav-text">24、CSS3：全屏背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#25%E3%80%81%E5%86%85%E5%AE%B9%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="nav-number">25.</span> <span class="nav-text">25、内容垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#26%E3%80%81%E5%BC%BA%E5%88%B6%E5%87%BA%E7%8E%B0%E5%9E%82%E7%9B%B4%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="nav-number">26.</span> <span class="nav-text">26、强制出现垂直滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#27%E3%80%81CSS3%E6%B8%90%E5%8F%98%E6%A8%A1%E6%9D%BF"><span class="nav-number">27.</span> <span class="nav-text">27、CSS3渐变模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#28%E3%80%81-font-face%E6%A8%A1%E6%9D%BF"><span class="nav-number">28.</span> <span class="nav-text">28、@font-face模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#29%E3%80%81%E7%BC%9D%E5%90%88CSS3%E5%85%83%E7%B4%A0"><span class="nav-number">29.</span> <span class="nav-text">29、缝合CSS3元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#30%E3%80%81CSS3-%E6%96%91%E9%A9%AC%E7%BA%BF"><span class="nav-number">30.</span> <span class="nav-text">30、CSS3 斑马线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#31%E3%80%81%E6%9C%89%E8%B6%A3%E7%9A%84-amp"><span class="nav-number">31.</span> <span class="nav-text">31、有趣的&amp;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#32%E3%80%81%E5%A4%A7%E5%AD%97%E6%AE%B5%E8%90%BD"><span class="nav-number">32.</span> <span class="nav-text">32、大字段落</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#33%E3%80%81%E5%86%85%E9%83%A8CSS3-%E7%9B%92%E9%98%B4%E5%BD%B1"><span class="nav-number">33.</span> <span class="nav-text">33、内部CSS3 盒阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#34%E3%80%81%E5%A4%96%E9%83%A8CSS3-%E7%9B%92%E9%98%B4%E5%BD%B1"><span class="nav-number">34.</span> <span class="nav-text">34、外部CSS3 盒阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#35%E3%80%81%E4%B8%89%E8%A7%92%E5%BD%A2%E5%88%97%E8%A1%A8%E9%A1%B9%E7%9B%AE%E7%AC%A6%E5%8F%B7"><span class="nav-number">35.</span> <span class="nav-text">35、三角形列表项目符号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#36%E3%80%81%E5%9B%BA%E5%AE%9A%E5%AE%BD%E5%BA%A6%E7%9A%84%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80"><span class="nav-number">36.</span> <span class="nav-text">36、固定宽度的居中布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#37%E3%80%81CSS3-%E5%88%97%E6%96%87%E6%9C%AC"><span class="nav-number">37.</span> <span class="nav-text">37、CSS3 列文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#38%E3%80%81CSS%E5%9B%BA%E5%AE%9A%E9%A1%B5%E8%84%9A"><span class="nav-number">38.</span> <span class="nav-text">38、CSS固定页脚</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#39%E3%80%81IE6%E7%9A%84PNG%E9%80%8F%E6%98%8E%E4%BF%AE%E5%A4%8D"><span class="nav-number">39.</span> <span class="nav-text">39、IE6的PNG透明修复</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#40%E3%80%81%E8%B7%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E6%9C%80%E5%B0%8F%E9%AB%98%E5%BA%A6"><span class="nav-number">40.</span> <span class="nav-text">40、跨浏览器设置最小高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#41%E3%80%81CSS3-%E9%B2%9C%E8%89%B3%E7%9A%84%E8%BE%93%E5%85%A5"><span class="nav-number">41.</span> <span class="nav-text">41、CSS3 鲜艳的输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#42%E3%80%81%E5%9F%BA%E4%BA%8E%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%93%BE%E6%8E%A5%E6%A0%B7%E5%BC%8F"><span class="nav-number">42.</span> <span class="nav-text">42、基于文件类型的链接样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#43%E3%80%81%E5%BC%BA%E5%88%B6%E6%8D%A2%E8%A1%8C"><span class="nav-number">43.</span> <span class="nav-text">43、强制换行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#44%E3%80%81%E5%9C%A8%E5%8F%AF%E7%82%B9%E5%87%BB%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%8A%E5%BC%BA%E5%88%B6%E6%89%8B%E5%9E%8B"><span class="nav-number">44.</span> <span class="nav-text">44、在可点击的项目上强制手型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#45%E3%80%81%E7%BD%91%E9%A1%B5%E9%A1%B6%E9%83%A8%E7%9B%92%E9%98%B4%E5%BD%B1"><span class="nav-number">45.</span> <span class="nav-text">45、网页顶部盒阴影</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#46%E3%80%81CSS3%E5%AF%B9%E8%AF%9D%E6%B0%94%E6%B3%A1"><span class="nav-number">46.</span> <span class="nav-text">46、CSS3对话气泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#47%E3%80%81H1-H5%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F"><span class="nav-number">47.</span> <span class="nav-text">47、H1-H5默认样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#48%E3%80%81%E7%BA%AFCSS%E8%83%8C%E6%99%AF%E5%99%AA%E9%9F%B3"><span class="nav-number">48.</span> <span class="nav-text">48、纯CSS背景噪音</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#49%E3%80%81%E6%8C%81%E4%B9%85%E7%9A%84%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F"><span class="nav-number">49.</span> <span class="nav-text">49、持久的列表排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#50%E3%80%81CSS%E6%82%AC%E6%B5%AE%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC"><span class="nav-number">50.</span> <span class="nav-text">50、CSS悬浮提示文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#51%E3%80%81%E6%B7%B1%E7%81%B0%E8%89%B2%E7%9A%84%E5%9C%86%E5%BD%A2%E6%8C%89%E9%92%AE"><span class="nav-number">51.</span> <span class="nav-text">51、深灰色的圆形按钮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#52%E3%80%81%E5%9C%A8%E5%8F%AF%E6%89%93%E5%8D%B0%E7%9A%84%E7%BD%91%E9%A1%B5%E4%B8%AD%E6%98%BE%E7%A4%BAURLs"><span class="nav-number">52.</span> <span class="nav-text">52、在可打印的网页中显示URLs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#53%E3%80%81%E7%A6%81%E7%94%A8%E7%A7%BB%E5%8A%A8Webkit%E7%9A%84%E9%80%89%E6%8B%A9%E9%AB%98%E4%BA%AE"><span class="nav-number">53.</span> <span class="nav-text">53、禁用移动Webkit的选择高亮</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#54%E3%80%81CSS3-%E5%9C%86%E7%82%B9%E5%9B%BE%E6%A1%88"><span class="nav-number">54.</span> <span class="nav-text">54、CSS3 圆点图案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#55%E3%80%81CSS3-%E6%96%B9%E6%A0%BC%E5%9B%BE%E6%A1%88"><span class="nav-number">55.</span> <span class="nav-text">55、CSS3 方格图案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#56%E3%80%81Github%E7%9A%84fork%E8%89%B2%E5%B8%A6"><span class="nav-number">56.</span> <span class="nav-text">56、Github的fork色带</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#57%E3%80%81CSS-font%E5%B1%9E%E6%80%A7%E7%BC%A9%E5%86%99"><span class="nav-number">57.</span> <span class="nav-text">57、CSS font属性缩写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#58%E3%80%81%E8%AE%BA%E6%96%87%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%8D%B7%E6%9B%B2%E6%95%88%E6%9E%9C"><span class="nav-number">58.</span> <span class="nav-text">58、论文页面的卷曲效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#59%E3%80%81%E9%B2%9C%E8%89%B3%E7%9A%84%E9%94%9A%E9%93%BE%E6%8E%A5"><span class="nav-number">59.</span> <span class="nav-text">59、鲜艳的锚链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#60%E3%80%81%E5%B8%A6CSS3%E7%89%B9%E8%89%B2%E7%9A%84%E6%A8%AA%E5%B9%85%E6%98%BE%E7%A4%BA"><span class="nav-number">60.</span> <span class="nav-text">60、带CSS3特色的横幅显示</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -577,14 +663,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

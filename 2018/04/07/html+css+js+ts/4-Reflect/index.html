@@ -22,17 +22,25 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"};
-    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"以5%的努力去撬动95%的命定！保持热爱，奔赴山海！"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
   </script>
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -48,6 +56,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="https://cdn.staticaly.com/gh/XPoet/image-hosting@master/common-use/avatar.jpg">
+                </a>
             
             <a class="logo-title" href="/">
                 热心市民小刘.Blog
@@ -91,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -296,6 +314,23 @@
         </div>
 
         
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：ES6 Reflect</li>
+        <li>Post author：千千厥歌</li>
+        <li>Create time：2018-04-07 14:32:15</li>
+        <li>
+            Post link：https://keep.xpoet.cn/2018/04/07/html+css+js+ts/4-Reflect/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
 
         
             <ul class="post-tags-box">
@@ -383,6 +418,10 @@
     <ul class="tools-list">
         <!-- TOC aside toggle -->
         
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
 
         <!-- go comment -->
         
@@ -413,11 +452,16 @@
 
         <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
             </li>
+        
+
         
 
         <li class="tools-item tool-scroll-to-bottom flex-center">
@@ -430,17 +474,59 @@
             <i class="fas fa-cog fa-spin"></i>
         </li>
         
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
     </ul>
 </div>
 
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFReflect"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 什么是Reflect</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E8%AE%A1Reflect"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 为什么要设计Reflect</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Reflect%E7%9A%84API"><span class="nav-number">2.</span> <span class="nav-text">二、Reflect的API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Reflect-get-target-property-receiver"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 Reflect.get(target,property,receiver)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Reflect-set-target-propName-propValue-receiver"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 Reflect.set(target,propName,propValue,receiver)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-Reflect-set%E4%B8%8EProxy-set"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 Reflect.set与Proxy.set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-Reflect-has-obj-name"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 Reflect.has(obj,name)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-Reflect-deleteProperty-obj-name"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 Reflect.deleteProperty(obj, name)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-Reflect-construct-target-args"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 Reflect.construct(target, args)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-Reflect-getPrototypeOf-obj"><span class="nav-number">2.7.</span> <span class="nav-text">2.7 Reflect.getPrototypeOf(obj)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-8-Reflect-setPrototypeOf-obj-newProto"><span class="nav-number">2.8.</span> <span class="nav-text">2.8 Reflect.setPrototypeOf(obj, newProto)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-9-Reflect-apply-func-thisArg-args"><span class="nav-number">2.9.</span> <span class="nav-text">2.9 Reflect.apply(func, thisArg, args)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-10-Reflect-defineProperty-target-propertyKey-attributes"><span class="nav-number">2.10.</span> <span class="nav-text">2.10 Reflect.defineProperty(target, propertyKey, attributes)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-11-Reflect-getOwnPropertyDescriptor-target-propertyKey"><span class="nav-number">2.11.</span> <span class="nav-text">2.11 Reflect.getOwnPropertyDescriptor(target, propertyKey)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-12-Reflect-isExtensible-target"><span class="nav-number">2.12.</span> <span class="nav-text">2.12 Reflect.isExtensible (target)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-13-Reflect-preventExtensions-target"><span class="nav-number">2.13.</span> <span class="nav-text">2.13 Reflect.preventExtensions(target)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-14-Reflect-ownKeys-target"><span class="nav-number">2.14.</span> <span class="nav-text">2.14 Reflect.ownKeys (target)</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
 </div>
 
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
     
 
@@ -461,14 +547,68 @@
 
 
 
+    
+<script src="/js/local-search.js"></script>
 
 
 
 
+    
+<script src="/js/code-copy.js"></script>
 
-<div class="post-scripts">
+
+
+
+    
+<script src="/js/lazyload.js"></script>
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

@@ -234,7 +234,12 @@
 <ol>
 <li>初始化：启动构建，读取与合并配置参数，加载Plugin，实例化Complier.</li>
 <li>编译：从Entry出发，针对每个Module串行调用对应的Loader去翻译文件内容，再找到该Module依赖的Module，递归地进行编译处理。</li>
-<li>输出： 对编译后的Module组合成Chunk，把Chunk转换成文件，输出到文件系统。<br> 如果只执行一次构建，以上阶段将会按照顺序各执行一次。但在开启监听模式下，流程将变为如下：<br> <img src="http://hghqz.vip/webpack/%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B.jpg" alt="打包流程" title="打包流程"></li>
+<li>输出： 对编译后的Module组合成Chunk，把Chunk转换成文件，输出到文件系统。<br> 如果只执行一次构建，以上阶段将会按照顺序各执行一次。但在开启监听模式下，流程将变为如下：<br> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B.jpg"
+                      alt="打包流程" title="打包流程"
+                ></li>
 </ol>
 <h2 id="4-webpack的优缺点？"><a href="#4-webpack的优缺点？" class="headerlink" title="4. webpack的优缺点？"></a>4. webpack的优缺点？</h2><p>优点：<br>（1） webpack 是以 commonJS 的形式来书写脚本滴，但对 AMD&#x2F;CMD 的支持也很全面，方便旧项目进行代码迁移。<br>（2）能被模块化的不仅仅是 JS 了。<br>（3） 开发便捷，能替代部分 grunt&#x2F;gulp 的工作，比如打包、压缩混淆、图片转base64等。<br>（4）扩展性强，插件机制完善<br>缺点：<br>● 配置复杂<br>● 不分包bundle.js体积庞大<br>● 只能用于采用模块化开发的项目<br>● 打包慢<br>● ES模块除Module外全用babel转换，但是一部分ES2015 语法的 firefox 与 chrome 浏览器中能直接跑的代码，无法用 webpack 编译</p>
 <h2 id="5-基本配置"><a href="#5-基本配置" class="headerlink" title="5. 基本配置"></a>5. 基本配置</h2><p>要在项目中使用webpack，需要首先安装nodejs，它是webpack的运行环境。nodejs安装成功后，就可以通过npm install webpack -g来全局安装webpack。这样就可以在你的项目中使用webpack了。</p>

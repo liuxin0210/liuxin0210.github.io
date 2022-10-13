@@ -242,7 +242,12 @@
 <h2 id="二、组件的渲染顺序"><a href="#二、组件的渲染顺序" class="headerlink" title="二、组件的渲染顺序"></a>二、组件的渲染顺序</h2><blockquote>
 <p>假如有A,B,C,D组件，层级结构为：</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/414.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/414.png"
+                      alt="img"
+                ></p>
 <p>我们知道组件的生命周期为：</p>
 <p><strong>挂载阶段</strong>：</p>
 <ul>
@@ -263,7 +268,12 @@
 <p>那么在挂载阶段，<code>A,B,C,D</code>的生命周期渲染顺序是如何的呢？</p>
 </blockquote>
 <p>那么在挂载阶段，A,B,C,D的生命周期渲染顺序是如何的呢？</p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/415.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/415.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>以<code>render()</code>函数为分界线。从顶层组件开始，一直往下，直至最底层子组件。然后再往上</p>
 </blockquote>
@@ -308,7 +318,12 @@
 <p>而这也正是 <code>React 15</code> 的 <code>Stack Reconciler</code>所面临的问题，当 <code>React</code>在渲染组件时，从开始到渲染完成整个过程是一气呵成的，无法中断</p>
 <p>如果组件较大，那么<code>js</code>线程会一直执行，然后等到整棵<code>VDOM</code>树计算完成后，才会交给渲染的线程</p>
 <p>这就会导致一些用户交互、动画等任务无法立即得到处理，导致卡顿的情况</p>
-<p><img src="https://static.vue-js.com/5eb3a850-ed24-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/5eb3a850-ed24-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <h2 id="二、是什么"><a href="#二、是什么" class="headerlink" title="二、是什么"></a>二、是什么</h2><p>React Fiber 是 Facebook 花费两年余时间对 React 做出的一个重大改变与优化，是对 React 核心算法的一次重新实现。从Facebook在 React Conf 2017 会议上确认，React Fiber 在React 16 版本发布</p>
 <p>在<code>react</code>中，主要做了以下的操作：</p>
 <ul>

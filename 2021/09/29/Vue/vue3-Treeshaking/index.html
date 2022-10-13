@@ -243,22 +243,42 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        data: () =&gt; (&#123;</span><br><span class="line">            count: 1,</span><br><span class="line">        &#125;),</span><br><span class="line">    &#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>对项目进行打包，体积如下图</p>
-<p><img src="https://static.vue-js.com/6bd2aff0-6097-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/6bd2aff0-6097-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>为组件设置其他属性（<code>compted</code>、<code>watch</code>）</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="attr">data</span>: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">        <span class="attr">question</span>:<span class="string">&quot;&quot;</span>, </span><br><span class="line">        <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="attr">computed</span>: &#123;</span><br><span class="line">        <span class="attr">double</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">count</span> * <span class="number">2</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">watch</span>: &#123;</span><br><span class="line">        <span class="attr">question</span>: <span class="keyword">function</span> (<span class="params">newQuestion, oldQuestion</span>) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.<span class="property">answer</span> = <span class="string">&#x27;xxxx&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>再一次打包，发现打包出来的体积并没有变化</p>
-<p><img src="https://static.vue-js.com/7c29e260-6097-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/7c29e260-6097-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <h3 id="Vue3-项目"><a href="#Vue3-项目" class="headerlink" title="Vue3 项目"></a>Vue3 项目</h3><p>组件中简单使用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, defineComponent &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      state,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>将项目进行打包</p>
-<p><img src="https://static.vue-js.com/95df0000-6097-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/95df0000-6097-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>在组件中引入<code>computed</code>和<code>watch</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive, defineComponent, computed, watch &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineComponent</span>(&#123;</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> state = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">const</span> double = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> state.<span class="property">count</span> * <span class="number">2</span>;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="title function_">watch</span>(</span><br><span class="line">      <span class="function">() =&gt;</span> state.<span class="property">count</span>,</span><br><span class="line">      <span class="function">(<span class="params">count, preCount</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(count);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(preCount);</span><br><span class="line">      &#125;</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      state,</span><br><span class="line">      double,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>再次对项目进行打包，可以看到在引入<code>computer</code>和<code>watch</code>之后，项目整体体积变大了</p>
-<p><img src="https://static.vue-js.com/b36a7a00-6097-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/b36a7a00-6097-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <h2 id="三、作用"><a href="#三、作用" class="headerlink" title="三、作用"></a>三、作用</h2><p>通过<code>Tree shaking</code>，<code>Vue3</code>给我们带来的好处是：</p>
 <ul>
 <li>减少程序体积（更小）</li>

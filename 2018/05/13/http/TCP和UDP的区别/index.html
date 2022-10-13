@@ -264,7 +264,12 @@
 <p>也就是说无论应用层交给<code>UDP</code>多长的报文，它统统发送，一次发送一个报文</p>
 <p>而对接收方，接到后直接去除首部，交给上面的应用层就完成任务</p>
 <p><code>UDP</code>报头包括4个字段，每个字段占用2个字节（即16个二进制位），标题短，开销小</p>
-<p><img src="https://static.vue-js.com/928e5d20-b393-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/928e5d20-b393-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>特点如下：</p>
 <ul>
 <li>UDP 不提供复杂的控制机制，利用 IP 提供面向无连接的通信服务</li>
@@ -275,7 +280,12 @@
 <h2 id="二、TCP"><a href="#二、TCP" class="headerlink" title="二、TCP"></a>二、TCP</h2><p>TCP（Transmission Control Protocol），传输控制协议，是一种可靠、<strong>面向字节流的通信协议</strong>，把上面应用层交下来的数据看成无结构的字节流来发送</p>
 <p>可以想象成流水形式的，发送方TCP会将数据放入“蓄水池”（缓存区），等到可以发送的时候就发送，不能发送就等着，TCP会根据当前网络的拥塞状态来确定每个报文段的大小</p>
 <p><code>TCP</code>报文首部有20个字节，额外开销大</p>
-<p><img src="https://static.vue-js.com/a0010d40-b393-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/a0010d40-b393-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>特点如下：</p>
 <ul>
 <li>TCP充分地实现了数据传输时各种控制功能，可以进行丢包时的重发控制，还可以对次序乱掉的分包进行顺序控制。而这些在 UDP 中都没有。</li>
@@ -283,7 +293,12 @@
 <li>根据 TCP 的这些机制，在 IP 这种无连接的网络上也能够实现高可靠性的通信（ 主要通过检验和、序列号、确认应答、重发控制、连接管理以及窗口控制等机制实现）</li>
 </ul>
 <h2 id="三、区别"><a href="#三、区别" class="headerlink" title="三、区别"></a>三、区别</h2><p><code>UDP</code>与<code>TCP</code>两者的都位于传输层，如下图所示：</p>
-<p><img src="https://static.vue-js.com/a92bda80-b393-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/a92bda80-b393-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>两者区别如下表所示：</p>
 <table>
 <thead>
@@ -341,7 +356,12 @@
 <li>TCP 只能点对点全双工通信。UDP 支持一对一、一对多、多对一和多对多的交互通信</li>
 </ul>
 <p>两者应用场景如下图：</p>
-<p><img src="https://static.vue-js.com/b6cdd800-b393-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/b6cdd800-b393-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>可以看到，TCP 应用场景适用于对效率要求低，对准确性要求高或者要求有链接的场景，而UDP 适用场景为对效率要求高，对准确性要求低的场景</p>
 
         </div>

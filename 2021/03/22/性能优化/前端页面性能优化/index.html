@@ -217,14 +217,34 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="一、调试工具"><a href="#一、调试工具" class="headerlink" title="一、调试工具"></a>一、调试工具</h2><h3 id="1、Network"><a href="#1、Network" class="headerlink" title="1、Network"></a>1、Network</h3><p><img src="https://blog.poetries.top/img/static/images/image-20210208102537169.png" alt="image-20210208102537169"></p>
+            <h2 id="一、调试工具"><a href="#一、调试工具" class="headerlink" title="一、调试工具"></a>一、调试工具</h2><h3 id="1、Network"><a href="#1、Network" class="headerlink" title="1、Network"></a>1、Network</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208102537169.png"
+                      alt="image-20210208102537169"
+                ></p>
 <p>这里可以看到资源加载详情，初步评估影响<code>页面性能</code>的因素。鼠标右键可以自定义选项卡，页面底部是当前加载资源的一个概览。<code>DOMContentLoaded</code> DOM渲染完成的时间，<code>Load</code>：当前页面所有资源加载完成的时间</p>
 <p><strong>思考：如何判断哪些资源对当前页面加载无用，做对应优化？</strong></p>
 <p><strong>shift + cmd + P 调出控制台的扩展工具，添加规则</strong></p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208102549961.png" alt="image-20210208102549961"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208102549961.png"
+                      alt="image-20210208102549961"
+                ></p>
 <p><strong>监控页面性能变化</strong></p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208102650825.png" alt="image-20210208102650825"></p>
-<h4 id="瀑布流waterfal"><a href="#瀑布流waterfal" class="headerlink" title="瀑布流waterfal"></a>瀑布流waterfal</h4><p><img src="https://blog.poetries.top/img/static/images/image-20210208102723253.png" alt="image-20210208102723253"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208102650825.png"
+                      alt="image-20210208102650825"
+                ></p>
+<h4 id="瀑布流waterfal"><a href="#瀑布流waterfal" class="headerlink" title="瀑布流waterfal"></a>瀑布流waterfal</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208102723253.png"
+                      alt="image-20210208102723253"
+                ></p>
 <ul>
 <li><code>Queueing</code> 浏览器将资源放入队列时间</li>
 <li><code>Stalled</code> 因放入队列时间而发生的停滞时间</li>
@@ -234,7 +254,12 @@
 <li><code>TTFB</code> 等待服务端返回数据的时间</li>
 <li><code>Content Download</code> 浏览器下载资源的时间</li>
 </ul>
-<h3 id="2、Lighthouse"><a href="#2、Lighthouse" class="headerlink" title="2、Lighthouse"></a>2、Lighthouse</h3><p><img src="https://blog.poetries.top/img/static/images/image-20210208102851752.png" alt="image-20210208102851752"></p>
+<h3 id="2、Lighthouse"><a href="#2、Lighthouse" class="headerlink" title="2、Lighthouse"></a>2、Lighthouse</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208102851752.png"
+                      alt="image-20210208102851752"
+                ></p>
 <ul>
 <li><code>First Contentful Paint</code> 首屏渲染时间，1s以内绿色</li>
 <li><code>Speed Index</code> 速度指数，4s以内绿色</li>
@@ -243,14 +268,34 @@
 <blockquote>
 <p>根据chrome的一些策略自动对网站做一个质量评估，并且会给出一些优化的建议</p>
 </blockquote>
-<h3 id="3、Peformance"><a href="#3、Peformance" class="headerlink" title="3、Peformance"></a>3、Peformance</h3><p><img src="https://blog.poetries.top/img/static/images/image-20210208102949596.png" alt="image-20210208102949596"></p>
+<h3 id="3、Peformance"><a href="#3、Peformance" class="headerlink" title="3、Peformance"></a>3、Peformance</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208102949596.png"
+                      alt="image-20210208102949596"
+                ></p>
 <p>对网站最专业的分析</p>
 <h3 id="4、webPageTest"><a href="#4、webPageTest" class="headerlink" title="4、webPageTest"></a>4、webPageTest</h3><blockquote>
 <p>可以模拟不同场景下访问的情况，比如模拟不同浏览器、不同国家等等，在线测试地址：<a class="link"   target="_blank" rel="noopener" href="https://www.webpagetest.org/" >webPageTest<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208103032419.png" alt="image-20210208103032419"></p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208103054016.png" alt="image-20210208103054016"></p>
-<h3 id="5、资源打包分析"><a href="#5、资源打包分析" class="headerlink" title="5、资源打包分析"></a>5、资源打包分析</h3><h4 id="webpack-bundle-analyzer"><a href="#webpack-bundle-analyzer" class="headerlink" title="webpack-bundle-analyzer"></a>webpack-bundle-analyzer</h4><p><img src="https://blog.poetries.top/img/static/images/image-20210208103127992.png" alt="image-20210208103127992"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208103032419.png"
+                      alt="image-20210208103032419"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208103054016.png"
+                      alt="image-20210208103054016"
+                ></p>
+<h3 id="5、资源打包分析"><a href="#5、资源打包分析" class="headerlink" title="5、资源打包分析"></a>5、资源打包分析</h3><h4 id="webpack-bundle-analyzer"><a href="#webpack-bundle-analyzer" class="headerlink" title="webpack-bundle-analyzer"></a>webpack-bundle-analyzer</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208103127992.png"
+                      alt="image-20210208103127992"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-bundle-analyzer</span><br><span class="line">// webpack.config.js 文件</span><br><span class="line">const BundleAnalyzerPlugin = require(&#x27;webpack-bundle-analyzer&#x27;).BundleAnalyzerPlugin</span><br><span class="line">module.exports=&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    new BundleAnalyzerPlugin(&#123;</span><br><span class="line">          analyzerMode: &#x27;server&#x27;,</span><br><span class="line">          analyzerHost: &#x27;127.0.0.1&#x27;,</span><br><span class="line">          analyzerPort: 8889,</span><br><span class="line">          reportFilename: &#x27;report.html&#x27;,</span><br><span class="line">          defaultSizes: &#x27;parsed&#x27;,</span><br><span class="line">          openAnalyzer: true,</span><br><span class="line">          generateStatsFile: false,</span><br><span class="line">          statsFilename: &#x27;stats.json&#x27;,</span><br><span class="line">          statsOptions: null,</span><br><span class="line">          logLevel: &#x27;info&#x27;</span><br><span class="line">        &#125;),</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// package.json</span><br><span class="line">&quot;analyz&quot;: &quot;NODE_ENV=production npm_config_report=true npm run build&quot;</span><br></pre></td></tr></table></figure>
 
 <h4 id="开启source-map"><a href="#开启source-map" class="headerlink" title="开启source-map"></a>开启source-map</h4><blockquote>
@@ -262,9 +307,19 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;analyze&quot;: &quot;source-map-explorer &#x27;build/*.js&#x27;&quot;,</span><br></pre></td></tr></table></figure>
 
 <p>npm run analyze</p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208103321371.png" alt="image-20210208103321371"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208103321371.png"
+                      alt="image-20210208103321371"
+                ></p>
 <h2 id="二、WEB-API"><a href="#二、WEB-API" class="headerlink" title="二、WEB API"></a>二、WEB API</h2><p>工欲善其事，必先利其器。浏览器提供的一些分析API<code>至关重要</code></p>
-<h3 id="1、监听视窗激活状态"><a href="#1、监听视窗激活状态" class="headerlink" title="1、监听视窗激活状态"></a>1、监听视窗激活状态</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b7ab11fc7b94fcf8c79bd3b28706b2c~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<h3 id="1、监听视窗激活状态"><a href="#1、监听视窗激活状态" class="headerlink" title="1、监听视窗激活状态"></a>1、监听视窗激活状态</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b7ab11fc7b94fcf8c79bd3b28706b2c~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 窗口激活状态监听</span><br><span class="line">let vEvent = &#x27;visibilitychange&#x27;;</span><br><span class="line">if (document.webkitHidden != undefined) &#123;</span><br><span class="line">    vEvent = &#x27;webkitvisibilitychange&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function visibilityChanged() &#123;</span><br><span class="line">    if (document.hidden || document.webkitHidden) &#123;</span><br><span class="line">        document.title = &#x27;客官，别走啊~&#x27;</span><br><span class="line">        console.log(&quot;Web page is hidden.&quot;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        document.title = &#x27;客官，你又回来了呢~&#x27;</span><br><span class="line">        console.log(&quot;Web page is visible.&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">document.addEventListener(vEvent, visibilityChanged, false);</span><br></pre></td></tr></table></figure>
 
 <p>其实有很多隐藏的api，这里大家有兴趣的可以去试试看：</p>
@@ -293,7 +348,12 @@
 <li>重定向耗时: <code>redirectEnd - redirectStart</code></li>
 </ul>
 <h2 id="三、雅虎军规"><a href="#三、雅虎军规" class="headerlink" title="三、雅虎军规"></a>三、雅虎军规</h2><p>关于雅虎军规，你知道的有多少条，平时写用到的又有哪些？针对以下规则，我们可以做很多优化工作</p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208103918197.png" alt="image-20210208103918197"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208103918197.png"
+                      alt="image-20210208103918197"
+                ></p>
 <h3 id="1、减少cookie传输"><a href="#1、减少cookie传输" class="headerlink" title="1、减少cookie传输"></a>1、减少cookie传输</h3><blockquote>
 <p><code>cookie</code>传输会造成带宽浪费，可以：</p>
 </blockquote>
@@ -305,24 +365,44 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let cards = document.getElementsByClassName(&quot;MuiPaper-rounded&quot;);</span><br><span class="line">const update = (timestamp) =&gt; &#123;</span><br><span class="line">  for (let i = 0; i &lt;cards.length; i++) &#123;</span><br><span class="line">    let top = cards[i].offsetTop;</span><br><span class="line">    cards[i].style.width = ((Math.sin(cards[i].offsetTop + timestamp / 100 + 1) * 500) + &#x27;px&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">  window.requestAnimationFrame(update)</span><br><span class="line">&#125;</span><br><span class="line">update(1000);</span><br></pre></td></tr></table></figure>
 
 <p>看下效果，很明显的卡顿</p>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7618dea1a4774c8685e9926b08d67fdd~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7618dea1a4774c8685e9926b08d67fdd~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <blockquote>
 <p><code>performance</code>分析结果，<code>load</code>事件之后存在大量的回流，并且<code>chrome</code>都给标记了红色</p>
 </blockquote>
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b543d68fab7445da1dedb72bb224f69~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9b543d68fab7445da1dedb72bb224f69~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>使用<code>fastDom</code>进行优化，将对dom的<code>读和写</code>分离，合并</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let cards = document.getElementsByClassName(&quot;MuiPaper-rounded&quot;);</span><br><span class="line">  const update = (timestamp) =&gt; &#123;</span><br><span class="line">    for (let i = 0; i &lt; cards.length; i++) &#123;</span><br><span class="line">      fastdom.measure(() =&gt; &#123;</span><br><span class="line">        let top = cards[i].offsetTop;</span><br><span class="line">        fastdom.mutate(() =&gt; &#123;</span><br><span class="line">          cards[i].style.width =</span><br><span class="line">            Math.sin(top + timestamp / 100 + 1) * 500 + &quot;px&quot;;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    window.requestAnimationFrame(update)</span><br><span class="line">  &#125;</span><br><span class="line">  update(1000);</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1df5c32c30494c13b3402305f866b327~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1df5c32c30494c13b3402305f866b327~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <blockquote>
 <p><code>performance</code>分析结果，load事件之后也没有了那么多的红色标记</p>
 </blockquote>
 <p>感兴趣的可以去了解一下fastDom：<a class="link"   target="_blank" rel="noopener" href="https://github.com/wilsonpage/fastdom" >github fastdom<i class="fas fa-external-link-alt"></i></a> 在线预览：<a class="link"   target="_blank" rel="noopener" href="http://wilsonpage.github.io/fastdom/examples/animation.html" >fastdom demo<i class="fas fa-external-link-alt"></i></a></p>
 <p>关于任务拆分与组合的思想，<code>react fiber</code>架构做的很牛逼，有兴趣的可以去了解一下调度算法在fiber中的实践</p>
 <h2 id="四、压缩"><a href="#四、压缩" class="headerlink" title="四、压缩"></a>四、压缩</h2><h3 id="1、Gzip"><a href="#1、Gzip" class="headerlink" title="1、Gzip"></a>1、Gzip</h3><p>开启方式可参考：<a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/6844903605187641357" >nginx开启gzip<i class="fas fa-external-link-alt"></i></a></p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208104535672.png" alt="image-20210208104535672"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208104535672.png"
+                      alt="image-20210208104535672"
+                ></p>
 <blockquote>
 <p>还有一种方式：打包的时候生成gz文件，上传到服务器端，这样就不需要nginx来压缩了，可以降低服务器压力。 可参考：<a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020976930" >gzip压缩文件&amp;webPack配置Compression-webpack-plugin<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
@@ -332,7 +412,12 @@
 <p>package.json</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;start&quot;: &quot;npm run build &amp;&amp; node server.js&quot;,</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208104641677.png" alt="image-20210208104641677"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208104641677.png"
+                      alt="image-20210208104641677"
+                ></p>
 <h3 id="3、JavaScript、Css、Html压缩"><a href="#3、JavaScript、Css、Html压缩" class="headerlink" title="3、JavaScript、Css、Html压缩"></a>3、JavaScript、Css、Html压缩</h3><p>工程化项目中直接使用对应的插件即可，webpack的主要有下面三个：</p>
 <ul>
 <li><code>UglifyJS</code></li>
@@ -374,14 +459,24 @@
 <h2 id="六、骨架屏"><a href="#六、骨架屏" class="headerlink" title="六、骨架屏"></a>六、骨架屏</h2><blockquote>
 <p>用css提前占好位置，当资源加载完成即可填充，减少页面的回流与重绘，同时还能给用户最直接的反馈。 图中使用插件：<a class="link"   target="_blank" rel="noopener" href="https://github.com/buildo/react-placeholder" >react-placeholder<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3666ae07b9eb4d839f7a893b89d83f47~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3666ae07b9eb4d839f7a893b89d83f47~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <p>关于实现骨架屏还有很多种方案，用<code>Puppeteer</code>服务端渲染的挺多的</p>
 <p>使用css伪类：<a class="link"   target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020437426" >只要css就能实现的骨架屏方案<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="七、窗口化"><a href="#七、窗口化" class="headerlink" title="七、窗口化"></a>七、窗口化</h2><blockquote>
 <p>原理：只加载当前窗口能显示的DOM元素，当视图变化时，删除隐藏的，添加要显示的DOM就可以保证页面上存在的dom元素数量永远不多，页面就不会卡顿</p>
 </blockquote>
 <p>图中使用的插件：<a class="link"   target="_blank" rel="noopener" href="https://github.com/bvaughn/react-window" >react-window<i class="fas fa-external-link-alt"></i></a></p>
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a459cc811844b7793aff6c9878d19ad~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1a459cc811844b7793aff6c9878d19ad~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <p>安装：<code>npm i react-window</code></p>
 <p>引入：<code>import &#123; FixedSizeList as List &#125; from &#39;react-window&#39;;</code></p>
 <p>使用：</p>
@@ -400,28 +495,63 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">new WorkboxWebpackPlugin.GenerateSW(&#123;</span><br><span class="line">    clientsClaim: true,</span><br><span class="line">    exclude: [/\.map$/, /asset-manifest\.json$/],</span><br><span class="line">    importWorkboxFrom: &#x27;cdn&#x27;,</span><br><span class="line">    navigateFallback: paths.publicUrlOrPath + &#x27;index.html&#x27;,</span><br><span class="line">    navigateFallbackBlacklist: [</span><br><span class="line">        new RegExp(&#x27;^/_&#x27;),</span><br><span class="line">        new RegExp(&#x27;/[^/?]+\\.[^/]+$&#x27;),</span><br><span class="line">    ],</span><br><span class="line">&#125;),</span><br><span class="line"></span><br><span class="line">new ManifestPlugin(&#123;</span><br><span class="line">    fileName: &#x27;asset-manifest.json&#x27;,</span><br><span class="line">    publicPath: paths.publicUrlOrPath,</span><br><span class="line">    generate: (seed, files, entrypoints) =&gt; &#123;</span><br><span class="line">        const manifestFiles = files.reduce((manifest, file) =&gt; &#123;</span><br><span class="line">            manifest[file.name] = file.path;</span><br><span class="line">            return manifest;</span><br><span class="line">        &#125;, seed);</span><br><span class="line">        const entrypointFiles = entrypoints.app.filter(</span><br><span class="line">            fileName =&gt; !fileName.endsWith(&#x27;.map&#x27;)</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        return &#123;</span><br><span class="line">            files: manifestFiles,</span><br><span class="line">            entrypoints: entrypointFiles,</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208105415279.png" alt="image-20210208105415279"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208105415279.png"
+                      alt="image-20210208105415279"
+                ></p>
 <h2 id="九、预加载-amp-amp-懒加载"><a href="#九、预加载-amp-amp-懒加载" class="headerlink" title="九、预加载 &amp;&amp; 懒加载"></a>九、预加载 &amp;&amp; 懒加载</h2><h3 id="1、preload"><a href="#1、preload" class="headerlink" title="1、preload"></a>1、preload</h3><p>就拿demo中的字体举例，正常情况下的加载顺序是这样的：</p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208105446451.png" alt="image-20210208105446451"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208105446451.png"
+                      alt="image-20210208105446451"
+                ></p>
 <p>加入preload：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;preload&quot; href=&quot;https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.119.woff2&quot; as=&quot;font&quot; crossorigin=&quot;anonymous&quot;/&gt; </span><br><span class="line">&lt;link rel=&quot;preload&quot; href=&quot;https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.118.woff2&quot; as=&quot;font&quot; crossorigin=&quot;anonymous&quot;/&gt; </span><br><span class="line">&lt;link rel=&quot;preload&quot; href=&quot;https://fonts.gstatic.com/s/longcang/v5/LYjAdGP8kkgoTec8zkRgqHAtXN-dRp6ohF_hzzTtOcBgYoCKmPpHHEBiM6LIGv3EnKLjtw.116.woff2&quot; as=&quot;font&quot; crossorigin=&quot;anonymous&quot;/&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208105522277.png" alt="image-20210208105522277"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208105522277.png"
+                      alt="image-20210208105522277"
+                ></p>
 <h3 id="2、prefetch"><a href="#2、prefetch" class="headerlink" title="2、prefetch"></a>2、prefetch</h3><blockquote>
 <p>场景：首页不需要这样的字体文件，下个页面需要：首页会以最低优先级<code>Lowest</code>来提前加载</p>
 </blockquote>
 <p>加入<code>prefetch</code>：</p>
 <p>需要的页面，从<code>prefetch cache</code>中取</p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208105625448.png" alt="image-20210208105625448"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208105625448.png"
+                      alt="image-20210208105625448"
+                ></p>
 <p>webpack也是支持这两个属性的:<a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/skychx/p/webpack-webpackChunkName-webpackPreload-webpackPreload.html" >webpackPrefetch 和 webpackPreload<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="3、懒加载"><a href="#3、懒加载" class="headerlink" title="3、懒加载"></a>3、懒加载</h3><h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>机械图片</p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208105717958.png" alt="image-20210208105717958"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208105717958.png"
+                      alt="image-20210208105717958"
+                ></p>
 <p><code>渐进式图片（类似高斯模糊）</code> 需要UI小姐姐出稿的时候指定这种格式</p>
-<p><img src="https://blog.poetries.top/img/static/images/image-20210208105747314.png" alt="image-20210208105747314"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/image-20210208105747314.png"
+                      alt="image-20210208105747314"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">响应式图片</span><br></pre></td></tr></table></figure>
 
 <p>原生模式：&#96;&#96;</p>
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7427e9243791461b8ffa49f47981cfba~tplv-k3u1fbpfcp-watermark.image?imageslim" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7427e9243791461b8ffa49f47981cfba~tplv-k3u1fbpfcp-watermark.image?imageslim"
+                      alt="img"
+                ></p>
 <h4 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h4><p>通过<code>函数 + import</code>实现</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const Page404 = () =&gt; import(/* webpackChunkName: &quot;error&quot; */&#x27;@views/errorPage/404&#x27;);</span><br></pre></td></tr></table></figure>
 
@@ -429,7 +559,12 @@
 <li>服务端渲染<code>SSR</code>，vue使用<code>nuxt.js</code>，<code>react</code>使用<code>next.js</code></li>
 <li><code>react-snap</code>可以借助<code>Puppeteer</code>实现先渲染单页，然后保留<code>DOM</code>，发送到客户端</li>
 </ul>
-<h2 id="十一、体验优化"><a href="#十一、体验优化" class="headerlink" title="十一、体验优化"></a>十一、体验优化</h2><h3 id="白屏loading"><a href="#白屏loading" class="headerlink" title="白屏loading"></a>白屏loading</h3><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41557f3a361c4cf899a4eab3bde79154~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<h2 id="十一、体验优化"><a href="#十一、体验优化" class="headerlink" title="十一、体验优化"></a>十一、体验优化</h2><h3 id="白屏loading"><a href="#白屏loading" class="headerlink" title="白屏loading"></a>白屏loading</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41557f3a361c4cf899a4eab3bde79154~tplv-k3u1fbpfcp-watermark.image"
+                      alt="img"
+                ></p>
 <p><strong>loading.html</strong> 需要自取哦，还有种方式，使用<code>webpack</code>插件<code>HtmlWebpackPlugin</code>将loading资源插入到页面中</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</span><br><span class="line">    &lt;title&gt;Loading&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      body &#123;</span><br><span class="line">        margin: 0;</span><br><span class="line">      &#125;</span><br><span class="line">      #loadding &#123;</span><br><span class="line">        position: fixed;</span><br><span class="line">        top: 0;</span><br><span class="line">        bottom: 0;</span><br><span class="line">        display: flex;</span><br><span class="line">        width: 100%;</span><br><span class="line">        align-items: center;</span><br><span class="line">        justify-content: center;</span><br><span class="line">      &#125;</span><br><span class="line">      #loadding &gt; span &#123;</span><br><span class="line">        display: inline-block;</span><br><span class="line">        width: 8px;</span><br><span class="line">        height: 100%;</span><br><span class="line">        margin-right: 5px;</span><br><span class="line">        border-radius: 4px;</span><br><span class="line">        -webkit-animation: load 1.04s ease infinite;</span><br><span class="line">        animation: load 1.04s ease infinite;</span><br><span class="line">      &#125;</span><br><span class="line">      @keyframes load &#123;</span><br><span class="line">        0%,</span><br><span class="line">        100% &#123;</span><br><span class="line">          height: 40px;</span><br><span class="line">          background: #98beff;</span><br><span class="line">        &#125;</span><br><span class="line">        50% &#123;</span><br><span class="line">          height: 60px;</span><br><span class="line">          margin-top: -20px;</span><br><span class="line">          background: #3e7fee;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line"></span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;loadding&quot;&gt;</span><br><span class="line">      &lt;span&gt;&lt;/span&gt;</span><br><span class="line">      &lt;span style=&quot;animation-delay: 0.13s&quot;&gt;&lt;/span&gt;</span><br><span class="line">      &lt;span style=&quot;animation-delay: 0.26s&quot;&gt;&lt;/span&gt;</span><br><span class="line">      &lt;span style=&quot;animation-delay: 0.39s&quot;&gt;&lt;/span&gt;</span><br><span class="line">      &lt;span style=&quot;animation-delay: 0.52s&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; &#123;</span><br><span class="line">      const $loadding = document.getElementById(&quot;loadding&quot;);</span><br><span class="line">      if (!$loadding) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      $loadding.style.display = &quot;none&quot;;</span><br><span class="line">      $loadding.parentNode.removeChild($loadding);</span><br><span class="line">    &#125;);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
         </div>

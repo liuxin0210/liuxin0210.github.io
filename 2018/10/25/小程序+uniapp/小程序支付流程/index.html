@@ -220,8 +220,18 @@
             <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>微信小程序为电商类小程序，提供了非常完善、优秀、安全的支付功能</p>
 <p>在小程序内可调用微信的<code>API</code>完成支付功能，方便、快捷</p>
 <p>场景如下图所示：</p>
-<p><img src="https://static.vue-js.com/6e0cff40-34a0-11ec-a752-75723a64e8f5.png" alt="img"></p>
-<p><img src="https://static.vue-js.com/34864830-34a0-11ec-8e64-91fdec0f05a1.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/6e0cff40-34a0-11ec-a752-75723a64e8f5.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/34864830-34a0-11ec-8e64-91fdec0f05a1.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>用户通过分享或扫描二维码进入商户小程序，用户选择购买，完成选购流程</li>
 <li>调起微信支付控件，用户开始输入支付密码</li>
@@ -231,7 +241,12 @@
 </ul>
 <h2 id="二、流程"><a href="#二、流程" class="headerlink" title="二、流程"></a>二、流程</h2><p>以电商小程序为例</p>
 <p>支付流程图如下所示：</p>
-<p><img src="https://static.vue-js.com/76b66780-34a0-11ec-8e64-91fdec0f05a1.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/76b66780-34a0-11ec-8e64-91fdec0f05a1.png"
+                      alt="img"
+                ></p>
 <p>具体的做法：</p>
 <ul>
 <li>打开某小程序，点击直接下单</li>
@@ -247,7 +262,12 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="title function_">requestPayment</span>(&#123;</span><br><span class="line">  <span class="comment">// 时间戳</span></span><br><span class="line">  <span class="attr">timeStamp</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="comment">// 随机字符串</span></span><br><span class="line">  <span class="attr">nonceStr</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="comment">// 统一下单接口返回的 prepay_id 参数值</span></span><br><span class="line">  <span class="attr">package</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="comment">// 签名类型</span></span><br><span class="line">  <span class="attr">signType</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="comment">// 签名</span></span><br><span class="line">  <span class="attr">paySign</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="comment">// 调用成功回调</span></span><br><span class="line">  success () &#123;&#125;,</span><br><span class="line">  <span class="comment">// 失败回调</span></span><br><span class="line">  fail () &#123;&#125;,</span><br><span class="line">  <span class="comment">// 接口调用结束回调</span></span><br><span class="line">  complete () &#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>参数表如下所示：</p>
-<p><img src="https://files.mdnice.com/user/155/48efed1f-d67f-45a7-ab2c-89a6424fafa0.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.mdnice.com/user/155/48efed1f-d67f-45a7-ab2c-89a6424fafa0.png"
+                      alt="img"
+                ></p>
 <h2 id="三、结束"><a href="#三、结束" class="headerlink" title="三、结束"></a>三、结束</h2><p>小程序支付和以往的网页、APP微信支付大同小异，可以说小程序的支付变得更加简洁，不需要设置支付目录、域名授权等操作</p>
 
         </div>

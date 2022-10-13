@@ -264,7 +264,12 @@
 <h2 id="二、基本用法"><a href="#二、基本用法" class="headerlink" title="二、基本用法"></a>二、基本用法</h2><blockquote>
 <p><code>async</code>函数返回一个 <code>Promise</code> 对象，可以使用<code>then</code>方法添加回调函数。当函数执行的时候，一旦遇到<code>await</code>就会先返回，等到异步操作完成，再接着执行函数体内后面的语句</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/53.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/53.png"
+                      alt="img"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 调用该函数时，会立即返回一个Promise对象</span><br><span class="line">async function getStockPriceByName(name) &#123;</span><br><span class="line">  const symbol = await getStockSymbol(name);</span><br><span class="line">  const stockPrice = await getStockPrice(symbol);</span><br><span class="line">  return stockPrice;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getStockPriceByName(&#x27;goog&#x27;).then(function (result) &#123;</span><br><span class="line">  console.log(result);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p><strong>async 函数有多种使用形式</strong></p>

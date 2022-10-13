@@ -262,11 +262,21 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var asyncSayActionCreator = function (message) &#123;</span><br><span class="line">    return function (dispatch) &#123;</span><br><span class="line">        setTimeout(function () &#123;</span><br><span class="line">            dispatch(&#123;</span><br><span class="line">                type: &#x27;SAY&#x27;,</span><br><span class="line">                message</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;, 2000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/466.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/466.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>上图表达的是 <code>redux</code> 中一个简单的同步数据流动的场景，点击<code>button</code> 后，在回调中 <code>dispatch</code> 一个 <code>action</code>，<code>reducer</code> 收到<code>action</code> 后，更新 <code>state</code> 并通知 <code>view</code> 重新渲染</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/467.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/467.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><p>上面这张图展示了应用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">middleware</span><br></pre></td></tr></table></figure>

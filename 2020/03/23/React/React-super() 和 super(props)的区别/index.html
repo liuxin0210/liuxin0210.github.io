@@ -222,7 +222,12 @@
 
 <p>在上面的例子中，可以看到通过 <code>super</code> 关键字实现调用父类，<code>super</code> 代替的是父类的构建函数，使用 <code>super(name)</code> 相当于调用 <code>sup.prototype.constructor.call(this,name)</code></p>
 <p>如果在子类中不使用 <code>super</code>，关键字，则会引发报错，如下：</p>
-<p><img src="https://static.vue-js.com/6ab40190-d71c-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/6ab40190-d71c-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>报错的原因是 子类是没有自己的 <code>this</code> 对象的，它只能继承父类的 <code>this</code> 对象，然后对其进行加工</p>
 <p>而 <code>super()</code> 就是将父类中的 <code>this</code> 对象继承给子类的，没有 <code>super()</code> 子类就得不到 <code>this</code> 对象</p>
 <p>如果先调用 <code>this</code>，再初始化 <code>super()</code>，同样是禁止的行为</p>

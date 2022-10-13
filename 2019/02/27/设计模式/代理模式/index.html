@@ -219,7 +219,12 @@
         <div class="article-content markdown-body">
             <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>代理模式（Proxy Pattern）是为一个对象提供一个代用品或占位符，以便控制对它的访问</p>
 <p>代理模式的关键是，当客户不方便直接访问一个对象或者不满足需要时，提供一个替身对象来控制这个对象的访问，客户实际上访问的是替身对象</p>
-<p><img src="https://static.vue-js.com/951c99b0-3d6a-11ec-a752-75723a64e8f5.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/951c99b0-3d6a-11ec-a752-75723a64e8f5.png"
+                      alt="img"
+                ></p>
 <p>在生活中，代理模式的场景是十分常见的，例如我们现在如果有租房、买房的需求，更多的是去找链家等房屋中介机构，而不是直接寻找想卖房或出租房的人谈。此时，链家起到的作用就是代理的作用</p>
 <h2 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h2><p>在<code>ES6</code>中，存在<code>proxy</code>构建函数能够让我们轻松使用代理模式：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler);</span><br></pre></td></tr></table></figure>

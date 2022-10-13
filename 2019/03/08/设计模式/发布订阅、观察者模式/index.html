@@ -219,7 +219,12 @@
         <div class="article-content markdown-body">
             <h2 id="一、观察者模式"><a href="#一、观察者模式" class="headerlink" title="一、观察者模式"></a>一、观察者模式</h2><p>观察者模式定义了对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知，并自动更新</p>
 <p>观察者模式属于行为型模式，行为型模式关注的是对象之间的通讯，观察者模式就是观察者和被观察者之间的通讯</p>
-<p><img src="https://static.vue-js.com/d3a80020-3f7c-11ec-a752-75723a64e8f5.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/d3a80020-3f7c-11ec-a752-75723a64e8f5.png"
+                      alt="img"
+                ></p>
 <p>例如生活中，我们可以用报纸期刊的订阅来形象的说明，当你订阅了一份报纸，每天都会有一份最新的报纸送到你手上，有多少人订阅报纸，报社就会发多少份报纸</p>
 <p>报社和订报纸的客户就形成了一对多的依赖关系</p>
 <p>实现代码如下：</p>
@@ -235,7 +240,12 @@
 <p>上述代码中，观察者主动申请加入被观察者的列表，被观察者主动将观察者加入列表</p>
 <h2 id="二、发布订阅模式"><a href="#二、发布订阅模式" class="headerlink" title="二、发布订阅模式"></a>二、发布订阅模式</h2><p>发布-订阅是一种消息范式，消息的发送者（称为发布者）不会将消息直接发送给特定的接收者（称为订阅者）。而是将发布的消息分为不同的类别，无需了解哪些订阅者（如果有的话）可能存在</p>
 <p>同样的，订阅者可以表达对一个或多个类别的兴趣，只接收感兴趣的消息，无需了解哪些发布者存在</p>
-<p><img src="https://static.vue-js.com/e24d3cd0-3f7c-11ec-8e64-91fdec0f05a1.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/e24d3cd0-3f7c-11ec-8e64-91fdec0f05a1.png"
+                      alt="img"
+                ></p>
 <p>实现代码如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PubSub</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">messages</span> = &#123;&#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">listeners</span> = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加发布者</span></span><br><span class="line">  <span class="title function_">publish</span>(<span class="params">type, content</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> existContent = <span class="variable language_">this</span>.<span class="property">messages</span>[type];</span><br><span class="line">    <span class="keyword">if</span> (!existContent) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">messages</span>[type] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">messages</span>[type].<span class="title function_">push</span>(content);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 添加订阅者</span></span><br><span class="line">  <span class="title function_">subscribe</span>(<span class="params">type, cb</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> existListener = <span class="variable language_">this</span>.<span class="property">listeners</span>[type];</span><br><span class="line">    <span class="keyword">if</span> (!existListener) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">listeners</span>[type] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">listeners</span>[type].<span class="title function_">push</span>(cb);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 通知</span></span><br><span class="line">  <span class="title function_">notify</span>(<span class="params">type</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> messages = <span class="variable language_">this</span>.<span class="property">messages</span>[type];</span><br><span class="line">    <span class="keyword">const</span> subscribers = <span class="variable language_">this</span>.<span class="property">listeners</span>[type] || [];</span><br><span class="line">    subscribers.<span class="title function_">forEach</span>(<span class="function">(<span class="params">cb, index</span>) =&gt;</span> <span class="title function_">cb</span>(messages[index]));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -256,7 +266,12 @@
 </ul>
 <p>上述过程中，如果公司自己去管理快递的配送，那公司就会变成一个快递公司，业务繁杂难以管理，影响公司自身的主营业务，因此使用何种模式需要考虑什么情况两者是需要耦合的</p>
 <p>两者区别如下图：</p>
-<p><img src="https://files.mdnice.com/user/155/9141682c-7386-4f12-8412-fb17a1cd4bf6.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.mdnice.com/user/155/9141682c-7386-4f12-8412-fb17a1cd4bf6.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>在观察者模式中，观察者是知道Subject的，Subject一直保持对观察者进行记录。然而，在发布订阅模式中，发布者和订阅者不知道对方的存在。它们只有通过消息代理进行通信。</li>
 <li>在发布订阅模式中，组件是松散耦合的，正好和观察者模式相反。</li>

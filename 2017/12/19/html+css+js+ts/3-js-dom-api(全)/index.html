@@ -292,7 +292,12 @@ Text有下面的特性：<figure class="highlight plaintext"><table><tr><td clas
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;hello world!!!&lt;/p&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/d7.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://7xq6al.com1.z0.glb.clouddn.com/d7.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>每一个节点都有<code>nodeType</code>属性</li>
 </ul>
@@ -563,7 +568,12 @@ description.firstChild.nodeValue &#x3D; text;<figure class="highlight plaintext"
 </li>
 </ul>
 <h3 id="六、节点关系型API"><a href="#六、节点关系型API" class="headerlink" title="六、节点关系型API"></a>六、节点关系型API</h3><hr>
-<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/d8.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://7xq6al.com1.z0.glb.clouddn.com/d8.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>在<code>html</code>文档中的每个节点之间的关系都可以看成是家谱关系，包含父子关系，兄弟关系等等</li>
 </ul>
@@ -581,7 +591,12 @@ description.firstChild.nodeValue &#x3D; text;<figure class="highlight plaintext"
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var oUl = document.getElementById(&#x27;ul1&#x27;);</span><br><span class="line"></span><br><span class="line">    var firstEle = oUl.firstElementChild;</span><br><span class="line">    var lastEle = oUl.lastElementChild;</span><br><span class="line"></span><br><span class="line">    firstEle.nextElementSibling.style.background = &#x27;red&#x27;;</span><br><span class="line">    lastEle.previousElementSibling.style.background = &#x27;green&#x27;;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://7xq6al.com1.z0.glb.clouddn.com/d9.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://7xq6al.com1.z0.glb.clouddn.com/d9.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><code>nextSibling</code>：节点的后一个节点，如果该节点是最后一个节点，则为<code>null</code>。注意有可能拿到的节点是文本节点，与预期的不符，要进行处理一下</li>
 <li><code>nextElementSibling</code>：返回后一个元素节点，后一个节点必须是<code>Element</code>，注意<code>IE9</code>以下浏览器不支持</li>

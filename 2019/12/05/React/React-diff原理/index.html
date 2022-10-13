@@ -224,7 +224,12 @@
             <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>跟<code>Vue</code>一致，<code>React</code>通过引入<code>Virtual DOM</code>的概念，极大地避免无效的<code>Dom</code>操作，使我们的页面的构建效率提到了极大的提升</p>
 <p>而<code>diff</code>算法就是更高效地通过对比新旧<code>Virtual DOM</code>来找出真正的<code>Dom</code>变化之处</p>
 <p>传统diff算法通过循环递归对节点进行依次对比，效率低下，算法复杂度达到 O(n^3)，<code>react</code>将算法进行一个优化，复杂度姜维<code>O(n)</code>，两者效率差距如下图：</p>
-<p><img src="https://static.vue-js.com/a43c9960-ec91-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/a43c9960-ec91-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <h2 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h2><p><code>react</code>中<code>diff</code>算法主要遵循三个层级的策略：</p>
 <ul>
 <li>tree层级</li>
@@ -232,21 +237,46 @@
 <li>element 层级</li>
 </ul>
 <h3 id="tree层级"><a href="#tree层级" class="headerlink" title="tree层级"></a>tree层级</h3><p><code>DOM</code>节点跨层级的操作不做优化，只会对相同层级的节点进行比较</p>
-<p><img src="https://static.vue-js.com/ae71d1c0-ec91-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/ae71d1c0-ec91-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>只有删除、创建操作，没有移动操作，如下图：</p>
-<p><img src="https://static.vue-js.com/b85f2bb0-ec91-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/b85f2bb0-ec91-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p><code>react</code>发现新树中，R节点下没有了A，那么直接删除A，在D节点下创建A以及下属节点</p>
 <p>上述操作中，只有删除和创建操作</p>
 <h3 id="conponent层级"><a href="#conponent层级" class="headerlink" title="conponent层级"></a>conponent层级</h3><p>如果是同一个类的组件，则会继续往下<code>diff</code>运算，如果不是一个类的组件，那么直接删除这个组件下的所有子节点，创建新的</p>
-<p><img src="https://static.vue-js.com/c1fcdf00-ec91-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/c1fcdf00-ec91-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>当<code>component D</code>换成了<code>component G</code> 后，即使两者的结构非常类似，也会将<code>D</code>删除再重新创建<code>G</code></p>
 <h3 id="element层级"><a href="#element层级" class="headerlink" title="element层级"></a>element层级</h3><p>对于比较同一层级的节点们，每个节点在对应的层级用唯一的<code>key</code>作为标识</p>
 <p>提供了 3 种节点操作，分别为 <code>INSERT_MARKUP</code>(插入)、<code>MOVE_EXISTING</code> (移动)和 <code>REMOVE_NODE</code> (删除)</p>
 <p>如下场景：</p>
-<p><img src="https://static.vue-js.com/cae1c9a0-ec91-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/cae1c9a0-ec91-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>通过<code>key</code>可以准确地发现新旧集合中的节点都是相同的节点，因此无需进行节点删除和创建，只需要将旧集合中节点的位置进行移动，更新为新集合中节点的位置</p>
 <p>流程如下表：</p>
-<p><img src="https://static.vue-js.com/d34c5420-ec91-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/d34c5420-ec91-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>index： 新集合的遍历下标。</li>
 <li>oldIndex：当前节点在老集合中的下标</li>

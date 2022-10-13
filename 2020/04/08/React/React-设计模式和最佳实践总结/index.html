@@ -416,7 +416,12 @@
 <blockquote>
 <p>在 React 中，props 是组件之间通讯的主要手段，但是，有一种场景单纯靠 props 来通讯是不恰当的，那就是两个组件之间间隔着多层其他组件，下面是一个简单的组件树示例图图</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2018/9/30/16627df7e8c08232" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2018/9/30/16627df7e8c08232"
+                      alt="img"
+                ></p>
 <p>在上图中，组件 A 需要传递信息给组件 X，如果通过 props 的话，那么从顶部的组件 A 开始，要把 props 传递给组件 B，然后组件 B 传递给组件 D，最后组件 D 再传递给组件 X。</p>
 <p>其实组件 B 和组件 D 完全用不上这些 props，但是又被迫传递这些 props，这明显不合理，要知道组件树的结构会变化的，将来如果组件 B 和组件 D 之间再插入一层新的组件，这个组件也需要传递这个 props，这就麻烦无比。</p>
 <p>可见，对于跨级的信息传递，我们需要一个更好的方法。</p>
@@ -734,7 +739,12 @@
 
 <p>把 counter 赋值给 window.counter，是为了让我们在 Chrome 的开发者界面可以访问。用 autorun 包住了一个函数，这个函数输出 counter.count 的值，这段代码的作用，我们很快就能看到。</p>
 <p>在 Chrome 的开发者界面，我们可以直接访问 window.counter.count，神奇之处是，如果我们直接修改 window.counter.count 的值，可以直接触发 autorun 的函数参数！</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/10/29/166bf8e6c419c97e" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2018/10/29/166bf8e6c419c97e"
+                      alt="img"
+                ></p>
 <p>这个现象说明，mobx 的 observable 拥有某种“神力”，任何对这个对象的修改，都会立刻引发某些函数被调用。和 observable 这个名字一样，被包装的对象变成了“被观察者”，而被调用的函数就是“观察者”，在上面的例子中，autorun 的函数参数就是“观察者”。</p>
 <p>Mobx 这样的功能，等于实现了设计模式中的“观察者模式”（Observer Pattern），通过建立 observer 和 observable 之间的关联，达到数据联动。不过，传统的“观察者模式”要求我们写代码建立两者的关联，也就是写类似下面的代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">observable.register(observer);</span><br></pre></td></tr></table></figure>
@@ -908,7 +918,12 @@
 </blockquote>
 <p>为了达到这一目的，必须把传给 React 组件的数据给保留住，随着 HTML 一起传递给浏览器网页，这个过程，叫做“脱水”（Dehydrate）；在浏览器端，就直接拿这个“脱水”数据来初始化 React 组件，这个过程叫“注水”（Hydrate）。</p>
 <p>前面提到过 React v16 之后用 React.hydrate 替换 React.render，这个 hydrate 就是“注水”。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/2/166d20bf04d0775d" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2018/11/2/166d20bf04d0775d"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>总之，为了实现React的服务器端渲染，必须要处理好这两个问题：</p>
 </blockquote>
@@ -1011,7 +1026,12 @@
 <blockquote>
 <p>下图是 React v16.3 之前的完整的生命周期函数图：</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/14/1670f0f2d4d06575" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2018/11/14/1670f0f2d4d06575"
+                      alt="img"
+                ></p>
 <p>React 官方告诫开发者，虽然目前所有的代码都可以照常使用，但是未来版本中会废弃掉，为了将来，使用 React 的程序应该快点去掉这些在第一阶段生命函数中有副作用的功能。不得不说 React 真的很够意思，提前这么久告诉大家这个事情，让大家有足够的时间去修改自己的代码。</p>
 <p>一个典型的错误用例，也是我被问到做多的问题之一：为什么不在 componentWillMount 里去做AJAX？componentWillMount 可是比 componentDidMount 更早调用啊，更早调用意味着更早返回结果，那样性能不是更高吗？</p>
 <p>首先，一个组件的 componentWillMount 比 componentDidMount 也早调用不了几微秒，性能没啥提高；而且，等到异步渲染开启的时候，componentWillMount 就可能被中途打断，中断之后渲染又要重做一遍，想一想，在 componentWillMount 中做 AJAX 调用，代码里看到只有调用一次，但是实际上可能调用 N 多次，这明显不合适。相反，若把 AJAX 放在 componentDidMount，因为 componentDidMount 在第二阶段，所以绝对不会多次重复调用，这才是 AJAX 合适的位置（当然，React 未来有更好的办法，在下一小节 Suspense 中可以讲到）。</p>
@@ -1022,7 +1042,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static getDerivedStateFromProps(nextProps, prevState) &#123;</span><br><span class="line">  //根据nextProps和prevState计算出预期的状态改变，返回结果会被送给setState</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>到了 React v16.3，React 生命周期函数全图如下:</p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/14/1670f0fc08e10440" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://user-gold-cdn.xitu.io/2018/11/14/1670f0fc08e10440"
+                      alt="img"
+                ></p>
 <p>注意，上图中并包含全部React生命周期函数，在React v16发布时，还增加了一个componentDidCatch，当异常发生时，一个可以捕捉到异常的componentDidCatch就排上用场了。不过，很快React觉着这还不够，在v16.6.0又推出了一个新的捕捉异常的生命周期函数getDerivedStateFromError。</p>
 <p>如果异常发生在第一阶段（render阶段），React就会调用getDerivedStateFromError，如果异常发生在第二阶段（commit阶段），React会调用componentDidCatch。这个区别也体现出两个阶段的区分对待。</p>
 <p><strong>适应异步渲染的组件原则</strong></p>

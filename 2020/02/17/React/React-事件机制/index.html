@@ -254,7 +254,12 @@
 <li>最后真正执行 document 上挂载的事件</li>
 </ul>
 <p>对应过程如图所示：</p>
-<p><img src="https://static.vue-js.com/08e22ff0-d870-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/08e22ff0-d870-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>所以想要阻止不同时间段的冒泡行为，对应使用不同的方法，对应如下：</p>
 <ul>
 <li>阻止合成事件间的冒泡，用e.stopPropagation()</li>

@@ -225,7 +225,12 @@
 <li>View：视图层：负责将数据模型转化为UI展示出来，可以简单的理解为HTML页面</li>
 <li>ViewModel：视图模型层，用来连接Model和View，是Model和View之间的通信桥梁</li>
 </ul>
-<p>这时候需要一张直观的关系图，如下 <img src="https://static.vue-js.com/4402c560-3ac6-11eb-85f6-6fac77c0c9b3.png" alt="image.png"></p>
+<p>这时候需要一张直观的关系图，如下 <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/4402c560-3ac6-11eb-85f6-6fac77c0c9b3.png"
+                      alt="image.png"
+                ></p>
 <h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>1.什么是组件化一句话来说就是把图形、非图形的各种逻辑均抽象为一个统一的概念（组件）来实现开发的模式，在<code>Vue</code>中每一个<code>.vue</code>文件都可以视为一个组件2.组件化的优势</p>
 <ul>
 <li>降低整个系统的耦合度，在保持接口不变的情况下，我们可以替换不同的组件快速完成需求，例如输入框，可以替换为日历、时间、范围等组件作具体的实现</li>
@@ -245,11 +250,26 @@
 </ul>
 <p>没有指令之前我们是怎么做的？是不是先要获取到DOM然后在….干点啥</p>
 <h2 id="四、Vue跟传统开发的区别"><a href="#四、Vue跟传统开发的区别" class="headerlink" title="四、Vue跟传统开发的区别"></a>四、Vue跟传统开发的区别</h2><p>没有落地使用场景的革命不是好革命，就以一个高频的应用场景来示意吧注册账号这个需求大家应该很熟悉了，如下</p>
-<p><img src="https://static.vue-js.com/5ae84840-3ac6-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/5ae84840-3ac6-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>用<code>jquery</code>来实现大概的思路就是选择流程dom对象，点击按钮隐藏当前活动流程dom对象，显示下一流程dom对象如下图(代码就不上了，上了就篇文章就没了..)</p>
-<p><img src="https://static.vue-js.com/65f89e60-3ac6-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/65f89e60-3ac6-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>用<code>vue</code>来实现，我们知道<code>vue</code>基本不操作<code>dom</code>节点， 双向绑定使<code>dom</code>节点跟视图绑定后，通过修改变量的值控制<code>dom</code>节点的各类属性。所以其实现思路为：视图层使用一变量控制dom节点显示与否，点击按钮则改变该变量，如下图</p>
-<p><img src="https://static.vue-js.com/6f916fb0-3ac6-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/6f916fb0-3ac6-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>总结就是：</p>
 <ul>
 <li>Vue所有的界面事件，都是只去操作数据的，Jquery操作DOM</li>

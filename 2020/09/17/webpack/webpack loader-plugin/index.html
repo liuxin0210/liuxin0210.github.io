@@ -231,7 +231,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">|- a-loader `pitch` 方法</span><br><span class="line">  |- b-loader `pitch` 方法</span><br><span class="line">    |- c-loader `pitch` 方法</span><br><span class="line">      |- 以模块依赖的形式即 import/require() 获取资源内容</span><br><span class="line">    |- c-loader normal 执行</span><br><span class="line">  |- b-loader normal 执行</span><br><span class="line">|- a-loader normal 执行</span><br></pre></td></tr></table></figure>
 <p>|- a-loader normal 执行<br>如果 b-loader 的 pitch 方法有返回值，直接跳过 c-loader 进入 loader 执行阶段，并且 b-loader 也不会执行。整个过程就会变成这样：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|- a-loader `pitch` 方法</span><br><span class="line">  |- b-loader `pitch` 方法 (有返回结果，则跳过后面未 require 的 loader，直接进入 loader 执行阶段)</span><br><span class="line">|- a-loader normal 执行 (传入参数是 b-loader pitch 的返回值)</span><br></pre></td></tr></table></figure>
-<p>图解loader：<br><img src="http://hghqz.vip/webpack/loader.jpg" alt="loader图解" title="loader图解"><br>loader 可以利用 pitch 阶段来做什么？<br>Pitch 方法是什么：每个 loader 可以挂载一个 pitch 函数，该函数主要用于利用 module 的 request 来提前做一些拦截处理的工作（后面会举例说明），并不实际处理模块内容。<br>事实上很多 loader 并未定义 pitch，一般定义了 pitch 就是某些情况要返回东西。<br>详情请看 Pitching Loader。</p>
+<p>图解loader：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/loader.jpg"
+                      alt="loader图解" title="loader图解"
+                ><br>loader 可以利用 pitch 阶段来做什么？<br>Pitch 方法是什么：每个 loader 可以挂载一个 pitch 函数，该函数主要用于利用 module 的 request 来提前做一些拦截处理的工作（后面会举例说明），并不实际处理模块内容。<br>事实上很多 loader 并未定义 pitch，一般定义了 pitch 就是某些情况要返回东西。<br>详情请看 Pitching Loader。</p>
 <p>当一组 loader 被链式调用，像上面的例子，正常情况只有最后一个c-loader能获得资源文件(起始 loader 只有一个入参：资源文件的内容)，b-loader拿到的是c-loader处理结果，中间如果再多几个 loader 也是如此，只能拿到上一个传来的值，处理好再传递给下一个。直到第一个a-loader返回最终结果。<br>尽管 loaders 常被串联使用，但它们的功能仍旧是单一并独立的，且只关心自己的输入和输出。就像工厂流水线，一个区域的工人&#x2F;机器只干一种类型的活。所以合理搭配并配置正确的顺序才能得到我们想要的结果。</p>
 <p>它只想要 request 后面的 元数据(调用 loader时传入的第三个参数 metadata)。<br>但有时候我们需要把两个用来做最后处理的 loader 串起来，比如 style-loader 和 css-loader。<br>但 style-loader 并不需要 css-loader 的结果，它只需要 request 后的元数据。</p>
 <h1 id="二、plugin"><a href="#二、plugin" class="headerlink" title="二、plugin"></a>二、plugin</h1><p>plugin是什么？<br>plugin是插件的意思，通常是用于对某个现有的架构进行扩展<br>webpack中的plugin，就是对webpack现有功能的各种扩展，比如打包优化、文件压缩等等</p>
@@ -239,11 +244,21 @@
 <p>plugin的使用过程<br>步骤一：通过npm安装需要使用的plugins（某些webpack已经内置的插件不需要安装）<br>步骤二：在webpack.config.js中的plugins配置插件</p>
 <h2 id="1-是什么"><a href="#1-是什么" class="headerlink" title="1.是什么"></a>1.是什么</h2><p>Plugin（Plug-in）是一种计算机应用程序，它和主应用程序互相交互，以提供特定的功能</p>
 <p>是一种遵循一定规范的应用程序接口编写出来的程序，只能运行在程序规定的系统下，因为其需要调用原纯净系统提供的函数库或者数据</p>
-<p>webpack中的plugin也是如此，plugin赋予其各种灵活的功能，例如打包优化、资源管理、环境变量注入等，它们会运行在 webpack 的不同阶段（钩子 &#x2F; 生命周期），贯穿了webpack整个编译周期<br><img src="http://hghqz.vip/webpack/webpack%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg" alt="webpack声明周期" title="webpack声明周期"></p>
+<p>webpack中的plugin也是如此，plugin赋予其各种灵活的功能，例如打包优化、资源管理、环境变量注入等，它们会运行在 webpack 的不同阶段（钩子 &#x2F; 生命周期），贯穿了webpack整个编译周期<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/webpack%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg"
+                      alt="webpack声明周期" title="webpack声明周期"
+                ></p>
 <p>关于整个编译生命周期钩子，有如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">entry-option ：初始化 option</span><br><span class="line">run</span><br><span class="line">compile：真正开始的编译，在创建 compilation 对象之前</span><br><span class="line">compilation ：生成好了 compilation 对象</span><br><span class="line">make 从 entry 开始递归分析依赖，准备对每个模块进行 build</span><br><span class="line">after-compile：编译 build 过程结束</span><br><span class="line">emit ：在将内存中 assets 内容写到磁盘文件夹之前</span><br><span class="line">after-emit ：在将内存中 assets 内容写到磁盘文件夹之后</span><br><span class="line">done：完成所有的编译过程</span><br><span class="line">failed：编译失败的时候</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-常见的Plugin"><a href="#2-常见的Plugin" class="headerlink" title="2. 常见的Plugin"></a>2. 常见的Plugin</h2><p><img src="http://hghqz.vip/webpack/%E5%B8%B8%E8%A7%81plugin.jpg" alt="常见plugin" title="常见plugin"></p>
+<h2 id="2-常见的Plugin"><a href="#2-常见的Plugin" class="headerlink" title="2. 常见的Plugin"></a>2. 常见的Plugin</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/%E5%B8%B8%E8%A7%81plugin.jpg"
+                      alt="常见plugin" title="常见plugin"
+                ></p>
 <h2 id="3-是否写过Loader和Plugin？描述一下编写loader或plugin的思路？"><a href="#3-是否写过Loader和Plugin？描述一下编写loader或plugin的思路？" class="headerlink" title="3. 是否写过Loader和Plugin？描述一下编写loader或plugin的思路？"></a>3. 是否写过Loader和Plugin？描述一下编写loader或plugin的思路？</h2><p>Loader像一个”翻译官”把读到的源文件内容转义成新的文件内容，并且每个Loader通过链式操作，将源文件一步步翻译成想要的样子。<br>编写Loader时要遵循单一原则，每个Loader只做一种”转义”工作。 每个Loader的拿到的是源文件内容（source），可以通过返回值的方式将处理后的内容输出，也可以调用this.callback()方法，将内容返回给webpack。 还可以通过 this.async()生成一个callback函数，再用这个callback将处理后的内容输出出去。 此外webpack还为开发者准备了开发loader的工具函数集——loader-utils。<br>相对于Loader而言，Plugin的编写就灵活了许多。 webpack在运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。</p>
 <h2 id="4-Loader和Plugin的不同？"><a href="#4-Loader和Plugin的不同？" class="headerlink" title="4. Loader和Plugin的不同？"></a>4. Loader和Plugin的不同？</h2><p>不同的作用<br>● Loader直译为”加载器”。Webpack将一切文件视为模块，但是webpack原生是只能解析js文件，如果想将其他文件也打包的话，就会用到loader。 所以Loader的作用是让webpack拥有了加载和解析非JavaScript文件的能力。<br>● Plugin直译为”插件”。Plugin可以扩展webpack的功能，让webpack具有更多的灵活性。 在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。<br>不同的用法</p>
 <ol>

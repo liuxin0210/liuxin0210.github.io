@@ -218,7 +218,12 @@
 
         <div class="article-content markdown-body">
             <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>Real DOM，真实 <code>DOM</code>，意思为文档对象模型，是一个结构化文本的抽象，在页面渲染出的每一个结点都是一个真实 <code>DOM</code> 结构，如下：</p>
-<p><img src="https://static.vue-js.com/fc7ba8d0-d302-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/fc7ba8d0-d302-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p><code>Virtual Dom</code>，本质上是以 <code>JavaScript</code> 对象形式存在的对 <code>DOM</code> 的描述</p>
 <p>创建虚拟 <code>DOM</code> 目的就是为了更好将虚拟的节点渲染到页面视图中，虚拟 <code>DOM</code> 对象的节点与真实 <code>DOM</code>的属性一一照应</p>
 <p>在 <code>React</code> 中，<code>JSX</code> 是其一大特性，可以让你在 <code>JS</code> 中通过使用 <code>XML</code> 的方式去直接声明界面的 <code>DOM</code>结构</p>
@@ -235,7 +240,12 @@
 <li>第三个参数是节点中的文本</li>
 </ul>
 <p>通过 <code>console.log(VDOM)</code>，则能够得到虚拟 <code>VDOM</code> 消息</p>
-<p><img src="https://static.vue-js.com/1716b9a0-d303-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/1716b9a0-d303-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>所以可以得到，<code>JSX</code> 通过 <code>babel</code> 的方式转化成 <code>React.createElement</code> 执行，返回值是一个对象，也就是虚拟 <code>DOM</code></p>
 <h2 id="二、区别"><a href="#二、区别" class="headerlink" title="二、区别"></a>二、区别</h2><p>两者的区别如下：</p>
 <ul>

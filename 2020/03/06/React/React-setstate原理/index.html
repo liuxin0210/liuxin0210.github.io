@@ -235,11 +235,21 @@
 <li><p>除此之外，如果越过 React 的性能优化机制，在原生事件、setTimeout中使用setState，就会表现出同步的形式。</p>
 </li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/431.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/431.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>因为<code>setState</code>是可以接受两个参数的，一个<code>state</code>，一个回调函数。因此我们可以在回调函数里面获取值</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/432.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/432.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><p><code>setState</code>方法通过一个队列机制实现<code>state</code>更新，当执行<code>setState</code>的时候，会将需要更新的<code>state</code>合并之后放入状态队列，而不会立即更新<code>this.state</code></p>
 </li>
@@ -256,12 +266,22 @@
 <h3 id="1-1-setState批量更新的过程"><a href="#1-1-setState批量更新的过程" class="headerlink" title="1.1 setState批量更新的过程"></a>1.1 setState批量更新的过程</h3><blockquote>
 <p>在<code>react</code>生命周期和合成事件执行前后都有相应的钩子，分别是<code>pre</code>钩子和<code>post</code>钩子，<code>pre</code>钩子会调用<code>batchedUpdate</code>方法将<code>isBatchingUpdates</code>变量置为<code>true</code>，开启批量更新，而<code>post</code>钩子会将<code>isBatchingUpdates</code>置为<code>false</code></p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/433.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/433.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><code>isBatchingUpdates</code>变量置为<code>true</code>，则会走批量更新分支，<code>setState</code>的更新会被存入队列中，待同步代码执行完后，再执行队列中的<code>state</code>更新。 <code>isBatchingUpdates</code>为 <code>true</code>，则把当前组件（即调用了 <code>setState</code>的组件）放入 <code>dirtyComponents</code> 数组中；否则 <code>batchUpdate</code> 所有队列中的更新</li>
 <li>而在原生事件和异步操作中，不会执行<code>pre</code>钩子，或者生命周期的中的异步操作之前执行了<code>pre</code>钩子，但是<code>pos</code>钩子也在异步操作之前执行完了，<code>isBatchingUpdates</code>必定为<code>false</code>，也就不会进行批量更新</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/434.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/434.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p><code>enqueueUpdate</code>包含了<code>React</code>避免重复<code>render</code>的逻辑。<code>mountComponent</code>和<code>updateComponent</code>方法在执行的最开始，会调用到<code>batchedUpdates</code>进行批处理更新，此时会将<code>isBatchingUpdates</code>设置为<code>true</code>，也就是将状态标记为现在正处于更新阶段了。 <code>isBatchingUpdates</code>为 <code>true</code>，则把当前组件（即调用了 <code>setState</code> 的组件）放入<code>dirtyComponents</code>数组中；否则 <code>batchUpdate</code> 所有队列中的更新</p>
 </blockquote>

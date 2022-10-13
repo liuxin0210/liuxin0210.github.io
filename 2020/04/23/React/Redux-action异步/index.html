@@ -275,7 +275,12 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function promiseAction(name)&#123;</span><br><span class="line">    return new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">        setTimeout((param)=&gt;&#123;</span><br><span class="line">            resolve(&#123;</span><br><span class="line">                type:&#x27;ADD_TODO&#x27;,</span><br><span class="line">                name</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,3000)</span><br><span class="line">    &#125;).then((param)=&gt;&#123;</span><br><span class="line">        dispatch(action(&quot;action2&quot;))</span><br><span class="line">        return;</span><br><span class="line">    &#125;).then((param)=&gt;&#123;</span><br><span class="line">        dispatch(action(&quot;action3&quot;))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、redux异步流程"><a href="#三、redux异步流程" class="headerlink" title="三、redux异步流程"></a>三、redux异步流程</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/492.png" alt="img"></p>
+<h2 id="三、redux异步流程"><a href="#三、redux异步流程" class="headerlink" title="三、redux异步流程"></a>三、redux异步流程</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/492.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>首先发起一个action，然后通过中间件，这里为什么要用中间件呢，因为这样<code>dispatch</code>的返回值才能是一个函数。</li>
 <li>通过<code>store.dispatch</code>，将状态的的改变传给<code>store</code>的小弟<code>reducer</code>，<code>reducer</code>根据<code>action</code>的改变，传递新的状态<code>state</code>。</li>
@@ -397,7 +402,12 @@
 <blockquote>
 <p>这样就完成了<code>redux</code>的异步操作。其实最主要的区别还是<code>action</code>里面还有中间件的调用，其他的地方基本跟同步的<code>redux</code>差不多的。搞懂了中间件，就基本搞懂了<code>redux</code>的异步操作</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/493.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/493.png"
+                      alt="img"
+                ></p>
 
         </div>
 

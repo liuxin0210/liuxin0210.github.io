@@ -217,7 +217,12 @@
         
 
         <div class="article-content markdown-body">
-            <p><img src="https://vuex.vuejs.org/vuex.png" alt="img"></p>
+            <p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://vuex.vuejs.org/vuex.png"
+                      alt="img"
+                ></p>
 <h2 id="一、初始vuex"><a href="#一、初始vuex" class="headerlink" title="一、初始vuex"></a>一、初始vuex</h2><h3 id="1-1-vuex是什么"><a href="#1-1-vuex是什么" class="headerlink" title="1.1 vuex是什么"></a>1.1 vuex是什么</h3><blockquote>
 <ul>
 <li>&#96;&#96;&#96;<br>vuex<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">  就是把需要共享的变量全部存储在一个对象里面，然后将这个对象放在顶层组件中供其他组件使用</span><br><span class="line"></span><br><span class="line">  - 父子组件通信时，我们通常会采用 `props + emit` 这种方式。但当通信双方不是父子组件甚至压根不存在相关联系，或者一个状态需要共享给多个组件时，就会非常麻烦，数据也会相当难维护</span><br><span class="line"></span><br><span class="line">### 1.2 vuex中有什么</span><br><span class="line"></span><br></pre></td></tr></table></figure>

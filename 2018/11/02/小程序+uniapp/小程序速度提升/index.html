@@ -218,7 +218,12 @@
 
         <div class="article-content markdown-body">
             <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>小程序启动会常常遇到如下图场景：</p>
-<p><img src="https://static.vue-js.com/03941230-3279-11ec-8e64-91fdec0f05a1.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/03941230-3279-11ec-8e64-91fdec0f05a1.png"
+                      alt="img"
+                ></p>
 <p>这是因为，小程序首次启动前，微信会在小程序启动前为小程序准备好通用的运行环境，如运行中的县城和一些基础库的初始化</p>
 <p>然后才开始进入启动状态，展示一个固定的启动界面，界面内包含小程序的图标、名称和加载提示图标。此时，微信会在背后完成几项工作：</p>
 <ul>
@@ -228,7 +233,12 @@
 </ul>
 <p>下载到的小程序代码包不是小程序的源代码，而是编译、压缩、打包之后的代码包</p>
 <p>整体流程如下图：</p>
-<p><img src="https://static.vue-js.com/11c0ea90-3279-11ec-a752-75723a64e8f5.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/11c0ea90-3279-11ec-a752-75723a64e8f5.png"
+                      alt="img"
+                ></p>
 <h2 id="二、手段"><a href="#二、手段" class="headerlink" title="二、手段"></a>二、手段</h2><p>围绕上图小程序的启动流程， 我们可以从加载、渲染两个纬度进行切入：</p>
 <h3 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h3><p>提升体验最直接的方法是控制小程序包的大小，常见手段有如下：</p>
 <ul>
@@ -238,7 +248,12 @@
 </ul>
 <p>并且可以采取分包加载的操作，将用户访问率高的页面放在主包里，将访问率低的页面放入子包里，按需加载</p>
 <p>当用户点击到子包的目录时，还是有一个代码包下载的过程，这会感觉到明显的卡顿，所以子包也不建议拆的太大，当然我们可以采用子包预加载技术，并不需要等到用户点击到子包页面后在下载子包</p>
-<p><img src="https://static.vue-js.com/2034de10-3279-11ec-8e64-91fdec0f05a1.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/2034de10-3279-11ec-8e64-91fdec0f05a1.png"
+                      alt="img"
+                ></p>
 <h3 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h3><p>关于微信小程序首屏渲染优化的手段如下：</p>
 <ul>
 <li>请求可以在页面onLoad就加载，不需要等页面ready后在异步请求数据</li>

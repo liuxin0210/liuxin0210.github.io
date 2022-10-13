@@ -222,7 +222,12 @@
 </blockquote>
 <p><strong>客户端渲染流程</strong></p>
 <p>浏览器发送请求–&gt;服务器返回<code>HTML</code>–&gt;浏览器发送<code>bundle.js</code>请求–&gt;服务器返回<code>bundle.js</code>–&gt;浏览器执行<code>bundle.js</code>中的<code>react</code>代码完成渲染</p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/446.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/446.png"
+                      alt="img"
+                ></p>
 <h3 id="1-2-什么是服务端渲染"><a href="#1-2-什么是服务端渲染" class="headerlink" title="1.2 什么是服务端渲染"></a>1.2 什么是服务端渲染</h3><blockquote>
 <p><code>react</code>在服务端执行，消耗服务端性能。我们所说的服务端渲染，只是首次加载页面的时候，后面都是通过前端路由进行客户端渲染</p>
 </blockquote>
@@ -255,7 +260,12 @@
 <blockquote>
 <p>但是，<code>SSR</code> 这种理念的实现，并非易事。我们来看一下在 <code>React</code> 中实现 <code>SSR</code> 技术的架构图：</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/447.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/447.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>使用 <code>SSR</code> 这种技术，将使原本简单的 <code>React</code> 项目变得非常复杂，项目的可维护性会降低，代码问题的追溯也会变得困难</li>
 <li>所以，使用 <code>SSR</code> 在解决问题的同时，也会带来非常多的副作用，有的时候，这些副作用的伤害比起 <code>SSR</code> 技术带来的优势要大的多。从个人经验上来说，我一般建议大家，除非你的项目特别依赖搜索引擎流量，或者对首屏时间有特殊的要求，否则不建议使用 <code>SSR</code></li>
@@ -356,7 +366,12 @@
 <h2 id="七、Node-只是一个中间层"><a href="#七、Node-只是一个中间层" class="headerlink" title="七、Node 只是一个中间层"></a>七、Node 只是一个中间层</h2><blockquote>
 <p>在 <code>SSR</code> 架构中，一般 Node 只是一个中间层，用来做 <code>React</code> 代码的服务器端渲染，而 <code>Node</code> 需要的数据通常由 API 服务器单独提供</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/448.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/448.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>服务器端渲染时，直接请求 <code>API</code> 服务器的接口获取数据没有任何问题。但是在客户端，就有可能存在跨域的问题了，所以，这个时候，我们需要在服务器端搭建 <code>Proxy</code> 代理功能，客户端不直接请求 <code>API</code> 服务器，而是请求 <code>Node</code> 服务器，经过代理转发，拿到 <code>API</code> 服务器的数据</p>
 </blockquote>

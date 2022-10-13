@@ -222,9 +222,29 @@
 <li><code>DOM</code> 变化的对比，放在 <code>JS</code> 层来做</li>
 <li>提高重绘性能</li>
 </ul>
-<h2 id="二、设计一个需求场景"><a href="#二、设计一个需求场景" class="headerlink" title="二、设计一个需求场景"></a>二、设计一个需求场景</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/587.png" alt="img"></p>
+<h2 id="二、设计一个需求场景"><a href="#二、设计一个需求场景" class="headerlink" title="二、设计一个需求场景"></a>二、设计一个需求场景</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/587.png"
+                      alt="img"
+                ></p>
 <p><strong>用jQuery实现</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/588.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/589.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/590.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/588.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/589.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/590.png"
+                      alt="img"
+                ></p>
 <p><strong>遇到的问题</strong></p>
 <ul>
 <li>DOM 操作是“昂贵”的，js 运行效率高</li>
@@ -232,15 +252,45 @@
 <li>项目越复杂，影响就越严重</li>
 <li>vdom 即可解决这个问题</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/591.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/591.png"
+                      alt="img"
+                ></p>
 <h2 id="三、vdom-的如何应用，核心-API-是什么"><a href="#三、vdom-的如何应用，核心-API-是什么" class="headerlink" title="三、vdom 的如何应用，核心 API 是什么"></a>三、vdom 的如何应用，核心 API 是什么</h2><p><strong>什么是 vdom</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/592.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/592.png"
+                      alt="img"
+                ></p>
 <p><strong>介绍 snabbdom</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/593.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/594.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/593.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/594.png"
+                      alt="img"
+                ></p>
 <p><strong>介绍 snabbdom - h 函数</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/595.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/595.png"
+                      alt="img"
+                ></p>
 <p><strong>介绍 snabbdom - patch 函数</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/596.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/596.png"
+                      alt="img"
+                ></p>
 <p><strong>重做jQuery的demo</strong></p>
 <ul>
 <li>使用 <code>data</code>生成 <code>vnode</code></li>
@@ -249,7 +299,12 @@
 <li>修改 <code>data</code> 之后，用新 <code>data</code> 生成 <code>newVnode</code></li>
 <li>将 <code>vnode</code> 和 <code>newVnode</code> 对比</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/597.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/597.png"
+                      alt="img"
+                ></p>
 <p><strong>核心 API</strong></p>
 <ul>
 <li><code>h(‘&lt;标签名&gt;’, &#123;…属性…&#125;, […子元素…])</code></li>
@@ -262,11 +317,46 @@
 <li>找出本次 DOM 必须更新的节点来更新，其他的不更新</li>
 <li>这个“找出”的过程，就需要 diff 算法</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/598.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/598.png"
+                      alt="img"
+                ></p>
 <p><strong>patch(container, vnode)</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/599.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/600.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/599.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/600.png"
+                      alt="img"
+                ></p>
 <p><strong>演示过程</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/601.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/602.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/603.png" alt="img"><br><img src="https://poetries1.gitee.io/img-repo/2019/10/604.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/601.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/602.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/603.png"
+                      alt="img"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/604.png"
+                      alt="img"
+                ></p>
 <h3 id="4-2-diff-实现过程"><a href="#4-2-diff-实现过程" class="headerlink" title="4.2 diff 实现过程"></a>4.2 diff 实现过程</h3><ul>
 <li><code>patch(container, vnode)</code> 和 <code>patch(vnode, newVnode)</code></li>
 <li><code>createElment</code></li>

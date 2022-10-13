@@ -220,7 +220,12 @@
             <blockquote>
 <p>每个Vue实例在被创建之前都要经过一系列的初始化过程,这个过程就是vue的生命周期</p>
 </blockquote>
-<p><img src="https://cn.vuejs.org/images/lifecycle.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://cn.vuejs.org/images/lifecycle.png"
+                      alt="img"
+                ></p>
 <h2 id="一、生命周期钩子函数"><a href="#一、生命周期钩子函数" class="headerlink" title="一、生命周期钩子函数"></a>一、生命周期钩子函数</h2><ul>
 <li><code>beforeCreate</code></li>
 <li><code>created</code></li>
@@ -233,7 +238,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">    el: &#x27;#app&#x27;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      message: &#x27;Vue的生命周期&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeCreate: function() &#123;</span><br><span class="line">      console.group(&#x27;------beforeCreate创建前状态------&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot; , &quot;el     : &quot; + this.$el); //undefined</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //undefined </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message) </span><br><span class="line">    &#125;,</span><br><span class="line">    created: function() &#123;</span><br><span class="line">      console.group(&#x27;------created创建完毕状态------&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //undefined</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化 </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化</span><br><span class="line">    &#125;,</span><br><span class="line">    beforeMount: function() &#123;</span><br><span class="line">      console.group(&#x27;------beforeMount挂载前状态------&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + (this.$el)); //已被初始化</span><br><span class="line">      console.log(this.$el);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化  </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化  </span><br><span class="line">    &#125;,</span><br><span class="line">    mounted: function() &#123;</span><br><span class="line">      console.group(&#x27;------mounted 挂载结束状态------&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el); //已被初始化</span><br><span class="line">      console.log(this.$el);    </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); //已被初始化</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); //已被初始化 </span><br><span class="line">    &#125;,</span><br><span class="line">    beforeUpdate: function () &#123;</span><br><span class="line">      console.group(&#x27;beforeUpdate 更新前状态===============》&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el);   </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">    &#125;,</span><br><span class="line">    updated: function () &#123;</span><br><span class="line">      console.group(&#x27;updated 更新完成状态===============》&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">    &#125;,</span><br><span class="line">    beforeDestroy: function () &#123;</span><br><span class="line">      console.group(&#x27;beforeDestroy 销毁前状态===============》&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el);    </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message); </span><br><span class="line">    &#125;,</span><br><span class="line">    destroyed: function () &#123;</span><br><span class="line">      console.group(&#x27;destroyed 销毁完成状态===============》&#x27;);</span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;el     : &quot; + this.$el);</span><br><span class="line">      console.log(this.$el);  </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;data   : &quot; + this.$data); </span><br><span class="line">      console.log(&quot;%c%s&quot;, &quot;color:red&quot;,&quot;message: &quot; + this.message)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/627.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/627.png"
+                      alt="img"
+                ></p>
 <h2 id="二、生命周期详解"><a href="#二、生命周期详解" class="headerlink" title="二、生命周期详解"></a>二、生命周期详解</h2><blockquote>
 <p><code>vue</code>实例在创建过程中调用的几个生命周期钩子</p>
 </blockquote>
@@ -246,12 +256,22 @@
 <h3 id="2-2-created、beforeMount"><a href="#2-2-created、beforeMount" class="headerlink" title="2.2 created、beforeMount"></a>2.2 created、beforeMount</h3><blockquote>
 <p>created钩子函数和beforeMount间的生命周期</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/628.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/628.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>首先会判断对象是否有el选项。如果有的话就继续向下编译，如果没有<code>el</code>选项，则停止编译，也就意味着停止了生命周期，直到在该vue实例上调用<code>vm.$mount(el)</code>。</li>
 <li>此时注释掉代码中 <code>el: &#39;#app&#39;,</code> 然后运行可以看到到<code>created</code>的时候就停止了</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/629.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/629.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>如果我们在后面继续调用<code>vm.$mount(el)</code>,可以发现代码继续向下执行了</p>
 </blockquote>
@@ -289,29 +309,54 @@
 <h3 id="2-3-beforeMount、mounted"><a href="#2-3-beforeMount、mounted" class="headerlink" title="2.3 beforeMount、mounted"></a>2.3 beforeMount、mounted</h3><blockquote>
 <p>beforeMount和mounted钩子函数间的生命周期</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/630.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/630.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>可以看到此时是给<code>vue</code>实例对象添加<code>$el</code>成员，并且替换掉挂在的<code>DOM</code>元素。因为在之前<code>console</code>中打印的结果可以看到<code>beforeMount</code>之前<code>el</code>上还是<code>undefined</code></p>
 </blockquote>
-<h3 id="2-4-mounted"><a href="#2-4-mounted" class="headerlink" title="2.4 mounted"></a>2.4 mounted</h3><p><img src="https://poetries1.gitee.io/img-repo/2019/10/631.png" alt="img"></p>
+<h3 id="2-4-mounted"><a href="#2-4-mounted" class="headerlink" title="2.4 mounted"></a>2.4 mounted</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/631.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>在<code>mounted</code>之前h1中还是通过<code>&#123;message&#125;</code>进行占位的，因为此时还有挂在到页面上，还是JavaScript中的虚拟DOM形式存在的。在<code>mounted</code>之后可以看到h1中的内容发生了变化</p>
 </blockquote>
 <h3 id="2-5-beforeUpdate、updated"><a href="#2-5-beforeUpdate、updated" class="headerlink" title="2.5 beforeUpdate、updated"></a>2.5 beforeUpdate、updated</h3><blockquote>
 <p><code>beforeUpdate</code>钩子函数和<code>updated</code>钩子函数间的生命周期</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/632.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/632.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>当vue发现data中的数据发生了改变，会触发对应组件的重新渲染，先后调用<code>beforeUpdate</code>和<code>updated</code>钩子函数。我们在console中输入</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.message = &#x27;触发组件更新&#x27;</span><br></pre></td></tr></table></figure>
 
 <p>发现触发了组件的更新</p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/633.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/633.png"
+                      alt="img"
+                ></p>
 <h3 id="2-6-beforeDestroy、destroyed"><a href="#2-6-beforeDestroy、destroyed" class="headerlink" title="2.6 beforeDestroy、destroyed"></a>2.6 beforeDestroy、destroyed</h3><blockquote>
 <p><code>beforeDestroy</code>和<code>destroyed</code>钩子函数间的生命周期</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/634.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/634.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><code>beforeDestroy</code>钩子函数在实例销毁之前调用。在这一步，实例仍然完全可用。</li>
 <li><code>destroyed</code>钩子函数在<code>Vue</code> 实例销毁后调用。调用后，<code>Vue</code>实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁</li>

@@ -263,7 +263,12 @@
 <h2 id="2-2-service-worker实现离线缓存"><a href="#2-2-service-worker实现离线缓存" class="headerlink" title="2.2 service worker实现离线缓存"></a>2.2 service worker实现离线缓存</h2><h3 id="2-2-1-什么是service-worker"><a href="#2-2-1-什么是service-worker" class="headerlink" title="2.2.1 什么是service worker"></a>2.2.1 什么是service worker</h3><blockquote>
 <p><code>Service Worker</code> 是 Chrome 团队提出和力推的一个 WEB API，用于给 web 应用提供高级的可持续的后台处理能力</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/401.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/401.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p><code>Service Workers</code> 就像介于服务器和网页之间的拦截器，能够拦截进出的HTTP 请求，从而完全控制你的网站</p>
 </blockquote>
@@ -278,7 +283,12 @@
 <blockquote>
 <p>为什么要求网站必须是<code>HTTPS</code>的，大概是因为<code>service worker</code>权限太大能拦截所有页面的请求，如果<code>http</code>的网站安装<code>service worker</code>很容易被攻击</p>
 </blockquote>
-<h3 id="2-2-3-生命周期"><a href="#2-2-3-生命周期" class="headerlink" title="2.2.3 生命周期"></a>2.2.3 生命周期</h3><p><img src="https://poetries1.gitee.io/img-repo/2019/10/402.png" alt="img"></p>
+<h3 id="2-2-3-生命周期"><a href="#2-2-3-生命周期" class="headerlink" title="2.2.3 生命周期"></a>2.2.3 生命周期</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/402.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>当用户首次导航至 URL 时，服务器会返回响应的网页。</p>
 </blockquote>
@@ -315,7 +325,12 @@
 <h3 id="2-2-5-调试相关"><a href="#2-2-5-调试相关" class="headerlink" title="2.2.5 调试相关"></a>2.2.5 调试相关</h3><blockquote>
 <p>chrome浏览器打开<code>https://googlechrome.github.io/samples/service-worker/basic/index.html</code>，这是一个实现了<code>service worker</code>离线缓存功能的网站，打开调试工具</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/403.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/403.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>勾选可以模拟网站离线情况，勾选后<code>network</code>会有一个黄色警告图标，该网站已经离线。此时刷新页面，页面仍然能够正常显示</li>
 <li>当前<code>service worker</code>的<code>scope</code>。它能够拦截<code>https://googlechrome.github.i</code>…，同样也能够拦截<code>https://googlechrome.github.i.</code>..<em>&#x2F;</em>.html下的请求</li>
@@ -323,7 +338,12 @@
 <blockquote>
 <p>调试面板具体代表的什么参看 <code>https://x5.tencent.com/tbs/guide/serviceworker.html</code>的第三部分</p>
 </blockquote>
-<h2 id="2-3-serice-worker实现消息推送"><a href="#2-3-serice-worker实现消息推送" class="headerlink" title="2.3 serice worker实现消息推送"></a>2.3 serice worker实现消息推送</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/404.png" alt="img"></p>
+<h2 id="2-3-serice-worker实现消息推送"><a href="#2-3-serice-worker实现消息推送" class="headerlink" title="2.3 serice worker实现消息推送"></a>2.3 serice worker实现消息推送</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/404.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>步骤一、提示用户并获得他们的订阅详细信息</li>
 <li>步骤二、将这些详细信息保存在服务器上</li>

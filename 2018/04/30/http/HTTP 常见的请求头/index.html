@@ -340,7 +340,12 @@
 <p><code>If-None-Match</code>的header会将上次返回的<code>Etag</code>发送给服务器，询问该资源的<code>Etag</code>是否有更新，有变动就会发送新的资源回来</p>
 <p>而强制缓存不需要发送请求到服务端，根据请求头<code>expires</code>和<code>cache-control</code>判断是否命中强缓存</p>
 <p>强制缓存与协商缓存的流程图如下所示：</p>
-<p><img src="https://static.vue-js.com/a4065b00-bc69-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/a4065b00-bc69-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <h3 id="会话状态"><a href="#会话状态" class="headerlink" title="会话状态"></a>会话状态</h3><p><code>cookie</code>，类型为「小型文本文件」，指某些网站为了辨别用户身份而储存在用户本地终端上的数据，通过响应头<code>set-cookie</code>决定</p>
 <p>作为一段一般不超过 4KB 的小型文本数据，它由一个名称（Name）、一个值（Value）和其它几个用于控制 <code>Cookie</code>有效期、安全性、使用范围的可选属性组成</p>
 <p><code>Cookie</code> 主要用于以下三个方面：</p>

@@ -257,7 +257,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">       width: 300px;</span><br><span class="line">       position: relative;</span><br><span class="line">   &#125;</span><br><span class="line">   .aside &#123;</span><br><span class="line">       width: 100px;</span><br><span class="line">       height: 150px;</span><br><span class="line">       float: left;</span><br><span class="line">       background: #f66;</span><br><span class="line">   &#125;</span><br><span class="line">   .main &#123;</span><br><span class="line">       height: 200px;</span><br><span class="line">       background: #fcc;</span><br><span class="line">   &#125;</span><br><span class="line"> &lt;body&gt;</span><br><span class="line">       &lt;div class=&quot;aside&quot;&gt;&lt;/div&gt;</span><br><span class="line">       &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://p1.qhimg.com/d/inn/4055c62a/4dca44a927d4c1ffc30e3ae5f53a0b79.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://p1.qhimg.com/d/inn/4055c62a/4dca44a927d4c1ffc30e3ae5f53a0b79.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>根据BFC布局规则第3条：<ul>
 <li>每个元素的<code>margin box</code>的左边， 与包含块<code>border box</code>的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
@@ -275,13 +280,23 @@
 <ul>
 <li>当触发<code>main</code>生成<code>BFC</code>后，这个新的<code>BFC</code>不会与浮动的<code>aside</code>重叠。因此会根据包含块的宽度，和<code>aside</code>的宽度，自动变窄。效果如下：</li>
 </ul>
-<p><img src="http://p6.qhimg.com/t01077886a9706cb26b.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://p6.qhimg.com/t01077886a9706cb26b.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><strong>清除内部浮动</strong></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.par &#123;</span><br><span class="line">    border: 5px solid #fcc;</span><br><span class="line">    width: 300px;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">.child &#123;</span><br><span class="line">    border: 5px solid #f66;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">    float: left;</span><br><span class="line">&#125;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;par&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;child&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;child&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://p1.qhimg.com/t016035b58195e7909a.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://p1.qhimg.com/t016035b58195e7909a.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><p>根据</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BFC</span><br></pre></td></tr></table></figure>
@@ -296,13 +311,23 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.par &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://p2.qhimg.com/t016bbbe5236ef1ffd5.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://p2.qhimg.com/t016bbbe5236ef1ffd5.png"
+                      alt="img"
+                ></p>
 <ul>
 <li><strong>防止垂直 margin 重叠</strong></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">p &#123;</span><br><span class="line">    color: #f55;</span><br><span class="line">    background: #fcc;</span><br><span class="line">    width: 200px;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin: 100px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt;Haha&lt;/p&gt;</span><br><span class="line">&lt;p&gt;Hehe&lt;/p&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://p5.qhimg.com/t01b47b8b7d153c07cc.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://p5.qhimg.com/t01b47b8b7d153c07cc.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>两个<code>p</code>之间的距离为<code>100px</code>，发送了<code>margin</code>重叠</li>
 <li>根据BFC布局规则第二条：<ul>
@@ -313,7 +338,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.wrap &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">p &#123;</span><br><span class="line">    color: #f55;</span><br><span class="line">    background: #fcc;</span><br><span class="line">    width: 200px;</span><br><span class="line">    line-height: 100px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    margin: 100px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;p&gt;Haha&lt;/p&gt;</span><br><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">    &lt;p&gt;Hehe&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://p3.qhimg.com/t0118d1d2badbb00521.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://p3.qhimg.com/t0118d1d2badbb00521.png"
+                      alt="img"
+                ></p>
 <hr>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
 <li><p>其实以上的几个例子都体现了</p>

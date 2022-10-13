@@ -238,7 +238,12 @@
 <blockquote>
 <p>经过上面的分析，<code>yield</code>实际就是暂缓执行的标示，每执行一次<code>next()</code>，相当于指针移动到下一个<code>yield</code>位置</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/54.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/54.png"
+                      alt="img"
+                ></p>
 <p><strong>总结一下</strong>，<code>Generator</code>函数是<code>ES6</code>提供的一种异步编程解决方案。通过<code>yield</code>标识位和<code>next()</code>方法调用，实现函数的分段执行</p>
 <h3 id="1-3-yield-表达式"><a href="#1-3-yield-表达式" class="headerlink" title="1.3 yield 表达式"></a>1.3 yield 表达式</h3><blockquote>
 <p><code>yield</code>是<code>Generator</code>函数的暂缓执行的标识，对于<code>yield</code>只能配合<code>Generator</code>函数使用，在普通的函数中使用会报错</p>

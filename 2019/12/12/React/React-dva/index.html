@@ -245,7 +245,12 @@
 <li>支持<code>TypeScript</code></li>
 <li>支持路由和 <code>Model</code> 的动态加载</li>
 </ul>
-<h2 id="2-2-Dva的五个API"><a href="#2-2-Dva的五个API" class="headerlink" title="2.2 Dva的五个API"></a>2.2 Dva的五个API</h2><p><img src="https://poetries1.gitee.io/img-repo/20191001/43.png" alt="img"></p>
+<h2 id="2-2-Dva的五个API"><a href="#2-2-Dva的五个API" class="headerlink" title="2.2 Dva的五个API"></a>2.2 Dva的五个API</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/43.png"
+                      alt="img"
+                ></p>
 <h3 id="2-2-1-app-x3D-dva-Opts"><a href="#2-2-1-app-x3D-dva-Opts" class="headerlink" title="2.2.1 app &#x3D; dva(Opts)"></a>2.2.1 app &#x3D; dva(Opts)</h3><blockquote>
 <p><code>app = dva(Opts)</code>：创建应用，返回 <code>dva</code> 实例。(注：dva 支持多实例)**</p>
 </blockquote>
@@ -315,7 +320,12 @@
 <h3 id="2-2-3-app-model-ModelObject"><a href="#2-2-3-app-model-ModelObject" class="headerlink" title="2.2.3 app.model(ModelObject)"></a>2.2.3 app.model(ModelObject)</h3><blockquote>
 <p><code>app.model(ModelObject)</code>：这个是你数据逻辑处理，数据流动的地方</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/44.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/44.png"
+                      alt="img"
+                ></p>
 <h3 id="2-2-4-app-unmodel-namespace"><a href="#2-2-4-app-unmodel-namespace" class="headerlink" title="2.2.4 app.unmodel(namespace)"></a>2.2.4 app.unmodel(namespace)</h3><blockquote>
 <p>取消 <code>model</code> 注册，清理 <code>reducers</code>,<code>effects</code> 和 <code>subscriptions</code>。<code>subscription</code> 如果没有返回 <code>unlisten</code> 函数，使用 <code>app.unmodel</code> 会给予警告</p>
 </blockquote>
@@ -392,7 +402,12 @@
 <p>其中它用到了<code>redux-saga</code>，里面有几个常用的函数。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">// effects 写法</span><br><span class="line">effects: &#123;</span><br><span class="line">    *addTodo(&#123; payload: value &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      // 模拟网络请求</span><br><span class="line">      const data = yield call(todoService.query, value)</span><br><span class="line">      console.log(data)</span><br><span class="line">      let tempList = yield select(state =&gt; state.todo.list)</span><br><span class="line">      let list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      const tempObj = &#123;&#125;</span><br><span class="line">      tempObj.title = value</span><br><span class="line">      tempObj.id = list.length</span><br><span class="line">      tempObj.finished = false</span><br><span class="line">      list.push(tempObj)</span><br><span class="line">      yield put(&#123; type: &#x27;save&#x27;, payload: &#123; list &#125;&#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    *toggle(&#123; payload: index &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      // 模拟网络请求</span><br><span class="line">      const data = yield call(todoService.query, index)</span><br><span class="line">      let tempList = yield select(state =&gt; state.todo.list)</span><br><span class="line">      let list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      let obj = list[index]</span><br><span class="line">      obj.finished = !obj.finished</span><br><span class="line">      yield put(&#123; type: &#x27;save&#x27;, payload: &#123; list &#125; &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    *delete(&#123; payload: index &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      const data = yield call(todoService.query, index)</span><br><span class="line">      let tempList = yield select(state =&gt; state.todo.list)</span><br><span class="line">      let list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      list.splice(index, 1)</span><br><span class="line">      yield put(&#123; type: &#x27;save&#x27;, payload: &#123; list &#125; &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    *modify(&#123; payload: &#123; value, index &#125; &#125;, &#123; call, put, select &#125;) &#123;</span><br><span class="line">      const data = yield call(todoService.query, value)</span><br><span class="line">      let tempList = yield select(state =&gt; state.todo.list)</span><br><span class="line">      let list = []</span><br><span class="line">      list = list.concat(tempList)</span><br><span class="line">      let obj = list[index]</span><br><span class="line">      obj.title = value</span><br><span class="line">      yield put(&#123; type: &#x27;save&#x27;, payload: &#123; list &#125; &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://upload-images.jianshu.io/upload_images/1505342-9ecb8ba2d8fd3ec2.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://upload-images.jianshu.io/upload_images/1505342-9ecb8ba2d8fd3ec2.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>在项目中最主要的会用到的是 <code>put</code> 与 <code>call</code></p>
 </blockquote>
@@ -419,7 +434,12 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; connect &#125; from &#x27;dva&#x27;;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return &lt;div&gt;App&lt;/div&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function mapStateToProps(state) &#123;</span><br><span class="line">  return &#123; todos: state.todos &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default connect(mapStateToProps)(App);</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-4-整体架构"><a href="#2-4-整体架构" class="headerlink" title="2.4 整体架构"></a>2.4 整体架构</h2><p><img src="https://poetries1.gitee.io/img-repo/20191001/45.png" alt="img"></p>
+<h2 id="2-4-整体架构"><a href="#2-4-整体架构" class="headerlink" title="2.4 整体架构"></a>2.4 整体架构</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/45.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>首先我们根据 <code>url</code> 访问相关的 <code>Route-Component</code>，在组件中我们通过 <code>dispatch</code>发送 <code>action</code> 到 <code>model</code>里面的 <code>effect</code> 或者直接 <code>Reducer</code></li>
 <li>当我们将<code>action</code>发送给<code>Effect</code>，基本上是取服务器上面请求数据的，服务器返回数据之后，<code>effect</code> 会发送相应的 <code>action</code>给 <code>reducer</code>，由唯一能改变 <code>state</code>的 <code>reducer</code> 改变 <code>state</code> ，然后通过<code>connect</code>重新渲染组件。</li>
@@ -429,7 +449,12 @@
 <blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React` 只负责页面渲染, 而不负责页面逻辑, 页面逻辑可以从中单独抽取出来, 变成 `store</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/46.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/46.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>使用 <code>Middleware</code> 拦截 <code>action</code>, 这样一来异步的网络操作也就很方便了, 做成一个 <code>Middleware</code>就行了, 这里使用<code>redux-saga</code> 这个类库</p>
 </blockquote>
@@ -438,7 +463,12 @@
 <li><code>saga</code> 拦截这个 <code>action</code>, 发起 <code>http</code> 请求, 如果请求成功, 则继续向 <code>reducer</code> 发一个 <code>type == addTodoSucc</code> 的 <code>action</code>, 提示创建成功, 反之则发送 <code>type == addTodoFail</code> 的<code>action</code> 即可</li>
 </ul>
 <p><strong>图解二：Dva表示法</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/47.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/47.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>dva做了 3 件很重要的事情</p>
 </blockquote>
@@ -616,7 +646,12 @@
 <blockquote>
 <p><code>NProgress</code> 的使用主要有两个方法，当调用 <code>NProgress.start();</code> 时在浏览器顶部就会出现蓝色小条，当调用 <code>NProgress.done();</code> 蓝色小条就会消失。我们分别在请求开始和接收到响应调用这两个方法</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/6693922-948c3efcfeeaf4fd.gif" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://upload-images.jianshu.io/upload_images/6693922-948c3efcfeeaf4fd.gif"
+                      alt="img"
+                ></p>
 <h2 id="6-6-网络请求成功处理"><a href="#6-6-网络请求成功处理" class="headerlink" title="6.6 网络请求成功处理"></a>6.6 网络请求成功处理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.then((response) =&gt; </span><br><span class="line">      // &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; 请求成功 &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><br><span class="line">      console.log(`【$&#123;opt.method&#125; $&#123;opt.url&#125;】请求成功，响应数据：%o`, response);</span><br><span class="line"></span><br><span class="line">      // 打印业务错误提示</span><br><span class="line">      if (response.data &amp;&amp; response.data.code != &#x27;0000&#x27;) &#123;</span><br><span class="line">        message.error(response.data.message);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      return &#123; ...response.data &#125;;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
 <blockquote>

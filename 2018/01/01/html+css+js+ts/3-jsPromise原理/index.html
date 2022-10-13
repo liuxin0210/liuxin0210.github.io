@@ -237,7 +237,12 @@
 <blockquote>
 <p><code>pending</code> 状态的 <code>Promise</code>对象可能以 <code>fulfilled</code>状态返回了一个值，也可能被某种理由（异常信息）拒绝（<code>reject</code>）了。当其中任一种情况出现时，<code>Promise</code> 对象的 <code>then</code> 方法绑定的处理方法（handlers）就会被调用，then方法分别指定了<code>resolve</code>方法和<code>reject</code>方法的回调函数</p>
 </blockquote>
-<p><img src="https://mengera88.github.io/images/promises.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mengera88.github.io/images/promises.png"
+                      alt="img"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var promise = new Promise(function(resolve, reject) &#123;</span><br><span class="line">  if (/* 异步操作成功 */)&#123;</span><br><span class="line">    resolve(value);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    reject(error);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">promise.then(function(value) &#123;</span><br><span class="line">  // 如果调用了resolve方法，执行此函数</span><br><span class="line">&#125;, function(value) &#123;</span><br><span class="line">  // 如果调用了reject方法，执行此函数</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -403,7 +408,12 @@
 <blockquote>
 <p><code>Promises/A+</code>规范中的<code>2.1 Promise States</code>中明确规定了，<code>pending</code>可以转化为<code>fulfilled</code>或<code>rejected</code>并且只能转化一次，也就是说如果<code>pending</code>转化到<code>fulfilled</code>状态，那么就不能再转化到r<code>ejected</code>。并且<code>fulfilled</code>和<code>rejected</code>状态只能由<code>pending</code>转化而来，两者之间不能互相转换</p>
 </blockquote>
-<p><img src="https://mengera88.github.io/images/promiseState.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://mengera88.github.io/images/promiseState.png"
+                      alt="img"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//改进后的代码是这样的：</span><br><span class="line"></span><br><span class="line">function Promise(fn) &#123;</span><br><span class="line">    var state = &#x27;pending&#x27;,</span><br><span class="line">        value = null,</span><br><span class="line">        callbacks = [];</span><br><span class="line">    this.then = function (onFulfilled) &#123;</span><br><span class="line">        if (state === &#x27;pending&#x27;) &#123;</span><br><span class="line">            callbacks.push(onFulfilled);</span><br><span class="line">            return this;</span><br><span class="line">        &#125;</span><br><span class="line">        onFulfilled(value);</span><br><span class="line">        return this;</span><br><span class="line">    &#125;;</span><br><span class="line">    function resolve(newValue) &#123;</span><br><span class="line">        value = newValue;</span><br><span class="line">        state = &#x27;fulfilled&#x27;;</span><br><span class="line">        setTimeout(function () &#123;</span><br><span class="line">            callbacks.forEach(function (callback) &#123;</span><br><span class="line">                callback(value);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;, 0);</span><br><span class="line">    &#125;</span><br><span class="line">    fn(resolve);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>

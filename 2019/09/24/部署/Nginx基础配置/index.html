@@ -235,20 +235,40 @@
 <ul>
 <li>查看进程号 <code>ps -ef|grep nginx</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182744854-1291053517.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182744854-1291053517.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>杀死进程 kill -QUIT 2072</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182652354-960281274.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102182652354-960281274.png"
+                      alt="img"
+                ></p>
 <p><strong>快速停止</strong></p>
 <ul>
 <li>查看进程号 <code>ps -ef|grep nginx</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183103651-1859453208.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183103651-1859453208.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>杀死进程 <code>kill -TERM 2132</code> <code>kill -INT 2132</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183340010-2024212451.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102183340010-2024212451.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>强制停止 <code>pkill -9 nginx</code></li>
 </ul>
@@ -259,20 +279,40 @@
 <ul>
 <li>方法一：进入<code>nginx</code>安装目录<code>sbin</code>下，输入命令<code>./nginx -t</code><br>看到如下显示<code>nginx.conf syntax is ok nginx.conf test is successful</code>说明配置文件正确</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102184633432-1268782338.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102184633432-1268782338.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>方法二：在启动命令<code>-c</code>前加<code>-t</code></li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185023385-456612180.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185023385-456612180.png"
+                      alt="img"
+                ></p>
 <p><strong>重启Nginx服务</strong></p>
 <ul>
 <li>方法一：进入<code>nginx</code>可执行目录<code>sbin</code>下，输入命令<code>./nginx -s reload</code>即可</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185521057-1341380905.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185521057-1341380905.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>方法二：查找当前<code>nginx</code>进程号，然后输入命令：<code>kill -HUP</code> 进程号 实现重启<code>nginx</code>服务</li>
 </ul>
-<p><img src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185838167-234856506.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://images2015.cnblogs.com/blog/848552/201601/848552-20160102185838167-234856506.png"
+                      alt="img"
+                ></p>
 <h3 id="Nginx基础配置"><a href="#Nginx基础配置" class="headerlink" title="Nginx基础配置"></a>Nginx基础配置</h3><ul>
 <li>在<code>Nginx</code>目录下的<code>vhost或conf.d</code>目录下新建一个配置文件（如<code>poetries-80.conf</code>）</li>
 <li>把server的内容配置进去</li>

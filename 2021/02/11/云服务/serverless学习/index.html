@@ -224,8 +224,18 @@
 <li>第一种：<code>狭义 Serverless</code>（最常见）&#x3D; <code>Serverless computing 架构</code> &#x3D; <code>FaaS 架构</code> &#x3D; <code>Trigger（事件驱动）+ FaaS（函数即服务）+ BaaS</code>（后端即服务，持久化或第三方服务）&#x3D; <code>FaaS + BaaS</code></li>
 <li>第二种：广义 <code>Serverless</code> &#x3D; <code>服务端免运维</code> &#x3D; <code>具备 Serverless 特性的云服务</code></li>
 </ul>
-<p><img src="https://blog.poetries.top/img/static/images/20210416155216.png" alt="img"></p>
-<h2 id="二、编写你的第一个-Serverless-应用"><a href="#二、编写你的第一个-Serverless-应用" class="headerlink" title="二、编写你的第一个 Serverless 应用"></a>二、编写你的第一个 Serverless 应用</h2><p><img src="https://blog.poetries.top/img/static/images/20210418151945.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416155216.png"
+                      alt="img"
+                ></p>
+<h2 id="二、编写你的第一个-Serverless-应用"><a href="#二、编写你的第一个-Serverless-应用" class="headerlink" title="二、编写你的第一个 Serverless 应用"></a>二、编写你的第一个 Serverless 应用</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418151945.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>FaaS 平台都支持 Node.js、Python 、Java 等编程语言；</li>
 <li>FaaS 平台都支持 HTTP 和定时触发器（这两个触发器最常用）。此外各厂商的 FaaS 支持与自己云产品相关的触发器，函数计算支持阿里云表格存储等触发器；</li>
@@ -243,45 +253,90 @@
 <blockquote>
 <p>在众多 FaaS 平台中，函数计算直接提供了 HTTP 触发器，HTTP 触发器通过发送 HTTP 请求来触发函数执行，一般都会支持 POST、GET、PUT、HEAD 等方法。所以你可以用 HTTP 触发器来构建 Restful 接口或 Web 系统。</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210418152334.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418152334.png"
+                      alt="img"
+                ></p>
 <p>HTTP 触发器会根据 HTTP 请求和请求参数生成事件，然后以参数形式传递给函数。那么 HTTP 触发器的入口函数参数中的 request 和 response 参数具体有哪些属性呢？</p>
 <p>其实， request 和 response 参数本质上与 Express.js 框架的 request 和 response 类似</p>
 <ol>
 <li>API 网关触发器</li>
 </ol>
 <p>API 网关触发器与 HTTP 触发器类似，它主要用于构建 Web 系统。本质是利用 API 网关接收 HTTP 请求，然后再产生事件，将事件传递给 FaaS。FaaS 将函数执行完毕后将函数返回值传递给 API 网关，API 网关再将返回值包装为 HTTP 响应返回给用户。</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418152415.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418152415.png"
+                      alt="img"
+                ></p>
 <ol>
 <li>定时触发器</li>
 </ol>
 <blockquote>
 <p>定时触发器就是定时执行函数，它经常用来做一些周期任务，比如每天定时查询天气并给自己发送通知、每小时定时处理分析日志等等。</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210418152436.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418152436.png"
+                      alt="img"
+                ></p>
 <h3 id="日志输出"><a href="#日志输出" class="headerlink" title="日志输出"></a>日志输出</h3><p>无论你用什么编写语言开发 Serverless 应用，你都要在合适的时候输出合适的日志信息，方便调试应用、排查问题。在 Serverless 中，日志输出和传统应用的日志输出没有太大区别，只是日志的存储和查询方式变了。</p>
 <p>以函数计算为例，如果你在控制台创建函数，则函数计算默认会使用日志服务来为你存储日志。在 “日志查询” 标签下可以查看函数调用日志。日志服务是一个日志采集、分析产品，所以如果你要实现业务监控，则可以将日志输出到日志服务，然后在日志服务中对日志进行分析，并设置报警项。</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418152600.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418152600.png"
+                      alt="img"
+                ></p>
 <h2 id="三、Serverless-应用是怎么运行的"><a href="#三、Serverless-应用是怎么运行的" class="headerlink" title="三、Serverless 应用是怎么运行的"></a>三、Serverless 应用是怎么运行的</h2><blockquote>
 <p>Serverless 应用本质上是由一个个 FaaS 函数组成的，Serverless 应用的每一次运行，其实是单个或多个函数的运行，所以 <code>Serverelss 的运行原理，本质上就是函数的运行原理</code></p>
 </blockquote>
 <p><strong>FaaS 是怎么运行的</strong></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416155334.png" alt="img"></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416155401.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416155334.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416155401.png"
+                      alt="img"
+                ></p>
 <h3 id="函数调用链路：事件驱动函数执行"><a href="#函数调用链路：事件驱动函数执行" class="headerlink" title="函数调用链路：事件驱动函数执行"></a>函数调用链路：事件驱动函数执行</h3><blockquote>
 <p>对于 FaaS 函数来说，一方面可以通过事件来触发执行，另一方面也可以直接调用 API 来执行。FaaS 平台都提供了执行函数的 API</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210418151354.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418151354.png"
+                      alt="img"
+                ></p>
 <h3 id="函数生命周期：冷启动与热启动"><a href="#函数生命周期：冷启动与热启动" class="headerlink" title="函数生命周期：冷启动与热启动"></a>函数生命周期：冷启动与热启动</h3><blockquote>
 <p>FaaS 中的冷启动是指从调用函数开始到函数实例准备完成的整个过程。冷启动我们关注的是启动时间，启动时间越短，我们对资源的利用率就越高。现在的云服务商，基于不同的语言特性，冷启动平均耗时基本在 <code>100～700 毫秒</code>之间。得益于 Google 的 JavaScript 引擎 Just In Time 特性，Node.js 在冷启动方面速度是最快的。</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210416155824.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416155824.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>注意，FaaS 服务从 0 开始，启动并执行完一个函数，只需要 100 毫秒。这也是为什么 FaaS 敢缩容到 0 的主要原因。通常我们打开一个网页有个关键指标，响应时间在 1 秒以内，都算优秀。这么一对比，100 毫秒的启动时间，对于网页的秒开率影响真的极小</p>
 </blockquote>
 <blockquote>
 <p>在 FaaS 平台中，函数默认是不运行的，也不会分配任何资源。甚至 FaaS 中都不会保存函数代码。只有当 FaaS 接收到触发器的事件后，才会启动并运行函数。整个函数的运行过程可以分为四个阶段</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210418151433.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418151433.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>下载代码： FaaS 平台本身不会存储代码，而是将代码放在对象存储中，需要执行函数的时候，再从对象存储中将函数代码下载下来并解压，因此 FaaS 平台一般都会对代码包的大小进行限制，通常代码包不能超过 50MB。</li>
 <li>启动容器： 代码下载完成后，FaaS 会根据函数的配置，启动对应容器，FaaS 使用容器进行资源隔离。</li>
@@ -293,11 +348,21 @@
 </blockquote>
 <p>整个冷启动流程耗时可能达到百毫秒级别。函数运行完毕后，运行环境会保留一段时间，可能 2 ~ 5 分钟，这和具体云厂商有关。如果这段时间内函数需要再次执行，则 FaaS 平台就会使用上一次的运行环境，这就是“执行上下文重用”，函数的这个启动过程也叫“热启动”。“热启动” 的耗时就完全是启动函数的耗时了。当一段时间内没有请求时，函数运行环境就会被释放，直到下一次事件到来，再重新从冷启动开始初始化。</p>
 <p>下面是一个函数的请求示意图，其中 “请求1” “请求3” 是冷启动，“请求2” 是热启动</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418151527.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418151527.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>函数执行完毕后销毁运行环境，虽然对首次函数执行的性能有损耗，但极大提高了资源利用效率，只有需要执行代码的时候才初始化环境、消耗硬件资源。并且如果你的应用请求量比较大，则大部分时候函数的执行可能都是热启动</p>
 </blockquote>
-<h3 id="FaaS-是怎么分层的"><a href="#FaaS-是怎么分层的" class="headerlink" title="FaaS 是怎么分层的"></a>FaaS 是怎么分层的</h3><p><img src="https://files.mdnice.com/user/6541/5d7d3769-4fc0-4036-bd1b-91e9a650c2c3.png" alt="img"></p>
+<h3 id="FaaS-是怎么分层的"><a href="#FaaS-是怎么分层的" class="headerlink" title="FaaS 是怎么分层的"></a>FaaS 是怎么分层的</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.mdnice.com/user/6541/5d7d3769-4fc0-4036-bd1b-91e9a650c2c3.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>你的 FaaS 实例执行时，就如上图所示，至少是 3 层结构：容器、运行时 Runtime、具体函数代码。</p>
 </blockquote>
@@ -308,7 +373,12 @@
 <li>理解了分层，我们再回想一下 FaaS 分层对应冷启动的过程，其实你就不难理解云服务商负责的就是容器和 Runtime 的准备阶段了。而开发者自己负责的则是函数执行阶段。一旦容器 &amp;Runtime 启动后，就会维持一段时间，这段时间内的这个函数实例就可以直接处理用户数据请求。当一段时间内没有用户请求事件发生（各个云服务商维持实例的时间和策略不同），则会销毁这个函数实例。</li>
 </ul>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210416160251.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416160251.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>纯 FaaS 应用调用链路由函数触发器、函数服务和函数代码三部分组成，它们分别替代了传统服务端运维的负载均衡 &amp; 反向代理，服务器 &amp; 应用运行环境，应用代码部署</li>
 <li>对比传统应用托管 PaaS 平台，FaaS 应用最大的不同就是，FaaS 应用可以缩容到 0，在事件到来时极速启动，Node.js 的函数甚至可以做到 100ms 启动并执行。</li>
@@ -322,7 +392,12 @@
 <h2 id="四、如何提高应用开发调试和部署效率"><a href="#四、如何提高应用开发调试和部署效率" class="headerlink" title="四、如何提高应用开发调试和部署效率"></a>四、如何提高应用开发调试和部署效率</h2><h3 id="应用管理"><a href="#应用管理" class="headerlink" title="应用管理"></a>应用管理</h3><blockquote>
 <p>Serverless 应用是由函数组成的，所以应用的管理主要就是函数的管理。各个 FaaS 平台其实也考虑到了这一点，比如函数计算的 “服务”功能或 Lambda 的 “应用” 功能。你可以把一个应用的函数都创建在同一个 “服务” 下，一个 “服务” 即代表一个应用。</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210418152848.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418152848.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>那么如何去描述 “服务” 和 “函数” 的关系呢？因为二者是静态的，不会在代码运行时改变，所以你可以用 YAML 或 JSON 配置文件来表示（我推荐 YAML，因为它可以编写注释，可读性更好）。在创建函数时，你还要指定函数的入口、编程语言、触发器等信息。所以 YAML 文件的内容可能是这样的：</p>
 </blockquote>
@@ -335,35 +410,90 @@
 <p><a class="link"   target="_blank" rel="noopener" href="https://fc.console.aliyun.com/fc/overview" >https://fc.console.aliyun.com/fc/overview<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p>选择一个模板，体验一下</p>
-<p><img src="https://files.mdnice.com/user/6541/d63653ac-0a1d-4dfa-9a2a-879f23aa803e.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://files.mdnice.com/user/6541/d63653ac-0a1d-4dfa-9a2a-879f23aa803e.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>云函数使用指南 <a class="link"   target="_blank" rel="noopener" href="https://help.aliyun.com/product/50980.html" >https://help.aliyun.com/product/50980.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<h3 id="腾讯云函数"><a href="#腾讯云函数" class="headerlink" title="腾讯云函数"></a>腾讯云函数</h3><p><img src="https://blog.poetries.top/img/static/images/20210416161014.png" alt="img"></p>
+<h3 id="腾讯云函数"><a href="#腾讯云函数" class="headerlink" title="腾讯云函数"></a>腾讯云函数</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161014.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>云函数使用指南 <a class="link"   target="_blank" rel="noopener" href="https://cloud.tencent.com/document/product/876/41762" >https://cloud.tencent.com/document/product/876/41762<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <h3 id="使用vercel部署你的应用-推荐"><a href="#使用vercel部署你的应用-推荐" class="headerlink" title="使用vercel部署你的应用-推荐"></a>使用vercel部署你的应用-推荐</h3><p>vercel是用过的最好用的网站托管服务，我们可以在上面部署api、静态页面等。可以和GitHub深度绑定，推送代码，vercel会帮我们检测自动部署</p>
 <p><strong>新建项目</strong></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416161535.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161535.png"
+                      alt="img"
+                ></p>
 <p>导入GitHub的某一个项目部署</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416161621.png" alt="img"></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416161653.png" alt="img"></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416161728.png" alt="img"></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416161748.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161621.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161653.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161728.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161748.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>部署完成后，可以在控制面板看到，vercel每次部署都动态帮我生成一个地址，可以直接访问你的应用</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210416161906.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416161906.png"
+                      alt="img"
+                ></p>
 <p><strong>绑定GitHub应用</strong></p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416162735.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416162735.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>每次提交代码到GitHub，vercel都会自动帮我们构建发布</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210416162612.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416162612.png"
+                      alt="img"
+                ></p>
 <p><strong>绑定域名</strong></p>
 <p>我们可以绑定自己的自定义域名</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210416162045.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210416162045.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>我们还可以使用vercel部署node小型应用，非常的方便。更多参考文档 <a class="link"   target="_blank" rel="noopener" href="https://vercel.com/docs" >https://vercel.com/docs<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
@@ -379,7 +509,12 @@
 <li>用户再访问网站时，浏览器请求头就会自动带上 cookie 信息；</li>
 <li>服务端接收到请求后，从 cookie 获取到 Session ID，然后根据 Session ID 解析出用户信息。</li>
 </ul>
-<p><img src="https://blog.poetries.top/img/static/images/20210418165707.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418165707.png"
+                      alt="img"
+                ></p>
 <p><strong>这种方案存在两个主要问题：</strong></p>
 <ul>
 <li>服务端的 Session ID 是直接存储在内存中的，在分布式系统中无法共享登录状态；</li>
@@ -389,7 +524,12 @@
 <blockquote>
 <p>于是 Cookie-Session 的身份认证方案就发生了变化：</p>
 </blockquote>
-<p><img src="https://blog.poetries.top/img/static/images/20210418165751.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418165751.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>与早期方案不同，用户登录时，该方案会把用户信息保存在 Redis 中，而不是内存中，然后服务端依然会将 Session ID 返回给浏览器，浏览器将其保存在 cookie 中。而之后非登录的请求，浏览器依然会将包含 Session ID 的 cookie 放在请求头中发送给服务端，服务端拿到 Session ID 后，从 Redis 中查询出用户信息。这样就可以解决分布式、无状态的系统中用户登录状态共享问题。</p>
 </blockquote>
@@ -404,7 +544,12 @@
 <li>之后客户端每次请求都需要带上 token，通常是将 token 放在 HTTP 请求头的 Authorization 字段中；</li>
 <li>服务端接收到 token 后，验证 token 的合法性，并从 token 中解析出用户信息。</li>
 </ul>
-<p><img src="https://blog.poetries.top/img/static/images/20210418165833.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418165833.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>token 是个比较长字符串，格式为 <code>Header.Payload.Signature</code>，由<code>.</code>分隔为三部分。下面是一个实际的 token 示例：</p>
 </blockquote>
@@ -537,12 +682,22 @@
 <p>在传统的 Serverful 架构中，通常会用 MySQL 等关系型数据库存储数据，但因为关系型数据库要在代码中维护连接状态及连接池，且一般不能自动扩容，并不适合 Serverless 应用，所以在 Serverless 架构中，通常选用表格存储等 Serverless NoSQL 数据来存储数据。</p>
 </blockquote>
 <p>基于 JWT 的身份认证方案、数据存储方案，我们可以画出 Serverless 的内容管理系统架构图：</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418171452.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418171452.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>图中主要表达的意思是： 通过 API 网关承接用户请求，并驱动函数执行。每个函数分别实现一个具体功能，并通过 JWT 实现身份认证，最后表格存储作为数据库。</li>
 <li>其中，数据库中存储的数据主要是用户数据和文章数据。假设用户有 username（用户名） 和 password（密码） 两个属性；文章有 <code>article_id</code>（文章 ID）、<code>username</code>（创建者）、<code>title</code>（文章标题）、<code>content</code>（文章内容）、<code>create_date</code>（创建时间）、<code>update_date</code>（更新时间）这几个属性</li>
 </ul>
-<p><img src="https://blog.poetries.top/img/static/images/20210418171543.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418171543.png"
+                      alt="img"
+                ></p>
 <p>接下来，你可以在表格存储中创建对应的数据表（你可以在表格存储控制台创建，也可以直接用我提供的这段代码进行创建）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">// index.js</span><br><span class="line">const TableStore = require(&quot;tablestore&quot;);</span><br><span class="line">// 初始化 TableStore client</span><br><span class="line">const client = new TableStore.Client(&#123;</span><br><span class="line">  accessKeyId: &#x27;&lt;your access key&gt;&#x27;,</span><br><span class="line">  accessKeySecret: &#x27;&lt;your access secret&gt;&#x27;,</span><br><span class="line">  endpoint: &quot;https://serverless-app.cn-shanghai.ots.aliyuncs.com&quot;,</span><br><span class="line">  instancename: &quot;serverless-cms&quot;,</span><br><span class="line">&#125;);</span><br><span class="line">/**</span><br><span class="line"> * 创建 user 表</span><br><span class="line"> *</span><br><span class="line"> * 参考文档： https://help.aliyun.com/document_detail/100594.html</span><br><span class="line"> */</span><br><span class="line">async function createUserTable() &#123;</span><br><span class="line">  const table = &#123;</span><br><span class="line">    tableMeta: &#123;</span><br><span class="line">      tableName: &quot;user&quot;,</span><br><span class="line">      primaryKey: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;username&quot;, // 用户名</span><br><span class="line">          type: TableStore.PrimaryKeyType.STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">      definedColumn: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;password&quot;, // 密码</span><br><span class="line">          type: TableStore.DefinedColumnType.DCT_STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 为数据表配置预留读吞吐量或预留写吞吐量。0 表示不预留吞吐量，完全按量付费</span><br><span class="line">    reservedThroughput: &#123;</span><br><span class="line">      capacityUnit: &#123;</span><br><span class="line">        read: 0,</span><br><span class="line">        write: 0,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    tableOptions: &#123;</span><br><span class="line">      // 数据的过期时间，单位为秒，-1表示永不过期</span><br><span class="line">      timeToLive: -1,</span><br><span class="line">      // 保存的最大版本数，1 表示每列上最多保存一个版本即保存最新的版本</span><br><span class="line">      maxVersions: 1,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">  await client.createTable(table);</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 创建文章表</span><br><span class="line"> */</span><br><span class="line">async function createArticleTable() &#123;</span><br><span class="line">  const table = &#123;</span><br><span class="line">    tableMeta: &#123;</span><br><span class="line">      tableName: &quot;article&quot;,</span><br><span class="line">      primaryKey: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;article_id&quot;, // 文章 ID，唯一字符串</span><br><span class="line">          type: TableStore.PrimaryKeyType.STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">      definedColumn: [</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;title&quot;,</span><br><span class="line">          type: TableStore.DefinedColumnType.DCT_STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;username&quot;,</span><br><span class="line">          type: TableStore.DefinedColumnType.DCT_STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;content&quot;,</span><br><span class="line">          type: TableStore.DefinedColumnType.DCT_STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;create_date&quot;,</span><br><span class="line">          type: TableStore.DefinedColumnType.DCT_STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          name: &quot;update_date&quot;,</span><br><span class="line">          type: TableStore.DefinedColumnType.DCT_STRING,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">    &#125;,</span><br><span class="line">    // 为数据表配置预留读吞吐量或预留写吞吐量。0 表示不预留吞吐量，完全按量付费</span><br><span class="line">    reservedThroughput: &#123;</span><br><span class="line">      capacityUnit: &#123;</span><br><span class="line">        read: 0,</span><br><span class="line">        write: 0,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    tableOptions: &#123;</span><br><span class="line">      // 数据的过期时间，单位为秒，-1表示永不过期</span><br><span class="line">      timeToLive: -1,</span><br><span class="line">      // 保存的最大版本数，1 表示每列上最多保存一个版本即保存最新的版本</span><br><span class="line">      maxVersions: 1,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">  await client.createTable(table);</span><br><span class="line">&#125;</span><br><span class="line">(async function () &#123;</span><br><span class="line">    await createUserTable();</span><br><span class="line">  await createArticleTable();</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
@@ -625,7 +780,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://a88f7e84f71749958100997b77b3e2f6-cn-beijing.alicloudapi.com/user/register \</span><br><span class="line">-X POST \</span><br><span class="line">-d &quot;username=Jack&amp;password=123456&quot;</span><br><span class="line">&#123;&quot;success&quot;:true&#125;</span><br></pre></td></tr></table></figure>
 
 <p>返回 <code>&#123;&quot;success&quot;: true&#125;</code> ，说明用户注册成功。这时在表格存储控制台也可以看到刚注册的用户。</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418172230.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418172230.png"
+                      alt="img"
+                ></p>
 <h4 id="2-4-用户登录"><a href="#2-4-用户登录" class="headerlink" title="2.4 用户登录"></a>2.4 用户登录</h4><p>完成用户注册函数开发后，就可以接着开发登录。用户登录的接口定义如下。</p>
 <ul>
 <li>请求方法：POST。</li>
@@ -670,7 +830,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://a88f7e84f71749958100997b77b3e2f6-cn-beijing.alicloudapi.com/article/create \</span><br><span class="line">-X POST \</span><br><span class="line">-d &quot;title=这是文章标题&amp;content=内容内容内容......&quot; \</span><br><span class="line">-H &quot;Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphY2siLCJpYXQiOjE2MTE0OTI2ODF9.c56Xm4RBLYl5yVtR_Vk0IZOL0yijofcyE-P7vjKf4nA&quot;</span><br><span class="line">&#123;&quot;success&quot;:true,&quot;data&quot;:&#123;&quot;article_id&quot;:&quot;d4b9bad8-a0ed-499d-b3c6-c57f16eaa193&quot;&#125;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在测试时，我们需要将 token 放在 HTTP 请求头的 Authorization 属性中。文章发布成功后，你就可以在表格存储中看到对应的数据了。</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418172448.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418172448.png"
+                      alt="img"
+                ></p>
 <h4 id="2-7-查询文章"><a href="#2-7-查询文章" class="headerlink" title="2.7 查询文章"></a>2.7 查询文章</h4><blockquote>
 <p>发布文章的接口开发完成后，我们继续开发一个查询文章的接口，这样就可以查询出刚才创建的文章。查询文章接口定义如下。</p>
 </blockquote>
@@ -733,7 +898,12 @@
 <p>接下来，我先带你了解传统的音视频处理方案，然后在此基础上再带你学习并实践基于 Serverless 的音视频处理系统，这样你理解得会更加深入。</p>
 <h4 id="3-1-传统音视频处理方案"><a href="#3-1-传统音视频处理方案" class="headerlink" title="3.1 传统音视频处理方案"></a>3.1 传统音视频处理方案</h4><p>近几年，计算机技术和通信技术日新月异，信息传播的媒介也在不断演变，从文字到图片再到视频，各种短视频、直播甚至 AR、VR 等产品百花齐放。在这些产品的背后，离不开音视频处理技术。</p>
 <p>得益于云计算的发展，有些云厂商推出了对应的视频解决方案，因此你现在要搭建一个视频处理程序是很容易的（下图就是一个典型的视频处理方案）：</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418173047.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418173047.png"
+                      alt="img"
+                ></p>
 <p>在该方案中，我们用 OSS 来存储海量的视频内容，视频上传后用视频转码服务将不同来源的视频进行转码，以适配各种终端，然后利用 CDN 提升客户端访问视频的速度。</p>
 <p>不过，虽然用了视频转码服务，但我们还是要购买大量的服务器，搭建自己的视频处理系统，对视频进行更高级的自定义处理，比如视频转码后将元数据存入数据库、生成视频前几秒的 GIF 图片用来做视频的封面，以及各种格式的音视频转换等。</p>
 <p>除此之外，当我们已经在服务器上部署了一套视频处理系统后，可能还会遇到一些问题。比如，如何应对大量并发任务？能否让这个系统有更高的弹性和可用性？这些问题其实超出了视频处理本身的范围，我们的需求只是进行视频处理，但不得不面临繁重的运维工作。并且我们可能为了应对周期大量处理任务或瞬时流量，不得不购买大量的服务器，成本大幅增加，在服务器的闲置期间还造成了不必要的资源浪费。而且我们也无法 100% 利用机器的性能，这也是一种资源浪费。</p>
@@ -743,7 +913,12 @@
 <li>此外，我们基于 Serverless 平台提供的丰富的触发器，也能简化编程模型。比如以往我们需要用户将视频上传到 OSS 后，再通过接口主动通知服务器进行视频处理，但在 Serverless 架构中，我们可以为函数设置 OSS 触发器，这样只要有文件被上传到 OSS 中，就可以触发函数执行，进而简化了业务逻辑。</li>
 </ul>
 <p>下图就是基于 Serverless 的视频处理系统解决方案：</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418173248.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418173248.png"
+                      alt="img"
+                ></p>
 <p>用户将视频上传后 OSS 后，触发函数计算中的视频转码函数执行，该函数对视频进行转码后，将元数据存入数据库，然后将转码后的视频再保存到 OSS 中。</p>
 <p>接下来我们就实现一个基于 Serverless 的音视频处理系统，系统主要有以下几个功能：</p>
 <ul>
@@ -852,7 +1027,12 @@
 <li><strong>初始化性能差：</strong> 通常单元应用的 JS 文件体积都比较大、加载耗时比较长，导致页面白屏。</li>
 </ul>
 <p>为了解决这些问题，很多框架和开发者就开始尝试服务端渲染的方式：页面加载时，由服务端先生成 HTML 返回给浏览器，浏览器直接渲染 HTML。在传统的服务端渲染架构中，通常需要前端同学使用 Node.js 去实现一个服务端的渲染应用。在应用内，每个请求的 path 对应着服务端的每个路由，由该路由实现对应 path 的 HTML 文档渲染：</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418174418.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418174418.png"
+                      alt="img"
+                ></p>
 <p>传统服务端渲染架构</p>
 <p>对前端工程师来说，要实现一个服务端渲染应用，通常面临着一些问题：</p>
 <ul>
@@ -862,16 +1042,31 @@
 </ul>
 <p>开篇我也提到，而且是服务端的工作，很多前端同学都不擅长，好在有了 Serverless。</p>
 <p>用 Serverless 做服务端渲染，就是将以往的每个路由，都拆分为一个个函数，再在 FaaS 上部署对应的函数，这样用户请求的 path，对应的就是每个单独的函数。通过这种方式，就将运维操作转移到了 FaaS 平台，前端同学开发服务端渲染应用，就再也不用关心服务端程序的运维部署了。并且在 FaaS 平台中运行的函数，天然具有弹性伸缩的能力，你也不用担心流量波峰波谷了。</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418174139.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418174139.png"
+                      alt="img"
+                ></p>
 <p>基于 Serverless 的服务选渲染架构</p>
 <p>如图所示，FaaS 函数接收请求后直接执行代码渲染出 HTML 并返回给浏览器，这是最基本的架构，虽然它可以满足大部分场景，但要追求极致的性能，你通常要加入缓存。</p>
-<p><img src="https://blog.poetries.top/img/static/images/20210418174151.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418174151.png"
+                      alt="img"
+                ></p>
 <p>进阶版基于 Serverless 的服务端渲染架构</p>
 <p>首先我们会使用 CDN 做缓存，基于 CDN 的缓存可以减少函数执行次数，进而避免函数冷启动带来的性能损耗。如果 CDN 中没有 SSR HTML 页面的缓存，则继续由网关处理请求，网关再去触发函数执行。</p>
 <p>函数首先会判读缓存数据库中是否有 SSR HTML 的缓存，如果有直接返回；如果没有再渲染出 HTML 并返回。基于数据库的缓存，可以减少函数渲染 HTML 的时间，从而页面加载提升性能。</p>
 <p>讲了这么多，具体怎么基于 Serverless 实现一个服务端渲染应用呢？</p>
 <h4 id="5-1-实现一个-Serverless-的服务端渲染应用"><a href="#5-1-实现一个-Serverless-的服务端渲染应用" class="headerlink" title="5.1 实现一个 Serverless 的服务端渲染应用"></a>5.1 实现一个 Serverless 的服务端渲染应用</h4><p>我们实现了一个内容管理系统的 Restful API，但没有前端界面，所以今天我们的目标就基于 Serverless 实现一个内容管理系统的前端界面（如图所示）。</p>
-<p><img src="https://s0.lgstatic.com/i/image/M00/94/3B/Ciqc1GAXxoiANTROADtU9yybMQY209.gif" alt="ssr.gif"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s0.lgstatic.com/i/image/M00/94/3B/Ciqc1GAXxoiANTROADtU9yybMQY209.gif"
+                      alt="ssr.gif"
+                ></p>
 <p>该应用主要包含两个页面：</p>
 <ul>
 <li>首页，展示文章列表；</li>
@@ -918,7 +1113,12 @@
 <li>Header：页面标题。</li>
 <li>Item：每篇文章的简介。</li>
 </ul>
-<p><img src="https://blog.poetries.top/img/static/images/20210418174309.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418174309.png"
+                      alt="img"
+                ></p>
 <h4 id="5-4-详情页接口的实现"><a href="#5-4-详情页接口的实现" class="headerlink" title="5.4 详情页接口的实现"></a>5.4 详情页接口的实现</h4><p>完成了首页后，就可以实现详情页了。详情页与首页整体类似，区别就在于详情页需要传入参数查询某条数据。</p>
 <p>详情页接口在 src&#x2F;service&#x2F;detail.ts 中 ，代码如下所示：</p>
 <p>复制代码</p>
@@ -946,7 +1146,12 @@
 <li>Tip：文章发布时间、字数等提示。</li>
 <li>Content：文章内容。</li>
 </ul>
-<p><img src="https://blog.poetries.top/img/static/images/20210418174323.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://blog.poetries.top/img/static/images/20210418174323.png"
+                      alt="img"
+                ></p>
 <h4 id="5-6-应用部署"><a href="#5-6-应用部署" class="headerlink" title="5.6 应用部署"></a>5.6 应用部署</h4><p>代码开发完成后，你可以通过下面的命令在本地启动应用：</p>
 <p>复制代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ npm start</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[HPM] Proxy created: /asset-manifest  -&gt; http://127.0.0.1:8000</span><br><span class="line"></span><br><span class="line"> Server is listening on http://localhost:3000</span><br></pre></td></tr></table></figure>

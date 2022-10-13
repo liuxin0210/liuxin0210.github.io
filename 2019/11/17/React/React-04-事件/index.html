@@ -217,11 +217,21 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="一、编写事件处理函数"><a href="#一、编写事件处理函数" class="headerlink" title="一、编写事件处理函数"></a>一、编写事件处理函数</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/456.png" alt="img"></p>
+            <h2 id="一、编写事件处理函数"><a href="#一、编写事件处理函数" class="headerlink" title="一、编写事件处理函数"></a>一、编写事件处理函数</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/456.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>在函数体中进行一些操作，常见的有：更新页面内容，更新组件状态，与后台交互</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/457.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/457.png"
+                      alt="img"
+                ></p>
 <p><strong>书写方式</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var Demo = React.createClass(&#123;</span><br><span class="line">		getInitialState:function()&#123;		&#125;,</span><br><span class="line">		handleClick: function(event)&#123;		&#125;,</span><br><span class="line">		handleChange: function()&#123;		&#125;,</span><br><span class="line">		render:function()&#123;		&#125;,</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -248,22 +258,42 @@
 <ul>
 <li>通用：所有的事件都有事件属性</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/458.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/458.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>键盘：键盘事件拥有的事件属性</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/459.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/459.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>鼠标：鼠标事件拥有的事件属性</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/460.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/460.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>滚动：滚动事件拥有的事件属性<ul>
 <li>为什么会有三个，因为有的设备可以实现三个方向的移动</li>
 </ul>
 </li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/461.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/461.png"
+                      alt="img"
+                ></p>
 <h2 id="四、事件与状态关联"><a href="#四、事件与状态关联" class="headerlink" title="四、事件与状态关联"></a>四、事件与状态关联</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inputChange:function(event)&#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">    	inputText:event.target.value</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>

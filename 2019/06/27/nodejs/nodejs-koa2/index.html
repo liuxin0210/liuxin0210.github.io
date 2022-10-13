@@ -246,7 +246,12 @@
 <p><code>--save</code> 参数，表示自动修改 <code>package.json</code> 文件，自动添加依赖项</p>
 </blockquote>
 <p><strong>简单使用</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/494.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/494.png"
+                      alt="img"
+                ></p>
 <h1 id="二、koa-路由-get传值、动态路由"><a href="#二、koa-路由-get传值、动态路由" class="headerlink" title="二、koa 路由 get传值、动态路由"></a>二、koa 路由 get传值、动态路由</h1><h2 id="2-1-Koa-路由"><a href="#2-1-Koa-路由" class="headerlink" title="2.1 Koa 路由"></a>2.1 Koa 路由</h2><ul>
 <li>路由(<code>Routing</code>)是由一个 <code>URI</code>(或者叫路径)和一个特定的 <code>HTTP</code> 方法(<code>GET</code>、<code>POST</code>等)<br>组成的，涉及到应用如何响应客户端对某个网站节点的访问</li>
 <li>通俗的讲:路由就是根据不同的 <code>URL</code> 地址，加载不同的页面实现不同的功能</li>
@@ -254,7 +259,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save koa-router</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/495.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/495.png"
+                      alt="img"
+                ></p>
 <h2 id="2-2-Koa-路由-get-传值"><a href="#2-2-Koa-路由-get-传值" class="headerlink" title="2.2 Koa 路由 get 传值"></a>2.2 Koa 路由 get 传值</h2><blockquote>
 <p>在 <code>koa2</code> 中 <code>GET</code> 传值通过 <code>request</code> 接收，但是接收的方法有两种:<code>query</code> 和 <code>querystring</code></p>
 </blockquote>
@@ -262,9 +272,24 @@
 <li><code>query</code>:返回的是格式化好的参数对象。</li>
 <li><code>querystring</code>:返回的是请求字符串</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/496.png" alt="img"></p>
-<h2 id="2-3-Koa-动态路由"><a href="#2-3-Koa-动态路由" class="headerlink" title="2.3 Koa 动态路由"></a>2.3 Koa 动态路由</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/497.png" alt="img"></p>
-<h1 id="三、koa-中间件及执行流程"><a href="#三、koa-中间件及执行流程" class="headerlink" title="三、koa 中间件及执行流程"></a>三、koa 中间件及执行流程</h1><h2 id="3-1-koa中间件的洋葱图执行流程"><a href="#3-1-koa中间件的洋葱图执行流程" class="headerlink" title="3.1 koa中间件的洋葱图执行流程"></a>3.1 koa中间件的洋葱图执行流程</h2><p><img src="https://poetries1.gitee.io/img-repo/2019/10/498.gif" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/496.png"
+                      alt="img"
+                ></p>
+<h2 id="2-3-Koa-动态路由"><a href="#2-3-Koa-动态路由" class="headerlink" title="2.3 Koa 动态路由"></a>2.3 Koa 动态路由</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/497.png"
+                      alt="img"
+                ></p>
+<h1 id="三、koa-中间件及执行流程"><a href="#三、koa-中间件及执行流程" class="headerlink" title="三、koa 中间件及执行流程"></a>三、koa 中间件及执行流程</h1><h2 id="3-1-koa中间件的洋葱图执行流程"><a href="#3-1-koa中间件的洋葱图执行流程" class="headerlink" title="3.1 koa中间件的洋葱图执行流程"></a>3.1 koa中间件的洋葱图执行流程</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/498.gif"
+                      alt="img"
+                ></p>
 <h2 id="3-2-koa-中间件"><a href="#3-2-koa-中间件" class="headerlink" title="3.2 koa 中间件"></a>3.2 koa 中间件</h2><h3 id="3-2-1-什么是-Koa-的中间件"><a href="#3-2-1-什么是-Koa-的中间件" class="headerlink" title="3.2.1 什么是 Koa 的中间件"></a>3.2.1 什么是 Koa 的中间件</h3><ul>
 <li>通俗的讲:中间件就是匹配路由之前或者匹配路由完成做的一系列的操作，我们就可以<br>把它叫做中间件</li>
 <li>在<code>express</code>中间件(<code>Middleware</code>)是一个函数，它可以访问请求对象(request object (req)), 响应对象(<code>response object (res)</code>), 和 <code>web</code> 应用中处理请求-响应循环流程中的中间件，一 般被命名为 next 的变量。在 <code>Koa</code> 中中间件和 <code>express</code> 有点类似。</li>
@@ -280,17 +305,42 @@
 <p>如果我的 <code>get</code>、<code>post</code> 回调函数中，没有 <code>next</code> 参数，那么就匹配上第一个路由，就不会往下匹 配了。如果想往下匹配的话，那么需要写 <code>next()</code></p>
 </blockquote>
 <h3 id="3-2-2-Koa-应用可使用如下几种中间件"><a href="#3-2-2-Koa-应用可使用如下几种中间件" class="headerlink" title="3.2.2 Koa 应用可使用如下几种中间件"></a>3.2.2 Koa 应用可使用如下几种中间件</h3><p><strong>1. 应用级中间件</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/499.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/499.png"
+                      alt="img"
+                ></p>
 <p><strong>2. 路由中间件</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/500.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/500.png"
+                      alt="img"
+                ></p>
 <p><strong>3. 错误处理中间件</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/501.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/501.png"
+                      alt="img"
+                ></p>
 <p><strong>4. 第三方中间件</strong></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/502.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/502.png"
+                      alt="img"
+                ></p>
 <h3 id="3-2-3-Koa-中间件的执行顺序"><a href="#3-2-3-Koa-中间件的执行顺序" class="headerlink" title="3.2.3 Koa 中间件的执行顺序"></a>3.2.3 Koa 中间件的执行顺序</h3><blockquote>
 <p><code>Koa</code> 的中间件和 <code>Express</code> 不同，<code>Koa</code> 选择了洋葱圈模型</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/503.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/503.png"
+                      alt="img"
+                ></p>
 <h1 id="四、koa-ejs模板引擎使用-以及ejs配置全局数据"><a href="#四、koa-ejs模板引擎使用-以及ejs配置全局数据" class="headerlink" title="四、koa ejs模板引擎使用 以及ejs配置全局数据"></a>四、koa ejs模板引擎使用 以及ejs配置全局数据</h1><p><strong>1. 安装 koa-views 和 ejs</strong></p>
 <ul>
 <li>安装 <code>koa-views npm install --save koa-views / cnpm install --save koa-views</code></li>
@@ -343,8 +393,18 @@
 <li><code>art-template</code> 支持 <code>ejs</code> 的语法，也可以用自己的类似 <code>angular</code> 数据绑定的语法</li>
 <li>中文文档: <a class="link"   target="_blank" rel="noopener" href="http://aui.github.io/art-template/zh-cn/docs" >http://aui.github.io/art-template/zh-cn/docs<i class="fas fa-external-link-alt"></i></a></li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/504.png" alt="img"></p>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/505.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/504.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/505.png"
+                      alt="img"
+                ></p>
 <h2 id="7-2-在-Koa-中使用-art-template-模板引擎"><a href="#7-2-在-Koa-中使用-art-template-模板引擎" class="headerlink" title="7.2 在 Koa 中使用 art-template 模板引擎"></a>7.2 在 Koa 中使用 art-template 模板引擎</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">npm install --save art-template </span><br><span class="line">npm install --save koa-art-template</span><br><span class="line">const Koa = require(&#x27;koa&#x27;);</span><br><span class="line">const render = require(&#x27;koa-art-template&#x27;);</span><br><span class="line"></span><br><span class="line">const app = new Koa();</span><br><span class="line"></span><br><span class="line">render(app, &#123;</span><br><span class="line">    root: path.join(__dirname, &#x27;view&#x27;),</span><br><span class="line">    extname: &#x27;.art&#x27;,</span><br><span class="line">    debug: process.env.NODE_ENV !== &#x27;production&#x27;</span><br><span class="line">&#125;);</span><br><span class="line">app.use(async function (ctx) &#123;</span><br><span class="line">    await ctx.render(&#x27;user&#x27;);</span><br><span class="line">&#125;);</span><br><span class="line">app.listen(8080);</span><br></pre></td></tr></table></figure>
 
 <h2 id="7-3-art-template-模板引擎语法"><a href="#7-3-art-template-模板引擎语法" class="headerlink" title="7.3 art-template 模板引擎语法"></a>7.3 art-template 模板引擎语法</h2><blockquote>
@@ -356,7 +416,12 @@
 <blockquote>
 <p>通过 <code>options</code> 设置 <code>cookie name</code> 的 <code>value</code></p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/506.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/506.png"
+                      alt="img"
+                ></p>
 <p><strong>2. Koa 中获取 Cookie 的值</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.cookies.get(&#x27;name&#x27;);</span><br></pre></td></tr></table></figure>
 
@@ -409,11 +474,21 @@
 <li>在 <code>routes</code> 里面配置对应的子页面</li>
 <li>比如在 <code>routes</code> 新建 <code>index.js</code></li>
 </ol>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/507.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/507.png"
+                      alt="img"
+                ></p>
 <ol>
 <li>然后在主应用中加载子路由模块:</li>
 </ol>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/508.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/508.png"
+                      alt="img"
+                ></p>
 
         </div>
 

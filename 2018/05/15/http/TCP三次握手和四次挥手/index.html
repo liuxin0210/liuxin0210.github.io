@@ -225,7 +225,12 @@
 <li>第二次握手：服务器收到客户端的 SYN 报文之后，会以自己的 SYN 报文作为应答，为了确认客户端的 SYN，将客户端的 ISN+1作为ACK的值，此时服务器处于 SYN_RCVD 的状态</li>
 <li>第三次握手：客户端收到 SYN 报文之后，会发送一个 ACK 报文，值为服务器的ISN+1。此时客户端处于 ESTABLISHED 状态。服务器收到 ACK 报文之后，也处于 ESTABLISHED 状态，此时，双方已建立起了连接</li>
 </ul>
-<p><img src="https://static.vue-js.com/fb489fc0-beb9-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/fb489fc0-beb9-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>上述每一次握手的作用如下：</p>
 <ul>
 <li>第一次握手：客户端发送网络包，服务端收到了 这样服务端就能得出结论：客户端的发送能力、服务端的接收能力是正常的。</li>
@@ -243,10 +248,20 @@
 <li>第三次挥手：如果服务端也想断开连接了，和客户端的第一次挥手一样，发给 FIN 报文，且指定一个序列号。此时服务端处于 <code>LAST_ACK</code> 的状态</li>
 <li>第四次挥手：客户端收到 FIN 之后，一样发送一个 ACK 报文作为应答，且把服务端的序列号值 +1 作为自己 ACK 报文的序列号值，此时客户端处于 TIME_WAIT状态。需要过一阵子以确保服务端收到自己的 ACK 报文之后才会进入 CLOSED 状态，服务端收到 ACK 报文之后，就处于关闭连接了，处于 CLOSED 状态</li>
 </ul>
-<p><img src="https://static.vue-js.com/0a3ebb90-beba-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/0a3ebb90-beba-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <h3 id="四次挥手原因"><a href="#四次挥手原因" class="headerlink" title="四次挥手原因"></a>四次挥手原因</h3><p>服务端在收到客户端断开连接<code>Fin</code>报文后，并不会立即关闭连接，而是先发送一个<code>ACK</code>包先告诉客户端收到关闭连接的请求，只有当服务器的所有报文发送完毕之后，才发送<code>FIN</code>报文断开连接，因此需要四次挥手</p>
 <h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>一个完整的三次握手四次挥手如下图所示：</p>
-<p><img src="https://static.vue-js.com/65941490-beba-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/65941490-beba-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 
         </div>
 

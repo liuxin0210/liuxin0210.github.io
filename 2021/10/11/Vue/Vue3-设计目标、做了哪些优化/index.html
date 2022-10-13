@@ -266,7 +266,12 @@
 <li>TypeScript</li>
 </ul>
 <h4 id="源码管理"><a href="#源码管理" class="headerlink" title="源码管理"></a>源码管理</h4><p><code>vue3</code>整个源码是通过 <code>monorepo</code>的方式维护的，根据功能将不同的模块拆分到<code>packages</code>目录下面不同的子目录中</p>
-<p><img src="https://static.vue-js.com/d7c32520-5c58-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/d7c32520-5c58-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>这样使得模块拆分更细化，职责划分更明确，模块之间的依赖关系也更加明确，开发人员也更容易阅读、理解和更改所有模块源码，提高代码的可维护性</p>
 <p>另外一些 <code>package</code>（比如 <code>reactivity</code> 响应式库）是可以独立于 <code>Vue</code> 使用的，这样用户如果只想使用 <code>Vue3</code>的响应式能力，可以单独依赖这个响应式库而不用去依赖整个 <code>Vue</code></p>
 <h4 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h4><p><code>Vue3</code>是基于<code>typeScript</code>编写的，提供了更好的类型检查，能支持复杂的类型推导</p>
@@ -292,7 +297,12 @@
 <li>优化逻辑复用</li>
 </ul>
 <h4 id="逻辑组织"><a href="#逻辑组织" class="headerlink" title="逻辑组织"></a>逻辑组织</h4><p>一张图，我们可以很直观地感受到 <code>Composition API</code>在逻辑组织方面的优势</p>
-<p><img src="https://static.vue-js.com/e5804bc0-5c58-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/e5804bc0-5c58-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>相同功能的代码编写在一块，而不像<code>options API</code>那样，各个功能的代码混成一块</p>
 <h4 id="逻辑复用"><a href="#逻辑复用" class="headerlink" title="逻辑复用"></a>逻辑复用</h4><p>在<code>vue2</code>中，我们是通过<code>mixin</code>实现功能混合，如果多个<code>mixin</code>混合，会存在两个非常明显的问题：命名冲突和数据来源不清晰</p>
 <p>而通过<code>composition</code>这种形式，可以将一些复用的代码抽离出来作为一个函数，只要的使用的地方直接进行调用即可</p>

@@ -225,7 +225,12 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="title function_">component</span>(<span class="string">&#x27;component1&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">template</span>:<span class="string">`&lt;div&gt;组件&lt;/div&gt;`</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">        <span class="attr">foo</span>:<span class="string">&quot;foo&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>则会得到警告信息</p>
-<p><img src="https://static.vue-js.com/8e6fc0c0-3acc-11eb-ab90-d9ae814b240d.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/8e6fc0c0-3acc-11eb-ab90-d9ae814b240d.png"
+                      alt="img"
+                ></p>
 <p>警告说明：返回的<code>data</code>应该是一个函数在每一个组件实例中</p>
 <h2 id="二、组件data定义函数与对象的区别"><a href="#二、组件data定义函数与对象的区别" class="headerlink" title="二、组件data定义函数与对象的区别"></a>二、组件data定义函数与对象的区别</h2><p>上面讲到组件<code>data</code>必须是一个函数，不知道大家有没有思考过这是为什么呢？</p>
 <p>在我们定义好一个组件的时候，<code>vue</code>最终都会通过<code>Vue.extend()</code>构成组件实例</p>

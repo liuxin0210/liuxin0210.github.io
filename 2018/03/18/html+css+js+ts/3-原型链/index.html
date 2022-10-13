@@ -244,8 +244,18 @@
 <blockquote>
 <p>对象类型只有<code>__proto__</code>属性</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-9b6c5ca4a84f967c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="二、JS原型链"><a href="#二、JS原型链" class="headerlink" title="二、JS原型链"></a>二、JS原型链</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p><img src="https://upload-images.jianshu.io/upload_images/1480597-86427eafb257f868.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://upload-images.jianshu.io/upload_images/1480597-9b6c5ca4a84f967c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+                      alt="image.png"
+                ></p>
+<h2 id="二、JS原型链"><a href="#二、JS原型链" class="headerlink" title="二、JS原型链"></a>二、JS原型链</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://upload-images.jianshu.io/upload_images/1480597-86427eafb257f868.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+                      alt="image.png"
+                ></p>
 <ul>
 <li>每个函数都有 <code>prototype</code> 属性，除了 <code>Function.prototype.bind()</code>，该属性指向原型。</li>
 <li>每个对象都有 <code>__proto__</code> 属性，指向了创建该对象的构造函数的原型。其实这个属性指向了 <code>[[prototype]]</code>，但是 <code>[[prototype]]</code> 是内部属性，我们并不能访问到，所以使用 <code>__proto__</code> 来访问</li>
@@ -254,7 +264,12 @@
 <blockquote>
 <p>打开浏览器的控制面板，随便输入一个<code>JS</code>内置的构造器函数，比如<code>Array</code>，控制台输出的是一个名为<code>Array</code>的函数体，这好像并没有什么稀奇的，但是，当你接着输入<code>Array.prototype</code>，控制面板输出了一堆我们经常用到的<code>Array</code>构造器的方法，把目光转移到最下方，有一个叫<code>__proto__</code>的属性，好奇的点开。列表列出的不是<code>Object</code>构造器的方法么，里边有我们非常熟悉的<code>hasOwnProperty</code>还有<code>toString</code>等方法。如果<code>Array</code>是构造器，那么控制面板输出的<code>Array.prototype</code>的所有属性中<code>constructor</code>又是什么构造器？点开看看，之后就像身处德罗斯特效应中一样，<code>__proto__</code>和<code>constructor</code>，还有<code>Array</code>构造器中常用的方法名不断的出现，一层套一层，一层层展开，没有尽头</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/343.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/343.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>拿<code>Array</code>举例，<code>Array.prototype</code>中有一个<code>constructor</code>属性，这个属性的值就是<code>Array</code>构造器自己</p>
 </blockquote>
@@ -318,7 +333,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// function 就是个语法糖</span><br><span class="line">// 内部等同于 new Function()</span><br><span class="line">let a = &#123; b: 1 &#125;</span><br><span class="line">// 这个字面量内部也是使用了 new Object()</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://upload-images.jianshu.io/upload_images/1480597-e4a91031a78eb153.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://upload-images.jianshu.io/upload_images/1480597-e4a91031a78eb153.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+                      alt="image.png"
+                ></p>
 <blockquote>
 <p>这里<code>Array</code> 内置对象 且是函数类型。所以<code>Array</code>有<code>__proto__</code>属性 指向的是函数类型 <code>(function（）&#123;&#125;)</code>。所以当我们在输出<code>Array.__proto__.proto__</code>;就会返回对象类型<code>(Object&#123;&#125;)</code>.但是再向上就<code>null</code>。因为<code>Object</code>就是父类了。所有的继承自<code>Object</code>。</p>
 </blockquote>
@@ -341,18 +361,33 @@
 <li>实例对象的<code>__proto__</code>属性, 可以称之为隐式原型属性(简称: 隐式原型)</li>
 <li>原型对象: 也就是<code>prototype</code>属性和<code>_proto__</code>属性指向的对象</li>
 </ul>
-<p><img src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://github.com/mqyqingfeng/Blog/raw/master/Images/prototype5.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>图中由相互关联的原型组成的链状结构就是原型链，也就是蓝色的这条线</p>
 </blockquote>
 <h2 id="三、JSON和Math"><a href="#三、JSON和Math" class="headerlink" title="三、JSON和Math"></a>三、JSON和Math</h2><blockquote>
 <p><code>JS</code>内置的构造器函数都可以使用<code>new</code>关键字实例化一个对象，我们称实例化后的这个对象就是某某构造器的一个实例</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/344.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/344.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p>我们试试<code>JSON</code> 和<code>Math</code> 能不能实例化对象</p>
 </blockquote>
-<p><img src="https://poetries1.gitee.io/img-repo/2019/10/345.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/2019/10/345.png"
+                      alt="img"
+                ></p>
 <blockquote>
 <p><code>JSON</code>和<code>Math</code>不是构造器函数，他们是普通的对象。只有构造器函数才能使用<code>new</code>关键字实例化一个对象，而<code>JSON</code>和<code>Math</code>已经是对象了，所以我们可以不用实例化直接使用<code>JSON</code>和<code>Math</code>中的属性和方法</p>
 </blockquote>

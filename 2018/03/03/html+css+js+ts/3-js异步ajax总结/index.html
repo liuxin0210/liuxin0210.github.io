@@ -256,17 +256,37 @@
 </li>
 </ul>
 <p>在上面几中技术中，除了<code>XmlHttpRequest</code>对象以外，其它所有的技术都是基于<code>web</code>标准并且已经得到了广泛使用的，<code>XMLHttpRequest</code>虽然目前还没有被<code>W3C</code>所采纳，但是它已经是一个事实的标准，因为目前几乎所有的主流浏览器都支持它</p>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/11.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/11.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>第一张图尤其说明了传统<code>Web</code> 应用程序的结构与采用了 <code>AJAX</code> 技术的 <code>Web</code><br>应用程序的结构上的差别</li>
 <li>主要的差别，其实不是 <code>JavaScript</code>，不是 <code>HTML/XHTML</code>和 <code>CSS</code>，而是采用<br>了 <code>XMLHttpRequest</code> 来向服务器异步的请求 <code>XML</code> 数据</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/12.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/12.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>再来看第二张图，传统的 <code>Web</code> 应用模式，用户的体验是割裂的，点击-&gt;等待-&gt;<br>看到新的页面-&gt;再点击-&gt;再等待。而采用了<code>AJAX</code>技术之后，大部分的计算工作，都是在用户不察觉的情况下，交由服务器去完成了</li>
 </ul>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/13.png" alt="img"></p>
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/14.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/13.png"
+                      alt="img"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/14.png"
+                      alt="img"
+                ></p>
 <h3 id="二、创建ajax的步骤"><a href="#二、创建ajax的步骤" class="headerlink" title="二、创建ajax的步骤"></a>二、创建ajax的步骤</h3><blockquote>
 <p><code>Ajax</code>的原理简单来说通过<code>XmlHttpRequest</code>对象来向服务器发异步请求，从服务器获得数据，然后用<code>javascript</code>来操作<code>DOM</code>而更新页面。这其中最关键的一步就是从服务器获得请求数据。原生创建<code>ajax</code>可分为以下四步</p>
 </blockquote>
@@ -346,7 +366,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function example(responseText)&#123;</span><br><span class="line"></span><br><span class="line">var saleDiv= document.getElementById(&quot;sales&quot;);</span><br><span class="line">var sales = JSON.parse(responseText);</span><br><span class="line">    for(var i=0;i&lt;sales.length;i++)&#123;</span><br><span class="line">        var sale = sales[i];</span><br><span class="line">         var div = document.createElement(&quot;div&quot;);</span><br><span class="line">         div.setAttribute(&quot;class&quot;,&quot;salseItem&quot;);</span><br><span class="line">        div.innerHTML = sale.name + sale.sales;</span><br><span class="line">        salseDiv.appendChild(div);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/15.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/15.png"
+                      alt="img"
+                ></p>
 <h4 id="5、封装例子"><a href="#5、封装例子" class="headerlink" title="5、封装例子"></a>5、封装例子</h4><ul>
 <li>将AJAX请求封装成ajax()方法，它接受一个配置对象params</li>
 </ul>
@@ -362,7 +387,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function ajax(url, success, fail)&#123;</span><br><span class="line">    // 1. 创建连接</span><br><span class="line">    var xhr = null;</span><br><span class="line">    xhr = new XMLHttpRequest()</span><br><span class="line">    // 2. 连接服务器</span><br><span class="line">    xhr.open(&#x27;get&#x27;, url, true)</span><br><span class="line">    // 3. 发送请求</span><br><span class="line">    xhr.send(null);</span><br><span class="line">    // 4. 接受请求</span><br><span class="line">    xhr.onreadystatechange = function()&#123;</span><br><span class="line">        if(xhr.readyState == 4)&#123;</span><br><span class="line">            if(xhr.status == 200)&#123;</span><br><span class="line">                success(xhr.responseText);</span><br><span class="line">            &#125; else &#123; // fail</span><br><span class="line">                fail &amp;&amp; fail(xhr.status);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://poetries1.gitee.io/img-repo/20191001/16.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://poetries1.gitee.io/img-repo/20191001/16.png"
+                      alt="img"
+                ></p>
 <h5 id="谈谈JSONP"><a href="#谈谈JSONP" class="headerlink" title="谈谈JSONP"></a>谈谈JSONP</h5><ul>
 <li>要访问web服务器的数据除了XMLHttpRequest外还有一种方法是JSONP</li>
 <li>如果HTML和JavaScript与数据同时在同一个机器上，就可以使用XMLHttpRequest</li>

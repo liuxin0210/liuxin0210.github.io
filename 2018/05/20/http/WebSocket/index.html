@@ -219,7 +219,12 @@
         <div class="article-content markdown-body">
             <h2 id="一、是什么"><a href="#一、是什么" class="headerlink" title="一、是什么"></a>一、是什么</h2><p>WebSocket，是一种网络传输协议，位于<code>OSI</code>模型的应用层。可在单个<code>TCP</code>连接上进行全双工通信，能更好的节省服务器资源和带宽并达到实时通迅</p>
 <p>客户端和服务器只需要完成一次握手，两者之间就可以创建持久性的连接，并进行双向数据传输</p>
-<p><img src="https://static.vue-js.com/ad386e20-c0f1-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/ad386e20-c0f1-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <p>从上图可见，<code>websocket</code>服务器与客户端通过握手连接，连接成功后，两者都能主动的向对方发送或接受数据</p>
 <p>而在<code>websocket</code>出现之前，开发实时<code>web</code>应用的方式为轮询</p>
 <p>不停地向服务器发送 HTTP 请求，问有没有数据，有数据的话服务器就用响应报文回应。如果轮询的频率比较高，那么就可以近似地实现“实时通信”的效果</p>

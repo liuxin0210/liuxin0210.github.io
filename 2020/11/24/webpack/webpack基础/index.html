@@ -220,14 +220,24 @@
             <h2 id="一-基础感念"><a href="#一-基础感念" class="headerlink" title="一.基础感念"></a>一.基础感念</h2><p>webpack是运行在nodejs中的<br>webpack 的 why 与how</p>
 <p>为什么学   （原先script要按顺序）<br>构建打包？习惯使用开箱即用的脚手架来完成项目配置，对开发环境和生产环境的搭建了解知之甚少，前端架构最重要的点在于 前端工程化（webpack就是我们搭建前端环境的技术选型，也是最主流的）</p>
 <p>为什么需要使用webpack<br>问题：作用域，文件大（网络瓶颈，短暂白屏），可读性差，可维护性弱</p>
-<p>解决：<br>1.作用域：使用grunt和gulp管理项目资源，称之为任务执行器，将所有的项目文件拼接在一起，（利用js的立即调用表达式IIFE）<br>    当函数变成一个立即调用表达式时，表达式的变量是不能在外部访问的，不会污染我们的window环境，解决了作用域问题。<br>    可以通过赋值变量 函数中通过return暴露出来变量获取数据<br><img src="http://hghqz.vip/webpack/%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AE%E9%A2%98.jpg" alt="作用域问题" title="作用域问题"></p>
+<p>解决：<br>1.作用域：使用grunt和gulp管理项目资源，称之为任务执行器，将所有的项目文件拼接在一起，（利用js的立即调用表达式IIFE）<br>    当函数变成一个立即调用表达式时，表达式的变量是不能在外部访问的，不会污染我们的window环境，解决了作用域问题。<br>    可以通过赋值变量 函数中通过return暴露出来变量获取数据<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AE%E9%A2%98.jpg"
+                      alt="作用域问题" title="作用域问题"
+                ></p>
 <pre><code>问题使用十行代码可能就要加载万行代码（通过代码拆分解决,模块化，commonjs,amd,cmd,es6）
 </code></pre>
 <p>node环境语法在浏览器无法加载它不支持commonjs  以及一些其他的语法<br>早期解决方案（页面导入require  define,script标签data-main）<br>现在ECMAscript  通过es6拥有自己的模块化  export default  import from (script 标签指定type&#x3D;”module”)<br>通过http-server搭建一个http请求</p>
 <p>es6可能还不太兼容所以使用webpack帮我们打包（vs竞品 parcel称零配置用户一般无需做其他的配置开即聚用 rollup.js用标准化的格式来编写代码es6通过减少无用的代码来尽可能的缩小包的体积，一般只用来打包js  黑马vite vue3使用  有petite vue框架 从开发 编译 发布 demo 几乎全部都是Vite完成的 基于esmodule的构建方式 按需编译 热模块更新  丝滑体验 与vue3原理结合）<br>不会谁取代谁  各有各的应用场景</p>
 <h2 id="二-基础应用"><a href="#二-基础应用" class="headerlink" title="二.基础应用"></a>二.基础应用</h2><p><strong>安装使用</strong>（要注意webpack与nodejs版本兼容问题）<br>1.要有nodejs 运行环境<br>2.全局与工作目录下安装<br>    npm install webpack webpack-cli –global  全局 在任何目录都可以运行webpack(不推荐全局使用)<br>    本地安装需要先有npm的包管理的配置文件npm init -y  npm install webpack webpack-cli –save-dev<br><strong>运行</strong><br>1.直接使用 webpack  默认打包  （入口：.&#x2F;src&#x2F;index 出口：dist&#x2F;main.js）<br>2.webpack –stats detailed 可以看到详细的打包信息<br>npx 执行没有找到命令会到上层目录查找</p>
 <p><strong>自定义webpack配置</strong><br>webpack –help查看 配置<br>npx 工具概念：<br>命令配置：<br>npx webpack –entry .&#x2F;src&#x2F;index.js –mode production</p>
-<p>配置文件配置(webpack.config.js文件名不允许随意起，他是webpack自动读取的)<br><img src="http://hghqz.vip/webpack/%E5%87%BA%E5%85%A5%E5%8F%A3%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE.jpg" alt="出入口基本配置" title="出入口基本配置"><br>path需是绝对路径</p>
+<p>配置文件配置(webpack.config.js文件名不允许随意起，他是webpack自动读取的)<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/%E5%87%BA%E5%85%A5%E5%8F%A3%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE.jpg"
+                      alt="出入口基本配置" title="出入口基本配置"
+                ><br>path需是绝对路径</p>
 <h2 id="三-自动引入资源（插件）（html中引入资源）"><a href="#三-自动引入资源（插件）（html中引入资源）" class="headerlink" title="三.自动引入资源（插件）（html中引入资源）"></a>三.自动引入资源（插件）（html中引入资源）</h2><p><strong>什么是插件：</strong><br>webpack就像是一条生产线，需要经过一系列的流程后才能将源文件（入口文件，可以相互依赖（js,css-loaders加载器））经过编译（工具插件plugins 帮助webpack来执行一些特定的任务（打包优化，资源管理））转化成输出的结果</p>
 <p>插件：三组（community社区插件   webpack内置官方插件   webpack contrib 第三方插件）</p>
 <p><strong>如何使用htmlWebpackPlugin?</strong><br>npm install html-webpack-plugin -D</p>
@@ -261,7 +271,12 @@
 <p><strong>加载image图像</strong><br>如何在css里加载图片资源<br>mode:’development’   清除提示</p>
 <p><strong>加载fonts字体</strong><br>css3中新增webfont功能可以在css3中去加载一个font字库  然后在代码中就可以定义自己的icon图标了<br>如何去加载字体这样的资源（asset module资源模块）</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">test</span>:<span class="string">&#x27;/\.(woff|woff2|eot|ttf|otf)$/&#x27;</span>,  <span class="comment">//字体文件会有很多种类型</span></span><br><span class="line">	<span class="attr">type</span>:<span class="string">&#x27;asset/resource&#x27;</span>  <span class="comment">//载入任何类型的资源</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://hghqz.vip/webpack/%E5%AD%97%E4%BD%93%E9%85%8D%E7%BD%AE.jpg" alt="字体配置" title="字体配置"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/%E5%AD%97%E4%BD%93%E9%85%8D%E7%BD%AE.jpg"
+                      alt="字体配置" title="字体配置"
+                ></p>
 <p>之后向文本一样去加载一个文本代码  <span class='icon'>&amp;#xe668;</span>(操作dom时必须是innerhtml不能使innertext)</p>
 <p><strong>加载数据</strong><br>之前图片  cion图标  文本文件等等都数据<br>还有类似于json，csv，tsv，xml等，json和nodejs类似webpack可以直接支持但是像csv，tsv和xml我都没需要使用loader才能处理他们<br>npm install csv-loader xml-loader -D</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">text</span>:<span class="string">&#x27;/\.(tsv|csv)$/&#x27;</span>, <span class="comment">//会转换成 数组 </span></span><br><span class="line">	<span class="attr">use</span>:<span class="string">&#x27;csv-loader&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">	<span class="attr">text</span>:<span class="string">&#x27;/\.xml$/&#x27;</span>,  <span class="comment">//会转换成 js对象</span></span><br><span class="line">	<span class="attr">use</span>:<span class="string">&#x27;xml-loader&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -283,7 +298,12 @@
 
 <p><strong>第三种</strong><br>使用  ECMAScript提案的import()函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function getComponent()&#123;</span><br><span class="line">	return import(&#x27;lodash&#x27;)   // 返回的是一个Promise对象</span><br><span class="line">	.then((&#123;default:_&#125;)=&gt;&#123;    // .then的回调函数拿到的是 载入的lodash的一个引用</span><br><span class="line">		const element = document.createElement(&#x27;div&#x27;)</span><br><span class="line">		element.innerHTML = _.join([&#x27;Vue&#x27;,&#x27;React!&#x27;],&#x27;-&#x27;)</span><br><span class="line">		return element</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"> // 这样写的目的是为了让 import 来去帮助我们去抽离一个单独的lodash文件</span><br><span class="line">getComponent().then((element)=&gt;&#123;</span><br><span class="line">	document.body.appendChild(element)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 静态导入的内容和动态导入的内容一起来 去做代码抽离</span><br><span class="line">optimization:&#123;</span><br><span class="line">	splitChunks:&#123;</span><br><span class="line">		chunks:&#x27;all&#x27;  //实现代码分割并把公共的代码 抽离到一个单独的文件里</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>为什么使用动态导入，静态导入不就行了吗？动态导入的应用</strong><br>1.可以实现懒加载： 按需加载，是一种很好的优化页面或应用的方式。这种方式实际上是先把你的代码在一些逻辑断点处分离开，然后在一些代码块中完成某些操作后，立即引用或即将引用另外一些新的代码块。这样加快了应用的初始加载速度，减轻了它的总体体积，因为某些代码块可能永远不会加载。<br><img src="http://hghqz.vip/webpack/import%E6%87%92%E5%8A%A0%E8%BD%BD.jpg" alt="import懒加载" title="import懒加载"></p>
+<p><strong>为什么使用动态导入，静态导入不就行了吗？动态导入的应用</strong><br>1.可以实现懒加载： 按需加载，是一种很好的优化页面或应用的方式。这种方式实际上是先把你的代码在一些逻辑断点处分离开，然后在一些代码块中完成某些操作后，立即引用或即将引用另外一些新的代码块。这样加快了应用的初始加载速度，减轻了它的总体体积，因为某些代码块可能永远不会加载。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="http://hghqz.vip/webpack/import%E6%87%92%E5%8A%A0%E8%BD%BD.jpg"
+                      alt="import懒加载" title="import懒加载"
+                ></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//懒加载</span><br><span class="line">import(/* webpackChunkName: &#x27;打包后的文件名&#x27;*/&#x27;文件地址&#x27;).then(回调)//通过注释 控制懒加载打包后的文件名  +bundle.js</span><br></pre></td></tr></table></figure>
 
 <p>2.可以实现预获取&#x2F;预加载模块<br>webpack v4.6.0+ 增加了对预获取和预加载的支持。<br>在声明import时，使用下面这些内置指令，可以让webpack输出”resource hint(资源提示)”,来告诉浏览器：<br>prefetch(预获取)：将来某些导航下可能需要的资源<br>preload(预加载)：当前导航下可能需要资源</p>

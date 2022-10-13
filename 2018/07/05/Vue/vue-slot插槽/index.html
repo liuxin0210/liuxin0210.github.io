@@ -228,7 +228,12 @@
 <p>在<code>Vue</code>中的概念也是如此</p>
 <p><code>Slot</code> 艺名插槽，花名“占坑”，我们可以理解为<code>solt</code>在组件模板中占好了位置，当使用该组件标签时候，组件标签里面的内容就会自动填坑（替换组件模板中<code>slot</code>位置），作为承载分发内容的出口</p>
 <p>可以将其类比为插卡式的FC游戏机，游戏机暴露卡槽（插槽）让用户插入不同的游戏磁条（自定义内容）</p>
-<p>放张图感受一下 <img src="https://static.vue-js.com/63c0dff0-3dbd-11eb-85f6-6fac77c0c9b3.png" alt="img"></p>
+<p>放张图感受一下 <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://static.vue-js.com/63c0dff0-3dbd-11eb-85f6-6fac77c0c9b3.png"
+                      alt="img"
+                ></p>
 <h2 id="二、使用场景"><a href="#二、使用场景" class="headerlink" title="二、使用场景"></a>二、使用场景</h2><p>通过插槽可以让用户可以拓展组件，去更好地复用组件和对其做定制化处理</p>
 <p>如果父组件在使用到一个复用组件的时候，获取这个组件在不同的地方有少量的更改，如果去重写组件是一件不明智的事情</p>
 <p>通过<code>slot</code>插槽向组件内部指定位置传递内容，完成这个复用组件在不同场景的应用</p>

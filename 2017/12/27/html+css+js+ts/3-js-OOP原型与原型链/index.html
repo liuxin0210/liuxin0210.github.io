@@ -231,7 +231,12 @@
 <ul>
 <li><code>JS</code>的对象中都包含了一个<code>__proto__</code>属性，其指向的是创建该对象时的构造函数的原型对象<code>prototype</code></li>
 </ul>
-<p><img src="https://segmentfault.com/img/bVzPrk" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://segmentfault.com/img/bVzPrk"
+                      alt="img"
+                ></p>
 <ul>
 <li>从上面的输出结果看出，<code>f.__proto__</code>指向了其构造函数<code>F</code>的<code>prototype</code>，而<code>F.prototype</code>本身也是一个对象，其内部也有<code>__proto__</code>属性，其指向的是<code>Object.prototype</code>,直到最后<code>Object.prototype</code>指向<code>null</code>，这条原型链才结束</li>
 <li>因此，<code>__proto__</code>这个神秘的属性才是原型链形成的真正原因</li>
@@ -240,7 +245,12 @@
 <ul>
 <li>由于原型对象本身也是对象，根据上边的定义，它也有自己的原型，而它自己的原型对象又可以有自己的原型，这样就组成了一条链，这个就是原型链，<code>JavaScritp</code>引擎在访问对象的属性时，如果在对象本身中没有找到，则会去原型链中查找，如果找到，直接返回值，如果整个链都遍历且没有找到属性，则返回<code>undefined</code>。原型链一般实现为一个链表，这样就可以按照一定的顺序来查找</li>
 </ul>
-<p><img src="https://segmentfault.com/img/bVcXNb" alt="img"></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://segmentfault.com/img/bVcXNb"
+                      alt="img"
+                ></p>
 <ul>
 <li>从上图看出：<ul>
 <li><code>Object.prototype</code>是顶级对象，所有对象都继承自它。</li>
